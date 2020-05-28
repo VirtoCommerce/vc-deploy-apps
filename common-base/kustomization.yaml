@@ -1,0 +1,31 @@
+resources:
+- cms-pvc.yaml
+- modules-pvc.yaml
+- ingress.yaml
+- platform-deploy.yaml
+- platform-service.yaml
+- storefront-deploy.yaml
+- storefront-service.yaml
+
+vars:
+- name: VC_PLATFORM_SERVICE
+  objref:
+    kind: Service
+    name: platform
+    apiVersion: v1
+  fieldref:
+    fieldpath: metadata.name
+- name: VC_STOREFRONT_SERVICE
+  objref:
+    kind: Service
+    name: storefront
+    apiVersion: v1
+  fieldref:
+    fieldpath: metadata.name    
+- name: VC_NAMESPACE
+  objref:
+    kind: Service
+    name: storefront
+    apiVersion: v1
+  fieldref:
+    fieldpath: metadata.namespace  

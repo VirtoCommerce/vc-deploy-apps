@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platform
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: platform
+  template:
+    metadata:
+      labels:
+        app: platform
+    spec:
+      # create database in azure within a sql pool
+      initContainers:
+        - name: init-sqldatabase
+          image: mcr.microsoft.com/mssql-tools
+          command:
+            - "/opt/mssql-tools/bin/sqlcmd"
+            - "-S"
+            - "vc-dev-dbserver.database.windows.net"
+            - "-U"
+            - "virto@vc-dev-dbserver"
+            - "-P"
+            - "$(VC_DBSERVER_MASTER_PASSWORD)"
+            - "-Q"
+            - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)_DEMO] ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )"
+          env:
+            - name: VC_DBSERVER_MASTER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: vc-dbserver-password
+                  key: password            
+      containers:
+      - env:
+        - name: VC_DBSERVER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: vc-dbserver-password
+              key: password
+        - name: ASPNETCORE_URLS
+          value: "http://+"
+        - name: Assets__FileSystem__PublicUrl
+          value: "http://$(VC_PLATFORM_SERVICE).dev.govirto.com/cms-content/assets/"
+        - name: Assets__FileSystem__RootPath
+          value: "~/cms-content/assets"
+        - name: ConnectionStrings__VirtoCommerce
+          value: "Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=$(VC_PLATFORM_SERVICE)_DEMO;User ID=virto@vc-dev-dbserver;Password=$(VC_DBSERVER_PASSWORD);Trusted_Connection=False;Encrypt=True;"
+        - name: Content__FileSystem__PublicUrl
+          value: "http://$(VC_PLATFORM_SERVICE).dev.govirto.com/cms-content/"
+        - name: VirtoCommerce__AllowInsecureHttp
+          value: "true"
+        - name: VirtoCommerce__LicenseFilePath
+          value: "App_Data/VirtoCommerce.lic"
+        - name: VirtoCommerce__LicensePublicKeyPath
+          value: "App_Data/public.key"
+        - name: VirtoCommerce__LicensePrivateKeyPath
+          value: "App_Data/private.key"
+        - name: VirtoCommerce__LocalUploadFolderPath
+          value: "App_Data/Uploads"
+        - name: Search__Provider
+          value: "ElasticSearch"
+        - name: Search__Scope
+          value: "$(VC_PLATFORM_SERVICE)index"          
+        - name: Search__ElasticSearch__Server
+          value: "http://search-dev-es-http.elastic-system:9200"
+        - name: Search__ElasticSearch__Key
+          value: "virtodevpass"             
+        image: virtocommerce/platform:v3-preview6-dev
+        name: vc-platform-web
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
+          name: cms-content-data
+        - mountPath: "/opt/virtocommerce/platform/Modules"
+          name: modules-data
+      volumes:
+      - name: cms-content-data
+        persistentVolumeClaim:
+          claimName: cms-content-volume
+      - name: modules-data
+        persistentVolumeClaim:
+          claimName: modules-volume       

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storefront
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: storefront
+  template:
+    metadata:
+      labels:
+        app: storefront
+    spec:
+      containers:
+      - env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Development
+        - name: VirtoCommerce__Endpoint__Password
+          value: "store"
+        - name: VirtoCommerce__Endpoint__Url
+          value: "http://$(VC_PLATFORM_SERVICE)"
+        - name: VirtoCommerce__Endpoint__UserName
+          value: "admin"
+        image: virtocommerce/storefront:latest-linux
+        name: vc-storefront-web
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /opt/virtocommerce/storefront/wwwroot/cms-content
+          name: cms-content-data
+      volumes:
+      - name: cms-content-data
+        persistentVolumeClaim:
+          claimName: cms-content-volume
