@@ -12,5 +12,9 @@ spec:
   project: tenant
   source:
     path: meds-demo
-    repoURL: https://github.com/virtocommerce/vc-deploy-infra
+    repoURL: https://github.com/virtocommerce/vc-deploy-apps
     targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true    
