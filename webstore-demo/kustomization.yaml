@@ -4,4 +4,4 @@ namePrefix: webstore-
 commonLabels:
   instance: webstore
 resources:
-- overlays/development
+- overlays/dev

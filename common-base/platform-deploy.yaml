@@ -48,7 +48,7 @@ spec:
         - name: ConnectionStrings__VirtoCommerce
           value: "Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=$(VC_PLATFORM_SERVICE)_DEMO;User ID=virto@vc-dev-dbserver;Password=$(VC_DBSERVER_PASSWORD);Trusted_Connection=False;Encrypt=True;"
         - name: Content__FileSystem__PublicUrl
-          value: "http://$(VC_PLATFORM_SERVICE).dev.govirto.com/cms-content/"
+          value: "http://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/"
         - name: VirtoCommerce__AllowInsecureHttp
           value: "true"
         - name: VirtoCommerce__LicenseFilePath

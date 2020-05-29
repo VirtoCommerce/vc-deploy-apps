@@ -4,4 +4,4 @@ namePrefix: meds-
 commonLabels:
     instance: meds
 resources:
-- overlays/development
+- overlays/dev
