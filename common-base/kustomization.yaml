@@ -2,6 +2,7 @@ resources:
 - cms-pvc.yaml
 - modules-pvc.yaml
 - ingress.yaml
+- platform-cm.yaml
 - platform-deploy.yaml
 - platform-service.yaml
 - storefront-deploy.yaml
