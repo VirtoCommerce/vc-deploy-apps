@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: platform-cm
 data:
-  Assets__FileSystem__PublicUrl: http://$(VC_PLATFORM_SERVICE).dev.govirto.com/cms-content/assets/
+  Assets__FileSystem__PublicUrl: http://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/
   Assets__FileSystem__RootPath: ~/cms-content/assets
   Content__FileSystem__PublicUrl: http://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/
   VirtoCommerce__AllowInsecureHttp: "true"
