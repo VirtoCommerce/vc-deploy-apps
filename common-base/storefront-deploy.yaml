@@ -13,17 +13,11 @@ spec:
         app: storefront
     spec:
       containers:
-      - env:
-        - name: ASPNETCORE_ENVIRONMENT
-          value: Development
-        - name: VirtoCommerce__Endpoint__Password
-          value: "store"
-        - name: VirtoCommerce__Endpoint__Url
-          value: "http://$(VC_PLATFORM_SERVICE)"
-        - name: VirtoCommerce__Endpoint__UserName
-          value: "admin"
+      - name: vc-storefront-web
         image: virtocommerce/storefront:latest-linux
-        name: vc-storefront-web
+        envFrom:
+        - configMapRef:
+            name: storefront-cm
         ports:
         - containerPort: 80
         volumeMounts:

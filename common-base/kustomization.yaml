@@ -8,6 +8,9 @@ resources:
 - storefront-deploy.yaml
 - storefront-service.yaml
 
+configurations:
+- varconfig.yaml
+
 vars:
 - name: VC_PLATFORM_SERVICE
   objref:
