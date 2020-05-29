@@ -1,4 +1,4 @@
-# Repository for VC deployments.
+# Kubernetes Deployments.
 
 To deploy a new Virto Commerce based application, do the following steps:
 
