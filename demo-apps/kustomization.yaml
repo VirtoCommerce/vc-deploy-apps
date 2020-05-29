@@ -1,4 +1,3 @@
 resources:
 - base/webstore-demo.yaml
 - base/meds-demo.yaml
-#- base/exp-demo.yaml
