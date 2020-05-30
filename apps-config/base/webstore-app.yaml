@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: webstore-app
+  name: webstore-dev-app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io  
@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: tenant
   source:
-    path: webstore-app
+    path: webstore-app/overlays/dev
     repoURL: https://github.com/virtocommerce/vc-deploy-apps
     targetRevision: HEAD
   syncPolicy:
