@@ -8,3 +8,8 @@ commonLabels:
 
 bases:
 - ../../../common-base
+
+images:
+    - name: virtocommerce/platform
+      newName: leonidn/platform
+      newTag: dev-linux-experimental
