@@ -4,12 +4,12 @@ namespace: dev
 
 namePrefix: platform-
 commonLabels:
-    instance: platform
+  instance: platform
 
-bases:
-- ../../../common-base
 
 images:
-    - name: virtocommerce/platform
-      newName: leonidn/platform
-      newTag: dev-linux-experimental
+- name: virtocommerce/platform
+  newName: leonidn/platform
+  newTag: linux-experimental
+resources:
+- ../../../common-base
