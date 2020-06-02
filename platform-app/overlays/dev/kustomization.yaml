@@ -10,6 +10,6 @@ commonLabels:
 images:
 - name: virtocommerce/platform
   newName: leonidn/platform
-  newTag: 3.0.0-135
+  newTag: 3.1.0-135
 resources:
 - ../../../common-base
