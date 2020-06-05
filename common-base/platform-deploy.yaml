@@ -60,3 +60,8 @@ spec:
       - name: modules-data
         persistentVolumeClaim:
           claimName: modules-volume       
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+    type: RollingUpdate
