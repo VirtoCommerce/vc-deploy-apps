@@ -10,6 +10,6 @@ commonLabels:
 images:
 - name: virtocommerce/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
-  newTag: 3.1.0-56dd45ce
+  newTag: 3.1.0-0619552b
 resources:
 - ../../../common-base
