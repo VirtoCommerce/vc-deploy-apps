@@ -14,4 +14,4 @@ resources:
 images:
 - name: virtocommerce/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
-  newTag: 3.1.0-897c104e
+  newTag: 3.1.0-f571dee4
