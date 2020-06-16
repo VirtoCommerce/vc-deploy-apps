@@ -50,3 +50,7 @@ resources:
 5. Checkin and go to https://cd.govirto.com. You should see a new application created.
 
 ![image](https://user-images.githubusercontent.com/1566470/83311829-4e268d00-a1c5-11ea-8c90-d9ae834d6d24.png)
+
+6. Connecting to the database. Since database is created automatically in the configured pool if one doesn't exist, you can connect to it through SQL Manager by specifying "vc-dev-dbserver.database.windows.net" as a server name, "Active Directory - Universal with MFA support" as authentication and Virto username, which simply should be your email address.
+
+![image](https://user-images.githubusercontent.com/1566470/84727455-ece01700-af43-11ea-8fe2-0c6a910b58b3.png)
