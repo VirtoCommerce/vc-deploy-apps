@@ -17,4 +17,4 @@ images:
   newTag: 3.2.0-bc13238f
 - name: virtocommerce/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-storefront-core/storefront
-  newTag: 5.0.0-404414f0
+  newTag: 5.0.0-f6e7fa7f
