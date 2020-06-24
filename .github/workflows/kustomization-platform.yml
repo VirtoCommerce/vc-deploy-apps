@@ -32,7 +32,7 @@ jobs:
             docker push "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())/platform-dev:${{ github.sha }}"
     
     push:
-      run-on: ubuntu-latest
+      runs-on: ubuntu-latest
       needs: [build]
 
       steps:
