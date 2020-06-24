@@ -12,6 +12,7 @@ RUN mkdir -p /opt/virtocommerce/platform/wwwroot/Modules
 WORKDIR /opt/virtocommerce/platform/Modules
 
 COPY /install-modules.py .
+COPY /modules.json .
 
 RUN python3 install-modules.py
 
