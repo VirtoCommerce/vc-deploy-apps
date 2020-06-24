@@ -10,7 +10,7 @@ def getZipData(url):
     result = urllib.request.urlopen(url)
     return result.read()
 
-modules = json.load('modules.json')
+modules = json.load('./modules.json')
 
 for module in modules:
     moduleId = module["Id"]
