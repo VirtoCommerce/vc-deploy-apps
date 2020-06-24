@@ -14,7 +14,7 @@ with open('modules.json') as f:
     modules = json.load(f)
     for module in modules:
         moduleId = module["Id"]
-        packageUrl = version["PackageUrl"]
+        packageUrl = module["PackageUrl"]
         destinationPath = moduleId
         zipData = getZipData(packageUrl)
         zipRef = zipfile.ZipFile(io.BytesIO(zipData))
