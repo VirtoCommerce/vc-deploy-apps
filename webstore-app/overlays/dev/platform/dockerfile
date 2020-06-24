@@ -1,0 +1,20 @@
+# escape=`
+FROM docker.pkg.github.com/virtocommerce/vc-platform/platform:dev-linux-latest
+
+# Install unzip wget python3
+RUN apt-get update && apt-get install -y unzip
+RUN apt-get update -qq && apt-get install -y wget
+RUN apt-get update -qq && apt-get install -y python3
+
+RUN mkdir -p /opt/virtocommerce/platform/wwwroot/cms-content/Themes
+RUN mkdir -p /opt/virtocommerce/platform/wwwroot/Modules
+
+WORKDIR /opt/virtocommerce/platform/Modules
+
+COPY /install-modules.py .
+
+RUN python3 install-modules.py
+
+WORKDIR /opt/virtocommerce/platform
+
+ENTRYPOINT ["dotnet", "VirtoCommerce.Platform.Web.dll"]
