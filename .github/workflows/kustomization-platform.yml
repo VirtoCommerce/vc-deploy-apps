@@ -36,6 +36,12 @@ jobs:
       needs: [build]
 
       steps:
+
+      - name: Setup Kustomize
+        uses: imranismail/setup-kustomize@v1
+        with:
+          kustomize-version: "3.1.0"
+
       - name: Commit environment change
         shell: pwsh
         run: |
