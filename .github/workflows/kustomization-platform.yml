@@ -17,7 +17,7 @@ jobs:
       - name: Build Docker Image
         shell: pwsh
         run: |
-            docker build webstore-app/overlays/platform/dev --build-arg SOURCE=. --tag "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())/platform-dev:${{ github.sha }}"
+            docker build webstore-app/overlays/dev/platform --build-arg SOURCE=. --tag "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())/platform-dev:${{ github.sha }}"
 
       - name: Docker Login
         uses: azure/docker-login@v1
