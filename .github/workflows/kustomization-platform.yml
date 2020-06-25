@@ -4,13 +4,13 @@ on:
   push:
     branches: [ master ]
     paths:
-        - '*platform.json'
-        - '*kustomization-platform.yml'
+        - '**/platform.json'
+        - '**/kustomization-platform.yml'
   pull_request:
     branches: [ master ]
     paths:
-        - '*platform.json'
-        - '*kustomization-platform.yml'
+        - '**/platform.json'
+        - '**/kustomization-platform.yml'
 
 jobs:
     build:
