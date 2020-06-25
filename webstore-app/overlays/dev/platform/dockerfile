@@ -1,5 +1,5 @@
 # escape=`
-FROM docker.pkg.github.com/virtocommerce/vc-platform/platform:3.2.1-754661e4
+FROM docker.pkg.github.com/virtocommerce/vc-platform/platform:dev-linux-latest
 
 # Install unzip wget python3
 RUN apt-get update && apt-get install -y unzip
