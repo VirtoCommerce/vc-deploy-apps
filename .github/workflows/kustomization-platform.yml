@@ -35,8 +35,6 @@ jobs:
       - name: Build and Publish Docker Image
         shell: pwsh
         run: |
-            Get-Location
-
             $dockerWorkingDir = '${{ github.workspace }}/docker'
             Copy-Item platform-with-modules/* $dockerWorkingDir
             git diff --name-only HEAD HEAD~1 | Where-Object { $_ -match 'platform.json' } | ForEach-Object {
@@ -52,6 +50,8 @@ jobs:
                 kustomize edit set image virtocommerce/platform=$imageTag
                 git add .
             }
+
+            cd ${{ github.workspace }}
 
             git config user.email "github.actions@virtoway.com"
             git config user.name ${{ github.actor }}
