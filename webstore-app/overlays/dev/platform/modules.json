@@ -2,12 +2,12 @@
     {
       "Id": "VirtoCommerce.Core",
       "Repository": "VirtoCommerce/vc-module-core",
-      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-core/releases/download/3.1.0/VirtoCommerce.Core_3.1.0.zip"
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-core/suites/839253772/artifacts/9451757"
     },
     {
       "Id": "VirtoCommerce.AzureSearch",
       "Repository": "VirtoCommerce/vc-module-azure-search",
-      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-azure-search/releases/download/3.2.0_build_fdf3225/VirtoCommerce.AzureSearch_3.2.0_build_fdf3225.zip"
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-azure-search/releases/download/3.3.0/VirtoCommerce.AzureSearch_3.3.0.zip"
     },
     {
       "Id": "VirtoCommerce.Cart",
