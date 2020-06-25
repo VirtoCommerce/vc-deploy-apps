@@ -1,5 +1,5 @@
 {
-  "Platform": "docker.pkg.github.com/virtocommerce/vc-platform/platform:dev-linux-latest",
+  "Platform": "dev-linux-latest",
   "Modules":
   [
     {

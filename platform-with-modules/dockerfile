@@ -1,5 +1,5 @@
-ARG BASE_IMAGE=docker.pkg.github.com/virtocommerce/vc-platform/platform:pr1930
-FROM ${BASE_IMAGE}
+ARG BASE_TAG=pr1930
+FROM docker.pkg.github.com/virtocommerce/vc-platform/platform:${BASE_TAG}
 
 # Install unzip wget python3
 RUN apt-get update && apt-get install -y unzip
