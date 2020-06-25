@@ -1,5 +1,4 @@
-ARG BASE_IMAGE=myorg/myapp:latest
-FROM $BASE_IMAGE
+FROM docker.pkg.github.com/virtocommerce/vc-platform/platform:pr1930
 ARG MODULES_MANIFEST_PATH=/modules.json
 
 # Install unzip wget python3
