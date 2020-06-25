@@ -30,7 +30,8 @@ jobs:
       - name: Build and Publish Docker Image
         shell: pwsh
         run: |
-            $dockerWorkingDir = "$((Convert-Path '${{ github.workspace }}').Parent)/docker"
+            $dirPath = Convert-Path '${{ github.workspace }}'
+            $dockerWorkingDir = "$($dirPath.Parent.Name)/docker"
             Copy-Item platform-with-modules/* $dockerWorkingDir
             git diff --name-only HEAD HEAD~1 | Where-Object { $_ -match 'platform.json' } | ForEach-Object {
                 $path = Convert-Path $_
