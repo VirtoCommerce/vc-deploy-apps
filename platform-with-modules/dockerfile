@@ -1,5 +1,6 @@
 ARG BASE_IMAGE=myorg/myapp:latest
 FROM $BASE_IMAGE
+ARG MODULES_MANIFEST_PATH=/modules.json
 
 # Install unzip wget python3
 RUN apt-get update && apt-get install -y unzip
@@ -13,7 +14,6 @@ WORKDIR /opt/virtocommerce/platform/Modules
 
 COPY /install-modules.py .
 
-ARG MODULES_MANIFEST_PATH=/modules.json
 COPY $MODULES_MANIFEST_PATH .
 
 RUN python3 install-modules.py
