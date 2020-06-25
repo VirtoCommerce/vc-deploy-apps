@@ -3,8 +3,14 @@ name: Platform Image Kustomization
 on:
   push:
     branches: [ master ]
+    paths:
+        - '*platform.json'
+        - '*kustomization-platform.yml'
   pull_request:
     branches: [ master ]
+    paths:
+        - '*platform.json'
+        - '*kustomization-platform.yml'
 
 jobs:
     build:
@@ -40,16 +46,13 @@ jobs:
                 docker build $dockerWorkingDir --tag $imageTag --build-arg BASE_IMAGE="$($json.Platform)" 
                 docker push $imageTag
 
-
                 cd $path.Directory
                 kustomize edit set image virtocommerce/platform=$imageTag
+                git add .
             }
-
-            cd ${{ github.workspace }}/vc-deploy-apps
 
             git config user.email "github.actions@virtoway.com"
             git config user.name ${{ github.actor }}
-            git add .
             git commit -m "Update the platform image version"	
             $remoteRepo="https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/VirtoCommerce/vc-deploy-apps.git"
             git push $remoteRepo 
