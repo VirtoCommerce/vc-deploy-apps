@@ -14,6 +14,11 @@ jobs:
       steps:
       - uses: actions/checkout@v2
 
+      - name: Setup Kustomize
+        uses: imranismail/setup-kustomize@v1
+        with:
+          kustomize-version: "3.1.0"
+
       - name: Docker Login
         uses: azure/docker-login@v1
         with:
@@ -21,48 +26,23 @@ jobs:
             username: $GITHUB_ACTOR
             password: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: lots0logs/gh-action-get-changed-files@2.1.4
-        with:
-            token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build Docker Image
+      - name: Build and Publish Docker Image
         shell: pwsh
         run: |
-            cat ${HOME}/files.json
-            ls ${HOME}
+            $dockerWorkingDir = "$($env.GITHUB_WORKSPACE)/docker"
+            Copy-Item platform-with-modules/* $dockerWorkingDir
+            git diff --name-only HEAD HEAD~1 | Where-Object { $_ -match 'platform.json' } | ForEach-Object {
+                Write-Host "File: $($_)"
+                $json = Get-Content $_ | Out-String | ConvertFrom-Json
+                Copy-Item $_ $dockerWorkingDir/platform.json -Force
+                docker build $dockerWorkingDir --tag "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())/platform-dev:${{ github.sha }}" --build-arg BASE_IMAGE="$($json.Platform)" 
+                docker push "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())/platform-dev:${{ github.sha }}"
 
-            $json = Get-Content 'webstore-app/overlays/dev/platform.json' | Out-String | ConvertFrom-Json
-            Copy-Item 'webstore-app/overlays/dev/platform.json' platform-with-modules/platform.json -Force
-            Write-Host "IMAGE: $($json.Platform)"
-            docker build platform-with-modules --tag "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())/platform-dev:${{ github.sha }}" --build-arg BASE_IMAGE="$($json.Platform)" 
+                $path = Convert-Path $_
+                $imageName = "$($path.Directory.Parent.Parent.Name)-$($path.Directory.Name):$('${{ github.sha }}'.Substring(0, 8))"
+                cd $path.Directory
+                $REPOSITORY = "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())"
+                kustomize edit set image virtocommerce/platform=$REPOSITORY/$imageName
+            }
 
-      - name: Push Docker Image to GitHub
-        shell: pwsh
-        run: |
-            docker push "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())/platform-dev:${{ github.sha }}"
-    
-    push:
-      runs-on: ubuntu-latest
-      needs: [build]
-
-      steps:
-
-      - name: Setup Kustomize
-        uses: imranismail/setup-kustomize@v1
-        with:
-          kustomize-version: "3.1.0"
-
-      - name: Commit environment change
-        shell: pwsh
-        run: |
-          cd ${{ github.workspace }}
-          git clone https://github.com/VirtoCommerce/vc-deploy-apps.git
-          cd vc-deploy-apps/webstore-app/overlays/dev
-          $REPOSITORY = "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())"
-          kustomize edit set image virtocommerce/platform=$REPOSITORY/platform-dev:${{ github.sha }}
-          git config user.email "github.actions@virtoway.com"
-          git config user.name "GitHub Actions"
-          git add .
-          git commit -m "Update the platform image version"
-          $remoteRepo="https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/VirtoCommerce/vc-deploy-apps.git"
-          git push $remoteRepo
+            git push $remoteRepo
