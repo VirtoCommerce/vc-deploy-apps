@@ -32,17 +32,24 @@ jobs:
             $dockerWorkingDir = '${{ github.workspace }}/docker'
             Copy-Item platform-with-modules/* $dockerWorkingDir
             git diff --name-only HEAD HEAD~1 | Where-Object { $_ -match 'platform.json' } | ForEach-Object {
+                $path = Convert-Path $_
+                $imageTag = "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())/$($path.Directory.Parent.Parent.Name)-$($path.Directory.Name):$('${{ github.sha }}'.Substring(0, 8))"
                 Write-Host "File: $($_)"
                 $json = Get-Content $_ | Out-String | ConvertFrom-Json
                 Copy-Item $_ $dockerWorkingDir/platform.json -Force
-                docker build $dockerWorkingDir --tag "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())/platform-dev:${{ github.sha }}" --build-arg BASE_IMAGE="$($json.Platform)" 
-                docker push "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())/platform-dev:${{ github.sha }}"
+                docker build $dockerWorkingDir --tag $imageTag --build-arg BASE_IMAGE="$($json.Platform)" 
+                docker push $imageTag
 
-                $path = Convert-Path $_
-                $imageName = "$($path.Directory.Parent.Parent.Name)-$($path.Directory.Name):$('${{ github.sha }}'.Substring(0, 8))"
+
                 cd $path.Directory
-                $REPOSITORY = "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())"
-                kustomize edit set image virtocommerce/platform=$REPOSITORY/$imageName
+                kustomize edit set image virtocommerce/platform=$imageTag
             }
 
-            git push $remoteRepo
+            cd ${{ github.workspace }}/vc-deploy-apps
+
+            git config user.email "github.actions@virtoway.com"
+            git config user.name ${{ github.actor }}
+            git add .
+            git commit -m "Update the platform image version"	
+            $remoteRepo="https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/VirtoCommerce/vc-deploy-apps.git"
+            git push $remoteRepo 
