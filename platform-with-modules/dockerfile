@@ -13,7 +13,7 @@ WORKDIR /opt/virtocommerce/platform/Modules
 
 COPY /install-modules.py .
 
-COPY /modules.json .
+COPY /platform.json .
 
 RUN python3 install-modules.py
 

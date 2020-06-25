@@ -24,8 +24,8 @@ jobs:
       - name: Build Docker Image
         shell: pwsh
         run: |
-            $json = Get-Content 'webstore-app/overlays/dev/modules.json' | Out-String | ConvertFrom-Json
-            Copy-Item 'webstore-app/overlays/dev/modules.json' platform-with-modules/modules.json
+            $json = Get-Content 'webstore-app/overlays/dev/platform.json' | Out-String | ConvertFrom-Json
+            Copy-Item 'webstore-app/overlays/dev/platform.json' platform-with-modules/platform.json -f
             Write-Host "IMAGE: $($json.Platform)"
             docker build platform-with-modules --tag "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())/platform-dev:${{ github.sha }}" --build-arg BASE_IMAGE="$($json.Platform)" 
 
