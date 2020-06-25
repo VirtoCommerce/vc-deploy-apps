@@ -2,12 +2,7 @@ name: Platform Image Kustomization
 
 on:
   push:
-    branches: [ master ]
-    paths:
-        - '**/platform.json'
-        - '**/kustomization-platform.yml'
-  pull_request:
-    branches: [ master ]
+    branches: [ master, feature/vp-3331-init-argo-cd-for-modules ]
     paths:
         - '**/platform.json'
         - '**/kustomization-platform.yml'
