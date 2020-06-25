@@ -21,9 +21,16 @@ jobs:
             username: $GITHUB_ACTOR
             password: ${{ secrets.GITHUB_TOKEN }}
 
+      - uses: lots0logs/gh-action-get-changed-files@2.1.4
+        with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Build Docker Image
         shell: pwsh
         run: |
+            cat ${HOME}/files.json
+            ls ${HOME}
+
             $json = Get-Content 'webstore-app/overlays/dev/platform.json' | Out-String | ConvertFrom-Json
             Copy-Item 'webstore-app/overlays/dev/platform.json' platform-with-modules/platform.json -Force
             Write-Host "IMAGE: $($json.Platform)"
