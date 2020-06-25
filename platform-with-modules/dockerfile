@@ -1,5 +1,7 @@
-# escape=`
-FROM docker.pkg.github.com/virtocommerce/vc-platform/platform:dev-linux-latest
+ARG BASE_IMAGE=myorg/myapp:latest
+ARG MODULES_MANIFEST_PATH=/modules.json
+
+FROM $BASE_IMAGE
 
 # Install unzip wget python3
 RUN apt-get update && apt-get install -y unzip
@@ -12,7 +14,7 @@ RUN mkdir -p /opt/virtocommerce/platform/wwwroot/Modules
 WORKDIR /opt/virtocommerce/platform/Modules
 
 COPY /install-modules.py .
-COPY /modules.json .
+COPY $MODULES_MANIFEST_PATH .
 
 RUN python3 install-modules.py
 

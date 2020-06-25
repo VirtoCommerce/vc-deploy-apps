@@ -24,7 +24,8 @@ jobs:
       - name: Build Docker Image
         shell: pwsh
         run: |
-            docker build webstore-app/overlays/dev/platform --build-arg SOURCE=. --tag "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())/platform-dev:${{ github.sha }}"
+            $json = Get-Content 'webstore-app/overlays/dev/modules.json' | Out-String | ConvertFrom-Json
+            docker build platform-with-modules --build-arg SOURCE=. --build-arg MODULES_MANIFEST_PATH='webstore-app/overlays/dev/modules.json' --build-arg BASE_IMAGE=$json.Platform --tag "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())/platform-dev:${{ github.sha }}"
 
       - name: Push Docker Image to GitHub
         shell: pwsh

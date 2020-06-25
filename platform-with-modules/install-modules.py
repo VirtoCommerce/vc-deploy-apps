@@ -11,8 +11,8 @@ def getZipData(url):
     return result.read()
 
 with open('modules.json') as f:
-    modules = json.load(f)
-    for module in modules:
+    config = json.load(f)
+    for module in config["Modules"]:
         moduleId = module["Id"]
         packageUrl = module["PackageUrl"]
         destinationPath = moduleId
