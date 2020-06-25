@@ -29,7 +29,7 @@ jobs:
       - name: Build and Publish Docker Image
         shell: pwsh
         run: |
-            $dockerWorkingDir = "$($env.GITHUB_WORKSPACE)/docker"
+            $dockerWorkingDir = '${{ github.workspace }}/docker'
             Copy-Item platform-with-modules/* $dockerWorkingDir
             git diff --name-only HEAD HEAD~1 | Where-Object { $_ -match 'platform.json' } | ForEach-Object {
                 Write-Host "File: $($_)"
