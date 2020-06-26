@@ -43,7 +43,7 @@ jobs:
                 $imageTag = "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())/$($path.Directory.Parent.Parent.Name)-$($path.Directory.Name):$('${{ github.sha }}'.Substring(0, 8))"
                 Write-Host "File: $($_)"
                 $json = Get-Content $_ | Out-String | ConvertFrom-Json
-                Copy-Item $_ $dockerWorkingDir/platform.json -Force
+                Copy-Item $_ $dockerWorkingDir -Force
                 docker build $dockerWorkingDir --tag $imageTag --build-arg BASE_IMAGE="$($json.Platform)" 
                 docker push $imageTag
 
