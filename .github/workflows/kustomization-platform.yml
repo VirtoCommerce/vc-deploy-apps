@@ -37,7 +37,7 @@ jobs:
             $dockerWorkingDir = "${{ github.workspace }}/docker"
             New-Item -ItemType Directory -Name $dockerWorkingDir
 
-            Copy-Item platform-with-modules/* $dockerWorkingDir
+            Copy-Item platform-with-modules/* $dockerWorkingDir -Recurse
             git diff --name-only HEAD HEAD~1 | Where-Object { $_ -match 'platform.json' } | ForEach-Object {
                 $path = Get-Item ${{ github.workspace }}/$repo/$_
                 $ending = Split-Path $_ | Split-Path -Leaf
@@ -46,7 +46,8 @@ jobs:
                 Write-Host "File: $($path)"
                 Write-Host "Image Tag: $($imageTag)"
                 $json = Get-Content $_ | Out-String | ConvertFrom-Json
-                Copy-Item $_ $dockerWorkingDir -Force
+                Copy-Item $_ "$($dockerWorkingDir)/$($_)" -Force
+
                 ls $dockerWorkingDir
                 docker build $dockerWorkingDir --tag $imageTag --build-arg BASE_IMAGE="$($json.Platform)" 
                 docker push $imageTag
