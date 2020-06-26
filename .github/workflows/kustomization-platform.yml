@@ -46,7 +46,7 @@ jobs:
                 Write-Host "File: $($path)"
                 Write-Host "Image Tag: $($imageTag)"
                 $json = Get-Content $_ | Out-String | ConvertFrom-Json
-                Copy-Item $_ "$($dockerWorkingDir)/$($_)" -Force
+                Copy-Item $_ $dockerWorkingDir -Force
 
                 ls $dockerWorkingDir
                 docker build $dockerWorkingDir --tag $imageTag --build-arg BASE_IMAGE="$($json.Platform)" 
