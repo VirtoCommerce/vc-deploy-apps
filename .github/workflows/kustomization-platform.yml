@@ -35,6 +35,8 @@ jobs:
             git checkout $branch
 
             $dockerWorkingDir = "${{ github.workspace }}/docker"
+            New-Item -Type Path -Name $dockerWorkingDir
+
             Copy-Item platform-with-modules/* $dockerWorkingDir
             git diff --name-only HEAD HEAD~1 | Where-Object { $_ -match 'platform.json' } | ForEach-Object {
                 $path = Convert-Path $_
