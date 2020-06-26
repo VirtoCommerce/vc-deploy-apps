@@ -30,7 +30,7 @@ jobs:
         run: |
             $branch = '${{ github.ref }}'.Replace('refs/heads', '')
             git clone https://github.com/${{ github.repository }}
-            $repo = '${{ github.repository }}'.Replace("${{ github.repository_owner }}"/, '')
+            $repo = '${{ github.repository }}'.Replace('${{ github.repository_owner }}/', '')
             Set-Location $repo
             git checkout $branch
 
