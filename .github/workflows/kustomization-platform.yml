@@ -39,7 +39,7 @@ jobs:
 
             Copy-Item platform-with-modules/* $dockerWorkingDir
             git diff --name-only HEAD HEAD~1 | Where-Object { $_ -match 'platform.json' } | ForEach-Object {
-                $path = Join-Path ${{ github.workspace }} $_ | Convert-Path
+                $path = Join-Path ${{ github.workspace }}/$repo $_ | Convert-Path
                 $imageTag = "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())/$($path.Directory.Parent.Parent.Name)-$($path.Directory.Name):$('${{ github.sha }}'.Substring(0, 8))"
                 Write-Host "File: $($path)"
                 Write-Host "Image Tag: $($imageTag)"
