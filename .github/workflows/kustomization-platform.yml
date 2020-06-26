@@ -13,15 +13,6 @@ jobs:
       runs-on: ubuntu-latest
   
       steps:
-      - uses: actions/checkout@v2
-
-      - name: checkout
-        shell: pwsh
-        run: |
-            $branch = '${{ github.ref }}'.Replace('refs/heads', '')
-            git clone https://github.com/${{ github.repository }}
-            git checkout $branch
-
       - name: Setup Kustomize
         uses: imranismail/setup-kustomize@v1
         with:
@@ -37,8 +28,12 @@ jobs:
       - name: Build and Publish Docker Image
         shell: pwsh
         run: |
+            $branch = '${{ github.ref }}'.Replace('refs/heads', '')
+            git clone https://github.com/${{ github.repository }}
             $repo = '${{ github.repository }}'.Replace("${{ github.repository_owner }}"/, '')
-            cd $repo
+            Set-Location $repo
+            git checkout $branch
+
             $dockerWorkingDir = "${{ github.workspace }}/docker"
             Copy-Item platform-with-modules/* $dockerWorkingDir
             git diff --name-only HEAD HEAD~1 | Where-Object { $_ -match 'platform.json' } | ForEach-Object {
