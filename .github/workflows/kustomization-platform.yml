@@ -28,7 +28,7 @@ jobs:
       - name: Build and Publish Docker Image
         shell: pwsh
         run: |
-            $branch = '${{ github.ref }}'.Replace('refs/heads', '')
+            $branch = '${{ github.ref }}'.Replace('refs/heads/', '')
             git clone https://github.com/${{ github.repository }}
             $repo = '${{ github.repository }}'.Replace('${{ github.repository_owner }}/', '')
             Set-Location $repo
