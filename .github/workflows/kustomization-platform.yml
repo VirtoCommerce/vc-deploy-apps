@@ -36,7 +36,7 @@ jobs:
 
             $dockerWorkingDir = "${{ github.workspace }}/docker"
             Write-Host "Docker directory is: $($dockerWorkingDir)"
-            New-Item -ItemType Directory -Name $dockerWorkingDir
+            New-Item -ItemType Directory -Force -Path $dockerWorkingDir
 
             Copy-Item platform-with-modules/* $dockerWorkingDir -Recurse
             git diff --name-only HEAD HEAD~1 | Where-Object { $_ -match 'platform.json' } | ForEach-Object {
