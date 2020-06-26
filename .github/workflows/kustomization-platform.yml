@@ -35,6 +35,7 @@ jobs:
             git checkout $branch
 
             $dockerWorkingDir = "${{ github.workspace }}/docker"
+            Write-Host "Docker directory is: $($dockerWorkingDir)"
             New-Item -ItemType Directory -Name $dockerWorkingDir
 
             Copy-Item platform-with-modules/* $dockerWorkingDir -Recurse
