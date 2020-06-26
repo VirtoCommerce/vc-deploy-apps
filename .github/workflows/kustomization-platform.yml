@@ -35,7 +35,6 @@ jobs:
             git checkout $branch
 
             $dockerWorkingDir = "${{ github.workspace }}/docker"
-            Write-Host "Docker directory is: $($dockerWorkingDir)"
             New-Item -ItemType Directory -Force -Path $dockerWorkingDir
 
             Copy-Item platform-with-modules/* $dockerWorkingDir -Recurse
@@ -44,21 +43,19 @@ jobs:
                 $ending = Split-Path $_ | Split-Path -Leaf
                 $prefix = Split-Path $_ | Split-Path | Split-Path | Split-Path -Leaf
                 $imageTag = "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())/$($prefix)-$($ending):$('${{ github.sha }}'.Substring(0, 8))"
-                Write-Host "File: $($path)"
-                Write-Host "Image Tag: $($imageTag)"
+
                 $json = Get-Content $_ | Out-String | ConvertFrom-Json
                 Copy-Item $_ $dockerWorkingDir -Force
 
-                ls $dockerWorkingDir
                 docker build $dockerWorkingDir --tag $imageTag --build-arg BASE_IMAGE="$($json.Platform)" 
                 docker push $imageTag
 
-                cd $path.Directory
+                Set-Location $path.Directory
                 kustomize edit set image virtocommerce/platform=$imageTag
                 git add .
             }
 
-            cd "${{ github.workspace }}/$($repo)"
+            Set-Location "${{ github.workspace }}/$($repo)"
 
             git config user.email "github.actions@virtoway.com"
             git config user.name ${{ github.actor }}
