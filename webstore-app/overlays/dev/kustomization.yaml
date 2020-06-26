@@ -13,8 +13,8 @@ resources:
 - ../../../common-base
 images:
 - name: virtocommerce/platform
-  newName: docker.pkg.github.com/virtocommerce/vc-deploy-apps/platform.json-overlays
-  newTag: 0c81fae5
+  newName: docker.pkg.github.com/virtocommerce/vc-deploy-apps/dev-webstore-app
+  newTag: 4caa5b9f
 - name: virtocommerce/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-storefront-core/storefront
   newTag: 5.0.0-f6e7fa7f
