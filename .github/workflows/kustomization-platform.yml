@@ -40,13 +40,14 @@ jobs:
             Copy-Item platform-with-modules/* $dockerWorkingDir
             git diff --name-only HEAD HEAD~1 | Where-Object { $_ -match 'platform.json' } | ForEach-Object {
                 $path = Get-Item ${{ github.workspace }}/$repo/$_
-                $prefix = Split-Path $_ | Split-Path -Leaf
-                $ending = Split-Path $_ | Split-Path | Split-Path | Split-Path -Leaf
+                $ending = Split-Path $_ | Split-Path -Leaf
+                $prefix = Split-Path $_ | Split-Path | Split-Path | Split-Path -Leaf
                 $imageTag = "docker.pkg.github.com/$('${{ github.repository }}'.ToLower())/$($prefix)-$($ending):$('${{ github.sha }}'.Substring(0, 8))"
                 Write-Host "File: $($path)"
                 Write-Host "Image Tag: $($imageTag)"
                 $json = Get-Content $_ | Out-String | ConvertFrom-Json
                 Copy-Item $_ $dockerWorkingDir -Force
+                ls $dockerWorkingDir
                 docker build $dockerWorkingDir --tag $imageTag --build-arg BASE_IMAGE="$($json.Platform)" 
                 docker push $imageTag
 
