@@ -15,6 +15,13 @@ jobs:
       steps:
       - uses: actions/checkout@v2
 
+      - name: checkout
+        shell: pwsh
+        run: |
+            $branch = '${{ github.ref }}'.Replace('refs/heads', '')
+            git clone https://github.com/${{ github.repository }}
+            git checkout $branch
+
       - name: Setup Kustomize
         uses: imranismail/setup-kustomize@v1
         with:
@@ -30,6 +37,8 @@ jobs:
       - name: Build and Publish Docker Image
         shell: pwsh
         run: |
+            $repo = '${{ github.repository }}'.Replace("${{ github.repository_owner }}"/, '')
+            cd $repo
             $dockerWorkingDir = "${{ github.workspace }}/docker"
             Copy-Item platform-with-modules/* $dockerWorkingDir
             git diff --name-only HEAD HEAD~1 | Where-Object { $_ -match 'platform.json' } | ForEach-Object {
@@ -46,10 +55,10 @@ jobs:
                 git add .
             }
 
-            cd ${{ github.workspace }}
+            cd "${{ github.workspace }}/$($repo)"
 
             git config user.email "github.actions@virtoway.com"
             git config user.name ${{ github.actor }}
             git commit -m "Update the platform image version"	
-            $remoteRepo="https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/VirtoCommerce/vc-deploy-apps.git"
+            $remoteRepo="https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
             git push $remoteRepo 
