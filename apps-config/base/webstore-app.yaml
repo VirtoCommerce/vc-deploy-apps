@@ -28,9 +28,9 @@ metadata:
     - resources-finalizer.argocd.argoproj.io  
 spec:
   destination:
-    namespace: dev
+    namespace: demo
     server: https://kubernetes.default.svc
-  project: tenant
+  project: demo-tenant
   source:
     path: webstore-app/overlays/demo
     repoURL: https://github.com/virtocommerce/vc-deploy-apps
