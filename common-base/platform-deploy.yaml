@@ -25,7 +25,7 @@ spec:
             - "-P"
             - "$(VC_DBSERVER_MASTER_PASSWORD)"
             - "-Q"
-            - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)] ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )"
+            - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )"
           env:
             - name: VC_DBSERVER_MASTER_PASSWORD
               valueFrom:
@@ -42,7 +42,7 @@ spec:
                 name: vc-dbserver-password
                 key: password
           - name: ConnectionStrings__VirtoCommerce
-            value: "Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=$(VC_PLATFORM_SERVICE);User ID=virto@vc-dev-dbserver;Password=$(VC_DBSERVER_PASSWORD);Trusted_Connection=False;Encrypt=True;"
+            value: "Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE);User ID=virto@vc-dev-dbserver;Password=$(VC_DBSERVER_PASSWORD);Trusted_Connection=False;Encrypt=True;"
         envFrom:
         - configMapRef:
             name: platform-cm
