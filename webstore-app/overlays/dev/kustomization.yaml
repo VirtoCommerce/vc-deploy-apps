@@ -9,6 +9,7 @@ commonLabels:
 
 patchesStrategicMerge:
 - storefront-deploy.yaml
+- platform-deploy.yaml
 resources:
 - ../../../common-base
 images:
