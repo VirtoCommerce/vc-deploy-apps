@@ -55,12 +55,12 @@
       {
         "Id": "VirtoCommerce.LuceneSearch",
         "Repository": "VirtoCommerce/vc-module-lucene-search",
-        "PackageUrl": "https://github.com/VirtoCommerce/vc-module-lucene-search/releases/download/3.1.0/VirtoCommerce.LuceneSearch_3.1.0.zip"
+        "PackageUrl": "https://github.com/VirtoCommerce/vc-module-lucene-search/releases/download/3.2.0/VirtoCommerce.LuceneSearch_3.2.0.zip"
       },
       {
         "Id": "VirtoCommerce.Marketing",
         "Repository": "VirtoCommerce/vc-module-marketing/",
-        "PackageUrl": "https://github.com/VirtoCommerce/vc-module-marketing/releases/download/3.1.0/VirtoCommerce.Marketing_3.1.0.zip"
+        "PackageUrl": "https://github.com/VirtoCommerce/vc-module-marketing/releases/download/3.2.0/VirtoCommerce.Marketing_3.2.0.zip"
       },
       {
         "Id": "VirtoCommerce.Notifications",
