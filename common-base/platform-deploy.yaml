@@ -20,6 +20,7 @@ spec:
             - "python3"
             - "install-modules.py"
             - "https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/common-base/platform.json"
+            - "/opt/virtocommerce/platform/Modules"
           volumeMounts:
             - mountPath: /opt/virtocommerce/platform/Modules
               name: modules-data        
