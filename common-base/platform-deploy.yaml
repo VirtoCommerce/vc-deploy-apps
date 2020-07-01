@@ -64,8 +64,8 @@ spec:
         persistentVolumeClaim:
           claimName: cms-content-volume
       - name: modules-data
-        persistentVolumeClaim:
-          claimName: modules-volume       
+        #persistentVolumeClaim:
+        #  claimName: modules-volume       
   strategy:
     rollingUpdate:
       maxSurge: 0
