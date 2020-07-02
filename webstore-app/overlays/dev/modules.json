@@ -77,7 +77,7 @@
   {
     "Id": "VirtoCommerce.Pricing",
     "Repository": "VirtoCommerce/vc-module-pricing",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Pricing_3.2.0-5aff2b1e.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Pricing_3.3.0-bd85e3d7.zip"
   },
   {
     "Id": "VirtoCommerce.Search",

@@ -9,4 +9,4 @@ spec:
         - name: init-platform
           env:
             - name: VC_PLATFORM_MODULES_CONFIG
-              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/webstore-app/overlays/dev/modules.json?1A47BAD431C95CDF26DD2F83D10AE5BC46CD90F77C6B61944D183E56D6127BB1
+              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/webstore-app/overlays/dev/modules.json?C092548D049B74A51BD53E9C6BA087734ADB4F0E04FC246A12575F919B2CFC26
