@@ -17,7 +17,7 @@
   {
     "Id": "VirtoCommerce.Catalog",
     "Repository": "VirtoCommerce/vc-module-catalog",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Catalog_3.3.0-f811581f.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Catalog_3.3.0-a8155110.zip"
   },
   {
     "Id": "VirtoCommerce.Content",
