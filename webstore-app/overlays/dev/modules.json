@@ -17,7 +17,7 @@
   {
     "Id": "VirtoCommerce.Catalog",
     "Repository": "VirtoCommerce/vc-module-catalog",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-catalog/releases/download/3.2.0/VirtoCommerce.Catalog_3.2.0.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Catalog_3.3.0-90cf0887.zip"
   },
   {
     "Id": "VirtoCommerce.Content",
@@ -127,12 +127,12 @@
   {
     "Id": "VirtoCommerce.CatalogPersonalization",
     "Repository": "VirtoCommerce/vc-module-catalog-personalization",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-catalog-personalization/releases/download/3.1.0/VirtoCommerce.CatalogPersonalization_3.1.0.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.CatalogPersonalization_3.3.0-90cf0887.zip"
   },
   {
     "Id": "VirtoCommerce.CatalogPublishing",
     "Repository": "VirtoCommerce/vc-module-catalog-publishing",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-catalog-publishing/releases/download/3.1.0/VirtoCommerce.CatalogPublishing_3.1.0.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.CatalogPublishing_3.3.0-90cf0887.zip"
   },
   {
     "Id": "VirtoCommerce.PageBuilderModule",
@@ -142,7 +142,7 @@
   {
     "Id": "VirtoCommerce.CatalogCsvImportModule",
     "Repository": "VirtoCommerce/vc-module-catalog-csv-import",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-catalog-csv-import/releases/download/3.2.0/VirtoCommerce.CatalogCsvImportModule_3.2.0.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.CatalogCsvImportModule_3.3.0-90cf0887.zip"
   },
   {
     "Id": "VirtoCommerce.Contentful",
