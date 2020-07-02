@@ -22,7 +22,7 @@
   {
     "Id": "VirtoCommerce.Content",
     "Repository": "VirtoCommerce/vc-module-content",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Content_3.2.0-1bb4543f.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Content_3.2.0-a5a1a450.zip"
   },
   {
     "Id": "VirtoCommerce.Customer",
