@@ -52,7 +52,7 @@
   {
     "Id": "VirtoCommerce.LuceneSearch",
     "Repository": "VirtoCommerce/vc-module-lucene-search",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-lucene-search/releases/download/3.2.0/VirtoCommerce.LuceneSearch_3.2.0.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.LuceneSearch_3.2.0-9fd37b12.zip"
   },
   {
     "Id": "VirtoCommerce.Marketing",
