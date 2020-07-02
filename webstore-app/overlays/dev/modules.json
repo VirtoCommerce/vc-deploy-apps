@@ -127,7 +127,7 @@
   {
     "Id": "VirtoCommerce.CatalogPersonalization",
     "Repository": "VirtoCommerce/vc-module-catalog-personalization",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.CatalogPersonalization_3.1.0-7e150dbc.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.CatalogPersonalization_3.1.0-72f35935.zip"
   },
   {
     "Id": "VirtoCommerce.CatalogPublishing",
