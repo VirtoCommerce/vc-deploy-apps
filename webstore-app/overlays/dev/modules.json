@@ -102,7 +102,7 @@
   {
     "Id": "VirtoCommerce.Subscription",
     "Repository": "VirtoCommerce/vc-module-subscription",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-subscription/releases/download/3.1.0/VirtoCommerce.Subscription_3.1.0.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Subscription_3.1.0-9ca87d16.zip"
   },
   {
     "Id": "VirtoCommerce.Tax",
