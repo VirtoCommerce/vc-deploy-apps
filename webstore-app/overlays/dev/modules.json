@@ -22,7 +22,7 @@
   {
     "Id": "VirtoCommerce.Content",
     "Repository": "VirtoCommerce/vc-module-content",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Content_3.2.0-a5a1a450.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Content_3.2.0-46128a45.zip"
   },
   {
     "Id": "VirtoCommerce.Customer",
@@ -147,7 +147,7 @@
   {
     "Id": "VirtoCommerce.Contentful",
     "Repository": "VirtoCommerce/vc-module-contentful",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-contentful/releases/download/3.0.1-preview/VirtoCommerce.Contentful_3.0.1-preview.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Contentful_3.2.0-46128a45.zip"
   },
   {
     "Id": "VirtoCommerce.BulkActionsModule",
