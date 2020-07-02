@@ -2,7 +2,7 @@
   {
     "Id": "VirtoCommerce.Core",
     "Repository": "VirtoCommerce/vc-module-core",
-    "PackageUrl": "https://artifactsvirto.blob.core.windows.net/artifacts/VirtoCommerce.Core_3.2.0-20d872b0.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Core_3.2.0-7b83c695.zip"
   },
   {
     "Id": "VirtoCommerce.AzureSearch",
