@@ -132,7 +132,7 @@
   {
     "Id": "VirtoCommerce.CatalogPublishing",
     "Repository": "VirtoCommerce/vc-module-catalog-publishing",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.CatalogPublishing_3.3.0-90cf0887.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.CatalogPublishing_3.1.0-79d894a5.zip"
   },
   {
     "Id": "VirtoCommerce.PageBuilderModule",
