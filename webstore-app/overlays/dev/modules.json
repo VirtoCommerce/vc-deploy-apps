@@ -147,7 +147,7 @@
   {
     "Id": "VirtoCommerce.Contentful",
     "Repository": "VirtoCommerce/vc-module-contentful",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Contentful_3.2.0-46128a45.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-contentful/releases/download/3.0.1-preview/VirtoCommerce.Contentful_3.0.1-preview.zip"
   },
   {
     "Id": "VirtoCommerce.BulkActionsModule",
