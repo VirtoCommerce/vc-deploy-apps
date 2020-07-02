@@ -72,7 +72,7 @@
   {
     "Id": "VirtoCommerce.Payment",
     "Repository": "VirtoCommerce/vc-module-payment",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Payment_3.1.0-4c31cbf8.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Payment_3.2.0-fbf8b8f6.zip"
   },
   {
     "Id": "VirtoCommerce.Pricing",
