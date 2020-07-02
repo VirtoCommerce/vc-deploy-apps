@@ -56,7 +56,7 @@
   },
   {
     "Id": "VirtoCommerce.Marketing",
-    "Repository": "VirtoCommerce/vc-module-marketing/",
+    "Repository": "VirtoCommerce/vc-module-marketing",
     "PackageUrl": "https://github.com/VirtoCommerce/vc-module-marketing/releases/download/3.2.0/VirtoCommerce.Marketing_3.2.0.zip"
   },
   {
