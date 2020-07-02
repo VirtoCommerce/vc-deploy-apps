@@ -62,7 +62,7 @@
   {
     "Id": "VirtoCommerce.Notifications",
     "Repository": "VirtoCommerce/vc-module-notification",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Notifications_3.2.0-a42bf3b1.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Notifications_3.3.0-a1a72a7a.zip"
   },
   {
     "Id": "VirtoCommerce.Orders",
