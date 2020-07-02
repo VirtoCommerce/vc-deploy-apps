@@ -37,7 +37,7 @@
   {
     "Id": "VirtoCommerce.Export",
     "Repository": "VirtoCommerce/vc-module-export",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-export/releases/download/3.1.0/VirtoCommerce.Export_3.1.0.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Export_3.1.0-dbaecae3.zip"
   },
   {
     "Id": "VirtoCommerce.ImageTools",
