@@ -152,7 +152,7 @@
   {
     "Id": "VirtoCommerce.BulkActionsModule",
     "Repository": "VirtoCommerce/vc-module-bulk-actions",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.BulkActionsModule_3.1.0-31cbafb1.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.BulkActionsModule_3.2.0-63431be2.zip"
   },
   {
     "Id": "VirtoCommerce.Quote",
