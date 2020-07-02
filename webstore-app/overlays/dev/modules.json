@@ -92,7 +92,7 @@
   {
     "Id": "VirtoCommerce.Sitemaps",
     "Repository": "VirtoCommerce/vc-module-sitemaps",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-sitemaps/releases/download/3.1.0/VirtoCommerce.Sitemaps_3.1.0.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Sitemaps_3.1.0-8acba9a1.zip"
   },
   {
     "Id": "VirtoCommerce.Store",
