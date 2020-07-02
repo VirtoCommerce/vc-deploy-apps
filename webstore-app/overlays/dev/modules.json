@@ -112,7 +112,7 @@
   {
     "Id": "VirtoCommerce.CustomerReviews",
     "Repository": "VirtoCommerce/vc-module-customer-review",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-customer-review/releases/download/3.1.0/VirtoCommerce.CustomerReviews_3.1.0.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.CustomerReviews_3.1.0-a94fa3f9.zip"
   },
   {
     "Id": "VirtoCommerce.AuthorizeNet",
