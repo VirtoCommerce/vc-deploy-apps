@@ -1,0 +1,62 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: b2b-dev-app
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io  
+spec:
+  destination:
+    namespace: dev
+    server: https://kubernetes.default.svc
+  project: tenant
+  source:
+    path: b2b-app/overlays/dev
+    repoURL: https://github.com/virtocommerce/vc-deploy-apps
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: b2b-demo-app
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io  
+spec:
+  destination:
+    namespace: demo
+    server: https://kubernetes.default.svc
+  project: demo-tenant
+  source:
+    path: b2b-app/overlays/demo
+    repoURL: https://github.com/virtocommerce/vc-deploy-apps
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: b2b-qa-app
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io  
+spec:
+  destination:
+    namespace: qa
+    server: https://kubernetes.default.svc
+  project: tenant
+  source:
+    path: b2b-app/overlays/qa
+    repoURL: https://github.com/virtocommerce/vc-deploy-apps
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
