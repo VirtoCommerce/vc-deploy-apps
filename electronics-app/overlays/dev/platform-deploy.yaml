@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platform
+spec:
+  template:
+    spec:
+      initContainers:
+        - name: init-platform
+          env:
+            - name: VC_PLATFORM_MODULES_CONFIG
+              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/demo-app/overlays/dev/modules.json?2

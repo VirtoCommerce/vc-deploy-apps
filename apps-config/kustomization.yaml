@@ -1,4 +1,4 @@
 resources:
 - base/webstore-app.yaml
 - base/meds-app.yaml
-- base/demo-app.yaml
+- base/electronics-app.yaml
