@@ -10,3 +10,8 @@ spec:
           env:
             - name: VC_PLATFORM_MODULES_CONFIG
               value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/electronics-app/overlays/dev/modules.json?2
+      containers:
+        - name: vc-platform-web
+          env:
+            - name: VirtoCommerce_SampleDataUrl
+              value: https://github.com/VirtoCommerce/vc-meds-docker/releases/latest/download/meds_sample_data.zip
