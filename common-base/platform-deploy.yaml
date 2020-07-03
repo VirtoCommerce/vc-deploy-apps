@@ -26,7 +26,7 @@ spec:
               name: modules-data
           env:
             - name: VC_PLATFORM_MODULES_CONFIG
-              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/common-base/platform.json
+              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/common-base/modules.json
         - name: init-sqldatabase
           image: mcr.microsoft.com/mssql-tools
           command:
