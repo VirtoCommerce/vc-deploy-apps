@@ -51,7 +51,7 @@ spec:
   destination:
     namespace: qa
     server: https://kubernetes.default.svc
-  project: qa-tenant
+  project: tenant
   source:
     path: electronics-app/overlays/qa
     repoURL: https://github.com/virtocommerce/vc-deploy-apps
