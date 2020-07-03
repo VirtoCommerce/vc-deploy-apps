@@ -5,9 +5,8 @@ metadata:
 spec:
   template:
     spec:
-      replicas: 1
-#      initContainers:
-#        - name: init-platform
-#          env:
-#            - name: VC_PLATFORM_MODULES_CONFIG
-#              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/webstore-app/overlays/dev/modules.json?C0CFD89209A791FCA93AA00A0F686752629347A222C00DFF5C3B0FCB7691B9FA
+      initContainers:
+        - name: init-platform
+          env:
+            - name: VC_PLATFORM_MODULES_CONFIG
+              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/demo-app/overlays/dev/modules.json?2
