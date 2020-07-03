@@ -22,17 +22,17 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: electronics-qa-app
+  name: electronics-demo-app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io  
 spec:
   destination:
-    namespace: qa
+    namespace: demo
     server: https://kubernetes.default.svc
-  project: tenant
+  project: demo-tenant
   source:
-    path: electronics-app/overlays/qa
+    path: electronics-app/overlays/demo
     repoURL: https://github.com/virtocommerce/vc-deploy-apps
     targetRevision: HEAD
   syncPolicy:
@@ -43,17 +43,17 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: electronics-demo-app
+  name: electronics-qa-app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io  
 spec:
   destination:
-    namespace: demo
+    namespace: qa
     server: https://kubernetes.default.svc
-  project: tenant
+  project: qa-tenant
   source:
-    path: electronics-app/overlays/demo
+    path: electronics-app/overlays/qa
     repoURL: https://github.com/virtocommerce/vc-deploy-apps
     targetRevision: HEAD
   syncPolicy:
