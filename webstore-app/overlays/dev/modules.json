@@ -137,7 +137,7 @@
   {
     "Id": "VirtoCommerce.PageBuilderModule",
     "Repository": "VirtoCommerce/vc-module-pagebuilder",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.PageBuilderModule_3.3.0-20f50ef1.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.PageBuilderModule_3.3.1-cf9e2daf.zip"
   },
   {
     "Id": "VirtoCommerce.CatalogCsvImportModule",
