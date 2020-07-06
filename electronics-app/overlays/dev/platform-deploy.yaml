@@ -9,7 +9,7 @@ spec:
         - name: init-platform
           env:
             - name: VC_PLATFORM_MODULES_CONFIG
-              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/electronics-app/overlays/dev/modules.json?2
+              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/electronics-app/overlays/dev/modules.json?3
       containers:
         - name: vc-platform-web
           env:
