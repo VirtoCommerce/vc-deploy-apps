@@ -57,7 +57,7 @@
   {
     "Id": "VirtoCommerce.Marketing",
     "Repository": "VirtoCommerce/vc-module-marketing",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Marketing_3.4.0-58adbee1.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Marketing_3.5.0-3f4f2a4c.zip"
   },
   {
     "Id": "VirtoCommerce.Notifications",
@@ -67,7 +67,7 @@
   {
     "Id": "VirtoCommerce.Orders",
     "Repository": "VirtoCommerce/vc-module-order",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Orders_3.4.0-85b070b7.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Orders_3.4.0-193f666b.zip"
   },
   {
     "Id": "VirtoCommerce.Payment",
