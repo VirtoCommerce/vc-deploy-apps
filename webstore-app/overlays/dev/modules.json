@@ -107,7 +107,7 @@
   {
     "Id": "VirtoCommerce.Tax",
     "Repository": "VirtoCommerce/vc-module-tax",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Tax_3.1.0-148a5602.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Tax_3.2.0-c2549d9d.zip"
   },
   {
     "Id": "VirtoCommerce.CustomerReviews",
