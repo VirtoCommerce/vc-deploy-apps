@@ -97,7 +97,7 @@
   {
     "Id": "VirtoCommerce.Store",
     "Repository": "VirtoCommerce/vc-module-store",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Store_3.1.0-35696aad.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Store_3.2.0-c26b5284.zip"
   },
   {
     "Id": "VirtoCommerce.Subscription",
