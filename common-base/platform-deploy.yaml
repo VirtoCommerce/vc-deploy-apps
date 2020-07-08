@@ -36,7 +36,7 @@ spec:
             - "/TargetPassword:$(VC_DBSERVER_MASTER_PASSWORD)"
             - "/Action:Import"
             - "/TargetDatabaseName:[$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)]"
-            - "/SourceFile:[$(VC_BACPAC)])"
+            - "/SourceFile:$(VC_BACPAC)"
           env:
             - name: VC_DBSERVER_MASTER_PASSWORD
               valueFrom:
