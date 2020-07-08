@@ -157,6 +157,6 @@
   {
     "Id": "VirtoCommerce.Quote",
     "Repository": "VirtoCommerce/vc-module-quote",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Quote_3.2.0-d470dbe6.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-quote/releases/download/3.1.0/VirtoCommerce.Quote_3.1.0.zip"
   }
 ]

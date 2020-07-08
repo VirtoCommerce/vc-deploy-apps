@@ -87,27 +87,27 @@
   {
     "Id": "VirtoCommerce.Shipping",
     "Repository": "VirtoCommerce/vc-module-shipping",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Shipping_3.1.0-bf24b884.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Shipping_3.2.0-97ed4a37.zip"
   },
   {
     "Id": "VirtoCommerce.Sitemaps",
     "Repository": "VirtoCommerce/vc-module-sitemaps",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Sitemaps_3.1.0-8acba9a1.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Sitemaps_3.2.0-bb487e8d.zip"
   },
   {
     "Id": "VirtoCommerce.Store",
     "Repository": "VirtoCommerce/vc-module-store",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Store_3.1.0-35696aad.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Store_3.2.0-c26b5284.zip"
   },
   {
     "Id": "VirtoCommerce.Subscription",
     "Repository": "VirtoCommerce/vc-module-subscription",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Subscription_3.1.0-9ca87d16.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Subscription_3.2.0-1a00cadb.zip"
   },
   {
     "Id": "VirtoCommerce.Tax",
     "Repository": "VirtoCommerce/vc-module-tax",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Tax_3.1.0-148a5602.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Tax_3.2.0-c2549d9d.zip"
   },
   {
     "Id": "VirtoCommerce.CustomerReviews",
@@ -127,7 +127,7 @@
   {
     "Id": "VirtoCommerce.CatalogPersonalization",
     "Repository": "VirtoCommerce/vc-module-catalog-personalization",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.CatalogPersonalization_3.1.0-72f35935.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.CatalogPersonalization_3.2.0-2b29ffc4.zip"
   },
   {
     "Id": "VirtoCommerce.CatalogPublishing",
