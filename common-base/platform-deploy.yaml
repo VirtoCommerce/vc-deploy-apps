@@ -30,13 +30,12 @@ spec:
         - name: init-sqldatabase
           image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-db-installer:latest
           command:
-            - "/opt/mssql-tools/sqlpackage/sqlpackage"
-            - "/TargetServerName:vc-dev-dbserver.database.windows.net"
-            - "/TargetUser:virto@vc-dev-dbserver"
-            - "/TargetPassword:$(VC_DBSERVER_MASTER_PASSWORD)"
-            - "/Action:Import"
-            - "/TargetDatabaseName:[$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)]"
-            - "/SourceFile:$(VC_BACPAC)"
+            - "/opt/mssql-tools/restore-db.sh"
+            - "$(VC_BACPAC)"
+            - "vc-dev-dbserver.database.windows.net"
+            - "virto@vc-dev-dbserver"
+            - "$(VC_DBSERVER_MASTER_PASSWORD)"
+            - "$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)"
           env:
             - name: VC_DBSERVER_MASTER_PASSWORD
               valueFrom:
