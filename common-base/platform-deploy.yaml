@@ -28,23 +28,23 @@ spec:
             - name: VC_PLATFORM_MODULES_CONFIG
               value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/common-base/modules.json
         - name: init-sqldatabase
-          image: mcr.microsoft.com/mssql-tools
+          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-db-installer:latest
           command:
-            - "/opt/mssql-tools/bin/sqlcmd"
-            - "-S"
-            - "vc-dev-dbserver.database.windows.net"
-            - "-U"
-            - "virto@vc-dev-dbserver"
-            - "-P"
-            - "$(VC_DBSERVER_MASTER_PASSWORD)"
-            - "-Q"
-            - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )"
+            - "sqlpackage"
+            - "/TargetServerName:vc-dev-dbserver.database.windows.net"
+            - "/TargetUser:virto@vc-dev-dbserver"
+            - "/TargetPassword:$(VC_DBSERVER_MASTER_PASSWORD)"
+            - "/Action:Import"
+            - "/TargetDatabaseName:[$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)]"
+            - "/SourceFile:[$(VC_BACPAC)])"
           env:
             - name: VC_DBSERVER_MASTER_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: vc-dbserver-password
                   key: password       
+            - name: VC_BACPAC
+              value: https://vcbacpac.file.core.windows.net/vcbacpac/empty-db.bacpac
       containers:
       - name: vc-platform-web      
         image: virtocommerce/platform:v3-preview6-dev
