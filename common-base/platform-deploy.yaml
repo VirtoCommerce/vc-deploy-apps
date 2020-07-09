@@ -38,7 +38,7 @@ spec:
             - "-P"
             - "$(VC_DBSERVER_MASTER_PASSWORD)"
             - "-Q"
-            - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] AS COPY OF [$(VC_SAMPLE_DATA_DB)] ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )"          env:
+            - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] AS COPY OF [$(VC_SAMPLE_DATA_DB)] ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )"
           env:
             - name: VC_DBSERVER_MASTER_PASSWORD
               valueFrom:
