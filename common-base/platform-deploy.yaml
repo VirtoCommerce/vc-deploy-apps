@@ -37,7 +37,7 @@ spec:
             - "virto@vc-dev-dbserver"
             - "-P"
             - "$(VC_DBSERVER_MASTER_PASSWORD)"
-            - "-Q"
+            - "-q"
             - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] AS COPY OF [$(VC_SAMPLE_DATA_DB)] ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )"
           env:
             - name: VC_DBSERVER_MASTER_PASSWORD
