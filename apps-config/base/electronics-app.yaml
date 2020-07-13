@@ -13,7 +13,7 @@ spec:
   source:
     path: electronics-app/overlays/dev
     repoURL: https://github.com/virtocommerce/vc-deploy-apps
-    targetRevision: dev
+    targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true
@@ -55,8 +55,9 @@ spec:
   source:
     path: electronics-app/overlays/qa
     repoURL: https://github.com/virtocommerce/vc-deploy-apps
-    targetRevision: qa
+    targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+
