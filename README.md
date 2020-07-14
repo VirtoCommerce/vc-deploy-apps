@@ -1,9 +1,15 @@
 # Kubernetes Deployments
 
+There are 3 branches:
+
+- master - used for development 
+- qa - used by QA team to test specific releases
+- demo - where demo environments are setup
+
 To deploy a new Virto Commerce based application, do the following steps:
 
-1. Create a new folder called "{name}-app".
-2. Add kustomization.yaml that contains the following (replace "{name}" with an app name used at step 1).
+1. Create a new folder called "{name}-app" in master branch.
+2. Add kustomization.yaml that contains the following (replace "{name}" with an app name used at step 1) under "overlays/dev" folder.
 
 ```
 apiVersion: kustomize.config.k8s.io/v1beta1
@@ -40,7 +46,7 @@ spec:
       selfHeal: true
 ```
 
-4. Open apps-config/kustomization.yaml and add new line under "resources:".
+4. Open apps-config/base/kustomization.yaml and add new line under "resources:".
 
 ```
 resources:

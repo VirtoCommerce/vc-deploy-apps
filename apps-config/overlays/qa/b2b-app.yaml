@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: b2b-qa-app
+  name: b2b-app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io  
