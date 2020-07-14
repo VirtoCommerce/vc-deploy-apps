@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: webstore-dev-app
+  name: webstore-app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io  
