@@ -1,5 +1,0 @@
-resources:
-- base/webstore-app.yaml
-- base/electronics-app.yaml
-- base/b2b-app.yaml
-- base/timtest-app.yaml
