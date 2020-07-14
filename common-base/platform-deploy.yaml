@@ -37,14 +37,16 @@ spec:
             - "virto@vc-dev-dbserver"
             - "-P"
             - "$(VC_DBSERVER_MASTER_PASSWORD)"
-            - "-Q"
-            - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )"
+            - "-q"
+            - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] AS COPY OF [$(VC_SAMPLE_DATA_DB)] ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )"
           env:
             - name: VC_DBSERVER_MASTER_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: vc-dbserver-password
                   key: password       
+            - name: VC_SAMPLE_DATA_DB
+              value: vc-empty-db
       containers:
       - name: vc-platform-web      
         image: virtocommerce/platform:v3-preview6-dev

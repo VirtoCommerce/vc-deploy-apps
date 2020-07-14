@@ -17,7 +17,7 @@
   {
     "Id": "VirtoCommerce.Catalog",
     "Repository": "VirtoCommerce/vc-module-catalog",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Catalog_3.4.0-0ddd4149.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Catalog_3.3.0-a8155110.zip"
   },
   {
     "Id": "VirtoCommerce.Content",
@@ -47,7 +47,7 @@
   {
     "Id": "VirtoCommerce.Inventory",
     "Repository": "VirtoCommerce/vc-module-inventory",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Inventory_3.3.0-fb77e576.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Inventory_3.3.0-c0269b5d.zip"
   },
   {
     "Id": "VirtoCommerce.LuceneSearch",
@@ -57,7 +57,7 @@
   {
     "Id": "VirtoCommerce.Marketing",
     "Repository": "VirtoCommerce/vc-module-marketing",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Marketing_3.5.0-3f4f2a4c.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Marketing_3.3.0-a350b157.zip"
   },
   {
     "Id": "VirtoCommerce.Notifications",
@@ -67,7 +67,7 @@
   {
     "Id": "VirtoCommerce.Orders",
     "Repository": "VirtoCommerce/vc-module-order",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Orders_3.4.0-193f666b.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Orders_3.4.0-85b070b7.zip"
   },
   {
     "Id": "VirtoCommerce.Payment",
@@ -87,27 +87,27 @@
   {
     "Id": "VirtoCommerce.Shipping",
     "Repository": "VirtoCommerce/vc-module-shipping",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Shipping_3.2.0-97ed4a37.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Shipping_3.1.0-bf24b884.zip"
   },
   {
     "Id": "VirtoCommerce.Sitemaps",
     "Repository": "VirtoCommerce/vc-module-sitemaps",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Sitemaps_3.2.0-bb487e8d.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Sitemaps_3.1.0-8acba9a1.zip"
   },
   {
     "Id": "VirtoCommerce.Store",
     "Repository": "VirtoCommerce/vc-module-store",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Store_3.2.0-c26b5284.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Store_3.1.0-35696aad.zip"
   },
   {
     "Id": "VirtoCommerce.Subscription",
     "Repository": "VirtoCommerce/vc-module-subscription",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Subscription_3.2.0-1a00cadb.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Subscription_3.1.0-9ca87d16.zip"
   },
   {
     "Id": "VirtoCommerce.Tax",
     "Repository": "VirtoCommerce/vc-module-tax",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Tax_3.2.0-c2549d9d.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Tax_3.1.0-148a5602.zip"
   },
   {
     "Id": "VirtoCommerce.CustomerReviews",
@@ -127,7 +127,7 @@
   {
     "Id": "VirtoCommerce.CatalogPersonalization",
     "Repository": "VirtoCommerce/vc-module-catalog-personalization",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.CatalogPersonalization_3.2.0-2b29ffc4.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.CatalogPersonalization_3.1.0-72f35935.zip"
   },
   {
     "Id": "VirtoCommerce.CatalogPublishing",
@@ -137,7 +137,7 @@
   {
     "Id": "VirtoCommerce.PageBuilderModule",
     "Repository": "VirtoCommerce/vc-module-pagebuilder",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.PageBuilderModule_3.3.1-cf9e2daf.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-pagebuilder/releases/download/3.1.0/VirtoCommerce.PageBuilderModule_3.1.0.zip"
   },
   {
     "Id": "VirtoCommerce.CatalogCsvImportModule",
