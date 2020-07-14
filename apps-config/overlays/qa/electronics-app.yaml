@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: electronics-qa-app
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io  
+spec:
+  destination:
+    namespace: qa
+    server: https://kubernetes.default.svc
+  project: tenant
+  source:
+    path: electronics-app/overlays/qa
+    repoURL: https://github.com/virtocommerce/vc-deploy-apps
+    targetRevision: qa
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
