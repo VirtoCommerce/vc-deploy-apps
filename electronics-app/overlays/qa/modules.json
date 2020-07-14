@@ -157,7 +157,7 @@
   {
     "Id": "VirtoCommerce.Quote",
     "Repository": "VirtoCommerce/vc-module-quote",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-quote/archive/ver.3.2.0-d470dbe6.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Quote_3.2.0-d470dbe6.zip"
   },
     {
     "Id": "VirtoCommerce.DynamicAssociationsModule",

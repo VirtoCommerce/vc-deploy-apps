@@ -7,7 +7,6 @@ commonLabels:
   instance: electronics
 
 patchesStrategicMerge:
-- storefront-deploy.yaml
 - platform-deploy.yaml
 resources:
 - ../../../common-base
