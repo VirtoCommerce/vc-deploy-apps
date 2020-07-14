@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: b2b-demo-app
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io  
+spec:
+  destination:
+    namespace: demo
+    server: https://kubernetes.default.svc
+  project: demo-tenant
+  source:
+    path: b2b-app/overlays/demo
+    repoURL: https://github.com/virtocommerce/vc-deploy-apps
+    targetRevision: demo
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
