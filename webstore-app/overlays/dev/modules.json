@@ -117,7 +117,7 @@
   {
     "Id": "VirtoCommerce.AuthorizeNet",
     "Repository": "VirtoCommerce/vc-module-Authorize.Net",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.AuthorizeNet_3.2.0-66277acd.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.AuthorizeNet_3.3.0-5b2a1404.zip"
   },
   {
     "Id": "VirtoCommerce.AvalaraTax",
