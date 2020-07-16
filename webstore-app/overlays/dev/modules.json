@@ -42,7 +42,7 @@
   {
     "Id": "VirtoCommerce.ImageTools",
     "Repository": "VirtoCommerce/vc-module-image-tools",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.ImageTools_3.2.0-48961e74.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.ImageTools_3.3.0-b4f53038.zip"
   },
   {
     "Id": "VirtoCommerce.Inventory",
