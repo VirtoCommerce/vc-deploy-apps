@@ -4,6 +4,7 @@ metadata:
   name: nginx
   annotations:
     kubernetes.io/ingress.class: nginx
+    ingress.kubernetes.io/proxy-body-size: 100M
 spec:
   rules:
   - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
