@@ -32,7 +32,7 @@
   {
     "Id": "VirtoCommerce.ElasticSearch",
     "Repository": "VirtoCommerce/vc-module-elastic-search",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.ElasticSearch_3.2.0-2d07c60c.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.ElasticSearch_3.3.0-9249688d.zip"
   },
   {
     "Id": "VirtoCommerce.Export",
