@@ -27,7 +27,7 @@ commonLabels:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {name}-dev-app
+  name: {name}-app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io  

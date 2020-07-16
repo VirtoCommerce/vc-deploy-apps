@@ -32,7 +32,7 @@
   {
     "Id": "VirtoCommerce.ElasticSearch",
     "Repository": "VirtoCommerce/vc-module-elastic-search",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.ElasticSearch_3.2.0-2d07c60c.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.ElasticSearch_3.3.0-9249688d.zip"
   },
   {
     "Id": "VirtoCommerce.Export",
@@ -42,12 +42,12 @@
   {
     "Id": "VirtoCommerce.ImageTools",
     "Repository": "VirtoCommerce/vc-module-image-tools",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.ImageTools_3.2.0-48961e74.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.ImageTools_3.3.0-b4f53038.zip"
   },
   {
     "Id": "VirtoCommerce.Inventory",
     "Repository": "VirtoCommerce/vc-module-inventory",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Inventory_3.3.0-fb77e576.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Inventory_3.4.0-8e0a72fc.zip"
   },
   {
     "Id": "VirtoCommerce.LuceneSearch",
@@ -107,7 +107,7 @@
   {
     "Id": "VirtoCommerce.Tax",
     "Repository": "VirtoCommerce/vc-module-tax",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Tax_3.2.0-c2549d9d.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Tax_3.3.0-40a24cc9.zip"
   },
   {
     "Id": "VirtoCommerce.CustomerReviews",
