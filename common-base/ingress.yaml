@@ -6,6 +6,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
     ingress.kubernetes.io/proxy-body-size: 100m
     nginx.ingress.kubernetes.io/proxy-body-size: 100m
+    nginx.org/client-max-body-size: 20m
 spec:
   rules:
   - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
