@@ -6,4 +6,5 @@ resources:
 patchesStrategicMerge:
 - b2b-app.yaml
 - electronics-app.yaml
+- maks-app.yaml
 - webstore-app.yaml
