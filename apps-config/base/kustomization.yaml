@@ -1,4 +1,5 @@
 resources:
 - webstore-app.yaml
 - electronics-app.yaml
+- emaks-app.yaml
 - b2b-app.yaml
