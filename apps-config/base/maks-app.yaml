@@ -5,3 +5,16 @@ metadata:
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io  
+spec:
+  destination:
+    namespace: dev
+    server: https://kubernetes.default.svc
+  project: tenant
+  source:
+    path: maks-app/overlays/dev
+    repoURL: https://github.com/virtocommerce/vc-deploy-apps
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
