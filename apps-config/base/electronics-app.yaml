@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: tenant
   source:
-    path: electromics-app/overlays/dev
+    path: electronics-app/overlays/dev
     repoURL: https://github.com/virtocommerce/vc-deploy-apps
     targetRevision: HEAD
   syncPolicy:
