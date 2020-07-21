@@ -9,7 +9,6 @@ commonLabels:
 patchesStrategicMerge:
 - storefront-deploy.yaml
 - platform-deploy.yaml
-- redis-deploy.yaml
 resources:
 - ../../../common-base-test
 images:
