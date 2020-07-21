@@ -2,10 +2,5 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: redis-test
-  labels:
-    example: redis
 spec:
-  redis:
     replicas: 1
-    image: redis
-    version: "5.0.3"
