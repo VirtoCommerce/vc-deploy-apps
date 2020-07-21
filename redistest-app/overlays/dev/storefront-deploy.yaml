@@ -3,4 +3,4 @@ kind: Deployment
 metadata:
   name: storefront
 spec:
-  replicas: 1
+  replicas: 2
