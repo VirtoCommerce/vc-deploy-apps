@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platform
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: platform
+  template:
+    metadata:
+      labels:
+        app: platform
+    spec:
+      # create database in azure within a sql pool
+      initContainers:
+        - name: init-platform
+          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:latest
+          command:
+            - "python3"
+            - "install-modules.py"
+            - "$(VC_PLATFORM_MODULES_CONFIG)"
+            - "/opt/virtocommerce/platform/Modules/"
+          volumeMounts:
+            - mountPath: /opt/virtocommerce/platform/Modules
+              name: modules-data
+          env:
+            - name: VC_PLATFORM_MODULES_CONFIG
+              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/common-base/modules.json
+        - name: init-sqldatabase
+          image: mcr.microsoft.com/mssql-tools
+          command:
+            - "/opt/mssql-tools/bin/sqlcmd"
+            - "-S"
+            - "vc-dev-dbserver.database.windows.net"
+            - "-U"
+            - "virto@vc-dev-dbserver"
+            - "-P"
+            - "$(VC_DBSERVER_MASTER_PASSWORD)"
+            - "-q"
+            - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] AS COPY OF [$(VC_SAMPLE_DATA_DB)] ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )"
+          env:
+            - name: VC_DBSERVER_MASTER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: vc-dbserver-password
+                  key: password       
+            - name: VC_SAMPLE_DATA_DB
+              value: vc-empty-db
+      containers:
+      - name: vc-platform-web      
+        image: virtocommerce/platform:v3-preview6-dev
+        env:
+          - name: VC_DBSERVER_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: vc-dbserver-password
+                key: password
+          - name: ConnectionStrings__VirtoCommerce
+            value: "Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE);User ID=virto@vc-dev-dbserver;Password=$(VC_DBSERVER_PASSWORD);Trusted_Connection=False;Encrypt=True;"
+        envFrom:
+        - configMapRef:
+            name: platform-cm
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
+          name: cms-content-data
+        - mountPath: "/opt/virtocommerce/platform/Modules"
+          name: modules-data
+      volumes:
+      - name: cms-content-data
+        persistentVolumeClaim:
+          claimName: cms-content-volume
+      - name: modules-data
+        emptyDir: {}
+        #persistentVolumeClaim:
+        #  claimName: modules-volume       
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+    type: RollingUpdate
