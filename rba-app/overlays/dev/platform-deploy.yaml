@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platform
+spec:
+  template:
+    spec:
+      initContainers:
+        - name: init-platform
+          env:
+            - name: VC_PLATFORM_MODULES_CONFIG
+              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/rba-app/overlays/dev/modules.json?BA2F41C0D1FD486CB031BD9A2563693E35BA60C8F2686C5863B9DC9D340E4A9C

@@ -3,3 +3,4 @@ resources:
 - electronics-app.yaml
 - b2b-app.yaml
 - redistest-app.yaml
+- rba-app.yaml
