@@ -7,10 +7,28 @@ spec:
     spec:
       initContainers:
         - name: init-platform
+          command:
+            - "python3"
+            - "install-modules.py"
+            - "$(VC_PLATFORM_MODULES_CONFIG)"
+            - "/opt/virtocommerce/platform/Modules/"
+            - "&&"
+            - "bash"
+            - "build_theme.sh"
+            - "$(THEME_REPOSITORY)"
+            - "/opt/virtocommerce/platform/wwwroot/cms-content/Themes/Electronics/default"  
           env:
             - name: VC_PLATFORM_MODULES_CONFIG
               value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/rba-app/overlays/dev/modules.json?BA2F41C0D1FD486CB031BD9A2563693E35BA60C8F2686C5863B9DC9D340E4A9C
+            - name: THEME_REPOSITORY
+              value: https://github.com/VirtoCommerce/vc-theme-default.git
+          volumeMounts:
+            - mountPath: /opt/virtocommerce/platform/Modules
+              name: modules-data
+            - mountPath: /opt/virtocommerce/platform/wwwroot/cms-content
+              name: cms-content        
         - name: init-sqldatabase
           env:
           - name: VC_SAMPLE_DATA_DB
             value: electronics-platform_dev
+         
