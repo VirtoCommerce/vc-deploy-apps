@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: tenant
   source:
-    path: rba-app
+    path: rba-app/overlays/dev
     repoURL: https://github.com/virtocommerce/vc-deploy-apps
     targetRevision: HEAD
   syncPolicy:
