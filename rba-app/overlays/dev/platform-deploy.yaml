@@ -27,8 +27,9 @@ spec:
               name: modules-data
             - mountPath: /opt/virtocommerce/platform/wwwroot/cms-content
               name: cms-content        
-        - name: init-sqldatabase
+      containers:
+        - name: vc-platform-web   
           env:
-          - name: VC_SAMPLE_DATA_DB
-            value: electronics-platform_dev
-         
+            - name: VirtoCommerce__SampleDataUrl
+              value: https://vcbacpac.blob.core.windows.net/dac-packages/rba_exported_data.zip
+
