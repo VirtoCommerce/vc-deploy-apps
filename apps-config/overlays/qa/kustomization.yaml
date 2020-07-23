@@ -7,4 +7,5 @@ patchesStrategicMerge:
 - b2b-app.yaml
 - electronics-app.yaml
 - maks-app.yaml
+- rba-app.yaml
 - webstore-app.yaml
