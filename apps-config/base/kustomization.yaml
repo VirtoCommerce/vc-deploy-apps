@@ -1,6 +1,5 @@
 resources:
 - webstore-app.yaml
 - electronics-app.yaml
-- maks-app.yaml
 - b2b-app.yaml
 - rba-app.yaml
