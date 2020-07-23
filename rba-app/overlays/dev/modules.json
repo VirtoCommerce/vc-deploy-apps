@@ -67,7 +67,7 @@
   {
     "Id": "VirtoCommerce.Orders",
     "Repository": "VirtoCommerce/vc-module-order",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-order/releases/download/3.6.0/VirtoCommerce.Orders_3.6.0.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-order/releases/download/3.7.0/VirtoCommerce.Orders_3.7.0.zip"
   },
   {
     "Id": "VirtoCommerce.Payment",
@@ -137,7 +137,7 @@
   {
     "Id": "VirtoCommerce.PageBuilderModule",
     "Repository": "VirtoCommerce/vc-module-pagebuilder",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-pagebuilder/releases/download/v1.0.31/VirtoCommerce.PageBuilderModule_1.0.31.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-pagebuilder/releases/download/3.1.0/VirtoCommerce.PageBuilderModule_3.1.0.zip"
   },
   {
     "Id": "VirtoCommerce.CatalogCsvImportModule",
