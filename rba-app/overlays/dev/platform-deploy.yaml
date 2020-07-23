@@ -7,7 +7,10 @@ spec:
     spec:
       initContainers:
         - name: init-platform
-          command: bash -c "python3 install-modules.py $(VC_PLATFORM_MODULES_CONFIG) /opt/virtocommerce/platform/Modules/ && rm -rf $(THEME_LOCATION) && ./build_theme.sh $(THEME_REPOSITORY) $(THEME_LOCATION)"
+          command: 
+            - "python3 install-modules.py $(VC_PLATFORM_MODULES_CONFIG) /opt/virtocommerce/platform/Modules/" 
+            - "&& rm -rf $(THEME_LOCATION)"
+            - "&& ./build_theme.sh $(THEME_REPOSITORY) $(THEME_LOCATION)"
           env:
             - name: VC_PLATFORM_MODULES_CONFIG
               value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/rba-app/overlays/dev/modules.json?BA2F41C0D1FD486CB031B79A2573693E35BA60C8F2686C5863B9DC9D340E4A9C
