@@ -47,7 +47,7 @@
   {
     "Id": "VirtoCommerce.Inventory",
     "Repository": "VirtoCommerce/vc-module-inventory",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Inventory_3.4.0-8e0a72fc.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Inventory_3.5.0-0b299572.zip"
   },
   {
     "Id": "VirtoCommerce.LuceneSearch",
