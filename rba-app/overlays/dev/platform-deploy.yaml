@@ -12,7 +12,7 @@ spec:
             - name: VC_PLATFORM_MODULES_CONFIG
               value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/rba-app/overlays/dev/modules.json?BA2F41C0D1FD486CB031B79A2573693E35BA60C8F2686C5863B9DC9D340E4A9C
             - name: ELECTRONICS_THEME_URL
-              value: https://vcbacpac.blob.core.windows.net/dac-packages/default.zip
+              value: https://vc3prerelease.blob.core.windows.net/packages/vc-theme-default-demo_dev-2.1.9-alpha.1-0e34c5b1.zip
             - name: ELECTRONICS_THEME_LOCATION
               value: /opt/virtocommerce/platform/wwwroot/cms-content/Themes/Electronics/default
             - name: B2B_THEME_URL
