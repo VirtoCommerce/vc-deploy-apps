@@ -22,7 +22,7 @@ spec:
             - name: ASSETS_URL
               value: https://vcbacpac.blob.core.windows.net/dac-packages/rba_assets.zip
             - name: ASSETS_LOCATION
-              value: /opt/virtocommerce/platform/wwwroot/assets  
+              value: /opt/virtocommerce/platform/wwwroot/cms-content/assets  
           volumeMounts:
             - mountPath: /opt/virtocommerce/platform/Modules
               name: modules-data
