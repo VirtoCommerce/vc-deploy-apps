@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: platform
 spec:
+  replicas: 2
   template:
     spec:
       initContainers:
