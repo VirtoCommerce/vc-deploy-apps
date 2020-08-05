@@ -4,6 +4,5 @@ nameSuffix: -qa
 resources:
 - ../../base
 patchesStrategicMerge:
-- electronics-app.yaml
 - rba-app.yaml
 - webstore-app.yaml
