@@ -4,7 +4,6 @@ nameSuffix: -demo
 resources:
 - ../../base
 patchesStrategicMerge:
-- b2b-app.yaml
 - electronics-app.yaml
 - webstore-app.yaml
 - rba-app.yaml
