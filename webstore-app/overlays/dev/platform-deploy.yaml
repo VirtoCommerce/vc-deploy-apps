@@ -10,7 +10,11 @@ spec:
           command: ["/bin/bash","-c","python3 install-modules.py $(VC_PLATFORM_MODULES_CONFIG) /opt/virtocommerce/platform/Modules/ && rm -rf $(ELECTRONICS_THEME_LOCATION)/* && ./install-theme.sh $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION) && rm -rf $(B2B_THEME_LOCATION)/* && ./install-theme.sh $(B2B_THEME_URL) $(B2B_THEME_LOCATION) && ./upload-assets.sh $(ASSETS_URL) $(ASSETS_LOCATION)"]
           env:
             - name: VC_PLATFORM_MODULES_CONFIG
+<<<<<<< HEAD
               value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/webstore-app/overlays/dev/modules.json?BA2F41C0D1FD486CB031B79A2573693E35BA60C8F2686C5863B9DC9D340E4A9D
+=======
+              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/webstore-app/overlays/dev/modules.json?BA2F41C0D1FD486CB031B79A2573693E35BA60C8F2686C5863B9DC9D340E4A9F
+>>>>>>> dd3b667a510dfa4e9b81898c6f13835236f22b87
             - name: ELECTRONICS_THEME_URL
               value: https://vc3prerelease.blob.core.windows.net/packages/vc-theme-default-demo_dev-2.1.9-alpha.1-0e34c5b1.zip
             - name: ELECTRONICS_THEME_LOCATION

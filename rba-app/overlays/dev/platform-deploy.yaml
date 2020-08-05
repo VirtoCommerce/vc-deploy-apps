@@ -56,7 +56,7 @@ spec:
             - name: ConnectionStrings__RedisConnectionString
               value: "redis-master.redis:6379,ssl=False,abortConnect=False" 
             - name: Caching__Redis__ChannelName
-              value: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel"    
+              value: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel"      
  #           - name: VirtoCommerce__SampleDataUrl #
  #             value: https://vcbacpac.blob.core.windows.net/dac-packages/rba_exported_data.zip
 

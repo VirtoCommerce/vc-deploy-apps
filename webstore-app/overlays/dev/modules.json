@@ -17,7 +17,11 @@
   {
     "Id": "VirtoCommerce.Catalog",
     "Repository": "VirtoCommerce/vc-module-catalog",
+<<<<<<< HEAD
     "PackageUrl": "https://github.com/VirtoCommerce/vc-module-catalog/suites/1009613880/artifacts/13172009"
+=======
+    "PackageUrl": "https://api.github.com/repos/VirtoCommerce/vc-module-catalog/actions/artifacts/13172009/zip"
+>>>>>>> dd3b667a510dfa4e9b81898c6f13835236f22b87
   },
   {
     "Id": "VirtoCommerce.Content",
