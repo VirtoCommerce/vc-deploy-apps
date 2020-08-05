@@ -1,4 +1,3 @@
 resources:
 - webstore-app.yaml
-- electronics-app.yaml
 - rba-app.yaml
