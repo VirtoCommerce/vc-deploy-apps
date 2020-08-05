@@ -5,5 +5,4 @@ resources:
 - ../../base
 patchesStrategicMerge:
 - electronics-app.yaml
-- webstore-app.yaml
 - rba-app.yaml
