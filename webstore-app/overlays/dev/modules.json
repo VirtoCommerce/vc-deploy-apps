@@ -17,6 +17,7 @@
   {
     "Id": "VirtoCommerce.Catalog",
     "Repository": "VirtoCommerce/vc-module-catalog",
+
     "PackageUrl": "https://vcbacpac.blob.core.windows.net/dac-packages/vc-module-catalog_3.6.0-ee1f608a.zip"
   },
   {
