@@ -49,9 +49,11 @@ spec:
                 secretKeyRef:
                   name: vc-dbserver-password
                   key: password                     
- #     containers:
- #       - name: vc-platform-web   
- #         env:
+      containers:
+        - name: vc-platform-web   
+          env:
+            - name: ConnectionStrings__RedisConnectionString
+              value: "redis-master.redis:6379,ssl=False,abortConnect=False" 
  #           - name: VirtoCommerce__SampleDataUrl
  #             value: https://vcbacpac.blob.core.windows.net/dac-packages/rba_exported_data.zip
 
