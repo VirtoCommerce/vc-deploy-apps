@@ -23,8 +23,6 @@ spec:
               value: https://vcbacpac.blob.core.windows.net/dac-packages/rba_assets.zip
             - name: ASSETS_LOCATION
               value: /opt/virtocommerce/platform/wwwroot/cms-content/assets  
-            - name: ExternalModules__IncludePrerelease
-              value: true
           volumeMounts:
             - mountPath: /opt/virtocommerce/platform/Modules
               name: modules-data
@@ -33,7 +31,7 @@ spec:
         - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB
-              value: xapi-platform_source     
+              value: xapi-platform_source
  #     containers:
  #       - name: vc-platform-web   
  #         env:
