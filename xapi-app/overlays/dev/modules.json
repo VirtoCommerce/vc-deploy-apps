@@ -18,7 +18,7 @@
     "Id": "VirtoCommerce.Catalog",
     "Repository": "VirtoCommerce/vc-module-catalog",
 
-    "PackageUrl": "https://vcbacpac.blob.core.windows.net/dac-packages/vc-module-catalog_3.6.0-ee1f608a.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-catalog/releases/download/3.5.0/VirtoCommerce.Catalog_3.5.0.zip"
   },
   {
     "Id": "VirtoCommerce.Content",
@@ -34,11 +34,6 @@
     "Id": "VirtoCommerce.ElasticSearch",
     "Repository": "VirtoCommerce/vc-module-elastic-search",
     "PackageUrl": "https://github.com/VirtoCommerce/vc-module-elastic-search/releases/download/3.2.0/VirtoCommerce.ElasticSearch_3.2.0.zip"
-  },
-  {
-    "Id": "VirtoCommerce.ExperienceApi",
-    "Repository": "VirtoCommerce/vc-module-experience-api/",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.ExperienceApi_1.0.0.zip"
   },
   {
     "Id": "VirtoCommerce.Export",
