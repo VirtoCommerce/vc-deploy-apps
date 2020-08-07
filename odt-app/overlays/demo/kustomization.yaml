@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: demo
+namePrefix: odt-
+commonLabels:
+  instance: odt
+
+
+patchesStrategicMerge:
+- storefront-deploy.yaml
+- platform-deploy.yaml
+resources:
+- ../../../common-base
+images:
+- name: virtocommerce/platform
+  newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
+  newTag: 3.4.0-a914c581
+- name: virtocommerce/storefront
+  newName: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
+  newTag: 5.0.0-9e7f9af9
