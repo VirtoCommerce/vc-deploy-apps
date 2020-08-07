@@ -7,11 +7,11 @@ metadata:
     - resources-finalizer.argocd.argoproj.io  
 spec:
   destination:
-    namespace: dev
+    namespace: demo
     server: https://kubernetes.default.svc
   project: tenant
   source:
-    path: odt-app/overlays/dev
+    path: odt-app/overlays/demo
     repoURL: https://github.com/virtocommerce/vc-deploy-apps
     targetRevision: HEAD
   syncPolicy:
