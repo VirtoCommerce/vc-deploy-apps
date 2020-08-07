@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platform
+spec:
+  replicas: 1
+  template:
+    spec:
+      initContainers:
+        - name: init-platform
+          command: ["/bin/bash","-c","python3 install-modules.py $(VC_PLATFORM_MODULES_CONFIG) /opt/virtocommerce/platform/Modules/ && rm -rf $(ODT_THEME_LOCATION)/* && ./install-theme.sh $(ODT_THEME_URL) $(ODT_THEME_LOCATION)"]
+          env:
+            - name: VC_PLATFORM_MODULES_CONFIG
+              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/odt-app/overlays/dev/modules.json?BA2F41C0D1FD486CB031B79A2573693E35BA60C8F2686C5863B9DC9D340E4A9C
+            - name: ODT_THEME_URL
+              value: https://vc3prerelease.blob.core.windows.net/packages/vc-theme-default-demo_dev-2.1.9-alpha.1-0e34c5b1.zip
+            - name: ODT_THEME_LOCATION
+              value: /opt/virtocommerce/platform/wwwroot/cms-content/Themes/odt/default                       
+          volumeMounts:
+            - mountPath: /opt/virtocommerce/platform/Modules
+              name: modules-data
+            - mountPath: /opt/virtocommerce/platform/wwwroot/cms-content
+              name: cms-content-data                      
+      containers:
+        - name: vc-platform-web   
+          env:
+            # - name: ConnectionStrings__RedisConnectionString
+            #   value: "redis-master.redis:6379,ssl=False,abortConnect=False" 
+            # - name: Caching__Redis__ChannelName
+            #   value: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel"      
+            # - name: VirtoCommerce__SampleDataUrl #
+            #   value: https://vcbacpac.blob.core.windows.net/dac-packages/rba_exported_data.zip
+
