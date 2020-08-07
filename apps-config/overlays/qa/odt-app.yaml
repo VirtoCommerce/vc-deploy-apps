@@ -13,7 +13,7 @@ spec:
   source:
     path: odt-app/overlays/qa
     repoURL: https://github.com/virtocommerce/vc-deploy-apps
-    targetRevision: HEAD
+    targetRevision: qa
   syncPolicy:
     automated:
       prune: true
