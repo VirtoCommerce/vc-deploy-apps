@@ -2,17 +2,17 @@
   {
     "Id": "VirtoCommerce.Core",
     "Repository": "VirtoCommerce/vc-module-core",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Core_3.3.0-alpha.1389.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-core/releases/download/3.2.0/VirtoCommerce.Core_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.AzureSearch",
     "Repository": "VirtoCommerce/vc-module-azure-search",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.AzureSearch_3.4.0-alpha.66.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-azure-search/releases/download/3.3.0/VirtoCommerce.AzureSearch_3.3.0.zip"
   },
   {
     "Id": "VirtoCommerce.Cart",
     "Repository": "VirtoCommerce/vc-module-cart",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Cart_3.5.0-alpha.412.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-cart/releases/download/3.3.0/VirtoCommerce.Cart_3.3.0.zip"
   },
   {
     "Id": "VirtoCommerce.Catalog",
@@ -23,127 +23,127 @@
   {
     "Id": "VirtoCommerce.Content",
     "Repository": "VirtoCommerce/vc-module-content",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Content_3.6.0-alpha.675.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-content/releases/download/3.3.0/VirtoCommerce.Content_3.3.0.zip"
   },
   {
     "Id": "VirtoCommerce.Customer",
     "Repository": "VirtoCommerce/vc-module-customer",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-customer/releases/download/3.3.0/VirtoCommerce.Customer_3.3.0.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-customer/releases/download/3.2.0/VirtoCommerce.Customer_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.ElasticSearch",
     "Repository": "VirtoCommerce/vc-module-elastic-search",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.ElasticSearch_3.3.0-alpha.65.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-elastic-search/releases/download/3.2.0/VirtoCommerce.ElasticSearch_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.Export",
     "Repository": "VirtoCommerce/vc-module-export",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Export_3.3.0-alpha.61.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-export/releases/download/3.2.0/VirtoCommerce.Export_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.ImageTools",
     "Repository": "VirtoCommerce/vc-module-image-tools",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.ImageTools_3.5.0-alpha.175.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-image-tools/releases/download/3.2.0/VirtoCommerce.ImageTools_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.Inventory",
     "Repository": "VirtoCommerce/vc-module-inventory",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Inventory_3.6.0-alpha.240.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-inventory/releases/download/3.3.0/VirtoCommerce.Inventory_3.3.0.zip"
   },
   {
     "Id": "VirtoCommerce.LuceneSearch",
     "Repository": "VirtoCommerce/vc-module-lucene-search",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.LuceneSearch_3.3.0-alpha.62.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-lucene-search/releases/download/3.2.0/VirtoCommerce.LuceneSearch_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.Marketing",
     "Repository": "VirtoCommerce/vc-module-marketing",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Marketing_3.6.0-alpha.591.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-marketing/releases/download/3.4.0/VirtoCommerce.Marketing_3.4.0.zip"
   },
   {
     "Id": "VirtoCommerce.Notifications",
     "Repository": "VirtoCommerce/vc-module-notification",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Notifications_3.5.0-alpha.98.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-notification/releases/download/3.3.0/VirtoCommerce.Notifications_3.3.0.zip"
   },
   {
     "Id": "VirtoCommerce.Orders",
     "Repository": "VirtoCommerce/vc-module-order",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Orders_3.9.0-alpha.781.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-order/releases/download/3.7.0/VirtoCommerce.Orders_3.7.0.zip"
   },
   {
     "Id": "VirtoCommerce.Payment",
     "Repository": "VirtoCommerce/vc-module-payment",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Payment_3.3.0-alpha.57.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-payment/releases/download/3.2.0/VirtoCommerce.Payment_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.Pricing",
     "Repository": "VirtoCommerce/vc-module-pricing",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Pricing_3.5.0-alpha.440.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-pricing/releases/download/3.3.0/VirtoCommerce.Pricing_3.3.0.zip"
   },
   {
     "Id": "VirtoCommerce.Search",
     "Repository": "VirtoCommerce/vc-module-search",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Search_3.3.0-alpha.485.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-search/releases/download/3.2.0/VirtoCommerce.Search_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.Shipping",
     "Repository": "VirtoCommerce/vc-module-shipping",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Shipping_3.3.0-alpha.40.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-shipping/releases/download/3.2.0/VirtoCommerce.Shipping_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.Sitemaps",
     "Repository": "VirtoCommerce/vc-module-sitemaps",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Sitemaps_3.3.0-alpha.181.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-sitemaps/releases/download/3.2.0/VirtoCommerce.Sitemaps_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.Store",
     "Repository": "VirtoCommerce/vc-module-store",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Store_3.3.0-alpha.458.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-store/releases/download/3.2.0/VirtoCommerce.Store_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.Subscription",
     "Repository": "VirtoCommerce/vc-module-subscription",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-subscription/releases/download/3.3.0/VirtoCommerce.Subscription_3.3.0.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-subscription/releases/download/3.2.0/VirtoCommerce.Subscription_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.Tax",
     "Repository": "VirtoCommerce/vc-module-tax",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Tax_3.3.0-alpha.38.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-tax/releases/download/3.2.0/VirtoCommerce.Tax_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.CustomerReviews",
     "Repository": "VirtoCommerce/vc-module-customer-review",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.CustomerReviews_3.2.0-alpha.33.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-customer-review/releases/download/3.1.0/VirtoCommerce.CustomerReviews_3.1.0.zip"
   },
   {
     "Id": "VirtoCommerce.AuthorizeNet",
     "Repository": "VirtoCommerce/vc-module-Authorize.Net",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.AuthorizeNet_3.3.0-alpha.186.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-Authorize.Net/releases/download/3.2.0/VirtoCommerce.AuthorizeNet_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.AvalaraTax",
     "Repository": "VirtoCommerce/vc-module-avatax",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.AvalaraTax_3.3.0-alpha.177.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-avatax/releases/download/3.2.0/VirtoCommerce.AvalaraTax_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.CatalogPersonalization",
     "Repository": "VirtoCommerce/vc-module-catalog-personalization",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.CatalogPersonalization_3.3.0-alpha.82.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-catalog-personalization/releases/download/3.2.0/VirtoCommerce.CatalogPersonalization_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.CatalogPublishing",
     "Repository": "VirtoCommerce/vc-module-catalog-publishing",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.CatalogPublishing_3.3.0-alpha.205.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.CatalogPublishing_3.2.0-af7f1325.zip"
   },
   {
     "Id": "VirtoCommerce.PageBuilderModule",
     "Repository": "VirtoCommerce/vc-module-pagebuilder",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.PageBuilderModule_3.3.0-alpha.164.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-pagebuilder/releases/download/3.1.0/VirtoCommerce.PageBuilderModule_3.1.0.zip"
   },
   {
     "Id": "VirtoCommerce.CatalogCsvImportModule",
     "Repository": "VirtoCommerce/vc-module-catalog-csv-import",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.CatalogCsvImportModule_3.4.0-alpha.108.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-catalog-csv-import/releases/download/3.2.0/VirtoCommerce.CatalogCsvImportModule_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.Contentful",
@@ -153,17 +153,17 @@
   {
     "Id": "VirtoCommerce.BulkActionsModule",
     "Repository": "VirtoCommerce/vc-module-bulk-actions",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.BulkActionsModule_3.2.0-alpha.81.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-bulk-actions/releases/download/3.1.0/VirtoCommerce.BulkActionsModule_3.1.0.zip"
   },
   {
     "Id": "VirtoCommerce.Quote",
     "Repository": "VirtoCommerce/vc-module-quote",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Quote_3.4.0-alpha.186.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-quote/releases/download/3.2.0/VirtoCommerce.Quote_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.DynamicAssociations",
     "Repository": "VirtoCommerce/vc-module-dynamic-associations",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-dynamic-associations/releases/download/3.3.0/VirtoCommerce.DynamicAssociationsModule_3.3.0.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-dynamic-associations/releases/download/3.2.0/VirtoCommerce.DynamicAssociationsModule_3.2.0.zip"
   },
   {
     "Id": "VirtoCommerce.ExperienceApi",
