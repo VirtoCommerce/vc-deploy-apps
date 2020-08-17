@@ -13,4 +13,4 @@ spec:
       - name: vc-storefront-web        
         env:
           - name: VirtoCommerce__DefaultStore
-            value: B2B-store
+            value: Electronics
