@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platform
+spec:
+  template:
+    spec:
+      initContainers:
+        - name: init-platform
+          command: ["/bin/bash","-c","python3 install-modules.py $(VC_PLATFORM_MODULES_CONFIG) /opt/virtocommerce/platform/Modules/ && rm -rf $(ELECTRONICS_THEME_LOCATION)/* && ./install-theme.sh $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION) && rm -rf $(B2B_THEME_LOCATION)/* && ./install-theme.sh $(B2B_THEME_URL) $(B2B_THEME_LOCATION) && ./upload-assets.sh $(ASSETS_URL) $(ASSETS_LOCATION)"]
+          env:
+            - name: VC_PLATFORM_MODULES_CONFIG
+              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/xapi-app/overlays/dev/modules.json?BA2F41C0D1FD486CB031B79A2573693E35BA60C8F2686C5863B9DC9D340E4A9A
+            - name: ELECTRONICS_THEME_URL
+              value: https://vc3prerelease.blob.core.windows.net/packages/vc-theme-default-2.1.9.zip
+            - name: ELECTRONICS_THEME_LOCATION
+              value: /opt/virtocommerce/platform/wwwroot/cms-content/Themes/Electronics/default
+            - name: B2B_THEME_URL
+              value: https://github.com/VirtoCommerce/vc-theme-b2b/releases/download/3.0.7/vc-b2b-theme-3.0.7.zip
+            - name: B2B_THEME_LOCATION
+              value: /opt/virtocommerce/platform/wwwroot/cms-content/Themes/B2B-store/default
+            - name: ASSETS_URL
+              value: https://vcbacpac.blob.core.windows.net/dac-packages/rba_assets.zip
+            - name: ASSETS_LOCATION
+              value: /opt/virtocommerce/platform/wwwroot/cms-content/assets  
+          volumeMounts:
+            - mountPath: /opt/virtocommerce/platform/Modules
+              name: modules-data
+            - mountPath: /opt/virtocommerce/platform/wwwroot/cms-content
+              name: cms-content-data
+        - name: init-sqldatabase
+          env:
+            - name: VC_SAMPLE_DATA_DB
+              value: xapi-platform_source
+ #     containers:
+ #       - name: vc-platform-web   
+ #         env:
+ #           - name: VirtoCommerce__SampleDataUrl
+ #             value: https://vcbacpac.blob.core.windows.net/dac-packages/rba_exported_data.zip
+
