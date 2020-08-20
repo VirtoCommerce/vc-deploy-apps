@@ -18,4 +18,4 @@ images:
   newTag: master-3.11.0-alpha.1-e771dd4f
 - name: virtocommerce/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
-  newTag: feature_x-api-5.1.0-alpha.1-78ae70d1
+  newTag: feature_x-api-5.1.0-alpha.1-d18df65b
