@@ -32,9 +32,9 @@ spec:
         #   env:
         #     - name: VC_SAMPLE_DATA_DB
         #       value: webstore-platform_source     
-     containers:
-       - name: vc-platform-web   
-         env:
-           - name: VirtoCommerce__SampleDataUrl
-             value: https://vcbacpac.blob.core.windows.net/dac-packages/rba_exported_data.zip
+      containers:
+        - name: vc-platform-web   
+          env:
+            - name: VirtoCommerce__SampleDataUrl
+              value: https://vcbacpac.blob.core.windows.net/dac-packages/rba_exported_data.zip
 
