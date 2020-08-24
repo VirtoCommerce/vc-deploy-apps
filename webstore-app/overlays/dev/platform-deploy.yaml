@@ -20,7 +20,7 @@ spec:
             - name: B2B_THEME_LOCATION
               value: /opt/virtocommerce/platform/wwwroot/cms-content/Themes/B2B-store/default
             - name: ASSETS_URL
-              value: https://vcbacpac.blob.core.windows.net/dac-packages/rba_assets.zip
+              value: https://vcbacpac.blob.core.windows.net/dac-packages/webstore_assets.zip
             - name: ASSETS_LOCATION
               value: /opt/virtocommerce/platform/wwwroot/cms-content/assets  
           volumeMounts:
@@ -36,5 +36,5 @@ spec:
         - name: vc-platform-web   
           env:
             - name: VirtoCommerce__SampleDataUrl
-              value: https://vcbacpac.blob.core.windows.net/dac-packages/rba_exported_data.zip
+              value: https://vcbacpac.blob.core.windows.net/dac-packages/webstore_exported_data_without_binary.zip
 
