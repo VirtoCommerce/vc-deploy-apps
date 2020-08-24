@@ -13,7 +13,7 @@ spec:
             - name: VC_PLATFORM_MODULES_CONFIG
               value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/qa/odt-app/overlays/qa/modules.json?BA2F41C0D1FD486CB031B79A2573693E35BA67C8F2686C5863B9DC9D340E4A9C
             - name: ODT_THEME_URL
-              value: https://vc3prerelease.blob.core.windows.net/packages/vc-odt-mpa-theme_dev-0.1.10-alpha.1-fbd1fadd.zip
+              value: https://vc3prerelease.blob.core.windows.net/packages/vc-odt-mpa-theme_dev-0.1.10-alpha.1-623391c0.zip
             - name: ODT_THEME_LOCATION
               value: /opt/virtocommerce/platform/wwwroot/cms-content/Themes/odt/default                       
           volumeMounts:
