@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: platform
 spec:
-  replicas: 2
+  replicas: 1
   template:
     spec:
       initContainers:
@@ -30,15 +30,15 @@ spec:
             - mountPath: /opt/virtocommerce/platform/wwwroot/cms-content
               name: cms-content-data
 
-      containers:
-        - name: vc-platform-web   
-          env:
-            - name: REDIS_PASS
-              valueFrom:
-                secretKeyRef:
-                  name: redis
-                  key: REDIS_PASS    
-            - name: ConnectionStrings__RedisConnectionString
-              value: "redis-master.redis:6379,password=$(REDIS_PASS),ssl=False,abortConnect=False" 
-            - name: Caching__Redis__ChannelName
-              value: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel" 
+      # containers:
+      #   - name: vc-platform-web   
+      #     env:
+      #       - name: REDIS_PASS
+      #         valueFrom:
+      #           secretKeyRef:
+      #             name: redis
+      #             key: REDIS_PASS    
+      #       - name: ConnectionStrings__RedisConnectionString
+      #         value: "redis-master.redis:6379,password=$(REDIS_PASS),ssl=False,abortConnect=False" 
+      #       - name: Caching__Redis__ChannelName
+      #         value: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel" 
