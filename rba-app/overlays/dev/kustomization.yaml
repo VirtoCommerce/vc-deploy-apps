@@ -14,8 +14,8 @@ resources:
 - ../../../common-base
 images:
 - name: virtocommerce/platform
-  newName: virtocommerce/platform
-  newTag: latest
+  newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
+  newTag: 3.4.0-a914c581
 - name: virtocommerce/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newTag: 5.3.0-df6ed3c0
