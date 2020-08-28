@@ -17,7 +17,6 @@
   {
     "Id": "VirtoCommerce.Catalog",
     "Repository": "VirtoCommerce/vc-module-catalog",
-
     "PackageUrl": "https://github.com/VirtoCommerce/vc-module-catalog/releases/download/3.7.0/VirtoCommerce.Catalog_3.7.0.zip"
   },
   {
@@ -83,7 +82,7 @@
   {
     "Id": "VirtoCommerce.Search",
     "Repository": "VirtoCommerce/vc-module-search",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-search/releases/download/3.2.0/VirtoCommerce.Search_3.2.0.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Search_3.3.0-907af663.zip"
   },
   {
     "Id": "VirtoCommerce.Shipping",
