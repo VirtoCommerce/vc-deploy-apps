@@ -1,5 +1,5 @@
 resources:
-# - webstore-app.yaml
+- webstore-app.yaml
 - rba-app.yaml
 - odt-app.yaml
 - xapi-app.yaml
