@@ -1,5 +1,6 @@
 resources:
 - webstore-app.yaml
+- support-webstore-app.yaml
 - rba-app.yaml
 - xapi-app.yaml
 - odt-app.yaml
