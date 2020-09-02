@@ -2,15 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: storefront
-spec:
-  replicas: 1
+spec:  
   template:
-    metadata:
-      labels:
-        app: storefront
     spec:
       containers:
       - name: vc-storefront-web        
         env:
-          - name: VirtoCommerce__DefaultStore
-            value: Electronics
+          - name: CookieAuthenticationOptions__ExpireTimeSpan
+            value: 12:00:00
