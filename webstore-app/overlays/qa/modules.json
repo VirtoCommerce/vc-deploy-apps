@@ -27,7 +27,7 @@
   {
     "Id": "VirtoCommerce.Customer",
     "Repository": "VirtoCommerce/vc-module-customer",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-customer/releases/download/3.5.0/VirtoCommerce.Customer_3.5.0.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Customer_3.6.0-c297da9b.zip"
   },
   {
     "Id": "VirtoCommerce.ElasticSearch",
