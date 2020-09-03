@@ -1,12 +1,16 @@
 # Kubernetes Deployments
 
+## Overview
+
 There are 3 branches:
 
 - master - used for development 
 - qa - used by QA team to test specific releases
 - demo - where demo environments are setup
 
-To deploy a new Virto Commerce based application, do the following steps:
+## How to deploy into development environment
+
+To deploy a new Virto Commerce based application for development, do the following steps in the master branch:
 
 1. Create a new folder called "{name}-app" in "master" branch (master is our dev environment).
 2. Add kustomization.yaml that contains the following (replace "{name}" with an app name used at step 1) under "overlays/dev" folder.
