@@ -168,5 +168,10 @@
     "Id": "VirtoCommerce.ExperienceApi",
     "Repository": "VirtoCommerce/vc-module-experience-api",
     "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.ExperienceApi_3.0.0-beta001.zip"
+  },
+  {
+    "Id": "VirtoCommerce.DemoSolutionFeatures",
+    "Repository": "VirtoCommerce/vc-module-demo-features",
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoSolutionFeaturesModule_1.0.0-alpha.8.zip"
   }
 ]
