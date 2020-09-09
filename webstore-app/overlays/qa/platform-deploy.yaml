@@ -10,13 +10,13 @@ spec:
           command: ["/bin/bash","-c","python3 install-modules.py $(VC_PLATFORM_MODULES_CONFIG) /opt/virtocommerce/platform/Modules/ && rm -rf $(ELECTRONICS_THEME_LOCATION)/* && ./install-theme.sh $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION) && rm -rf $(B2B_THEME_LOCATION)/* && ./install-theme.sh $(B2B_THEME_URL) $(B2B_THEME_LOCATION) && ./upload-assets.sh $(ASSETS_URL) $(ASSETS_LOCATION)"]
           env:
             - name: VC_PLATFORM_MODULES_CONFIG
-              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/qa/webstore-app/overlays/qa/modules.json?0847030920207
+              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/qa/webstore-app/overlays/qa/modules.json?8439F69CD65989A8EDE4F37181261D2E9964E81DB0F94742F9FE82C4830AC882
             - name: ELECTRONICS_THEME_URL
               value: https://vc3prerelease.blob.core.windows.net/packages/vc-theme-default-2.1.11.zip
             - name: ELECTRONICS_THEME_LOCATION
               value: /opt/virtocommerce/platform/wwwroot/cms-content/Themes/Electronics/default
             - name: B2B_THEME_URL
-              value: https://vc3prerelease.blob.core.windows.net/packages/vc-b2b-theme-3.0.7-alpha.1146.zip
+              value: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-b2b-1.0.0-alpha.1152.zip
             - name: B2B_THEME_LOCATION
               value: /opt/virtocommerce/platform/wwwroot/cms-content/Themes/B2B-store/default
             - name: ASSETS_URL
