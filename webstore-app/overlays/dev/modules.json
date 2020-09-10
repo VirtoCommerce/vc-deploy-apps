@@ -27,7 +27,7 @@
   {
     "Id": "VirtoCommerce.Customer",
     "Repository": "VirtoCommerce/vc-module-customer",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Customer_3.6.0-3eb1fb44.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-customer/releases/download/3.6.0/VirtoCommerce.Customer_3.6.0.zip"
   },
   {
     "Id": "VirtoCommerce.ElasticSearch",
@@ -172,6 +172,6 @@
   {
     "Id": "VirtoCommerce.DemoSolutionFeatures",
     "Repository": "VirtoCommerce/vc-module-demo-features",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoSolutionFeaturesModule_1.0.0-alpha.8.zip"
+    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoSolutionFeaturesModule_1.0.0-alpha.9.zip"
   }
 ]
