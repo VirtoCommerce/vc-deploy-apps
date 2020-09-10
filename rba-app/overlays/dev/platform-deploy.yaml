@@ -12,6 +12,10 @@ spec:
       initContainers:
         - name: init-platform
           image: kkisilevsky/python-apline
+          resources:
+            requests:
+              cpu: 1000m
+              memory: 1Gi
           command:
             - "/bin/sh"
             - "-c"
