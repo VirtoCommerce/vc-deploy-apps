@@ -14,10 +14,10 @@ spec:
           image: kkisilevsky/python-apline
           resources:
             limits:
-              cpu: "2"
+              cpu: "1.6"
               memory: 2Gi
             requests:
-              cpu: "2000m"
+              cpu: "1600m"
               memory: 2Gi
           command:
             - "/bin/sh"
