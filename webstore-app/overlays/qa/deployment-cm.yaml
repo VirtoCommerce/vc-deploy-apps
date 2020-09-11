@@ -1,7 +1,7 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: cms-content-cm
+  name: deployment-cm
   annotations:
     reloader.stakater.com/match: "true"
 data:
