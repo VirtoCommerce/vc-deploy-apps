@@ -5,11 +5,10 @@ metadata:
   annotations:
     reloader.stakater.com/match: "true"
 data:
-  VC_PLATFORM_MODULES_CONFIG: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/rba-app/overlays/dev/modules.json?BA2F41C0D1FD486CB031B79A2573693E35BA60C8F2686C5863B9DC9D340E4A9C
   ELECTRONICS_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-theme-default-2.1.11.zip
-  ELECTRONICS_THEME_LOCATION: /mnt/cms-content/Themes/Electronics/default
+  ELECTRONICS_THEME_LOCATION: /mnt/cms-content/Themes/Electronics/default/
   B2B_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-b2b-1.0.0-alpha.1161.zip
-  B2B_THEME_LOCATION: /mnt/cms-content/Themes/B2B-store/default
+  B2B_THEME_LOCATION: /mnt/cms-content/Themes/B2B-store/default/
   ASSETS_URL: https://vcbacpac.blob.core.windows.net/dac-packages/webstore_assets.zip
   ASSETS_LOCATION: /mnt/cms-content
   modules.json: |
