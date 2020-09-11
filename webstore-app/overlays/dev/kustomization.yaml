@@ -18,4 +18,4 @@ images:
   newTag: dev-3.14.0-alpha.11524-93e2ef0a
 - name: virtocommerce/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
-  newTag: 1.0.0-b70195ed
+  newTag: 1.0.0-30141d86
