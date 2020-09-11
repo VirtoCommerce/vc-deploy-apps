@@ -21,7 +21,7 @@ data:
     {
       "Id": "VirtoCommerce.AzureSearch",
       "Repository": "VirtoCommerce/vc-module-azure-search",
-      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-azure-search/releases/download/3.3.0/VirtoCommerce.AzureSearch_3.3.1.555.zip"
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-azure-search/releases/download/3.3.0/VirtoCommerce.AzureSearch_3.3.1.5565.zip"
     },
     {
       "Id": "VirtoCommerce.Cart",
