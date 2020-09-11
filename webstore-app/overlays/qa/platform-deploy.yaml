@@ -16,7 +16,7 @@ spec:
             - name: ELECTRONICS_THEME_LOCATION
               value: /opt/virtocommerce/platform/wwwroot/cms-content/Themes/Electronics/default
             - name: B2B_THEME_URL
-              value: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-b2b-1.0.0-alpha.1164.zip
+              value: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-b2b-1.0.0-alpha.1165.zip
             - name: B2B_THEME_LOCATION
               value: /opt/virtocommerce/platform/wwwroot/cms-content/Themes/B2B-store/default
             - name: ASSETS_URL
