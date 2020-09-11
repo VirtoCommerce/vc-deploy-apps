@@ -11,14 +11,7 @@ spec:
     spec:
       initContainers:
         - name: init-platform
-          image: kkisilevsky/python-apline
-          resources:
-            limits:
-              cpu: "1"
-              memory: 2Gi
-            requests:
-              cpu: "1000m"
-              memory: 2Gi
+          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:dev
           command:
             - "/bin/sh"
             - "-c"
