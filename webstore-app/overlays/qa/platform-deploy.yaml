@@ -3,38 +3,48 @@ kind: Deployment
 metadata:
   name: platform
 spec:
+  replicas: 1
   template:
+    metadata:
+      annotations:
+        reloader.stakater.com/search: "true"
     spec:
       initContainers:
         - name: init-platform
-          command: ["/bin/bash","-c","python3 install-modules.py $(VC_PLATFORM_MODULES_CONFIG) /opt/virtocommerce/platform/Modules/ && rm -rf $(ELECTRONICS_THEME_LOCATION)/* && ./install-theme.sh $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION) && rm -rf $(B2B_THEME_LOCATION)/* && ./install-theme.sh $(B2B_THEME_URL) $(B2B_THEME_LOCATION) && ./upload-assets.sh $(ASSETS_URL) $(ASSETS_LOCATION)"]
-          env:
-            - name: VC_PLATFORM_MODULES_CONFIG
-              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/qa/webstore-app/overlays/qa/modules.json?8439F69CD65989A8EDE4F37181261D2E9964E81DB0F94742F9FE82C4830AC883
-            - name: ELECTRONICS_THEME_URL
-              value: https://vc3prerelease.blob.core.windows.net/packages/vc-theme-default-2.1.11.zip
-            - name: ELECTRONICS_THEME_LOCATION
-              value: /opt/virtocommerce/platform/wwwroot/cms-content/Themes/Electronics/default
-            - name: B2B_THEME_URL
-              value: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-b2b-1.0.0-alpha.1163.zip
-            - name: B2B_THEME_LOCATION
-              value: /opt/virtocommerce/platform/wwwroot/cms-content/Themes/B2B-store/default
-            - name: ASSETS_URL
-              value: https://vcbacpac.blob.core.windows.net/dac-packages/webstore_assets.zip
-            - name: ASSETS_LOCATION
-              value: /opt/virtocommerce/platform/wwwroot/cms-content/assets  
+          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:dev
+          command:
+            - "/bin/sh"
+            - "-c"
+          args:
+            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S); 
+            python3 install-modules.py $(VC_PLATFORM_MODULES_CONFIG) /mnt/Modules/;
+            rm -rf $(ELECTRONICS_THEME_LOCATION) && /install-theme.sh $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION);
+            echo ELECTRONICS THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S);
+            rm -rf $(B2B_THEME_LOCATION) && /install-theme.sh $(B2B_THEME_URL) $(B2B_THEME_LOCATION);
+            echo B2B THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S);
+            python3 upload-assets.py $(ASSETS_URL) $(ASSETS_LOCATION);
+            echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S);"
+          envFrom:
+            - configMapRef:
+                name: cms-content-cm
           volumeMounts:
-            - mountPath: /opt/virtocommerce/platform/Modules
+            - mountPath: /mnt/Modules
               name: modules-data
-            - mountPath: /opt/virtocommerce/platform/wwwroot/cms-content
+            - mountPath: /mnt/cms-content
               name: cms-content-data
         - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB
-              value: webstore-platform_source     
- #     containers:
- #       - name: vc-platform-web   
- #         env:
- #           - name: VirtoCommerce__SampleDataUrl
- #             value: https://vcbacpac.blob.core.windows.net/dac-packages/webstore_exported_data_without_binary.zip
-
+              value: webstore-platform_source                
+      containers:
+        - name: vc-platform-web   
+          env:
+            - name: REDIS_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: redis
+                  key: REDIS_PASS    
+            - name: ConnectionStrings__RedisConnectionString
+              value: "redis-master.redis:6379,password=$(REDIS_PASS),ssl=False,abortConnect=False" 
+            - name: Caching__Redis__ChannelName
+              value: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel"    
