@@ -67,7 +67,14 @@ spec:
             - name: ConnectionStrings__RedisConnectionString
               value: "redis-master.redis:6379,password=$(REDIS_PASS),ssl=False,abortConnect=False" 
             - name: Caching__Redis__ChannelName
-              value: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel"    
+              value: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel"
+          volumeMounts:
+            - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
+              name: cms-content-data
+      volumes:
+        - name: cms-content-data
+          persistentVolumeClaim:
+            claimName: cms-content-nfs           
  #           - name: VirtoCommerce__SampleDataUrl #
  #             value: https://vcbacpac.blob.core.windows.net/dac-packages/rba_exported_data.zip
 
