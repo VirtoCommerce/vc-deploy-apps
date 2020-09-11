@@ -4,26 +4,3 @@ metadata:
   name: storefront
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      app: storefront
-  template:
-    metadata:
-      labels:
-        app: storefront
-    spec:
-      containers:
-      - name: vc-storefront-web
-        image: virtocommerce/storefront:latest-linux
-        envFrom:
-        - configMapRef:
-            name: storefront-cm
-        ports:
-        - containerPort: 80
-        volumeMounts:
-        - mountPath: /opt/virtocommerce/storefront/wwwroot/cms-content
-          name: cms-content-data-test
-      volumes:
-      - name: cms-content-data-test
-        persistentVolumeClaim:
-          claimName: cms-test-pvc

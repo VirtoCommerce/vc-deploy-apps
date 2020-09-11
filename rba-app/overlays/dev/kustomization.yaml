@@ -13,7 +13,6 @@ patchesStrategicMerge:
 resources:
 - ../../../common-base
 - cms-content-cm.yaml
-- cms-test-pvc.yaml
 images:
 - name: virtocommerce/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
