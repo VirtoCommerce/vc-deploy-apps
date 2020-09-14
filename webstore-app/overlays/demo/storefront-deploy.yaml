@@ -11,6 +11,6 @@ spec:
           - name: CookieAuthenticationOptions__ExpireTimeSpan
             value: 12:00:00
           - name: SnapshotCollectorConfiguration__IsEnabled
-            value: false
+            value: "false"
           - name: APPINSIGHTS_INSTRUMENTATIONKEY
             value: 23f57ede-fcfc-4d11-9ee2-65469768fd68
