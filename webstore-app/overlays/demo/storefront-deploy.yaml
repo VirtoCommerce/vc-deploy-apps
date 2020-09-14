@@ -2,5 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: storefront
-spec:
-  replicas: 1
+spec:  
+  template:
+    spec:
+      containers:
+      - name: vc-storefront-web        
+        env:
+          - name: CookieAuthenticationOptions__ExpireTimeSpan
+            value: 12:00:00
