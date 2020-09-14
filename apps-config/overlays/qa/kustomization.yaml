@@ -9,3 +9,4 @@ patchesStrategicMerge:
 - odt-app.yaml
 - xapi-app.yaml
 - support-webstore-app.yaml
+- test-web-app.yaml

@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: qa
+namePrefix: test-web-
+commonLabels:
+  instance: test-web
+
+
+patchesStrategicMerge:
+- storefront-deploy.yaml
+- platform-deploy.yaml
+resources:
+- ../../../common-base
+images:
+- name: virtocommerce/platform
+  newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
+  newTag: dev-3.14.0-alpha.11513-442255f3
+- name: virtocommerce/storefront
+  newName: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
+  newTag: 1.0.0-30141d86
