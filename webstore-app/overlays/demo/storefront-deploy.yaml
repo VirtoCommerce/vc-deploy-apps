@@ -13,4 +13,4 @@ spec:
           - name: SnapshotCollectorConfiguration__IsEnabled
             value: "false"
           - name: APPINSIGHTS_INSTRUMENTATIONKEY
-            value: 23f57ede-fcfc-4d11-9ee2-65469768fd68
+            value: f60031ba-a752-4178-90b3-4bf05b631a19
