@@ -32,9 +32,9 @@ spec:
           env:
             - name: VC_SAMPLE_DATA_DB
               value: webstore-platform_source     
-      containers:
-      - name: vc-platform-web      
-        env:
-          - name: APPINSIGHTS_INSTRUMENTATIONKEY
-            value: 23f57ede-fcfc-4d11-9ee2-65469768fd68
+#      containers:
+#      - name: vc-platform-web      
+#        env:
+#          - name: APPINSIGHTS_INSTRUMENTATIONKEY
+#            value: 23f57ede-fcfc-4d11-9ee2-65469768fd68
 

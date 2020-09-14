@@ -12,4 +12,3 @@ spec:
             value: 12:00:00
           - name: APPINSIGHTS_INSTRUMENTATIONKEY
             value: 23f57ede-fcfc-4d11-9ee2-65469768fd68
-
