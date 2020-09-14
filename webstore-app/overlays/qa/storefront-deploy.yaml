@@ -20,6 +20,10 @@ spec:
         env:
           - name: CookieAuthenticationOptions__ExpireTimeSpan
             value: 12:00:00
+          - name: SnapshotCollectorConfiguration__IsEnabled
+            value: "false"
+          - name: APPINSIGHTS_INSTRUMENTATIONKEY
+            value: 4122074c-f2ad-489b-811f-d557350fb644
       volumes:
       - name: cms-content-data
         persistentVolumeClaim:
