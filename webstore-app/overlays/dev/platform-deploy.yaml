@@ -5,6 +5,9 @@ metadata:
 spec:
   replicas: 2
   template:
+    metadata:
+      annotations:
+        reloader.stakater.com/search: "true"
     spec:
       initContainers:
         - name: init-platform
