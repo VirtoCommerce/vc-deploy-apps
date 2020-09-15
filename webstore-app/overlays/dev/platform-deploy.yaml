@@ -39,7 +39,9 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: redis
-                  key: REDIS_PASS    
+                  key: REDIS_PASS
+            - name: APPINSIGHTS_INSTRUMENTATIONKEY
+              value: 1a9a3c2d-3299-4f26-8c5f-1e73b8d2d8e4          
             - name: ConnectionStrings__RedisConnectionString
               value: "redis-master.redis:6379,password=$(REDIS_PASS),ssl=False,abortConnect=False" 
             - name: Caching__Redis__ChannelName
