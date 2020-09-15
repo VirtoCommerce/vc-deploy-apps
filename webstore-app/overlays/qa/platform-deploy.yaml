@@ -35,7 +35,7 @@ spec:
         - name: vc-platform-web   
           env:
             - name: APPINSIGHTS_INSTRUMENTATIONKEY
-              value: 1a9a3c2d-3299-4f26-8c5f-1e73b8d2d8e4  
+              value: 4122074c-f2ad-489b-811f-d557350fb644  
           volumeMounts:
             - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
               name: cms-content-data
