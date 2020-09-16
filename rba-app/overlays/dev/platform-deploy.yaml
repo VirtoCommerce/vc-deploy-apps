@@ -17,6 +17,7 @@ spec:
             - "-c"
           args:
             - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S)
+            && echo $(APP_CONFIG) > modules.json && cat modules.json
             && python3 install-modules.py $(VC_PLATFORM_MODULES_CONFIG) /mnt/Modules/*
             && rm -rf $(ELECTRONICS_THEME_LOCATION)/* && /install-theme.sh $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION)
             && echo ELECTRONICS THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
