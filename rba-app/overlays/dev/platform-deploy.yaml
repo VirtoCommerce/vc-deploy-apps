@@ -85,6 +85,7 @@ spec:
           volumeMounts:
             - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
               name: cms-content-data
+      imagePullPolicy: Always
       volumes:
         - name: cms-content-data
           persistentVolumeClaim:
