@@ -136,7 +136,7 @@ data:
     {
       "Id": "VirtoCommerce.AvalaraTax",
       "Repository": "VirtoCommerce/vc-module-avatax",
-      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-avatax/releases/download/3.3.0/VirtoCommerce.AvalaraTax_3.3.0.zip"
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-avatax/releases/download/3.1.0/VirtoCommerce.AvalaraTax_3.1.0.zip"
     },
     {
       "Id": "VirtoCommerce.CatalogPersonalization",
