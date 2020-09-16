@@ -20,6 +20,7 @@ spec:
             && python3 install-modules.py $(VC_PLATFORM_MODULES_CONFIG) /mnt/Modules/
             && rm -rf $(ODT_THEME_LOCATION)/* && /install-theme.sh $(ODT_THEME_URL) $(ODT_THEME_LOCATION)
             && echo ODT THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
+          envFrom: 
             - configMapRef:
                 name: cms-content-cm
           env:
