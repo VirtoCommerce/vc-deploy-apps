@@ -58,7 +58,8 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: vc-dbserver-password
-                  key: password                     
+                  key: password 
+      imagePullPolicy: Always                       
       containers:
         - name: vc-platform-web   
           env:
