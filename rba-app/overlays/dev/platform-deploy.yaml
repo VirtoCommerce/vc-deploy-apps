@@ -16,7 +16,8 @@ spec:
             - "/bin/sh"
             - "-c"
           args:
-            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
+            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S)
+            && echo $(MODULES_CONFIG)
             && python3 install-modules.py $(MODULES_CONFIG) /mnt/Modules/*
             && rm -rf $(ELECTRONICS_THEME_LOCATION)/* && /install-theme.sh $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION)
             && echo ELECTRONICS THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
