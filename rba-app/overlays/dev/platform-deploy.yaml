@@ -38,6 +38,7 @@ spec:
               name: modules-data
             - mountPath: /mnt/cms-content
               name: cms-content-data
+          imagePullPolicy: Always    
         - name: init-sqldatabase
           command:
             - "/opt/mssql-tools/bin/sqlcmd"
@@ -58,8 +59,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: vc-dbserver-password
-                  key: password 
-      imagePullPolicy: Always                       
+                  key: password                       
       containers:
         - name: vc-platform-web   
           env:
