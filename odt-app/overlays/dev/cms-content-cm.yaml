@@ -1,0 +1,9 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: cms-content-cm
+  annotations:
+    reloader.stakater.com/match: "true"
+data:
+  ODT_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-odt-mpa-theme_page-builder-blocks-0.1.10-pr-157-b6255983.zip
+  ODT_THEME_LOCATION: /mnt/cms-content/Themes/odt/default

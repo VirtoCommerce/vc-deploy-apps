@@ -14,3 +14,10 @@ spec:
         env:
           - name: VirtoCommerce__DefaultStore
             value: odt
+        volumeMounts:
+          - mountPath: /opt/virtocommerce/storefront/wwwroot/cms-content
+            name: cms-content-data
+      volumes:
+      - name: cms-content-data
+        persistentVolumeClaim:
+          claimName: cms-content-nfs
