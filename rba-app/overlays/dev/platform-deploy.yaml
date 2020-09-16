@@ -17,8 +17,8 @@ spec:
             - "-c"
           args:
             - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S)
-            && echo $APP_CONFIG > modules.json
-            && python3 install-modules.py $(APP_CONFIG) /mnt/Modules/*
+            && echo $MODULES_CONFIG > modules.json
+            && python3 install-modules.py modules.json /mnt/Modules/*
             && rm -rf $(ELECTRONICS_THEME_LOCATION)/* && /install-theme.sh $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION)
             && echo ELECTRONICS THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
             && rm -rf $(B2B_THEME_LOCATION)/* && /install-theme.sh $(B2B_THEME_URL) $(B2B_THEME_LOCATION)
@@ -31,7 +31,7 @@ spec:
           env:
             - name: VC_PLATFORM_MODULES_CONFIG
               value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/rba-app/overlays/dev/modules.json?BA2F41C0D1FD486CB031B79A2573693E35BA60C8F2686C5863B9DC9D340E4A9C2
-            - name: APP_CONFIG
+            - name: MODULES_CONFIG
               valueFrom:
                 configMapKeyRef:
                   name: deployment-cm
