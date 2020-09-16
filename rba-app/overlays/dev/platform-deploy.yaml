@@ -11,7 +11,7 @@ spec:
     spec:
       initContainers:
         - name: init-platform
-          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:dev
+          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:dev-test
           command:
             - "/bin/sh"
             - "-c"
