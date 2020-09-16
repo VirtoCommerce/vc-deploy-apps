@@ -28,17 +28,11 @@ spec:
             - configMapRef:
                 name: deployment-cm
           env:
-            - name: VC_PLATFORM_MODULES_CONFIG
-              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/rba-app/overlays/dev/modules.json?BA2F41C0D1FD486CB031B79A2573693E35BA60C8F2686C5863B9DC9D340E4A9C2
             - name: MODULES_CONFIG
               valueFrom:
                 configMapKeyRef:
                   name: deployment-cm
                   key: modules.json 
-          #     valueFrom:
-          #       configMapKeyRef:
-          #         name: deployment-cm
-          #         key: modules.json 
           volumeMounts:
             - mountPath: /mnt/Modules
               name: modules-data
@@ -68,11 +62,6 @@ spec:
       containers:
         - name: vc-platform-web   
           env:
-            - name: MODULES_CONFIG
-              valueFrom:
-                configMapKeyRef:
-                  name: deployment-cm
-                  key: modules.json 
             - name: REDIS_PASS
               valueFrom:
                 secretKeyRef:
@@ -85,7 +74,6 @@ spec:
           volumeMounts:
             - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
               name: cms-content-data
-      imagePullPolicy: Always
       volumes:
         - name: cms-content-data
           persistentVolumeClaim:
