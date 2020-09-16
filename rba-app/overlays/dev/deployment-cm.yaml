@@ -11,7 +11,7 @@ data:
   B2B_THEME_LOCATION: /mnt/cms-content/Themes/B2B-store/default
   ASSETS_URL: https://vcbacpac.blob.core.windows.net/dac-packages/webstore_assets.zip
   ASSETS_LOCATION: /mnt/cms-content
-  VC_PLATFORM_MODULES_CONFIG: |
+  MODULES_CONFIG: |
    [
     {
       "Id": "VirtoCommerce.Core",
