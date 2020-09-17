@@ -2,11 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: storefront
-spec:  
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: storefront
   template:
+    metadata:
+      labels:
+        app: storefront
     spec:
       containers:
-      - name: vc-storefront-web        
+      - name: vc-storefront-web
+        volumeMounts:
+        - mountPath: /opt/virtocommerce/storefront/wwwroot/cms-content
+          name: cms-content-data
         env:
           - name: CookieAuthenticationOptions__ExpireTimeSpan
             value: 12:00:00
@@ -14,3 +24,7 @@ spec:
             value: "false"
           - name: APPINSIGHTS_INSTRUMENTATIONKEY
             value: f60031ba-a752-4178-90b3-4bf05b631a19
+      volumes:
+      - name: cms-content-data
+        persistentVolumeClaim:
+          claimName: cms-content-nfs
