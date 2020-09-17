@@ -15,7 +15,7 @@ spec:
           - name: VirtoCommerce__DefaultStore
             value: odt
         volumeMounts:
-          - mountPath: /vc-storefront/wwwroot/cms-content
+          - mountPath: /opt/vc-storefront/wwwroot/cms-content
             name: cms-content-data
       volumes:
       - name: cms-content-data
