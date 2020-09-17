@@ -11,13 +11,13 @@ spec:
     spec:
       initContainers:
         - name: init-platform
-          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:dev
+          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:dev-test
           command:
             - "/bin/sh"
             - "-c"
           args:
             - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
-            && python3 install-modules.py $(VC_PLATFORM_MODULES_CONFIG) /mnt/Modules/
+            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
             && rm -rf $(ELECTRONICS_THEME_LOCATION)/* && /install-theme.sh $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION)
             && echo ELECTRONICS THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
             && rm -rf $(B2B_THEME_LOCATION)/* && /install-theme.sh $(B2B_THEME_URL) $(B2B_THEME_LOCATION)
@@ -26,15 +26,19 @@ spec:
             && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
           envFrom:
             - configMapRef:
-                name: cms-content-cm
+                name: deployment-cm
           env:
-            - name: VC_PLATFORM_MODULES_CONFIG
-              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/webstore-app/overlays/dev/modules.json?2CD8D114E0BC4EA2B5622383502C6F8A    
+            - name: MODULES_CONFIG
+              valueFrom:
+                configMapKeyRef:
+                  name: deployment-cm
+                  key: modules.json       
           volumeMounts:
             - mountPath: /mnt/Modules
               name: modules-data
             - mountPath: /mnt/cms-content
               name: cms-content-data
+          imagePullPolicy: Always     
       containers:
         - name: vc-platform-web   
           env:
