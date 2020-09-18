@@ -28,7 +28,7 @@ spec:
                 name: cms-content-cm
           env:
             - name: VC_PLATFORM_MODULES_CONFIG
-              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/demo/public-app/overlays/demo/modules.json?2CD8D114E0BC4EA2B5622383502C6F81
+              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/demo/public-app/overlays/demo/modules.json?2CD8D114E0BC4EA2B5622383502C6F80
           volumeMounts:
             - mountPath: /mnt/Modules
               name: modules-data
