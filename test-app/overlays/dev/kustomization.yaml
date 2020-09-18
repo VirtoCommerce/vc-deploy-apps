@@ -12,7 +12,7 @@ patchesStrategicMerge:
 - platform-deploy.yaml
 resources:
 - ../../../common-base
-- cms-content-cm.yaml
+- deployment-cm.yaml
 - cms-content-nfs-pvc.yaml
 images:
 - name: virtocommerce/platform
