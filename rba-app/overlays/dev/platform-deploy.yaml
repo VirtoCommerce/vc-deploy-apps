@@ -72,6 +72,8 @@ spec:
               value: "redis-master.redis:6379,password=$(REDIS_PASS),ssl=False,abortConnect=False" 
             - name: Caching__Redis__ChannelName
               value: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel"
+            - name: VirtoCommerce__Platform__DemoCredentials
+              value: "Test"
           volumeMounts:
             - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
               name: cms-content-data
