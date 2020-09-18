@@ -40,7 +40,7 @@ spec:
             - name: APPINSIGHTS_INSTRUMENTATIONKEY
               value: f60031ba-a752-4178-90b3-4bf05b631a19
             - name: VirtoCommerce__DemoCredentials
-              value: "[admin,store]"
+              value: "['admin','store']"
 #            - name: VirtoCommerce__DemoResetTime
 #              value: 
           volumeMounts:
