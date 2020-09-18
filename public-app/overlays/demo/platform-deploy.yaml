@@ -39,8 +39,8 @@ spec:
           env:
             - name: APPINSIGHTS_INSTRUMENTATIONKEY
               value: f60031ba-a752-4178-90b3-4bf05b631a19
-            - name: VirtoCommerce__Platform__DemoCredentials
-              value: Test
+            - name: Platform__DemoCredentials
+              value: Demo access credentials - Login: <b>admin</b> Password: <b>store</b>
           volumeMounts:
             - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
               name: cms-content-data
