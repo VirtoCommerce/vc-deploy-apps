@@ -47,11 +47,6 @@ spec:
               value: webstore-platform_source          
       containers:
         - name: vc-platform-web   
-          resources:
-            limits:
-              memory: "250Mi"
-            requests:
-              memory: "100Mi"        
           env:
             - name: REDIS_PASS
               valueFrom:
