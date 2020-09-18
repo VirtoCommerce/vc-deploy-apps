@@ -35,6 +35,10 @@ spec:
               name: modules-data
             - mountPath: /mnt/cms-content
               name: cms-content-data
+        - name: init-sqldatabase
+          env:
+            - name: VC_SAMPLE_DATA_DB
+              value: webstore-platform_source
       containers:
         - name: vc-platform-web   
           env:
