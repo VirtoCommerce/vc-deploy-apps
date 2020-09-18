@@ -18,8 +18,10 @@ spec:
           args:
             - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
             && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
+            && if [ ! -d \"$ELECTRONICS_THEME_LOCATION\" ]; then mkdir -p \"$ELECTRONICS_THEME_LOCATION\"; fi            
             && python3 install-theme.py $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION)
             && echo ELECTRONICS THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
+            && if [ ! -d \"$B2B_THEME_LOCATION\" ]; then mkdir -p \"$B2B_THEME_LOCATION\"; fi            
             && python3 install-theme.py $(B2B_THEME_URL) $(B2B_THEME_LOCATION)
             && echo B2B THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
             && python3 upload-assets.py $(ASSETS_URL) $(ASSETS_LOCATION)
@@ -39,8 +41,17 @@ spec:
             - mountPath: /mnt/cms-content
               name: cms-content-data
           imagePullPolicy: Always     
+        - name: init-sqldatabase
+          env:
+            - name: VC_SAMPLE_DATA_DB
+              value: webstore-platform_source          
       containers:
         - name: vc-platform-web   
+          resources:
+            limits:
+              memory: "250Mi"
+            requests:
+              memory: "100Mi"        
           env:
             - name: REDIS_PASS
               valueFrom:
@@ -55,7 +66,7 @@ spec:
               value: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel"
           volumeMounts:
             - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
-              name: cms-content-data
+              name: cms-content-data        
       volumes:
         - name: cms-content-data
           persistentVolumeClaim:
