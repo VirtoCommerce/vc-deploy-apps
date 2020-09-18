@@ -5,25 +5,42 @@ metadata:
 spec:
   replicas: 1
   template:
+    metadata:
+      annotations:
+        reloader.stakater.com/search: "true"
     spec:
       initContainers:
         - name: init-platform
-          command: ["/bin/bash","-c","python3 install-modules.py $(VC_PLATFORM_MODULES_CONFIG) /opt/virtocommerce/platform/Modules/ && rm -rf $(ODT_THEME_LOCATION)/* && ./install-theme.sh $(ODT_THEME_URL) $(ODT_THEME_LOCATION)"]
+          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:dev
+          command:
+            - "/bin/sh"
+            - "-c"
+          args:
+            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
+            && python3 install-modules.py $(VC_PLATFORM_MODULES_CONFIG) /mnt/Modules/
+            && rm -rf $(ODT_THEME_LOCATION)/* && /install-theme.sh $(ODT_THEME_URL) $(ODT_THEME_LOCATION)
+            && echo ODT THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
+          envFrom: 
+            - configMapRef:
+                name: cms-content-cm
           env:
             - name: VC_PLATFORM_MODULES_CONFIG
-              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/odt-app/overlays/dev/modules.json?BA2F41C071FD486C7031B79A2573693E35BA67C8F2686C5863B9DC9D340E4A9C
-            - name: ODT_THEME_URL
-              value: https://vc3prerelease.blob.core.windows.net/packages/vc-odt-mpa-theme_page-builder-blocks-0.1.10-pr-157-b6255983.zip
-            - name: ODT_THEME_LOCATION
-              value: /opt/virtocommerce/platform/wwwroot/cms-content/Themes/odt/default                       
+              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/odt-app/overlays/dev/modules.json?BA2F41C071FD486C7031B79A2573693E35BA67C8F2686C5863B9DC9D340E4A9C                     
           volumeMounts:
-            - mountPath: /opt/virtocommerce/platform/Modules
+            - mountPath: /mnt/Modules
               name: modules-data
-            - mountPath: /opt/virtocommerce/platform/wwwroot/cms-content
+            - mountPath: /mnt/cms-content
               name: cms-content-data                      
       containers:
         - name: vc-platform-web   
           env:
             - name: VirtoCommerce__SampleDataUrl #
               value: https://vcbacpac.blob.core.windows.net/dac-packages/odt_exported_data_without_theme.zip
+          volumeMounts:
+            - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
+              name: cms-content-data
+      volumes:
+        - name: cms-content-data
+          persistentVolumeClaim:
+            claimName: cms-content-nfs    
 

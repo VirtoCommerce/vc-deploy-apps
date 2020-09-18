@@ -11,30 +11,34 @@ spec:
     spec:
       initContainers:
         - name: init-platform
-          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:dev
+          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:dev-test
           command:
             - "/bin/sh"
             - "-c"
           args:
-            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
-            && python3 install-modules.py $(VC_PLATFORM_MODULES_CONFIG) /mnt/Modules/
-            && rm -rf $(ELECTRONICS_THEME_LOCATION)/* && /install-theme.sh $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION)
+            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S)
+            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
+            && python3 install-theme.py $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION)
             && echo ELECTRONICS THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
-            && rm -rf $(B2B_THEME_LOCATION)/* && /install-theme.sh $(B2B_THEME_URL) $(B2B_THEME_LOCATION)
+            && python3 install-theme.py $(B2B_THEME_URL) $(B2B_THEME_LOCATION)
             && echo B2B THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
             && python3 upload-assets.py $(ASSETS_URL) $(ASSETS_LOCATION)
             && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
           envFrom:
             - configMapRef:
-                name: cms-content-cm
+                name: deployment-cm
           env:
-            - name: VC_PLATFORM_MODULES_CONFIG
-              value: https://raw.githubusercontent.com/VirtoCommerce/vc-deploy-apps/master/rba-app/overlays/dev/modules.json?BA2F41C0D1FD486CB031B79A2573693E35BA60C8F2686C5863B9DC9D340E4A9C1    
+            - name: MODULES_CONFIG
+              valueFrom:
+                configMapKeyRef:
+                  name: deployment-cm
+                  key: modules.json 
           volumeMounts:
             - mountPath: /mnt/Modules
               name: modules-data
             - mountPath: /mnt/cms-content
               name: cms-content-data
+          imagePullPolicy: Always    
         - name: init-sqldatabase
           command:
             - "/opt/mssql-tools/bin/sqlcmd"
@@ -55,7 +59,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: vc-dbserver-password
-                  key: password                     
+                  key: password                       
       containers:
         - name: vc-platform-web   
           env:

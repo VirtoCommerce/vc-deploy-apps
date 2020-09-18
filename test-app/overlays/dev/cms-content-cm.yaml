@@ -10,4 +10,4 @@ data:
   B2B_THEME_URL: https://github.com/VirtoCommerce/vc-theme-b2b/releases/download/3.0.7/vc-b2b-theme-3.0.7.zip
   B2B_THEME_LOCATION: /mnt/cms-content/Themes/B2B-store/default
   ASSETS_URL: https://vcbacpac.blob.core.windows.net/dac-packages/webstore_assets.zip
-  ASSETS_LOCATION: /mnt/cms-content  
+  ASSETS_LOCATION: /mnt/cms-content
