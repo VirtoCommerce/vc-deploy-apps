@@ -12,12 +12,12 @@ patchesStrategicMerge:
 - platform-deploy.yaml
 resources:
 - ../../../common-base
-- cms-content-cm.yaml
+- deployment-cm.yaml
 - cms-content-nfs-pvc.yaml
 images:
 - name: virtocommerce/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
-  newTag: dev-3.15.0-alpha.11535-cb44843c
+  newTag: dev-linux-latest
 - name: virtocommerce/storefront
-  newName: docker.pkg.github.com/virtocommerce/vc-storefront/storefront:dev-linux-latest
-  newTag: dev-1.0.0-alpha.789-3176dc89
+  newName: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
+  newTag: dev-linux-latest
