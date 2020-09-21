@@ -81,9 +81,10 @@ spec:
             - "/bin/bash"
             - "-c"
           args:
-            - cat /vault/secrets/api >> /vault/secrets/config;
+            - "cat /vault/secrets/api >> /vault/secrets/config;
               cat /vault/secrets/spass >> /vault/secrets/config;
-              source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll     
+              source /vault/secrets/config; 
+              dotnet VirtoCommerce.Platform.Web.dll"    
             # - "echo START $(date +%Y-%m-%d-%H-%M-%S)
             #   && cat /vault/secrets/api >> /vault/secrets/config
             #   && cat /vault/secrets/spass >> /vault/secrets/config
