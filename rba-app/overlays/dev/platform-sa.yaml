@@ -3,4 +3,6 @@ kind: ServiceAccount
 metadata:
     name: app
     labels:
-    app: platform
+        app: platform
+
+    
