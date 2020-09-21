@@ -12,6 +12,9 @@ patchesStrategicMerge:
 - platform-deploy.yaml
 resources:
 - ../../../common-base
+- deployment-cm.yaml
+- cms-content-nfs-pvc.yaml
+
 images:
 - name: virtocommerce/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
