@@ -7,8 +7,21 @@ spec:
   template:
     metadata:
       annotations:
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/role: "myapp"
+        vault.hashicorp.com/agent-inject-secret-api: "secret/notifications"
+        vault.hashicorp.com/agent-inject-template-api: |
+          {{- with secret "secret/notifications" -}}
+          export Notifications__SendGrid__ApiKey="{{ .Data.data.apikey }}"
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-spass: "secret/notifications"
+        vault.hashicorp.com/agent-inject-template-spass: |
+          {{- with secret "secret/notifications" -}}
+          export Notifications__Smtp__Password="{{ .Data.data.password }}"
+          {{- end }}
         reloader.stakater.com/search: "true"
     spec:
+      serviceAccountName: app
       initContainers:
         - name: init-platform
           image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:dev-test
@@ -63,7 +76,17 @@ spec:
                   name: vc-dbserver-password
                   key: password                       
       containers:
-        - name: vc-platform-web   
+        - name: vc-platform-web
+          command:
+            - "/bin/bash"
+            - "-c"
+          args:
+            - "cat /vault/secrets/api >> /vault/secrets/config;
+              cat /vault/secrets/spass >> /vault/secrets/config;
+              source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"
+          envFrom:
+            - configMapRef:
+                name: environment-cm    
           env:
             - name: VC_DBSERVER_MASTER_PASSWORD
               valueFrom:
@@ -90,4 +113,10 @@ spec:
             claimName: cms-content-nfs           
  #           - name: VirtoCommerce__SampleDataUrl #
  #             value: https://vcbacpac.blob.core.windows.net/dac-packages/rba_exported_data.zip
-
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: app
+  labels:
+    app: platform
