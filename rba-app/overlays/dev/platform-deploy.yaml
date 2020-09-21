@@ -12,7 +12,7 @@ spec:
         vault.hashicorp.com/agent-inject-secret-api: "secret/notifications"
         vault.hashicorp.com/agent-inject-template-api: |
           {{- with secret "secret/notifications" -}}
-          export Notifications__SendGrid__ApiKey="{{ .Data.data.apikey }}"
+          export Notifications__SendGrid__ApiKey="{{ .Data.apikey }}"
           {{- end }}
         vault.hashicorp.com/agent-inject-secret-spass: "secret/notifications"
         vault.hashicorp.com/agent-inject-template-spass: |
