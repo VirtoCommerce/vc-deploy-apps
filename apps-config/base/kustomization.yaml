@@ -4,4 +4,3 @@ resources:
 - rba-app.yaml
 - xapi-app.yaml
 - odt-app.yaml
-- test-app.yaml
