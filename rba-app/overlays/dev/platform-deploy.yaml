@@ -21,7 +21,7 @@ spec:
           {{- end }}
         reloader.stakater.com/search: "true"
     spec:
-      serviceAccountName: app
+      serviceAccountName: "$(VC_PLATFORM_SERVICE)-app"
       initContainers:
         - name: init-platform
           image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:dev-test
@@ -113,10 +113,3 @@ spec:
             claimName: cms-content-nfs           
  #           - name: VirtoCommerce__SampleDataUrl #
  #             value: https://vcbacpac.blob.core.windows.net/dac-packages/rba_exported_data.zip
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: app
-  labels:
-    app: platform
