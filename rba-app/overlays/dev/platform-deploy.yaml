@@ -83,9 +83,9 @@ spec:
             - "cat /vault/secrets/api >> /vault/secrets/config;
               cat /vault/secrets/spass >> /vault/secrets/config;
               source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"
-          # envFrom:
-          #   - configMapRef:
-          #       name: environment-cm    
+          envFrom:
+            - configMapRef:
+                name: environment-cm    
           env:
             - name: VC_DBSERVER_MASTER_PASSWORD
               valueFrom:
