@@ -35,7 +35,7 @@ spec:
         - name: vc-platform-web   
           env:
             - name: VirtoCommerce__SampleDataUrl #
-              value: https://vc3prerelease.blob.core.windows.net/packages/vc-odt-mpa-theme_dev-0.1.10-alpha.1-924b5c65.zip
+              value: https://vcbacpac.blob.core.windows.net/dac-packages/odt_exported_data_without_theme.zip
           volumeMounts:
             - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
               name: cms-content-data
