@@ -81,10 +81,11 @@ spec:
             - "/bin/bash"
             - "-c"
           args:
-            - "echo START $(date +%Y-%m-%d-%H-%M-%S)
-              && cat /vault/secrets/api >> /vault/secrets/config
-              && cat /vault/secrets/spass >> /vault/secrets/config
-              cat /vault/secrets/api && dotnet VirtoCommerce.Platform.Web.dll"
+            - dotnet VirtoCommerce.Platform.Web.dll
+            # - "echo START $(date +%Y-%m-%d-%H-%M-%S)
+            #   && cat /vault/secrets/api >> /vault/secrets/config
+            #   && cat /vault/secrets/spass >> /vault/secrets/config
+            #   cat /vault/secrets/api && dotnet VirtoCommerce.Platform.Web.dll"
           envFrom:
             - configMapRef:
                 name: environment-cm    
