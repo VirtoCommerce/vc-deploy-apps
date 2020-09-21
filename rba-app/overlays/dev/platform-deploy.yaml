@@ -22,7 +22,7 @@ spec:
         vault.hashicorp.com/agent-inject-secret-redis: "secret/redis"
         vault.hashicorp.com/agent-inject-template-redis: |
           {{- with secret "secret/redis" -}}
-          export ConnectionStrings__RedisConnectionString="redis-master.redis:6379,password={{ .Data.data.REDIS_PASS }},ssl=False,abortConnect=False"
+          export ConnectionStrings__RedisConnectionString="redis-master.redis:6379,password={{ .Data.REDIS_PASS }},ssl=False,abortConnect=False"
           {{- end }}  
         reloader.stakater.com/search: "true"
     spec:
