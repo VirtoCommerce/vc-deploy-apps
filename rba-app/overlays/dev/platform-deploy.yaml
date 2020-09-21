@@ -84,7 +84,7 @@ spec:
             - "echo START $(date +%Y-%m-%d-%H-%M-%S)
               && cat /vault/secrets/api >> /vault/secrets/config
               && cat /vault/secrets/spass >> /vault/secrets/config
-              source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"
+              cat /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"
           envFrom:
             - configMapRef:
                 name: environment-cm    
