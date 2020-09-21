@@ -21,7 +21,6 @@ spec:
           {{- end }}
         reloader.stakater.com/search: "true"
     spec:
-      serviceAccountName: app
       initContainers:
         - name: init-platform
           image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:dev-test
