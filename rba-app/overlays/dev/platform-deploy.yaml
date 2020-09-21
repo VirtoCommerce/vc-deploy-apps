@@ -76,6 +76,7 @@ spec:
                   key: password                       
       containers:
         - name: vc-platform-web
+          imagePullPolicy: Always 
           command:
             - "/bin/bash"
             - "-c"
