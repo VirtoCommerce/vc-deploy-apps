@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: platform
 spec:
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       annotations:
@@ -65,6 +65,11 @@ spec:
       containers:
         - name: vc-platform-web   
           env:
+            - name: VC_DBSERVER_MASTER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: vc-dbserver-password
+                  key: password
             - name: REDIS_PASS
               valueFrom:
                 secretKeyRef:
