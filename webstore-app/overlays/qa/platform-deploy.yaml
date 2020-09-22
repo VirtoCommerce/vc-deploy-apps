@@ -7,6 +7,18 @@ spec:
   template:
     metadata:
       annotations:
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/role: "myapp"
+        vault.hashicorp.com/agent-inject-secret-api: "secret/notifications"
+        vault.hashicorp.com/agent-inject-template-api: |
+          {{- with secret "secret/notifications" -}}
+          export Notifications__SendGrid__ApiKey="{{ .Data.apikey }}"
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-spass: "secret/notifications"
+        vault.hashicorp.com/agent-inject-template-spass: |
+          {{- with secret "secret/notifications" -}}
+          export Notifications__Smtp__Password="{{ .Data.password }}"
+          {{- end }}
         reloader.stakater.com/search: "true"
     spec:
       initContainers:
@@ -48,7 +60,22 @@ spec:
               value: webstore-platform_source          
 
       containers:
-        - name: vc-platform-web   
+        - name: vc-platform-web
+          resources:
+            requests:
+              memory: "512Mi"
+            limits:
+              memory: "768Mi" 
+          command:
+            - "/bin/bash"
+            - "-c"
+          args:
+            - "cat /vault/secrets/api >> /vault/secrets/config;
+              cat /vault/secrets/spass >> /vault/secrets/config;
+              source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll" 
+          envFrom:
+            - configMapRef:
+                name: environment-cm     
           env:
             - name: APPINSIGHTS_INSTRUMENTATIONKEY
               value: 4122074c-f2ad-489b-811f-d557350fb644  

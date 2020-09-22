@@ -14,6 +14,7 @@ resources:
 - ../../../common-base
 - deployment-cm.yaml
 - cms-content-nfs-pvc.yaml
+- environment-cm.yaml
 images:
 - name: virtocommerce/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
