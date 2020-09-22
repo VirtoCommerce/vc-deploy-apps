@@ -11,6 +11,11 @@ spec:
     spec:
       containers:
       - name: vc-storefront-web
+        resources:
+          requests:
+            memory: "512Mi"
+          limits:
+            memory: "768Mi"
         env:
           - name: VirtoCommerce__DefaultStore
             value: odt
