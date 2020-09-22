@@ -35,7 +35,12 @@ spec:
             - mountPath: /mnt/cms-content
               name: cms-content-data
       containers:
-        - name: vc-platform-web      
+        - name: vc-platform-web
+          resources:
+            requests:
+              memory: "512Mi"
+            limits:
+              memory: "768Mi"    
           env:
             - name: APPINSIGHTS_INSTRUMENTATIONKEY
               value: f60031ba-a752-4178-90b3-4bf05b631a19
