@@ -32,7 +32,12 @@ spec:
             - mountPath: /mnt/cms-content
               name: cms-content-data                      
       containers:
-        - name: vc-platform-web   
+        - name: vc-platform-web
+          resources:
+            requests:
+              memory: "512Mi"
+            limits:
+              memory: "768Mi" 
           env:
             - name: VirtoCommerce__SampleDataUrl #
               value: https://vcbacpac.blob.core.windows.net/dac-packages/odt_exported_data_without_theme.zip
