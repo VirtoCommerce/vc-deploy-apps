@@ -61,6 +61,11 @@ spec:
 
       containers:
         - name: vc-platform-web
+          resources:
+            requests:
+              memory: "512Mi"
+            limits:
+              memory: "768Mi" 
           command:
             - "/bin/bash"
             - "-c"
