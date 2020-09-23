@@ -9,6 +9,8 @@ spec:
       app: platform
   template:
     metadata:
+      annotations:
+        reloader.stakater.com/search: "true"
       labels:
         app: platform
     spec:
