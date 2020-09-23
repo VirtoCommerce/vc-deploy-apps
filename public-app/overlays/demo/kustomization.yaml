@@ -10,6 +10,7 @@ commonLabels:
 patchesStrategicMerge:
 - storefront-deploy.yaml
 - platform-deploy.yaml
+- ingress.yaml
 resources:
 - ../../../common-base
 - cms-content-cm.yaml
