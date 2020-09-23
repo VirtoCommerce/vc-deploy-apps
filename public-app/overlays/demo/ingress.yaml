@@ -5,12 +5,12 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     ingress.kubernetes.io/proxy-body-size: 100M
-    nginx.ingress.kubernetes.io/proxy_buffering: "on"
-    nginx.ingress.kubernetes.io/proxy_buffer_size: "256k"
-    nginx.ingress.kubernetes.io/proxy-buffers-number: "4"
-    nginx.ingress.kubernetes.io/proxy_busy_buffers_size: "256k"
-    nginx.ingress.kubernetes.io/client-header-buffer-size: "256k"
-    nginx.ingress.kubernetes.io/large-client-header-buffers: "4 256k"
+    ingress.kubernetes.io/proxy_buffering: "on"
+    ingress.kubernetes.io/proxy_buffer_size: "256k"
+    ingress.kubernetes.io/proxy-buffers-number: "4"
+    ingress.kubernetes.io/proxy_busy_buffers_size: "256k"
+    ingress.kubernetes.io/client-header-buffer-size: "256k"
+    ingress.kubernetes.io/large-client-header-buffers: "4 256k"
     # ingress.kubernetes.io/proxy_read_timeout: "150"
     # nginx.ingress.kubernetes.io/fastcgi_buffers: 16 16k
     # nginx.ingress.kubernetes.io/fastcgi_buffer_size: 32k
