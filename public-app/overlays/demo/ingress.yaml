@@ -6,11 +6,11 @@ metadata:
     kubernetes.io/ingress.class: nginx
     ingress.kubernetes.io/proxy-body-size: 100M
     #ingress.kubernetes.io/proxy_buffering: "off"
-    ingress.kubernetes.io/proxy_buffer_size: 4M
-    ingress.kubernetes.io/proxy_buffers: 8 4M
-    ingress.kubernetes.io/proxy_busy_buffers_size: 4M
-    ingress.kubernetes.io/fastcgi_buffer_size: 4M
-    ingress.kubernetes.io/fastcgi_buffers: 8 4M
+    ingress.kubernetes.io/proxy_buffer_size: 128k
+    ingress.kubernetes.io/proxy_buffers: 4 256k
+    ingress.kubernetes.io/proxy_busy_buffers_size: 256k
+    # ingress.kubernetes.io/fastcgi_buffer_size: 4M
+    # ingress.kubernetes.io/fastcgi_buffers: 8 4M
 spec:
   rules:
   - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
