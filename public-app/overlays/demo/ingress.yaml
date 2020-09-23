@@ -9,6 +9,7 @@ metadata:
     ingress.kubernetes.io/proxy_buffer_size: 128k
     ingress.kubernetes.io/proxy_buffers: 4 256k
     ingress.kubernetes.io/proxy_busy_buffers_size: 256k
+    ingress.kubernetes.io/proxy_read_timeout: "150"
     # ingress.kubernetes.io/fastcgi_buffer_size: 4M
     # ingress.kubernetes.io/fastcgi_buffers: 8 4M
 spec:
