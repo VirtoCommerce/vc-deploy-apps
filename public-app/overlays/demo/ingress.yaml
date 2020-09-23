@@ -5,7 +5,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     ingress.kubernetes.io/proxy-body-size: 100M
-    ingress.kubernetes.io/proxy_buffering: "off"
+    #ingress.kubernetes.io/proxy_buffering: "off"
     # ingress.kubernetes.io/proxy_buffer_size: 128k
     # ingress.kubernetes.io/proxy_buffers: 8 256k
     # ingress.kubernetes.io/proxy_busy_buffers_size: 256k
