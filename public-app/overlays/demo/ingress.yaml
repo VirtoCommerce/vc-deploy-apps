@@ -9,9 +9,9 @@ metadata:
     nginx.ingress.kubernetes.io/proxy_buffer_size: "512k"
     nginx.ingress.kubernetes.io/proxy-buffers: "8 1024k"
     nginx.ingress.kubernetes.io/proxy_busy_buffers_size: "1024k"
-    # nginx.ingress.kubernetes.io/proxy-max-temp-file-size: "1024m"
-    # nginx.ingress.kubernetes.io/fastcgi_buffers: 16 16k
-    # nginx.ingress.kubernetes.io/fastcgi_buffer_size: 32k
+    nginx.ingress.kubernetes.io/proxy-max-temp-file-size: "1024m"
+    nginx.ingress.kubernetes.io/fastcgi_buffers: "16 256k"
+    nginx.ingress.kubernetes.io/fastcgi_buffer_size: "256k"
 spec:
   rules:
   - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
