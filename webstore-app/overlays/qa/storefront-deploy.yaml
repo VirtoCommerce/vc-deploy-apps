@@ -29,6 +29,8 @@ spec:
             value: "false"
           - name: APPINSIGHTS_INSTRUMENTATIONKEY
             value: 4122074c-f2ad-489b-811f-d557350fb644
+          - name: Swagger__UI__Enabled
+            value: "false"
       volumes:
       - name: cms-content-data
         persistentVolumeClaim:
