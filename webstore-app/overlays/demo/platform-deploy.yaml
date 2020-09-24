@@ -34,13 +34,12 @@ spec:
               name: modules-data
             - mountPath: /mnt/cms-content
               name: cms-content-data
+        - name: init-sqldatabase
+          env:
+            - name: VC_SAMPLE_DATA_DB
+              value: webstore-platform_source  
       containers:
-        - name: vc-platform-web      
-          resources:
-            requests:
-              memory: "64Mi"
-            limits:
-              memory: "512Mi"        
+        - name: vc-platform-web            
           env:
             - name: APPINSIGHTS_INSTRUMENTATIONKEY
               value: f60031ba-a752-4178-90b3-4bf05b631a19
