@@ -171,7 +171,7 @@ data:
     {
       "Id": "VirtoCommerce.Quote",
       "Repository": "VirtoCommerce/vc-module-quote",
-      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-quote/releases/download/3.2.0/VirtoCommerce.Quote_3.2.0.zip"
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-quote/releases/download/3.5.0/VirtoCommerce.Quote_3.5.0.zip"
     },
     {
       "Id": "VirtoCommerce.DynamicAssociations",
