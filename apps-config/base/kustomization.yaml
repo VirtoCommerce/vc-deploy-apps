@@ -3,4 +3,5 @@ resources:
 - odt-app.yaml
 - xapi-app.yaml
 - support-webstore-app.yaml
+- b2bstore-app.yaml
 #- rba-app.yaml
