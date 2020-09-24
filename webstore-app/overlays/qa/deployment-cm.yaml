@@ -7,7 +7,7 @@ metadata:
 data:
   ELECTRONICS_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-theme-default-2.1.11.zip
   ELECTRONICS_THEME_LOCATION: /mnt/cms-content/Themes/Electronics
-  B2B_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-b2b-1.0.0-alpha.1203.zip
+  B2B_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-b2b-1.0.0-alpha.1210.zip
   B2B_THEME_LOCATION: /mnt/cms-content/Themes/B2B-store
   ASSETS_URL: https://vcbacpac.blob.core.windows.net/dac-packages/webstore_assets.zip
   ASSETS_LOCATION: /mnt/cms-content
@@ -81,7 +81,7 @@ data:
       {
         "Id": "VirtoCommerce.Orders",
         "Repository": "VirtoCommerce/vc-module-order",
-        "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Orders_3.9.0-alpha.792.zip"
+        "PackageUrl": "https://github.com/VirtoCommerce/vc-module-order/releases/download/3.9.0/VirtoCommerce.Orders_3.9.0.zip"
       },
       {
         "Id": "VirtoCommerce.Payment",
@@ -136,7 +136,7 @@ data:
       {
         "Id": "VirtoCommerce.AvalaraTax",
         "Repository": "VirtoCommerce/vc-module-avatax",
-        "PackageUrl": "https://github.com/VirtoCommerce/vc-module-avatax/releases/download/3.2.0/VirtoCommerce.AvalaraTax_3.2.0.zip"
+        "PackageUrl": "https://github.com/VirtoCommerce/vc-module-avatax/releases/download/3.3.0/VirtoCommerce.AvalaraTax_3.3.0.zip"
       },
       {
         "Id": "VirtoCommerce.CatalogPersonalization",
@@ -186,7 +186,7 @@ data:
       {
         "Id": "VirtoCommerce.DemoSolutionFeatures",
         "Repository": "VirtoCommerce/vc-module-demo-features",
-        "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoSolutionFeaturesModule_1.0.0-alpha.11.zip"
+        "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoSolutionFeaturesModule_1.0.0-alpha.16.zip"
       }
     ]
 
