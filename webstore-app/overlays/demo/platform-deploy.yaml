@@ -36,6 +36,9 @@ spec:
               name: cms-content-data
       containers:
         - name: vc-platform-web      
+          resources:
+            limits:
+              memory: "512Mi"        
           env:
             - name: APPINSIGHTS_INSTRUMENTATIONKEY
               value: f60031ba-a752-4178-90b3-4bf05b631a19
