@@ -2,8 +2,6 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: deployment-cm
-  annotations:
-    reloader.stakater.com/match: "true"
 data:
   ELECTRONICS_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-theme-default-2.1.11.zip
   ELECTRONICS_THEME_LOCATION: /mnt/cms-content/Themes/Electronics
@@ -136,7 +134,7 @@ data:
     {
       "Id": "VirtoCommerce.AvalaraTax",
       "Repository": "VirtoCommerce/vc-module-avatax",
-      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-avatax/releases/download/3.3.0/VirtoCommerce.AvalaraTax_3.3.0.zip"
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-avatax/releases/download/3.1.0/VirtoCommerce.AvalaraTax_3.1.0.zip"
     },
     {
       "Id": "VirtoCommerce.CatalogPersonalization",
