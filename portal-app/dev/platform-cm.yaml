@@ -1,7 +1,7 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: environment-cm
+  name: platform-cm
   annotations:
     reloader.stakater.com/match: "true"
 data:
@@ -12,8 +12,3 @@ data:
     Notifications__Smtp__Host: "smtp.sendgrid.net"
     Notifications__Smtp__Login: "apikey"
     Notifications__Smtp__Port: "587"
-    VirtoCommerce__AllowInsecureHttp: "true"
-    VirtoCommerce__LicenseFilePath: App_Data/VirtoCommerce.lic
-    VirtoCommerce__LicensePublicKeyPath: App_Data/public.key
-    VirtoCommerce__LicensePrivateKeyPath: App_Data/private.key
-    VirtoCommerce__LocalUploadFolderPath: App_Data/Uploads

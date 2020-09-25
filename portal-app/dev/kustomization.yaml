@@ -6,18 +6,13 @@ namePrefix: portal-
 commonLabels:
   instance: portal
 
-
 patchesStrategicMerge:
-- storefront-deploy.yaml
 - platform-deploy.yaml
-resources:
-- ../../../common-base/platform
 - deployment-cm.yaml
-- environment-cm.yaml
+- platform-cm.yaml
+resources:
+- ../../common-base/platform
 images:
 - name: virtocommerce/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
-  newTag: dev-3.14.0-alpha.11524-93e2ef0a
-- name: virtocommerce/storefront
-  newName: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
-  newTag: 1.0.0-f880f350
+  newTag: master-3.19.0-11574-7d560fc9

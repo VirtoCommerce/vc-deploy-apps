@@ -17,7 +17,7 @@ spec:
       # create database in azure within a sql pool
       initContainers:
         - name: init-platform
-          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:dev-test
+          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:v2
           command:
             - "/bin/sh"
             - "-c"
