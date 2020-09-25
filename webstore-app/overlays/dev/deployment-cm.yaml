@@ -5,7 +5,7 @@ metadata:
 data:
   ELECTRONICS_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-theme-default-2.1.11.zip
   ELECTRONICS_THEME_LOCATION: /mnt/cms-content/Themes/Electronics
-  B2B_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-b2b-1.0.0-alpha.1214.zip
+  B2B_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-b2b-1.0.0-alpha.1218.zip
   B2B_THEME_LOCATION: /mnt/cms-content/Themes/B2B-store
   ASSETS_URL: https://vcbacpac.blob.core.windows.net/dac-packages/webstore_assets.zip
   ASSETS_LOCATION: /mnt/cms-content
