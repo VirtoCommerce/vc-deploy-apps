@@ -18,6 +18,3 @@ data:
   Search__ElasticSearch__Server: http://search-dev-es-http.elastic-system:9200
   Search__ElasticSearch__Key: virtodevpass
   VirtoCommerce__Hangfire__JobStorageType: Memory
-  ConnectionStrings__VirtoCommerce: "Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE);User ID=virto@vc-dev-dbserver;Password=$(VC_DBSERVER_PASSWORD);Trusted_Connection=False;Encrypt=True;"
-  ConnectionStrings__RedisConnectionString: "redis-master.redis:6379,password=$(REDIS_PASS),ssl=False,abortConnect=False" 
-  Caching__Redis__ChannelName: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel"

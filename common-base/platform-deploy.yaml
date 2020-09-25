@@ -82,7 +82,13 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: redis
-                key: REDIS_PASS  
+                key: REDIS_PASS 
+          - name: ConnectionStrings__VirtoCommerce
+            value: "Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE);User ID=virto@vc-dev-dbserver;Password=$(VC_DBSERVER_PASSWORD);Trusted_Connection=False;Encrypt=True;"     
+          - name: ConnectionStrings__RedisConnectionString
+            value: "redis-master.redis:6379,password=$(REDIS_PASS),ssl=False,abortConnect=False"
+          - name: Caching__Redis__ChannelName
+            value: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel" 
         envFrom:
         - configMapRef:
             name: platform-cm  
