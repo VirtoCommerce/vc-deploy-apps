@@ -2,23 +2,24 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 namespace: dev
-namePrefix: rba-
+namePrefix: webstore-
 commonLabels:
-  instance: rba
+  instance: webstore
 
 
 patchesStrategicMerge:
 - storefront-deploy.yaml
 - platform-deploy.yaml
+- deployment-cm.yaml
+- storefront-cm.yaml
 resources:
 - ../../../common-base
-- deployment-cm.yaml
-- cms-content-nfs-pvc.yaml
-- environment-cm.yaml
+
+
 images:
-- name: virtocommerce/platform
+- name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
-  newTag: dev-3.14.0-alpha.11524-93e2ef0a
-- name: virtocommerce/storefront
+  newTag: master-3.17.0-11562-69bcb2e2
+- name: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
   newName: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
-  newTag: 1.0.0-f880f350
+  newTag: dev-1.0.0-alpha.795-167c894a
