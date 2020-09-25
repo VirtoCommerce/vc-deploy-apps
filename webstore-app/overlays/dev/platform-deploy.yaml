@@ -3,11 +3,8 @@ kind: Deployment
 metadata:
   name: platform
 spec:
-  replicas: 2
+  replicas: 1
   template:
-    metadata:
-      annotations:
-        reloader.stakater.com/search: "true"
     spec:
       initContainers:
         - name: init-sqldatabase
