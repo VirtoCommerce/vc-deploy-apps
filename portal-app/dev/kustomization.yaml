@@ -7,7 +7,6 @@ commonLabels:
   instance: portal
 
 patchesStrategicMerge:
-- platform-deploy.yaml
 - deployment-cm.yaml
 - platform-cm.yaml
 - ingress.yaml
