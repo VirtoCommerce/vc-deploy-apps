@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: platform-nginx
+spec:
+  rules:
+  - host: apps.govirto.com
+    http:
+      paths:
+      - backend:
+          serviceName: platform
+          servicePort: 80
+        path: /        
