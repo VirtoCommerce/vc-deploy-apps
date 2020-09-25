@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platform
+spec:
+  template:
+    spec:
+      initContainers:
+        - name: init-sqldatabase
+          env:
+            - name: VC_SAMPLE_DATA_DB
+              value: webstore-platform_source
+      volumes:
+      - name: modules-data
+        persistentVolumeClaim:
+          claimName: modules-volume

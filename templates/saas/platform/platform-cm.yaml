@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: platform-cm
+data:
+    Swagger__UI__Enabled: "false"
+    VirtoCommerce__AutoInstallModuleBundles: ""
