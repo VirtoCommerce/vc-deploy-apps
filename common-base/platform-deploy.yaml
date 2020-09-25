@@ -49,6 +49,7 @@ spec:
             - mountPath: /mnt/cms-content
               name: cms-content-data 
         - name: init-sqldatabase
+          image: mcr.microsoft.com/mssql-tools
           command:
             - "/opt/mssql-tools/bin/sqlcmd"
             - "-S"
