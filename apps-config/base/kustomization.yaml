@@ -1,7 +1,7 @@
 resources:
 - webstore-app.yaml
 - support-webstore-app.yaml
-- rba-app.yaml
+- sand-box-app.yaml
 - xapi-app.yaml
 - odt-app.yaml
 - portal-app.yaml
