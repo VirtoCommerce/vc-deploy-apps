@@ -6,7 +6,7 @@ patchesStrategicMerge:
 - platform-cm.yaml
 - platform-deploy.yaml
 resources:
-- ../../common-base/platform
+- ../../../common-base/platform
 - modules-pvc.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
