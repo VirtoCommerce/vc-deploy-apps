@@ -15,8 +15,6 @@ patchesStrategicMerge:
 resources:
 - ../../../common-base
 
-- cms-content-nfs-pvc.yaml
-
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
