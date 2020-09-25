@@ -4,25 +4,3 @@ metadata:
   name: storefront
 spec:
   replicas: 1
-  template:
-    metadata:
-      labels:
-        app: storefront
-    spec:
-      containers:
-      - name: vc-storefront-web
-        resources:
-          requests:
-            memory: "512Mi"
-          limits:
-            memory: "768Mi"
-        env:
-          - name: VirtoCommerce__DefaultStore
-            value: odt
-        volumeMounts:
-          - mountPath: /opt/vc-storefront/wwwroot/cms-content
-            name: cms-content-data
-      volumes:
-      - name: cms-content-data
-        persistentVolumeClaim:
-          claimName: cms-content-nfs
