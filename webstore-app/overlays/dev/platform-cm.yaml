@@ -5,3 +5,5 @@ metadata:
 data:
     APPINSIGHTS_INSTRUMENTATIONKEY: "1a9a3c2d-3299-4f26-8c5f-1e73b8d2d8e4"
     Swagger__UI__Enabled: "false"
+    PushNotifications__ScalabilityMode: "RedisBackplane"
+    PushNotifications__HubUrl: "http://webstore-platform.dev.govirto.com/pushNotificationHub"
