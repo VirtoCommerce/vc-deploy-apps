@@ -7,7 +7,7 @@ metadata:
     nginx.org/client-max-body-size: 20m
     nginx.org/proxy-buffers: "8 32k"
     nginx.org/proxy-buffer-size: "64k"
-    nginx.com/sticky-cookie-services: "serviceName=platform srv_id expires=1h path=/"
+    nginx.com/sticky-cookie-services: "serviceName=platform"
 spec:
   rules:
   - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
