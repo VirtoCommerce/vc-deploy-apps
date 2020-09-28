@@ -14,5 +14,5 @@ spec:
             limits:
               memory: "512Mi"
           env:
-            - name: "VirtoCommerce:CacheEnabled"
+            - name: VirtoCommerce__CacheEnabled
               value: "False"
