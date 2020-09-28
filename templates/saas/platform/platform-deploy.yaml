@@ -8,8 +8,8 @@ spec:
       initContainers:
         - name: init-sqldatabase
           env:
-            - name: VC_SAMPLE_DATA_DB
-              value: webstore-platform_source
+            - name: VC_DB_COPY_PARAM
+              value: ""
       volumes:
       - name: modules-data
         emptyDir: null
