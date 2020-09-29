@@ -4,7 +4,6 @@ nameSuffix: -qa
 resources:
 - ../../base
 patchesStrategicMerge:
-#- rba-app.yaml
 - webstore-app.yaml
 - odt-app.yaml
 - xapi-app.yaml
