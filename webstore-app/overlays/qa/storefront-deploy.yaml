@@ -8,4 +8,4 @@ spec:
       annotations:
         reloader.stakater.com/search: "true"
         name: Swagger__UI__Enabled 
-        value: "false"
+        value: "true"
