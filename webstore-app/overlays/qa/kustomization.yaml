@@ -10,15 +10,15 @@ commonLabels:
 patchesStrategicMerge:
 - storefront-deploy.yaml
 - platform-deploy.yaml
-resources:
-- ../../../common-base/old
 - deployment-cm.yaml
-- cms-content-nfs-pvc.yaml
-- environment-cm.yaml
+- platform-cm.yaml
+- storefront-cm.yaml
+resources:
+- ../../../common-base
 images:
-- name: virtocommerce/platform
+- name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newTag: master-3.17.0-11562-69bcb2e2
-- name: virtocommerce/storefront
+- name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
   newTag: dev-1.0.0-alpha.800-5083e1b2

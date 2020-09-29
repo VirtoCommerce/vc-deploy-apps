@@ -1,0 +1,18 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: platform-cm
+  annotations:
+    reloader.stakater.com/match: "true"
+data:
+    Notifications__DefaultSender: "azure_25da07ed75daacae20578a7a7dc58541@azure.com"
+    Notifications__Gateway: "SendGrid"
+    Notifications__SmsDefaultSender: "+17012510519"
+    Notifications__Smtp__EnableSsl: "False"
+    Notifications__Smtp__Host: "smtp.sendgrid.net"
+    Notifications__Smtp__Login: "apikey"
+    Notifications__Smtp__Port: "587"
+    APPINSIGHTS_INSTRUMENTATIONKEY: "4122074c-f2ad-489b-811f-d557350fb644"
+    Swagger__UI__Enabled: "false"
+    PushNotifications__ScalabilityMode: "RedisBackplane"
+    PushNotifications__HubUrl: "http://webstore-platform.dev.govirto.com/pushNotificationHub"

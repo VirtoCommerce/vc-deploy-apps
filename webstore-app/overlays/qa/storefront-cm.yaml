@@ -1,0 +1,9 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: storefront-cm
+data:
+    APPINSIGHTS_INSTRUMENTATIONKEY: "4122074c-f2ad-489b-811f-d557350fb644"
+    CookieAuthenticationOptions__ExpireTimeSpan: "12:00:00"
+    SnapshotCollectorConfiguration__IsEnabled: "false"
+    Swagger__UI__Enable: "false"
