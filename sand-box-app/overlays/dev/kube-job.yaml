@@ -63,8 +63,7 @@ spec:
           - "-c"
         args:
           - "echo Job Started $(date +%Y-%m-%d-%H-%M-%S)
-          && kubectl delete pvc sandbox-cms-content-volume -n dev;
-          kubectl rollout restart deployment sandbox-platform -n dev"
+          && kubectl rollout restart deployment sandbox-platform -n dev"
       restartPolicy: Never
 #  backoffLimit: 4
 # apiVersion: batch/v1beta1
