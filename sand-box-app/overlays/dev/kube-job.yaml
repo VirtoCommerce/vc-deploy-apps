@@ -16,6 +16,7 @@ rules:
   - 'get'
   - 'rollout'
   - 'delete'
+  - 'restart'
 ---
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -53,9 +54,9 @@ spec:
           - "/bin/sh"
           - "-c"
         args:
-          - "kubectl get nodes
-          && kubectl delete pvc sandbox-cms-content-volume
-          && kubectl rollout restart deployment sandbox-platform"
+          - "kubectl get nodes"
+          # && kubectl delete pvc sandbox-cms-content-volume
+          # && kubectl rollout restart deployment sandbox-platform"
       restartPolicy: Never
   backoffLimit: 4
 # apiVersion: batch/v1beta1
