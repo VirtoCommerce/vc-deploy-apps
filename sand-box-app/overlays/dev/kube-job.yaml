@@ -49,7 +49,7 @@ spec:
       serviceAccountName: sa-kuber-job
       containers:
       - name: kubectl
-        image: bitnami/kubectl:1.17.7
+        image: bitnami/kubectl
         command:
           - "bin/bash"
           - "-c"
