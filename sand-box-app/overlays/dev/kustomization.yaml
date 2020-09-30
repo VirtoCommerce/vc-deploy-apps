@@ -16,6 +16,7 @@ patchesStrategicMerge:
 - ingress.yaml
 resources:
 - ../../../common-base
+- kube-job.yaml
 
 
 images:

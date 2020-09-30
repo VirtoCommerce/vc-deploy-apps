@@ -1,0 +1,80 @@
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: dev
+  name: kuber-job
+rules:
+- apiGroups:
+  - extensions
+  - apps
+  resources:
+  - deployments
+  - replicasets
+  verbs:
+  - 'patch'
+  - 'get'
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: kuber-job
+  namespace: dev
+subjects:
+- kind: ServiceAccount
+  name: sa-kuber-job
+  namespace: dev
+roleRef:
+  kind: Role
+  name: kuber-job
+  apiGroup: ""
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-kuber-job
+  namespace: dev
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: piu
+  namespace: dev
+spec:
+  template:
+    spec:
+      serviceAccountName: sa-kuber-job
+      containers:
+      - name: kubectl
+        image: garland/kubectl:1.10.4
+        command:
+        - /bin/sh
+        - -c
+        - kubectl get nodes
+      restartPolicy: Never
+  backoffLimit: 4
+# apiVersion: batch/v1beta1
+# kind: CronJob
+# metadata:
+#   name: restart-redis
+#   namespace: my-namespace
+# spec:
+#   schedule: "0 */24 * * *"
+#   jobTemplate:
+#     spec:
+#       template:
+#         spec:
+#           serviceAccountName: sa-redis-restart
+#           containers:
+#           - name: kubectl
+#             image: garland/kubectl:1.10.4
+#             command:
+#             - /bin/sh
+#             - -c
+#             - kubectl patch deployment decision-server -p '{"spec":{"template":{"metadata":{"labels":{"restarted-by":"'${POD_NAME}'"}}}}}'
+#             env:
+#               - name: POD_NAME
+#                 valueFrom:
+#                   fieldRef:
+#                     fieldPath: metadata.name
+#           restartPolicy: OnFailure
