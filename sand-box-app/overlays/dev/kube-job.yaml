@@ -53,8 +53,7 @@ spec:
         command:
           - "bin/bash"
           - "-c"
-          - "kubectl delete pvc sandbox-cms-content-volume -n dev
-            && kubectl rollout restart deployment sandbox-platform -n dev "
+          - "kubectl rollout restart deployment sandbox-platform -n dev"
       restartPolicy: Never
 #  backoffLimit: 4
 # apiVersion: batch/v1beta1
