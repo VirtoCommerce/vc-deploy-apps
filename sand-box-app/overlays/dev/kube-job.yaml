@@ -48,12 +48,12 @@ spec:
     spec:
       serviceAccountName: sa-kuber-job
       containers:
-      - name: kubectl-remover
-        image: bitnami/kubectl
-        command:
-          - "bin/bash"
-          - "-c"
-          - "kubectl delete pvc sandbox-cms-content-volume-n dev"
+      # - name: kubectl-remover
+      #   image: bitnami/kubectl
+      #   command:
+      #     - "bin/bash"
+      #     - "-c"
+      #     - "kubectl delete pvc sandbox-cms-content-volume-n dev"
       - name: kubectl-rollout
         image: bitnami/kubectl
         command:
