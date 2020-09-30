@@ -54,9 +54,9 @@ spec:
           - /bin/sh
           - -c
           - kubectl get nodes
-          - kubectl delete pvc sandbox-cms-content-volume
           # && 
           # && kubectl rollout restart deployment sandbox-platform"
+          #- kubectl delete pvc sandbox-cms-content-volume
       restartPolicy: Never
   backoffLimit: 4
 # apiVersion: batch/v1beta1
