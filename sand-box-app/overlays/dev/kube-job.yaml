@@ -50,11 +50,12 @@ spec:
       - name: kubectl
         image: garland/kubectl:1.10.4
         command:
-        - /bin/sh
-        - -c
-        - kubectl get nodes
-        - kubectl rollout restart deployment sandbox-platform
-        - kubectl delete pvc sandbox-cms-content-volume
+          - "/bin/sh"
+          - "-c"
+        args:
+          - "kubectl get nodes
+          && kubectl delete pvc sandbox-cms-content-volume
+          && kubectl rollout restart deployment sandbox-platform"
       restartPolicy: Never
   backoffLimit: 4
 # apiVersion: batch/v1beta1
