@@ -30,7 +30,7 @@ subjects:
 roleRef:
   kind: Role
   name: kuber-job
-  apiGroup: ""
+  apiGroup: rbac.authorization.k8s.io
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -49,13 +49,13 @@ spec:
       serviceAccountName: sa-kuber-job
       containers:
       - name: kubectl
-        image: garland/kubectl:1.10.4
+        image: bitnami/kubectl:1.17.7
         command:
-          - /bin/sh
-          - -c
-          - kubectl rollout restart deployment sandbox-platform
+          - "bin/bash"
+          - "-c"
+          - "kubectl rollout restart deployment sandbox-platform -n dev"
       restartPolicy: Never
-  backoffLimit: 4
+#  backoffLimit: 4
 # apiVersion: batch/v1beta1
 # kind: CronJob
 # metadata:
