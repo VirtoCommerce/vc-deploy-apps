@@ -54,12 +54,16 @@ spec:
       #     - "bin/bash"
       #     - "-c"
       #     - "kubectl delete pvc sandbox-cms-content-volume-n dev"
+      #  kubectl rollout restart deployment sandbox-platform -n dev
+
       - name: kubectl-rollout
         image: bitnami/kubectl
         command:
           - "bin/bash"
           - "-c"
-          - "kubectl rollout restart deployment sandbox-platform -n dev"
+        args:
+          - "echo START Job $(date +%Y-%m-%d-%H-%M-%S)
+          && kubectl get nodes"
       restartPolicy: Never
 #  backoffLimit: 4
 # apiVersion: batch/v1beta1
