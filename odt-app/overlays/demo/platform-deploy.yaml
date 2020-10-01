@@ -18,7 +18,12 @@ spec:
             && python3 install-theme.py $(ODT_THEME_URL) $(ODT_THEME_LOCATION)
             && echo ODT THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
             && python3 upload-assets.py $(ASSETS_URL) $(ASSETS_LOCATION)
-            && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"                    
+            && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
+        - name: init-sqldatabase
+          env:
+            - name: VC_SAMPLE_DATA_DB
+              value: odt-platform-demo_source
+
       containers:
         - name: vc-platform-web
           resources:
