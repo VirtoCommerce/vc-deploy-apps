@@ -11,7 +11,7 @@ patchesStrategicMerge:
 - storefront-deploy.yaml
 - platform-deploy.yaml
 resources:
-- ../../../common-base
+- ../../../common-base/old
 - cms-content-cm.yaml
 - cms-content-nfs-pvc.yaml
 images:

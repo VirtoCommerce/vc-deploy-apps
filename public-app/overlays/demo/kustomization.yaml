@@ -12,7 +12,7 @@ patchesStrategicMerge:
 - platform-deploy.yaml
 - ingress.yaml
 resources:
-- ../../../common-base
+- ../../../common-base/old
 - cms-content-cm.yaml
 - cms-content-nfs-pvc.yaml
 images:
