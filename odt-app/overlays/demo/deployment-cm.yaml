@@ -5,6 +5,8 @@ metadata:
 data:
   ODT_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-odt-mpa-theme_dev-0.1.10-alpha.1-623391c0.zip
   ODT_THEME_LOCATION: /mnt/cms-content/Themes/odt
+  ASSETS_URL: https://vcbacpac.blob.core.windows.net/dac-packages/odt_assets.zip
+  ASSETS_LOCATION: /mnt/cms-content
   modules.json: |
     [
       {
