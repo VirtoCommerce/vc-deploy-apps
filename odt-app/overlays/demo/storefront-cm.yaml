@@ -3,3 +3,4 @@ apiVersion: v1
 metadata:
   name: storefront-cm
 data:
+  VirtoCommerce__CacheEnabled: "False"
