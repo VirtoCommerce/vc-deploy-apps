@@ -40,7 +40,7 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: welcome-page
+          serviceName: sandbox-welcome-page
           servicePort: 80
         path: /welcome-page       
 #
