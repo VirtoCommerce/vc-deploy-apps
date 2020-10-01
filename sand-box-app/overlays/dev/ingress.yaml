@@ -8,7 +8,12 @@ metadata:
     nginx.org/proxy-buffers: "8 32k"
     nginx.org/proxy-buffer-size: "64k"
     nginx.org/location-snippets: |
-      error_page 502 = "<H1>Sorry!</H1>";
+      error_page 502 @sorry;
+    nginx.org/server-snippets: |
+      location @sorry {
+          return 502 "<H1>Sorry!</H1>";
+      }
+      
 spec:    
   rules:
   - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
