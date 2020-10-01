@@ -35,5 +35,12 @@ spec:
       - backend:
           serviceName: platform
           servicePort: 80
-        path: /    
+        path: / 
+  - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
+    http:
+      paths:
+      - backend:
+          serviceName: welcome-page
+          servicePort: 80
+        path: /welcome-page       
 #
