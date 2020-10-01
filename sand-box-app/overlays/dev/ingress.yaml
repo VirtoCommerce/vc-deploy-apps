@@ -8,7 +8,7 @@ metadata:
     nginx.org/proxy-buffers: "8 32k"
     nginx.org/proxy-buffer-size: "64k"
     nginx.org/location-snippets: |
-      error_page 502 @sorry;
+      error_page 502 = @sorry;
     nginx.org/server-snippets: |
       location @sorry {
         proxy_http_version 1.1;
@@ -35,4 +35,5 @@ spec:
       - backend:
           serviceName: platform
           servicePort: 80
-        path: /        
+        path: /    
+#
