@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: platform-cm
+data:
+    APPINSIGHTS_INSTRUMENTATIONKEY: "f60031ba-a752-4178-90b3-4bf05b631a19"
+    VirtoCommerce__DemoCredentials: "['demoadmin','Password1!']"
