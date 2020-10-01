@@ -6,16 +6,19 @@ namePrefix: odt-
 commonLabels:
   instance: odt
 
-
 patchesStrategicMerge:
 - storefront-deploy.yaml
 - platform-deploy.yaml
+- deployment-cm.yaml
+- platform-cm.yaml
+- storefront-cm.yaml
+
 resources:
-- ../../../common-base/old
+- ../../../common-base
 images:
-- name: virtocommerce/platform
+- name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newTag: dev-3.14.0-alpha.11510-d3c7d6d2
-- name: virtocommerce/storefront
+- name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newTag: dev-5.4.0-alpha.739-cb591679
