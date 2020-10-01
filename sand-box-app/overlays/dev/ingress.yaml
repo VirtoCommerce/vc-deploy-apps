@@ -15,7 +15,7 @@ metadata:
         proxy_pass http://sandbox-error-page.dev.svc.cluster.local:80; 
       }
       match wait {
-        status 500;
+        status 200-399;
       }
 spec:    
   rules:
