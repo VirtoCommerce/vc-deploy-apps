@@ -7,7 +7,8 @@ metadata:
     nginx.org/client-max-body-size: 100M
     nginx.org/proxy-buffers: "8 32k"
     nginx.org/proxy-buffer-size: "64k"
-    nginx.com/sticky-cookie-services: "serviceName=$(VC_PLATFORM_SERVICE) route"
+    nginx.org/location-snippets: |
+      error_page 502 = "<H1>Sorry!</H1>";
 spec:    
   rules:
   - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
