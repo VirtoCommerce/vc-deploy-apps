@@ -11,6 +11,7 @@ patchesStrategicMerge:
 - storefront-cm.yaml
 resources:
 - ../../../common-base
+- modules-pvc.yaml
 
 
 images:

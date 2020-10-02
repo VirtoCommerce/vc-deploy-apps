@@ -11,7 +11,7 @@ patchesStrategicMerge:
 - storefront-cm.yaml
 resources:
 - ../../../common-base
-
+- modules-pvc.yaml
 
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
