@@ -19,7 +19,7 @@ metadata:
       }
 spec:    
   rules:
-  - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
+  - host: demo4.virtocommerce.com
     http:
       paths:
       - backend:
@@ -33,4 +33,4 @@ spec:
           serviceName: platform
           servicePort: 80
         path: /    
-#
+#  $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
