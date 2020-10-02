@@ -5,6 +5,9 @@ metadata:
 spec:
   replicas: 1
   template:
+    metadata:
+      annotations:
+        argocd.argoproj.io/sync-wave: "2"
     spec:
       containers:
       - name: vc-storefront-web
