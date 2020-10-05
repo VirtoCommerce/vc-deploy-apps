@@ -10,9 +10,8 @@ metadata:
     nginx.org/location-snippets: |
       error_page 502 500 503 504 = @sorry1;
     nginx.org/server-snippets: |
-      error_page 404 = @myownredirect;
-      location @myownredirect {
-      return 302 /;
+      location /B2B-store/ {
+      error_page 404 = @sorry;
       }
       location @sorry1 {
         proxy_pass http://sandbox-error-page.dev.svc.cluster.local:80; 
