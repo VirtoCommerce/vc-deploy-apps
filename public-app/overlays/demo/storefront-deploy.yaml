@@ -27,10 +27,10 @@ spec:
             memory: "512Mi"
           limits:
             memory: "768Mi"
-      command:
-        - "/bin/bash"
-        - "-c"
-      args:
-        - "cat /vault/secrets/u >> /vault/secrets/config;
-          cat /vault/secrets/p >> /vault/secrets/config;
-          source /vault/secrets/config && dotnet VirtoCommerce.Storefront.dll" 
+        command:
+          - "/bin/bash"
+          - "-c"
+        args:
+          - "cat /vault/secrets/u >> /vault/secrets/config;
+            cat /vault/secrets/p >> /vault/secrets/config;
+            source /vault/secrets/config && dotnet VirtoCommerce.Storefront.dll" 
