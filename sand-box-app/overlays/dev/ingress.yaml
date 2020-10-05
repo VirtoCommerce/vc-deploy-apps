@@ -28,7 +28,7 @@ metadata:
       location @custom_502 {
         internal;
         proxy_intercept_errors off;
-        proxy_set_header       X-Code             503;
+        proxy_set_header       X-Code             502;
         proxy_set_header       X-Format           $http_accept;
         proxy_set_header       X-Original-URI     $request_uri;
         proxy_set_header       X-Namespace        $namespace;
