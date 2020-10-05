@@ -7,9 +7,11 @@ metadata:
     nginx.org/client-max-body-size: 100M
     nginx.org/proxy-buffers: "8 32k"
     nginx.org/proxy-buffer-size: "64k"
-    nginx.org/location-snippets: |
-      error_page 502 500 503 504 = @sorry1;
-    nginx.org/server-snippets: |  
+    # nginx.org/location-snippets: |
+    #   error_page 502 500 503 504 = @sorry1;
+    nginx.org/server-snippets: |
+      proxy_intercept_errors on;
+      error_page 500 501 502 503 504 = @sorry1;  
       location @sorry1 {
         proxy_pass http://sandbox-error-page.dev.svc.cluster.local:80; 
       }
@@ -21,7 +23,7 @@ spec:
       - backend:
           serviceName: storefront
           servicePort: 80
-        path: ~* ^/.*
+        path: /
   - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
     http:
       paths:
