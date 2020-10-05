@@ -8,7 +8,7 @@ metadata:
     nginx.org/proxy-buffers: "8 32k"
     nginx.org/proxy-buffer-size: "64k"
     nginx.org/server-snippets: |
-      proxy_intercept_errors off;
+      proxy_intercept_errors on;
       error_page 404 = @custom_404;
       error_page 502 = @custom_502;
       location @custom_404 {
