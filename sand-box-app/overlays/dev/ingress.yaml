@@ -10,6 +10,7 @@ metadata:
     nginx.org/location-snippets: |
       error_page 502 500 503 504 = @sorry1;
     nginx.org/server-snippets: |
+      
       location @sorry1 {
         proxy_pass http://sandbox-error-page.dev.svc.cluster.local:80; 
       }
@@ -21,7 +22,7 @@ spec:
       - backend:
           serviceName: storefront
           servicePort: 80
-        path: "~* ^/.*"
+        path: ~* ^/.*
   - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
     http:
       paths:
