@@ -16,7 +16,7 @@ metadata:
       location @sorry1 {
         proxy_pass http://sandbox-error-page.dev.svc.cluster.local:80; 
       }  
-      location @sorry1 {
+      location @sorry2 {
         proxy_pass http://sandbox-error-page.dev.svc.cluster.local:80; 
       }
 spec:    
