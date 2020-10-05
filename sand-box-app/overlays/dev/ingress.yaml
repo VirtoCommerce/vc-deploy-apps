@@ -10,6 +10,10 @@ metadata:
     nginx.org/location-snippets: |
       error_page 502 500 503 504 = @sorry1;
     nginx.org/server-snippets: |
+      error_page 404 = @sorry2;
+      location @sorry2 {
+        proxy_pass http://sandbox-error-page.dev.svc.cluster.local:80; 
+      }
       location @sorry1 {
         proxy_pass http://sandbox-error-page.dev.svc.cluster.local:80; 
       }
