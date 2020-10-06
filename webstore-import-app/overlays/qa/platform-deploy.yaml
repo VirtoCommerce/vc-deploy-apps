@@ -22,6 +22,21 @@ spec:
         reloader.stakater.com/search: "true"
     spec:
       initContainers:
+
+        - name: init-platform
+          command:
+            - "/bin/sh"
+            - "-c"
+          args:
+            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S)
+            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
+            && if [ ! -d \"$ELECTRONICS_THEME_LOCATION\" ]; then mkdir -p \"$ELECTRONICS_THEME_LOCATION\"; fi
+            && python3 install-theme.py $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION)
+            && echo ELECTRONICS THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
+            && if [ ! -d \"$B2B_THEME_LOCATION\" ]; then mkdir -p \"$B2B_THEME_LOCATION\"; fi
+            && python3 install-theme.py $(B2B_THEME_URL) $(B2B_THEME_LOCATION)
+            && echo B2B THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
+
         - name: init-sqldatabase
           env:
             - name: VC_DB_COPY_PARAM
