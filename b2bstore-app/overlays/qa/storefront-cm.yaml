@@ -5,3 +5,4 @@ metadata:
 data:
   CookieAuthenticationOptions__ExpireTimeSpan: "12:00:00"
   SnapshotCollectorConfiguration__IsEnabled: "false"
+  VirtoCommerce__AppSettings__GoogleAnalytics__DomainName: "b2bstore-storefront.qa.govirto.com"
