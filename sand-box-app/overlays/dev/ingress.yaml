@@ -24,6 +24,7 @@ spec:
   tls:
     - hosts:
       - demo4.virtocommerce.com
+      - admin-demo4.virtocommerce.com
       secretName: vc-wildcart
   rules:
   - host: demo4.virtocommerce.com
@@ -33,7 +34,7 @@ spec:
           serviceName: storefront
           servicePort: 80
         path: /
-  - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
+  - host: admin-demo4.virtocommerce.com
     http:
       paths:
       - backend:
