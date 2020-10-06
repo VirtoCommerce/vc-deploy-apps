@@ -32,27 +32,27 @@ spec:
         vault.hashicorp.com/agent-inject-secret-b2bqatwilioid: "secret/b2b-qa-twilio"
         vault.hashicorp.com/agent-inject-template-b2bqatwilioid: |
           {{- with secret "secret/b2b-qa-twilio" -}}
-          export AzureAd__TenantId="{{ .Data.NotificationsTwilioAccountId }}"
+          export Notifications__Twilio__AccountId="{{ .Data.NotificationsTwilioAccountId }}"
           {{- end }}
         vault.hashicorp.com/agent-inject-secret-b2bqatwiliopassword: "secret/b2b-qa-twilio"
         vault.hashicorp.com/agent-inject-template-b2bqatwiliopassword: |
           {{- with secret "secret/b2b-qa-twilio" -}}
-          export AzureAd__TenantId="{{ .Data.NotificationsTwilioAccountPassword }}"
+          export Notifications__Twilio__AccountPassword="{{ .Data.NotificationsTwilioAccountPassword }}"
           {{- end }}
         vault.hashicorp.com/agent-inject-secret-b2bqaauthorizenetapilogin: "secret/b2b-qa-authorize-net"
         vault.hashicorp.com/agent-inject-template-b2bqaauthorizenetapilogin: |
           {{- with secret "secret/b2b-qa-authorize-net" -}}
-          export AzureAd__TenantId="{{ .Data.PaymentsAuthorizeNetApiLogin }}"
+          export Payments__AuthorizeNet__ApiLogin="{{ .Data.PaymentsAuthorizeNetApiLogin }}"
           {{- end }}
         vault.hashicorp.com/agent-inject-secret-b2bqaauthorizenesha2hash: "secret/b2b-qa-authorize-net"
         vault.hashicorp.com/agent-inject-template-b2bqaauthorizenesha2hash: |
           {{- with secret "secret/b2b-qa-authorize-net" -}}
-          export AzureAd__TenantId="{{ .Data.PaymentsAuthorizeNetSHA2Hash }}"
+          export Payments__AuthorizeNet__SHA2Hash="{{ .Data.PaymentsAuthorizeNetSHA2Hash }}"
           {{- end }}
         vault.hashicorp.com/agent-inject-secret-b2bqaauthorizenettxnkey: "secret/b2b-qa-authorize-net"
         vault.hashicorp.com/agent-inject-template-b2bqaauthorizenettxnkey: |
           {{- with secret "secret/b2b-qa-authorize-net" -}}
-          export AzureAd__TenantId="{{ .Data.PaymentsAuthorizeNetTxnKey }}"
+          export Payments__AuthorizeNet__TxnKey="{{ .Data.PaymentsAuthorizeNetTxnKey }}"
           {{- end }}
     spec:
       initContainers:
