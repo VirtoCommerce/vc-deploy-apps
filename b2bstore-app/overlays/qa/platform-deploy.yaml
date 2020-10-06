@@ -54,6 +54,16 @@ spec:
           {{- with secret "secret/b2b-qa-authorize-net" -}}
           export Payments__AuthorizeNet__TxnKey="{{ .Data.PaymentsAuthorizeNetTxnKey }}"
           {{- end }}
+        vault.hashicorp.com/agent-inject-secret-b2bqataxaccountnumber: "secret/b2b-qa-tax-avalara"
+        vault.hashicorp.com/agent-inject-template-b2bqataxaccountnumber: |
+          {{- with secret "secret/b2b-qa-tax-avalara" -}}
+          export Tax__Avalara__AccountNumber="{{ .Data.TaxAvalaraAccountNumber }}"
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-b2bqataxlicensekey: "secret/b2b-qa-tax-avalara"
+        vault.hashicorp.com/agent-inject-template-b2bqataxlicensekey: |
+          {{- with secret "secret/b2b-qa-tax-avalara" -}}
+          export Tax__Avalara__LicenseKey="{{ .Data.TaxAvalaraLicenseKey }}"
+          {{- end }}
     spec:
       initContainers:
         - name: init-sqldatabase
@@ -80,4 +90,6 @@ spec:
               cat /vault/secrets/b2bqaauthorizenetapilogin >> /vault/secrets/config;
               cat /vault/secrets/b2bqaauthorizenesha2hash >> /vault/secrets/config;
               cat /vault/secrets/b2bqaauthorizenettxnkey >> /vault/secrets/config;
+              cat /vault/secrets/b2bqataxaccountnumber >> /vault/secrets/config;
+              cat /vault/secrets/b2bqataxlicensekey >> /vault/secrets/config;
               source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll" 
