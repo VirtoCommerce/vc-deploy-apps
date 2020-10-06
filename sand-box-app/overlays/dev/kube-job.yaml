@@ -57,15 +57,17 @@ spec:
           - "echo Job Started $(date +%Y-%m-%d-%H-%M-%S)
           && kubectl rollout restart deployment sandbox-platform -n dev"
       - name: delete-sqldatabase
-        image: mcr.microsoft.com/mssql-tools
+        image: mcr.microsoft.com/mssql-toolss
         command:
-          - "/bin/sh"
-          - "-c"
-        args:
-          - "echo START DELETING DATABASE $(date +%Y-%m-%d-%H-%M-%S)
-             && /opt/mssql-tools/bin/sqlcmd -S vc-dev-dbserver.database.windows.net -U virto@vc-dev-dbserver -P $(VC_DBSERVER_MASTER_PASSWORD) -q
-             \"DROP DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)]\"
-             && echo DATABASE DELETED $(date +%Y-%m-%d-%H-%M-%S)"
+          - "/opt/mssql-tools/bin/sqlcmd"
+          - "-S"
+          - "vc-dev-dbserver.database.windows.net"
+          - "-U"
+          - "virto@vc-dev-dbserver"
+          - "-P"
+          - "$(VC_DBSERVER_MASTER_PASSWORD)"
+          - "-q"
+          - "DROP DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)]"
         env: 
           - name: VC_DBSERVER_MASTER_PASSWORD
             valueFrom:
