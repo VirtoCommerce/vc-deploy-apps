@@ -19,7 +19,43 @@ spec:
           {{- with secret "secret/notifications" -}}
           export Notifications__Smtp__Password="{{ .Data.password }}"
           {{- end }}
-
+        vault.hashicorp.com/agent-inject-secret-u: "secret/b2b-qa-sso"
+        vault.hashicorp.com/agent-inject-template-u: |
+          {{- with secret "secret/b2b-qa-sso" -}}
+          export AzureAd__ApplicationId="{{ .Data.ApplicationID }}"
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-p: "secret/b2b-qa-sso"
+        vault.hashicorp.com/agent-inject-template-p: |
+          {{- with secret "secret/b2b-qa-sso" -}}
+          export AzureAd__TenantId="{{ .Data.TenantID }}"
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-p: "secret/b2b-qa-twilio"
+        vault.hashicorp.com/agent-inject-template-p: |
+          {{- with secret "secret/b2b-qa-twilio" -}}
+          export AzureAd__TenantId="{{ .Data.NotificationsTwilioAccountId }}"
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-p: "secret/b2b-qa-twilio"
+        vault.hashicorp.com/agent-inject-template-p: |
+          {{- with secret "secret/b2b-qa-twilio" -}}
+          export AzureAd__TenantId="{{ .Data.NotificationsTwilioAccountPassword }}"
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-p: "secret/b2b-qa-authorize-net"
+        vault.hashicorp.com/agent-inject-template-p: |
+          {{- with secret "secret/b2b-qa-authorize-net" -}}
+          export AzureAd__TenantId="{{ .Data.PaymentsAuthorizeNetApiLogin }}"
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-p: "secret/b2b-qa-authorize-net"
+        vault.hashicorp.com/agent-inject-template-p: |
+          {{- with secret "secret/b2b-qa-authorize-net" -}}
+          export AzureAd__TenantId="{{ .Data.PaymentsAuthorizeNetSHA2Hash }}"
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-p: "secret/b2b-qa-authorize-net"
+        vault.hashicorp.com/agent-inject-template-p: |
+          {{- with secret "secret/b2b-qa-authorize-net" -}}
+          export AzureAd__TenantId="{{ .Data.PaymentsAuthorizeNetTxnKey }}"
+          {{- end }}
+          
+        reloader.stakater.com/search: "true"
     spec:
       initContainers:
         - name: init-sqldatabase
