@@ -9,6 +9,7 @@ metadata:
     nginx.org/proxy-buffer-size: "64k"
     # nginx.org/location-snippets: |
     #   error_page 502 500 503 504 = @sorry1;
+    nginx.org/rewrites: 
     nginx.org/server-snippets: |
       proxy_intercept_errors on;
       error_page 500 501 502 503 504 = @sorry1;
@@ -19,7 +20,11 @@ metadata:
       location @sorry2 {
         proxy_pass http://sandbox-error-page.dev.svc.cluster.local:80; 
       }
-spec:    
+spec:
+  tls:
+    - hosts:
+      - demo4.virtocommerce.com
+      secretName: vc-wildcart
   rules:
   - host: demo4.virtocommerce.com
     http:
