@@ -8,6 +8,19 @@ spec:
     metadata:
       annotations:
         argocd.argoproj.io/sync-wave: "2"
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/role: "myapp"
+        vault.hashicorp.com/agent-inject-secret-u: "secret/public-demo-admin"
+        vault.hashicorp.com/agent-inject-template-u: |
+          {{- with secret "secret/public-demo-admin" -}}
+          export VirtoCommerce__Endpoint__UserName="{{ .Data.username }}"
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-p: "secret/public-demo-admin"
+        vault.hashicorp.com/agent-inject-template-p: |
+          {{- with secret "secret/public-demo-admin" -}}
+          export  VirtoCommerce__Endpoint__Password="{{ .Data.password }}"
+          {{- end }}
+        reloader.stakater.com/search: "true"
     spec:
       containers:
       - name: vc-storefront-web
@@ -19,3 +32,10 @@ spec:
           successThreshold: 1
           initialDelaySeconds: 20
           periodSeconds: 1
+        command:
+          - "/bin/bash"
+          - "-c"
+        args:
+          - "cat /vault/secrets/u >> /vault/secrets/config;
+            cat /vault/secrets/p >> /vault/secrets/config;
+            source /vault/secrets/config && dotnet VirtoCommerce.Storefront.dll" 
