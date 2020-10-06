@@ -48,14 +48,6 @@ spec:
     spec:
       serviceAccountName: sa-kuber-job
       containers:
-      # - name: kubectl-remover
-      #   image: bitnami/kubectl
-      #   command:
-      #     - "bin/bash"
-      #     - "-c"
-      #     - "kubectl delete pvc sandbox-cms-content-volume-n dev"
-      #  kubectl rollout restart deployment sandbox-platform -n dev
-
       - name: kubectl-rollout
         image: bitnami/kubectl
         command:
@@ -64,6 +56,24 @@ spec:
         args:
           - "echo Job Started $(date +%Y-%m-%d-%H-%M-%S)
           && kubectl rollout restart deployment sandbox-platform -n dev"
+      - name: delete-sqldatabase
+        image: mcr.microsoft.com/mssql-tools
+        command:
+          - "/opt/mssql-tools/bin/sqlcmd"
+          - "-S"
+          - "vc-dev-dbserver.database.windows.net"
+          - "-U"
+          - "virto@vc-dev-dbserver"
+          - "-P"
+          - "$(VC_DBSERVER_MASTER_PASSWORD)"
+          - "-q"
+          - "DROP DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)]"
+        env: 
+          - name: VC_DBSERVER_MASTER_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: vc-dbserver-password
+                key: password 
       restartPolicy: Never
 #  backoffLimit: 4
 # apiVersion: batch/v1beta1
