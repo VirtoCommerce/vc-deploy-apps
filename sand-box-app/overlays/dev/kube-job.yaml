@@ -57,7 +57,7 @@ spec:
           - "echo Job Started $(date +%Y-%m-%d-%H-%M-%S)
           && kubectl rollout restart deployment sandbox-platform -n dev"
       - name: delete-sqldatabase
-        image: mcr.microsoft.com/mssql-toolss
+        image: mcr.microsoft.com/mssql-tools
         command:
           - "/opt/mssql-tools/bin/sqlcmd"
           - "-S"
