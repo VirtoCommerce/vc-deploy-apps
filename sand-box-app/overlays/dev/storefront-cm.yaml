@@ -6,8 +6,4 @@ data:
     CookieAuthenticationOptions__ExpireTimeSpan: "12:00:00"
     SnapshotCollectorConfiguration__IsEnabled: "false"
     VirtoCommerce__Endpoint__Url: https://admin-demo4.virtocommerce.com
-    VirtoCommerce__StoreUrls: "B2B-store:https://demo4.virtocommerce.com/B2B-store/"
-      # - store id: B2B-store
-      #   store public url: https://demo4.virtocommerce.com/B2B-store/
-      # - store id: Electronics
-      #   store public url: https://demo4.virtocommerce.com/
+    VirtoCommerce__StoreUrls: B2B-store:https://demo4.virtocommerce.com/B2B-store/
