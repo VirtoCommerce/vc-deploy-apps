@@ -13,9 +13,9 @@ spec:
         - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB
-              value: webstore-platform_source
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate            
+              value: public-platform_demo_src
+  # strategy:
+  #   rollingUpdate:
+  #     maxSurge: 25%
+  #     maxUnavailable: 25%
+  #   type: RollingUpdate            
