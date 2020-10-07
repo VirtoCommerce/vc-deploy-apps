@@ -7,19 +7,14 @@ metadata:
     nginx.org/client-max-body-size: 100M
     nginx.org/proxy-buffers: "8 32k"
     nginx.org/proxy-buffer-size: "64k"
-    # nginx.org/location-snippets: |
-    #   error_page 502 500 503 504 = @sorry1;
-    nginx.org/rewrites: 
     nginx.org/server-snippets: |
-      proxy_intercept_errors on;
       error_page 500 501 502 503 504 = @sorry1;
-      error_page 404 = @sorry2;
+      location /admin {
+        return 301 https://admin-demo4.virtocommerce.com/
+      } 
       location @sorry1 {
         proxy_pass http://sandbox-error-page.dev.svc.cluster.local:80; 
       }  
-      location @sorry2 {
-        proxy_pass http://sandbox-error-page.dev.svc.cluster.local:80; 
-      }
 spec:
   tls:
     - hosts:
