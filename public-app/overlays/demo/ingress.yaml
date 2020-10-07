@@ -3,22 +3,35 @@ kind: Ingress
 metadata:
   name: nginx
   annotations:
-    nginx.org/proxy-connect-timeout: "30s"
+    kubernetes.io/ingress.class: nginx
+    nginx.org/client-max-body-size: 100M
     nginx.org/proxy-buffers: "8 32k"
     nginx.org/proxy-buffer-size: "64k"
+    nginx.org/location-snippets: |
+     rewrite /admin https://admin-demo4.virtocommerce.com/ permanent;
+    nginx.org/server-snippets: |
+      error_page 500 501 502 503 504 = @sorry1;
+      location @sorry1 {
+        proxy_pass http://sandbox-error-page.demo.svc.cluster.local:80; 
+      }  
 spec:
+  tls:
+    - hosts:
+      - demo4.virtocommerce.com
+      - admin-demo4.virtocommerce.com
+      secretName: vc-wildcart
   rules:
-  - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
+  - host: demo4.virtocommerce.com
     http:
       paths:
       - backend:
           serviceName: storefront
           servicePort: 80
         path: /
-  - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
+  - host: admin-demo4.virtocommerce.com
     http:
       paths:
       - backend:
           serviceName: platform
           servicePort: 80
-        path: /        
+        path: / 

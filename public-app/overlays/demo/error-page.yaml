@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-error-page
+spec:
+  selector:
+    matchLabels:
+      app: error-page
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: error-page
+    spec:
+      containers:
+      - name: nginx-error-page
+        image: kkisilevsky/nginx_error_page
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: error-page
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: error-page

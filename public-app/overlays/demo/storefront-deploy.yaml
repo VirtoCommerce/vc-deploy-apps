@@ -22,6 +22,14 @@ spec:
     spec:
       containers:
       - name: vc-storefront-web
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          failureThreshold: 3
+          successThreshold: 1
+          initialDelaySeconds: 20
+          periodSeconds: 1
         resources:
           requests:
             memory: "512Mi"
