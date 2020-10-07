@@ -43,12 +43,12 @@ spec:
             - "-c"
           args:
             - "echo START INITSQL $(date +%Y-%m-%d-%H-%M-%S)
-               && /opt/mssql-tools/bin/sqlcmd -S vc-dev-dbserver.database.windows.net -U virto@vc-dev-dbserver -P $(VC_DBSERVER_MASTER_PASSWORD) -t 65534 -q 
+               && /opt/mssql-tools/bin/sqlcmd -S vc-dev-dbserver.database.windows.net -U virto@vc-dev-dbserver -P $(VC_DBSERVER_MASTER_PASSWORD) -t 65534 -Q 
                \"CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )\"
                && echo INITSQL COMPLETE $(date +%Y-%m-%d-%H-%M-%S)"
           env:
             - name: VC_SAMPLE_DATA_DB
-              value: public-platform_demo_src
+              value: vc-empty-db
             - name: VC_DB_COPY_PARAM
               value: "AS COPY OF [$(VC_SAMPLE_DATA_DB)]"  
             - name: VC_DBSERVER_MASTER_PASSWORD
