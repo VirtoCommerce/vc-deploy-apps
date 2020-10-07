@@ -7,6 +7,8 @@ metadata:
     nginx.org/client-max-body-size: 100M
     nginx.org/proxy-buffers: "8 32k"
     nginx.org/proxy-buffer-size: "64k"
+    nginx.org/location-snippets: |
+     rewrite /admin https://admin-demo4.virtocommerce.com/ permanent;
     nginx.org/server-snippets: |
       error_page 500 501 502 503 504 = @sorry1;
       location @sorry1 {
