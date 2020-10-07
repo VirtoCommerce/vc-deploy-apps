@@ -11,3 +11,10 @@ spec:
           env:
             - name: VC_SAMPLE_DATA_DB
               value: webstore-platform_demo_source
+      containers:
+        - name: vc-platform-web
+          resources:
+            requests:
+              memory: "512Mi"
+            limits:
+              memory: "768Mi"
