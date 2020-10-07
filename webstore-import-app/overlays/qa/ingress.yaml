@@ -1,0 +1,6 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx
+  annotations:
+    nginx.org/client-max-body-size: 100m
