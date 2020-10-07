@@ -15,20 +15,20 @@ metadata:
         proxy_pass http://sandbox-error-page.dev.svc.cluster.local:80; 
       }  
 spec:
-  tls:
-    - hosts:
-      - demo4.virtocommerce.com
-      - admin-demo4.virtocommerce.com
-      secretName: vc-wildcart
+  # tls:
+  #   - hosts:
+  #     - demo4.virtocommerce.com
+  #     - admin-demo4.virtocommerce.com
+  #     secretName: vc-wildcart
   rules:
-  - host: demo4.virtocommerce.com
+  - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
     http:
       paths:
       - backend:
           serviceName: storefront
           servicePort: 80
         path: /
-  - host: admin-demo4.virtocommerce.com
+  - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
     http:
       paths:
       - backend:
