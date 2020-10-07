@@ -12,7 +12,7 @@ metadata:
     nginx.org/server-snippets: |
       error_page 500 501 502 503 504 = @sorry1;
       location @sorry1 {
-        proxy_pass http://sandbox-error-page.demo.svc.cluster.local:80; 
+        proxy_pass http://public-error-page.demo.svc.cluster.local:80; 
       }  
 spec:
   tls:
