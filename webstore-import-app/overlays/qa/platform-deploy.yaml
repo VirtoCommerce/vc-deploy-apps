@@ -29,18 +29,26 @@ spec:
             - "-c"
           args:
             - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S)
-            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
-            && if [ ! -d \"$ELECTRONICS_THEME_LOCATION\" ]; then mkdir -p \"$ELECTRONICS_THEME_LOCATION\"; fi
-            && python3 install-theme.py $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION)
-            && echo ELECTRONICS THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
-            && if [ ! -d \"$B2B_THEME_LOCATION\" ]; then mkdir -p \"$B2B_THEME_LOCATION\"; fi
-            && python3 install-theme.py $(B2B_THEME_URL) $(B2B_THEME_LOCATION)
-            && echo B2B THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
-
+            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*"
         - name: init-sqldatabase
+          command:
+            - "/bin/sh"
+            - "-c"
+          args:
+            - "echo START INITSQL $(date +%Y-%m-%d-%H-%M-%S)
+               && /opt/mssql-tools/bin/sqlcmd -S vc-dev-dbserver.database.windows.net -U virto@vc-dev-dbserver -P $(VC_DBSERVER_MASTER_PASSWORD) -Q 
+               \"CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )\"
+               && echo INITSQL COMPLETE $(date +%Y-%m-%d-%H-%M-%S)"
           env:
+            - name: VC_SAMPLE_DATA_DB
+              value: vc-empty-db
             - name: VC_DB_COPY_PARAM
-              value: ""
+              value: "AS COPY OF [$(VC_SAMPLE_DATA_DB)]"  
+            - name: VC_DBSERVER_MASTER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: vc-dbserver-password
+                  key: password
 
       containers:
         - name: vc-platform-web
