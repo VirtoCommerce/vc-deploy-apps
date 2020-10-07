@@ -9,9 +9,6 @@ metadata:
     nginx.org/proxy-buffer-size: "64k"
     nginx.org/server-snippets: |
       error_page 500 501 502 503 504 = @sorry1;
-      location /admin {
-        return 301 https://admin-demo4.virtocommerce.com/
-      } 
       location @sorry1 {
         proxy_pass http://sandbox-error-page.dev.svc.cluster.local:80; 
       }  
