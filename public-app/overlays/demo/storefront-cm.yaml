@@ -3,6 +3,9 @@ apiVersion: v1
 metadata:
   name: storefront-cm
 data:
-    APPINSIGHTS_INSTRUMENTATIONKEY: "f60031ba-a752-4178-90b3-4bf05b631a19"
+    APPINSIGHTS_INSTRUMENTATIONKEY: "67045346-90d2-40d2-9bfe-5cf1f2eb2dd6"
     CookieAuthenticationOptions__ExpireTimeSpan: "12:00:00"
     SnapshotCollectorConfiguration__IsEnabled: "false"
+    VirtoCommerce__Endpoint__Url: https://admin-demo4.virtocommerce.com
+    VirtoCommerce__StoreUrls__B2B-store: https://demo4.virtocommerce.com/B2B-store/
+    VirtoCommerce__StoreUrls__Electronics: https://demo4.virtocommerce.com/

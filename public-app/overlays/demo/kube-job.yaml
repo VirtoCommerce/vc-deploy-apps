@@ -1,0 +1,77 @@
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: dev
+  name: kuber-job
+rules:
+- apiGroups:
+  - extensions
+  - apps
+  resources:
+  - deployments
+  - replicasets
+  verbs:
+  - 'patch'
+  - 'get'
+  - 'rollout'
+  - 'delete'
+  - 'restart'
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: kuber-job
+  namespace: dev
+subjects:
+- kind: ServiceAccount
+  name: sa-kuber-job
+  namespace: dev
+roleRef:
+  kind: Role
+  name: kuber-job
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-kuber-job
+  namespace: dev
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: piu
+  namespace: dev
+spec:
+  template:
+    spec:
+      serviceAccountName: sa-kuber-job
+      containers:
+      - name: kubectl-rollout
+        image: bitnami/kubectl
+        command:
+          - "bin/bash"
+          - "-c"
+        args:
+          - "echo Job Started $(date +%Y-%m-%d-%H-%M-%S)
+          && kubectl rollout restart deployment public-platform -n demo"
+      - name: delete-sqldatabase
+        image: mcr.microsoft.com/mssql-tools
+        command:
+          - "/opt/mssql-tools/bin/sqlcmd"
+          - "-S"
+          - "vc-dev-dbserver.database.windows.net"
+          - "-U"
+          - "virto@vc-dev-dbserver"
+          - "-P"
+          - "$(VC_DBSERVER_MASTER_PASSWORD)"
+          - "-q"
+          - "DROP DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)]"
+        env: 
+          - name: VC_DBSERVER_MASTER_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: vc-dbserver-password
+                key: password 
+      restartPolicy: Never
