@@ -16,7 +16,7 @@ patchesStrategicMerge:
 - ingress.yaml
 resources:
 - ../../../common-base
-- kube-job.yaml
+#- kube-job.yaml
 - welcome-page.yaml
 
 images:
@@ -26,3 +26,4 @@ images:
 - name: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
   newName: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
   newTag: dev-1.0.0-alpha.790-993393b8
+#1
