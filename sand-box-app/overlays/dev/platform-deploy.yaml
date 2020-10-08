@@ -45,13 +45,13 @@ spec:
                 secretKeyRef:
                   name: vc-dbserver-password
                   key: password
-      containers:
-        - name: vc-platform-web
-          command:
-            - "/bin/bash"
-            - "-c"
-          args:
-            - "sleep 3m && dotnet VirtoCommerce.Platform.Web.dll"
+      # containers:
+      #   - name: vc-platform-web
+      #     command:
+      #       - "/bin/bash"
+      #       - "-c"
+      #     args:
+      #       - "sleep 3m && dotnet VirtoCommerce.Platform.Web.dll"
   # strategy:
   #   rollingUpdate:
   #     maxSurge: 25%
