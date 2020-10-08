@@ -12,29 +12,29 @@ spec:
       initContainers:
         - name: init-sqldatabase
           image: mcr.microsoft.com/mssql-tools
-          command:
-            - "/bin/sh"
-            - "-c"
-          args:
-            - "echo START INITSQL $(date +%Y-%m-%d-%H-%M-%S)
-               && echo \"DECLARE\" >> multiline.sql
-               && echo \"  @sState varchar(max),\" >> multiline.sql
-               && echo \"  @iState int\" >> multiline.sql
-               && echo \"SET @iState = 7\" >> multiline.sql
-               && echo \"IF (EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE (name = '$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)')))\" >> multiline.sql
-               && echo \"  PRINT '$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)' + ' exists'\" >> multiline.sql
-               && echo \"ELSE\" >> multiline.sql
-               && echo \"BEGIN\" >> multiline.sql
-               && echo \"  CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )\" >> multiline.sql
-               && echo \"  WHILE @iState = 7 \" >> multiline.sql
-               && echo \"  BEGIN\" >> multiline.sql
-               && echo \"    WAITFOR DELAY '00:00:10'\" >> multiline.sql
-               && echo \"    SELECT @iState = state, @sState = state_desc FROM sys.databases WHERE name = '$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)'\" >> multiline.sql
-               && echo \"  END\" >> multiline.sql
-               && echo \"  PRINT '$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)' + ' is ' + @sState\" >> multiline.sql
-               && echo \"END\" >> multiline.sql
-               && /opt/mssql-tools/bin/sqlcmd -S vc-dev-dbserver.database.windows.net -U virto@vc-dev-dbserver -P $(VC_DBSERVER_MASTER_PASSWORD) -i multiline.sql
-               && echo INITSQL COMPLETE $(date +%Y-%m-%d-%H-%M-%S)"
+          # command:
+          #   - "/bin/sh"
+          #   - "-c"
+          # args:
+          #   - "echo START INITSQL $(date +%Y-%m-%d-%H-%M-%S)
+          #      && echo \"DECLARE\" >> multiline.sql
+          #      && echo \"  @sState varchar(max),\" >> multiline.sql
+          #      && echo \"  @iState int\" >> multiline.sql
+          #      && echo \"SET @iState = 7\" >> multiline.sql
+          #      && echo \"IF (EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE (name = '$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)')))\" >> multiline.sql
+          #      && echo \"  PRINT '$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)' + ' exists'\" >> multiline.sql
+          #      && echo \"ELSE\" >> multiline.sql
+          #      && echo \"BEGIN\" >> multiline.sql
+          #      && echo \"  CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )\" >> multiline.sql
+          #      && echo \"  WHILE @iState = 7 \" >> multiline.sql
+          #      && echo \"  BEGIN\" >> multiline.sql
+          #      && echo \"    WAITFOR DELAY '00:00:10'\" >> multiline.sql
+          #      && echo \"    SELECT @iState = state, @sState = state_desc FROM sys.databases WHERE name = '$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)'\" >> multiline.sql
+          #      && echo \"  END\" >> multiline.sql
+          #      && echo \"  PRINT '$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)' + ' is ' + @sState\" >> multiline.sql
+          #      && echo \"END\" >> multiline.sql
+          #      && /opt/mssql-tools/bin/sqlcmd -S vc-dev-dbserver.database.windows.net -U virto@vc-dev-dbserver -P $(VC_DBSERVER_MASTER_PASSWORD) -i multiline.sql
+          #      && echo INITSQL COMPLETE $(date +%Y-%m-%d-%H-%M-%S)"
           env:
             - name: VC_SAMPLE_DATA_DB
               value: public-platform_demo_src
