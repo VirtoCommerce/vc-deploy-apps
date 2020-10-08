@@ -35,4 +35,3 @@ spec:
           serviceName: platform
           servicePort: 80
         path: /    
-#  $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
