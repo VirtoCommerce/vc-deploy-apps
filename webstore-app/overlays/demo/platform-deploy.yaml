@@ -5,6 +5,21 @@ metadata:
 spec:
   replicas: 1
   template:
+    metadata:
+      annotations:
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/role: "myapp"
+        vault.hashicorp.com/agent-inject-secret-api: "secret/notifications"
+        vault.hashicorp.com/agent-inject-template-api: |
+          {{- with secret "secret/notifications" -}}
+          export Notifications__SendGrid__ApiKey="{{ .Data.apikey }}"
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-spass: "secret/notifications"
+        vault.hashicorp.com/agent-inject-template-spass: |
+          {{- with secret "secret/notifications" -}}
+          export Notifications__Smtp__Password="{{ .Data.password }}"
+          {{- end }}
+        reloader.stakater.com/search: "true"
     spec:
       initContainers:
         - name: init-sqldatabase
@@ -18,3 +33,10 @@ spec:
               memory: "512Mi"
             limits:
               memory: "768Mi"
+          command:
+            - "/bin/bash"
+            - "-c"
+          args:
+            - "cat /vault/secrets/api >> /vault/secrets/config;
+              cat /vault/secrets/spass >> /vault/secrets/config;
+              source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"
