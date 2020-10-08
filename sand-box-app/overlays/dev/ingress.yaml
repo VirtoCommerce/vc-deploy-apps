@@ -17,18 +17,18 @@ metadata:
 spec:
   tls:
     - hosts:
-      - sandbox-platform.dev.govirto.com
-      - sandbox-storefront.dev.govirto.com
+      - $(VC_STOREFRONT_SERVICE)-$(VC_NAMESPACE).govirto.com
+      - $(VC_STOREFRONT_SERVICE)-$(VC_NAMESPACE).govirto.com
       secretName: govirto-wildcard
   rules:
-  - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
+  - host: $(VC_STOREFRONT_SERVICE)-$(VC_NAMESPACE).govirto.com
     http:
       paths:
       - backend:
           serviceName: storefront
           servicePort: 80
         path: /
-  - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
+  - host: $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com
     http:
       paths:
       - backend:

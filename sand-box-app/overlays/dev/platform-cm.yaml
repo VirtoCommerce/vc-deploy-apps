@@ -6,5 +6,5 @@ data:
     Swagger__UI__Enabled: "false"
     PushNotifications__ScalabilityMode: "RedisBackplane"
     #PushNotifications__HubUrl: "http://sandbox-platform.dev.govirto.com/pushNotificationHub"
-    Content__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/
-    Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/
+    Content__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com/cms-content/
+    Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com/cms-content/assets/
