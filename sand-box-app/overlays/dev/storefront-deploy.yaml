@@ -8,7 +8,7 @@ spec:
     metadata:
       annotations:
         argocd.argoproj.io/sync-wave: "2"
-        reloader.stakater.com/search: "true"
+        reloader.stakater.com/search: "false"
     spec:
       containers:
       - name: vc-storefront-web
