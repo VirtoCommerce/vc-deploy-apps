@@ -7,3 +7,4 @@ data:
     Swagger__UI__Enabled: "false"
     PushNotifications__ScalabilityMode: "None"
     PushNotifications__HubUrl: "http://webstore-platform.dev.govirto.com/pushNotificationHub"
+    AzureAd__Enabled: "true"
