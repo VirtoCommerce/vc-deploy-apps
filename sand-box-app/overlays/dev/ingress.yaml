@@ -16,9 +16,10 @@ metadata:
       }  
 spec:
   tls:
-    - hosts:
-      - "*.govirto.com"
-      secretName: govirto-wildcard
+    - secretName: govirto-wildcard
+      hosts:
+        - govirto.com  
+        - '*.govirto.com'  
   rules:
   - host: $(VC_STOREFRONT_SERVICE)-$(VC_NAMESPACE).govirto.com
     http:
