@@ -16,10 +16,7 @@ metadata:
       }  
 spec:
   tls:
-    - hosts:
-      - sandbox-platform-dev.govirto.com
-      - sandbox-storefront-dev.govirto.com
-      secretName: govirto-wildcard
+    - secretName: govirto-wildcard
   rules:
   - host: $(VC_STOREFRONT_SERVICE)-$(VC_NAMESPACE).govirto.com
     http:
