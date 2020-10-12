@@ -18,6 +18,6 @@ data:
     {
       "Id": "VirtoCommerce.SaaS",
       "Repository": "VirtoCommerce/vc-module-saas",
-      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.SaaS_1.0.0-alpha.53.zip"
+      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.SaaS_1.0.0-alpha.54.zip"
     }
    ] 
