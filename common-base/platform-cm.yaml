@@ -5,9 +5,9 @@ metadata:
   annotations:
     reloader.stakater.com/match: "true"  
 data:
-  Assets__FileSystem__PublicUrl: http://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/
+  Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com/cms-content/assets/
   Assets__FileSystem__RootPath: ~/cms-content/assets
-  Content__FileSystem__PublicUrl: http://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/
+  Content__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com/cms-content/
   VirtoCommerce__AllowInsecureHttp: "true"
   VirtoCommerce__LicenseFilePath: App_Data/VirtoCommerce.lic
   VirtoCommerce__LicensePublicKeyPath: App_Data/public.key
