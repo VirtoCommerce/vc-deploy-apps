@@ -4,3 +4,4 @@ metadata:
   name: storefront-cm
 data:
   VirtoCommerce__CacheEnabled: "False"
+  VirtoCommerce__DefaultStore: "odt"  
