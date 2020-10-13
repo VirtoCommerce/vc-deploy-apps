@@ -13,7 +13,6 @@ patchesStrategicMerge:
 - deployment-cm.yaml
 - platform-cm.yaml
 - storefront-cm.yaml
-- ingress.yaml
 resources:
 - ../../../common-base
 
