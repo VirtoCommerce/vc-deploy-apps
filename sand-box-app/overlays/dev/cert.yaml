@@ -8,6 +8,6 @@ spec:
   issuerRef:
     name: sandbox-platfrom-issuer
     kind: Issuer
-  commonName: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
+  commonName: sandbox-platform.dev.govirto.com
   dnsNames:
-  - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com"
+  - sandbox-platform.dev.govirto.com
