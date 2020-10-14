@@ -1,0 +1,13 @@
+
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: platfrom-cert
+spec:
+  secretName: platfrom-tls
+  issuerRef:
+    name: platfrom-issuer
+    kind: Issuer
+  commonName: $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com
+  dnsNames:
+  - "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com"
