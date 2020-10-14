@@ -17,9 +17,9 @@ metadata:
 spec:
   tls:
     - hosts: 
-      - "$(VC_STOREFRONT_SERVICE)-$(VC_NAMESPACE).govirto.com"
-      - "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com"
-      secretName: govirto-wildcard 
+      - "$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com"
+      - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com"
+      secretName: platfrom-tls 
   rules:
   - host: $(VC_STOREFRONT_SERVICE)-$(VC_NAMESPACE).govirto.com
     http:
@@ -28,7 +28,7 @@ spec:
           serviceName: storefront
           servicePort: 80
         path: /
-  - host: $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com
+  - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
     http:
       paths:
       - backend:
