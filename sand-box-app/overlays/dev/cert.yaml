@@ -8,6 +8,6 @@ spec:
   issuerRef:
     name: platfrom-issuer
     kind: Issuer
-  commonName: $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com
+  commonName: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
   dnsNames:
-  - "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com"
+  - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com"

@@ -18,7 +18,8 @@ resources:
 - ../../../common-base
 #- kube-job.yaml
 - welcome-page.yaml
-
+- cert.yaml
+- issuer.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
