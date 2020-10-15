@@ -2,11 +2,11 @@
 apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
-  name: platfrom-cert
+  name: platform-cert
 spec:
-  secretName: webstore-platfrom-tls
+  secretName: webstore-platform-tls
   issuerRef:
-    name: webstore-platfrom-issuer
+    name: webstore-platform-issuer
     kind: Issuer
   commonName: webstore-platform.dev.govirto.com
   dnsNames:
