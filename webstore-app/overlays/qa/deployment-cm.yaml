@@ -5,9 +5,9 @@ metadata:
   annotations:
     reloader.stakater.com/match: "true"
 data:
-  ELECTRONICS_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-default-1.0.0-alpha.929.zip
+  ELECTRONICS_THEME_URL: https://github.com/VirtoCommerce/vc-demo-theme-default/releases/download/master-1.1.0-917dfeb8/vc-demo-theme-default-1.1.0.zip
   ELECTRONICS_THEME_LOCATION: /mnt/cms-content/Themes/Electronics
-  B2B_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-b2b-1.0.0-alpha.1311.zip
+  B2B_THEME_URL: https://github.com/VirtoCommerce/vc-demo-theme-b2b/releases/download/master-1.1.0-acd0f265/vc-demo-theme-b2b-1.1.0.zip
   B2B_THEME_LOCATION: /mnt/cms-content/Themes/B2B-store
   ASSETS_URL: https://vcbacpac.blob.core.windows.net/dac-packages/webstore_assets_new.zip
   ASSETS_LOCATION: /mnt/cms-content
@@ -186,7 +186,7 @@ data:
       {
         "Id": "VirtoCommerce.DemoSolutionFeatures",
         "Repository": "VirtoCommerce/vc-module-demo-features",
-        "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoSolutionFeaturesModule_1.0.0-alpha.52.zip"
+        "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoSolutionFeaturesModule_1.1.0-alpha.53.zip"
       }
     ]
 
