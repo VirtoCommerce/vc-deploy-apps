@@ -23,7 +23,7 @@ spec:
       - "$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com"
       secretName: sandbox-storefront-tls
   rules:
-  - host: $(VC_STOREFRONT_SERVICE)-$(VC_NAMESPACE).govirto.com
+  - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
     http:
       paths:
       - backend:
