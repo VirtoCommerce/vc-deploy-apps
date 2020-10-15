@@ -16,9 +16,9 @@ patchesStrategicMerge:
 - ingress.yaml
 resources:
 - ../../../common-base
-- platform-cert.yaml
+#- platform-cert.yaml
 - platform-issuer.yaml
-- storefront-cert.yaml
+#- storefront-cert.yaml
 - storefront-issuer.yaml
 
 images:
