@@ -12,10 +12,10 @@ metadata:
 spec:
   tls:
     - hosts: 
-      - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com"
-      secretName: webstore-platfrom-tls
+      - webstore-platform.dev.govirto.com
+      secretName: webstore-platform-tls
     - hosts:   
-      - "$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com"
+      - webstore-storefront.dev.govirto.com
       secretName: webstore-storefront-tls
   rules:
   - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
