@@ -17,9 +17,11 @@ metadata:
 spec:
   tls:
     - hosts: 
-      - "$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com"
       - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com"
-      secretName: platfrom-tls 
+      secretName: platfrom-tls
+    - hosts:   
+      - "$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com"
+      secretName: sandbox-storefront-tls
   rules:
   - host: $(VC_STOREFRONT_SERVICE)-$(VC_NAMESPACE).govirto.com
     http:
