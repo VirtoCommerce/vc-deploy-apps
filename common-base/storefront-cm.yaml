@@ -6,4 +6,4 @@ data:
   ASPNETCORE_ENVIRONMENT: Development
   VirtoCommerce__Endpoint__Password: store
   VirtoCommerce__Endpoint__UserName: admin
-  VirtoCommerce__Endpoint__Url: https://$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com
+  VirtoCommerce__Endpoint__Url: http://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
