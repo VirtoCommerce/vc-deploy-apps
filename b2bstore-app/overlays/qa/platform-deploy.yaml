@@ -73,7 +73,7 @@ spec:
             - "-c"
           args:
             - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S)
-            && rm -rf /mnt/Modules/* && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
+            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/modules/*
             && if [ ! -d \"$ELECTRONICS_THEME_LOCATION\" ]; then mkdir -p \"$ELECTRONICS_THEME_LOCATION\"; fi
             && python3 install-theme.py $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION)
             && echo ELECTRONICS THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
@@ -90,7 +90,12 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: deployment-cm
-                  key: modules.json 
+                  key: modules.json
+          volumeMounts:
+            - mountPath: /mnt/modules
+              name: modules-data
+            - mountPath: /mnt/cms-content
+              name: cms-content-data
         - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB
@@ -101,7 +106,12 @@ spec:
             requests:
               memory: "512Mi"
             limits:
-              memory: "768Mi" 
+              memory: "768Mi"
+          volumeMounts:
+            - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
+              name: cms-content-data
+            - mountPath: "/opt/virtocommerce/platform/modules"
+              name: modules-data    
           command:
             - "/bin/bash"
             - "-c"
