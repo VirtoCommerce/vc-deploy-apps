@@ -73,7 +73,7 @@ spec:
             - "-c"
           args:
             - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S)
-            && rm -rf /mnt/Modules/* && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules
+            && rm -rf /mnt/Modules/* && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/
             && if [ ! -d \"$ELECTRONICS_THEME_LOCATION\" ]; then mkdir -p \"$ELECTRONICS_THEME_LOCATION\"; fi
             && python3 install-theme.py $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION)
             && echo ELECTRONICS THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
