@@ -11,3 +11,5 @@ data:
     AzureAd__Enabled: "true"
     Content__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/
     Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/
+    ASPNETCORE_URLS: "http://+;https://+"
+    ASPNETCORE_HTTPS_POR: 8001

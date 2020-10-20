@@ -23,12 +23,12 @@ spec:
       paths:
       - backend:
           serviceName: storefront
-          servicePort: 443
+          servicePort: 8001
         path: /
   - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
     http:
       paths:
       - backend:
           serviceName: platform
-          servicePort: 443
+          servicePort: 8001
         path: /    
