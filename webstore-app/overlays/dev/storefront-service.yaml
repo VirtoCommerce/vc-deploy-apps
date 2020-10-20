@@ -6,6 +6,8 @@ spec:
   type: ClusterIP
   ports:
     - port: 80
+      name: http
     - port: 443
+      name: https
   selector:
     app: platform
