@@ -29,6 +29,6 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: platform
+          serviceName: platform-dev-svc
           servicePort: 443
         path: /    
