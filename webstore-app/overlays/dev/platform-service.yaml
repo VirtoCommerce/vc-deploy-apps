@@ -5,9 +5,9 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    name: https
-    protocol: TCP
-    port: 443
-    targetPort: 443
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 443
   selector:
     app: platform
