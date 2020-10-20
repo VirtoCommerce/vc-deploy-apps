@@ -13,16 +13,15 @@ patchesStrategicMerge:
 - deployment-cm.yaml
 - storefront-cm.yaml
 - platform-cm.yaml
-# - ingress.yaml
+- ingress.yaml
+- platform-service.yaml
+- storefront-service.yaml
 resources:
-- ingresshttps.yaml
 - ../../../common-base
 - platform-cert.yaml
 - platform-issuer.yaml
 - storefront-cert.yaml
 - storefront-issuer.yaml
-- platform-service.yaml
-- storefront-service.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
