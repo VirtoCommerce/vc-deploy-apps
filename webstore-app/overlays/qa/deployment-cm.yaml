@@ -176,7 +176,7 @@ data:
       {
         "Id": "VirtoCommerce.DynamicAssociations",
         "Repository": "VirtoCommerce/vc-module-dynamic-associations",
-        "PackageUrl": "https://github.com/VirtoCommerce/vc-module-dynamic-associations/releases/download/3.3.0/VirtoCommerce.DynamicAssociationsModule_3.3.0.zip"
+        "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DynamicAssociationsModule_3.5.0-alpha.19.zip"
       },
       {
         "Id": "VirtoCommerce.ExperienceApi",

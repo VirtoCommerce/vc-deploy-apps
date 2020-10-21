@@ -21,4 +21,4 @@ images:
   newTag: master-3.21.0-11583-41a3f937
 - name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
-  newTag: feature_VP-5157-keep-up-to-date-1.0.0-alpha.874-f0683fe0
+  newTag: dev-1.2.0-alpha.882-38acc3a4
