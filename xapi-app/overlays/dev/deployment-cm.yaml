@@ -24,6 +24,6 @@ data:
       {
         "Id": "VirtoCommerce.ExperienceGateway",
         "Repository": "VirtoCommerce/vc-experience-gateway",
-        "PackageUrl": "https://github.com/VirtoCommerce/vc-experience-gateway/releases/download/0.5.0-gateway/VirtoCommerce.ExperienceApi_0.5.0.zip"
+        "PackageUrl": "https://devdemovc3.blob.core.windows.net/xapi/VirtoCommerce.ExperienceApi_0.5.0.zip"
       }
     ]
