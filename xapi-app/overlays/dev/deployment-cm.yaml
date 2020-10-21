@@ -22,8 +22,13 @@ data:
         "PackageUrl": "https://github.com/VirtoCommerce/vc-module-search/releases/download/3.2.0/VirtoCommerce.Search_3.2.0.zip"
       },
       {
+        "Id": "VirtoCommerce.ExperienceApi",
+        "Repository": "VirtoCommerce/vc-experience-gateway",
+        "PackageUrl": "https://devdemovc3.blob.core.windows.net/xapi/VirtoCommerce.ExperienceApi_0.6.0-gateway.001.zip"
+      },
+      {
         "Id": "VirtoCommerce.ExperienceGateway",
         "Repository": "VirtoCommerce/vc-experience-gateway",
-        "PackageUrl": "https://devdemovc3.blob.core.windows.net/xapi/VirtoCommerce.ExperienceApi_0.5.0.zip"
+        "PackageUrl": "https://devdemovc3.blob.core.windows.net/xapi/VirtoCommerce.ExperienceGatewayModule_0.5.0.zip"
       }
     ]
