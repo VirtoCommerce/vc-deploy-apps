@@ -17,8 +17,7 @@ metadata:
         - '500'
         - '503'
         # See below on where "error-pages" comes from
-        backend: sandbox-error-page.dev.svc.cluster.local
-        query: "/{status}.html"
+        backend: http://sandbox-error-page.dev.svc.cluster.local:80
 spec:
   tls:
     - hosts: 
