@@ -12,6 +12,8 @@ metadata:
         status:
         - "404"
         - "500"
+        - "502"
+        - "503"
         # See below on where "error-pages" comes from
         backend: error-pages
         query: "/{{status}}.html"
