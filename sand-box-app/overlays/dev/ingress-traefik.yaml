@@ -4,31 +4,31 @@ metadata:
   name: traefik-ingress
   annotations:
     kubernetes.io/ingress.class: traefik
-    traefik.ingress.kubernetes.io/redirect-entry-point: https
-    traefik.ingress.kubernetes.io/redirect-permanent: "true"
-    traefik.ingress.kubernetes.io/priority: "20"
-    traefik.ingress.kubernetes.io/error-pages: |-
-      customerror:
-        status:
-        - '401'
-        - '403'
-        - '404'
-        - '429'
-        - '500'
-        - '503'
-        # See below on where "error-pages" comes from
-        backend: https://$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com
-        query: "/{status}.html"
+    # traefik.ingress.kubernetes.io/redirect-entry-point: https
+    # traefik.ingress.kubernetes.io/redirect-permanent: "true"
+    # traefik.ingress.kubernetes.io/priority: "20"
+    # traefik.ingress.kubernetes.io/error-pages: |-
+    #   customerror:
+    #     status:
+    #     - '401'
+    #     - '403'
+    #     - '404'
+    #     - '429'
+    #     - '500'
+    #     - '503'
+    #     # See below on where "error-pages" comes from
+    #     backend: https://$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com
+    #     query: "/{status}.html"
 spec:
   rules:
-  - host: $(VC_STOREFRONT_SERVICE)-traefik-$(VC_NAMESPACE).govirto.com
+  - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
     http:
       paths:
       - backend:
           serviceName: storefront
           servicePort: 80
         path: /
-  - host: $(VC_PLATFORM_SERVICE)-traefik-$(VC_NAMESPACE).govirto.com
+  - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
     http:
       paths:
       - backend:
