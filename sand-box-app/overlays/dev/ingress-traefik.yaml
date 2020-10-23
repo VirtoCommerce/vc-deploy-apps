@@ -5,17 +5,17 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/router.middlewares: sandbox-https-redirect
-    traefik.ingress.kubernetes.io/error-pages: |-
-      error-pages:
-        status:
-        - "404"
-        - "500"
-        - "502"
-        - "503"
-        # See below on where "error-pages" comes from
-        backend: sandbox-error-page
-        # query: "/{{status}}.html"
+    # traefik.ingress.kubernetes.io/router.middlewares: sandbox-https-redirect
+    # traefik.ingress.kubernetes.io/error-pages: |-
+    #   error-pages:
+    #     status:
+    #     - "404"
+    #     - "500"
+    #     - "502"
+    #     - "503"
+    #     # See below on where "error-pages" comes from
+    #     backend: sandbox-error-page
+    #     # query: "/{{status}}.html"
 spec:
   tls:
     - hosts: 
@@ -38,20 +38,4 @@ spec:
       - backend:
           serviceName: platform
           servicePort: 80
-        path: /
-  - host: error-pages
-    http:
-      paths:
-      - backend:
-          serviceName: error-page
-          servicePort: http
-        path: /       
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  name: https-redirect
-spec:
-  redirectScheme:
-    scheme: https
-    permanent: true
+        path: /   
