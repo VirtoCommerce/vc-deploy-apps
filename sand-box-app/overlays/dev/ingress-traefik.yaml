@@ -5,10 +5,6 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.tls: "true"
-    # traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
-    # traefik.ingress.kubernetes.io/frontend-entry-points: web, websecure
-    traefik.ingress.kubernetes.io/redirect-entry-point: https
-    ingress.kubernetes.io/ssl-redirect: "true"
     traefik.ingress.kubernetes.io/error-pages: |-
       error-pages:
         status:
@@ -17,7 +13,7 @@ metadata:
         - "502"
         - "503"
         # See below on where "error-pages" comes from
-        backend: error-pages
+        backend: sandbox-error-pages
         # query: "/{{status}}.html"
 spec:
   tls:
