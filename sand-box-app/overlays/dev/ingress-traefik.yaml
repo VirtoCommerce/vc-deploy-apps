@@ -5,6 +5,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.middlewares: https_redirect
     traefik.ingress.kubernetes.io/error-pages: |-
       error-pages:
         status:
@@ -45,4 +46,12 @@ spec:
           serviceName: error-page
           servicePort: http
         path: /       
-#
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: https_redirect
+spec:
+  redirectScheme:
+    scheme: https
+    permanent: true
