@@ -17,7 +17,7 @@ metadata:
         - '500'
         - '503'
         # See below on where "error-pages" comes from
-        backend: https://$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com
+        backend: sandbox-error-page.dev.svc.cluster.local
         query: "/{status}.html"
 spec:
   tls:
