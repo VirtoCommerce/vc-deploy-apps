@@ -6,3 +6,4 @@ data:
     APPINSIGHTS_INSTRUMENTATIONKEY: "f60031ba-a752-4178-90b3-4bf05b631a19"
     CookieAuthenticationOptions__ExpireTimeSpan: "12:00:00"
     SnapshotCollectorConfiguration__IsEnabled: "false"
+    VirtoCommerce__CacheEnabled: "false"
