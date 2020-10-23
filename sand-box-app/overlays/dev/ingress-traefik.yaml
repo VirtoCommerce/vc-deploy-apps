@@ -8,7 +8,7 @@ metadata:
     traefik.ingress.kubernetes.io/frontend-entry-points: http,https
     traefik.ingress.kubernetes.io/redirect-entry-point: https
     traefik.ingress.kubernetes.io/error-pages: |-
-      foo:
+      error-pages:
         status:
         - "404"
         - "500"
@@ -16,7 +16,7 @@ metadata:
         - "503"
         # See below on where "error-pages" comes from
         backend: error-pages
-        query: "/{{status}}.html"
+        # query: "/{{status}}.html"
 spec:
   tls:
     - hosts: 
@@ -45,4 +45,5 @@ spec:
       paths:
       - backend:
           serviceName: error-page
-          servicePort: http      
+          servicePort: http
+        path: /         
