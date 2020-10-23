@@ -13,7 +13,7 @@ metadata:
         - "502"
         - "503"
         # See below on where "error-pages" comes from
-        backend: sandbox-error-pages
+        backend: sandbox-error-page
         # query: "/{{status}}.html"
 spec:
   tls:
