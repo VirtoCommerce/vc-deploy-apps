@@ -7,18 +7,14 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/frontend-entry-points: http,https
     traefik.ingress.kubernetes.io/redirect-entry-point: https
-    # traefik.ingress.kubernetes.io/error-pages: |-
-    #   customerror:
-    #     status:
-    #     - '401'
-    #     - '403'
-    #     - '404'
-    #     - '429'
-    #     - '500'
-    #     - '503'
-    #     # See below on where "error-pages" comes from
-    #     backend: http://sandbox-error-page.dev.svc.cluster.local:80
-    # 
+    traefik.ingress.kubernetes.io/error-pages: |-
+      foo:
+        status:
+        - "404"
+        - "500"
+        # See below on where "error-pages" comes from
+        backend: error-pages
+        query: "/{{status}}.html"
 spec:
   tls:
     - hosts: 
@@ -41,4 +37,10 @@ spec:
       - backend:
           serviceName: platform
           servicePort: 80
-        path: /    
+        path: /
+  - host: error-pages
+    http:
+      paths:
+      - backend:
+        serviceName: error-page
+        servicePort: http      
