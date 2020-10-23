@@ -7,5 +7,5 @@ data:
     Search__Scope: "webstore-platformdevindex"
     VirtoCommerce__Hangfire__UseHangfireServer: "false"
     VirtoCommerce__DatabaseProvider: "InMemory"
-    VirtoCommerce__SampleDataUrl: null
-    ExternalModules__AutoInstallModuleBundles: null
+    VirtoCommerce__SampleDataUrl: ""
+    ExternalModules__AutoInstallModuleBundles: []
