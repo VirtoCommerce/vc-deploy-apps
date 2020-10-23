@@ -4,8 +4,8 @@ metadata:
   name: traefik-ingress
   annotations:
     kubernetes.io/ingress.class: traefik
-    # traefik.ingress.kubernetes.io/redirect-entry-point: https
-    # traefik.ingress.kubernetes.io/redirect-permanent: "true"
+    traefik.ingress.kubernetes.io/redirect-entry-point: https
+    traefik.ingress.kubernetes.io/redirect-permanent: "true"
     # traefik.ingress.kubernetes.io/priority: "20"
     traefik.ingress.kubernetes.io/error-pages: |-
       customerror:
@@ -20,6 +20,13 @@ metadata:
         backend: https://$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com
         query: "/{status}.html"
 spec:
+  tls:
+    - hosts: 
+      - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com"
+      secretName: platfrom-tls
+    - hosts:   
+      - "$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com"
+      secretName: sandbox-storefront-tls
   rules:
   - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
     http:
