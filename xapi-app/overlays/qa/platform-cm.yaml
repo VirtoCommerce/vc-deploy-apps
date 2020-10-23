@@ -4,4 +4,4 @@ metadata:
   name: platform-cm
 data:
     ExternalModules__IncludePrerelease: "true"
-    ExternalModules__ModulesManifestUrl:
+    ExternalModules__ModulesManifestUrl: null
