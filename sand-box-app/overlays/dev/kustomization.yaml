@@ -22,7 +22,7 @@ resources:
 - platform-issuer.yaml
 - storefront-cert.yaml
 - storefront-issuer.yaml
-- ingress-traefik.yaml
+#- ingress-traefik.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
