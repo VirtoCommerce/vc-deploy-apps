@@ -4,21 +4,18 @@ metadata:
   name: traefik-ingress
   annotations:
     kubernetes.io/ingress.class: traefik
-    traefik.ingress.kubernetes.io/redirect-entry-point: https
-    traefik.ingress.kubernetes.io/redirect-permanent: "true"
     traefik.ingress.kubernetes.io/router.tls: "true"
-    # traefik.ingress.kubernetes.io/priority: "20"
-    traefik.ingress.kubernetes.io/error-pages: |-
-      customerror:
-        status:
-        - '401'
-        - '403'
-        - '404'
-        - '429'
-        - '500'
-        - '503'
-        # See below on where "error-pages" comes from
-        backend: http://sandbox-error-page.dev.svc.cluster.local:80
+    # traefik.ingress.kubernetes.io/error-pages: |-
+    #   customerror:
+    #     status:
+    #     - '401'
+    #     - '403'
+    #     - '404'
+    #     - '429'
+    #     - '500'
+    #     - '503'
+    #     # See below on where "error-pages" comes from
+    #     backend: http://sandbox-error-page.dev.svc.cluster.local:80
 spec:
   tls:
     - hosts: 
