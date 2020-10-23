@@ -44,5 +44,5 @@ spec:
     http:
       paths:
       - backend:
-        serviceName: error-page
-        servicePort: http      
+          serviceName: error-page
+          servicePort: http      
