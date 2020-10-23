@@ -47,4 +47,5 @@ spec:
       - backend:
           serviceName: error-page
           servicePort: http
-        path: /         
+        path: /       
+#
