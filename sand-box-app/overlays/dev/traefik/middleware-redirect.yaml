@@ -4,4 +4,5 @@ metadata:
   name: https-redirect
 spec:
   redirectScheme:
+    port: "80"
     permanent: true
