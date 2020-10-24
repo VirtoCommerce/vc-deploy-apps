@@ -22,10 +22,22 @@ spec:
           serviceName: storefront
           servicePort: 80
         path: /
+    https:
+      paths:
+      - backend:
+          serviceName: storefront
+          servicePort: 80
+        path: /    
   - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
     http:
       paths:
       - backend:
           serviceName: platform
           servicePort: 80
-        path: /   
+        path: / 
+    https:
+      paths:
+      - backend:
+          serviceName: platform
+          servicePort: 80
+        path: /       
