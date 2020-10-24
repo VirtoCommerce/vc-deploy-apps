@@ -23,7 +23,7 @@ resources:
 - storefront-cert.yaml
 - storefront-issuer.yaml
 #- ./traefik/ingress-traefik.yaml
-- ./traefik/ingressroute.yaml
+#- ./traefik/ingressroute.yaml
 - ./traefik/middleware-errors.yaml
 - ./traefik/middleware-redirect.yaml
 images:
