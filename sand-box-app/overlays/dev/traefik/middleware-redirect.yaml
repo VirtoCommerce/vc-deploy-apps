@@ -4,5 +4,4 @@ metadata:
   name: https-redirect
 spec:
   redirectScheme:
-    scheme: https
     permanent: true
