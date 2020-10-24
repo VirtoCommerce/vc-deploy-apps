@@ -25,7 +25,7 @@ resources:
 - ./traefik/ingress-traefik.yaml
 #- ./traefik/ingressroute.yaml
 - ./traefik/middleware-errors.yaml
-#- ./traefik/middleware-redirect.yaml
+- ./traefik/middleware-redirect.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform

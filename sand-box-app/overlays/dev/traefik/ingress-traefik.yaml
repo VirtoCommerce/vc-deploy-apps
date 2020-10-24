@@ -6,16 +6,6 @@ metadata:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/router.middlewares: dev-sandbox-errorpage@kubernetescrd
-    # traefik.ingress.kubernetes.io/error-pages: |-
-    #   error-pages:
-    #     status:
-    #     - "404"
-    #     - "500"
-    #     - "502"
-    #     - "503"
-    #     # See below on where "error-pages" comes from
-    #     backend: sandbox-error-page
-    #     # query: "/{{status}}.html"
 spec:
   tls:
     - hosts: 
