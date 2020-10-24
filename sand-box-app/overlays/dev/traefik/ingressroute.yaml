@@ -1,0 +1,19 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: platform-ingressroute
+  namespace: dev
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host("$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com")
+    kind: Rule
+    priority: 10
+    services:
+    - name: platform
+      port: 80
+    middlewares:
+    - name: sandbox-https-redirect
+  tls:
+    secretName: tls-secret  
