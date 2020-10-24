@@ -7,11 +7,11 @@ spec:
   entryPoints:
     - web
   routes:
-  - match: Host("$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com")
+  - match: Host('sandbox-platform-dev.govirto.com')
     kind: Rule
     priority: 10
     services:
-    - name: platform
+    - name: sandbox-platform
       port: 80
     middlewares:
     - name: sandbox-https-redirect
