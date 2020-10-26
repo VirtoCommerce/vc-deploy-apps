@@ -6,7 +6,6 @@ namePrefix: aai-
 commonLabels:
   instance: aai
 
-
 patchesStrategicMerge:
 - platform-deploy.yaml
 - storefront-deploy.yaml
@@ -16,7 +15,6 @@ patchesStrategicMerge:
 
 resources:
 - ../../../common-base
-
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
