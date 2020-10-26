@@ -10,22 +10,22 @@ metadata:
     nginx.org/location-snippets: |
      rewrite /admin https://$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com permanent;
 spec:
-  tls:
-    - hosts: 
-      - webstore-platform.dev.govirto.com
-      secretName: webstore-platform-tls
-    - hosts:   
-      - webstore-storefront.dev.govirto.com
-      secretName: webstore-storefront-tls
+  # tls:
+  #   - hosts: 
+  #     - webstore-platform.dev.govirto.com
+  #     secretName: webstore-platform-tls
+  #   - hosts:   
+  #     - webstore-storefront.dev.govirto.com
+  #     secretName: webstore-storefront-tls
   rules:
-  - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
+  - host: $(VC_STOREFRONT_SERVICE)-$(VC_NAMESPACE).govirto.com
     http:
       paths:
       - backend:
           serviceName: storefront
           servicePort: 80
         path: /
-  - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
+  - host: $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com
     http:
       paths:
       - backend:
