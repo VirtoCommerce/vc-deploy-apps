@@ -6,16 +6,18 @@ namePrefix: xapi-
 commonLabels:
   instance: xapi
 
+
 patchesStrategicMerge:
 - storefront-deploy.yaml
 - platform-deploy.yaml
+- platform-cm.yaml
 - deployment-cm.yaml
 resources:
 - ../../../common-base
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
-  newTag: feature_VP-4319-lastmodifieddate-3.12.0-pr-1980-14deebe1
+  newTag: 3.27.0-alpha.11616-vp-5340-test-options-passing-through-argo-af6961ad
 - name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newTag: feature_x-api-5.1.0-alpha.1-0fe49192
