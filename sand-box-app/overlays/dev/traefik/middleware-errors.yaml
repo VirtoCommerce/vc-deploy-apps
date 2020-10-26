@@ -5,7 +5,7 @@ metadata:
 spec:
   errors:
     status:
-      - 403-404
+      #- 403-404
       - 500-599
     query: /
     service:
