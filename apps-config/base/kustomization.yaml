@@ -5,3 +5,4 @@ resources:
 - xapi-app.yaml
 - odt-app.yaml
 - saas-app.yaml
+- aai-app.yaml
