@@ -33,4 +33,4 @@ spec:
           args:
             - "cat /vault/secrets/webstoressoappid >> /vault/secrets/config;
               cat /vault/secrets/webstoressotenid >> /vault/secrets/config;
-              source /vault/secrets/config && dotnet dev-certs https --trust && dotnet VirtoCommerce.Platform.Web.dll"
+              source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"
