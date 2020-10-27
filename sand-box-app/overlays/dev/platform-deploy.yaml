@@ -5,14 +5,32 @@ metadata:
 spec:
   replicas: 1
   template:
+    metadata:
+      annotations:
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/role: "myapp"
+        vault.hashicorp.com/agent-inject-secret-webstoressoappid: "secret/webstore-sso"
+        vault.hashicorp.com/agent-inject-template-webstoressoappid: |
+          {{- with secret "secret/webstore-sso" -}}
+          export AzureAd__ApplicationId="{{ .Data.ApplicationID }}"
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-webstoressotenid: "secret/webstore-sso"
+        vault.hashicorp.com/agent-inject-template-webstoressotenid: |
+          {{- with secret "secret/webstore-sso" -}}
+          export AzureAd__TenantId="{{ .Data.TenantID }}"
+          {{- end }}
     spec:
       initContainers:
         - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB
               value: webstore-platform_source
-  # strategy:
-  #   rollingUpdate:
-  #     maxSurge: 25%
-  #     maxUnavailable: 25%
-  #   type: RollingUpdate 
+      containers:
+        - name: vc-platform-web
+          command:
+            - "/bin/bash"
+            - "-c"
+          args:
+            - "cat /vault/secrets/webstoressoappid >> /vault/secrets/config;
+              cat /vault/secrets/webstoressotenid >> /vault/secrets/config;
+              source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"

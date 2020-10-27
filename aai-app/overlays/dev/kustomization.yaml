@@ -2,31 +2,23 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 namespace: dev
-namePrefix: webstore-
+namePrefix: aai-
 commonLabels:
-  instance: webstore
-
+  instance: aai
 
 patchesStrategicMerge:
-- storefront-deploy.yaml
 - platform-deploy.yaml
+- storefront-deploy.yaml
 - deployment-cm.yaml
-- storefront-cm.yaml
 - platform-cm.yaml
-- ingress.yaml
+- storefront-cm.yaml
+
 resources:
 - ../../../common-base
-- platform-cert.yaml
-- platform-issuer.yaml
-- storefront-cert.yaml
-- storefront-issuer.yaml
-- ./traefik/ingress-traefik.yaml
-- ./traefik/middleware-redirect.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
-  newTag: master-3.21.0-11583-41a3f937
+  newTag: master-3.24.0-11620-6ed934a0
 - name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
-  newTag: dev-1.0.0-alpha.864-cf9effb3
-#
+  newTag: master-1.1.0-913-b50808dd

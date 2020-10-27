@@ -15,22 +15,22 @@ metadata:
         proxy_pass http://sandbox-error-page.dev.svc.cluster.local:80; 
       }  
 spec:
-  tls:
-    - hosts: 
-      - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com"
-      secretName: platfrom-tls
-    - hosts:   
-      - "$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com"
-      secretName: sandbox-storefront-tls
+  # tls:
+  #   - hosts: 
+  #     - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com"
+  #     secretName: platfrom-tls
+  #   - hosts:   
+  #     - "$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com"
+  #     secretName: sandbox-storefront-tls
   rules:
-  - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
+  - host: $(VC_STOREFRONT_SERVICE)-$(VC_NAMESPACE).govirto.com
     http:
       paths:
       - backend:
           serviceName: storefront
           servicePort: 80
         path: /
-  - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
+  - host: $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE).govirto.com
     http:
       paths:
       - backend:

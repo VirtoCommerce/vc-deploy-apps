@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: errorpage
+spec:
+  errors:
+    status:
+      #- 403-404
+      - 500-599
+    query: /
+    service:
+      name: sandbox-error-page
+      port: 80
