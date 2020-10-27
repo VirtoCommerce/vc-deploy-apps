@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: storefront-cert
+spec:
+  secretName: webstore-storefront-tls
+  issuerRef:
+    name: webstore-storefront-issuer
+    kind: Issuer
+  commonName: webstore-storefront.qa.govirto.com
+  dnsNames:
+  - webstore-storefront.qa.govirto.com
