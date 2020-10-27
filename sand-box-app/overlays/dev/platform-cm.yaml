@@ -10,6 +10,8 @@ data:
     Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/
     AzureAd__Enabled: "true"
     ExternalModules__AutoInstallModuleBundles: |
-      commerce
-      core
-      xapi
+      [
+        commerce,
+        core,
+        xapi
+      ]
