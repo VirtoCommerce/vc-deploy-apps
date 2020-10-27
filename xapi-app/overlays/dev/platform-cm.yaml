@@ -10,6 +10,6 @@ data:
     VirtoCommerce__SampleDataUrl: ""
     ExternalModules__AutoInstallModuleBundles: |
       [
-        "xapi",
-        "core"
+        xapi,
+        core
       ]
