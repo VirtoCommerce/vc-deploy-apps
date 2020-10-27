@@ -18,12 +18,25 @@ spec:
             && python3 install-theme.py $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION)
             && echo ELECTRONIC THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
             && python3 upload-assets.py $(ASSETS_URL) $(ASSETS_LOCATION)
-            && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"                    
+            && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"    
+          envFrom:
+            - configMapRef:
+                name: deployment-cm
+          env:
+            - name: MODULES_CONFIG
+              valueFrom:
+                configMapKeyRef:
+                  name: deployment-cm
+                  key: modules.json
+          volumeMounts:
+            - mountPath: /mnt/modules
+              name: modules-data
+            - mountPath: /mnt/cms-content
+              name: cms-content-data                            
         - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB
               value: aai-platform_dev_source
-
       containers:
         - name: vc-platform-web
           resources:
@@ -31,3 +44,8 @@ spec:
               memory: "128Mi"
             limits:
               memory: "512Mi"  
+            volumeMounts:
+            - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
+              name: cms-content-data
+            - mountPath: "/opt/virtocommerce/platform/modules"
+              name: modules-data    
