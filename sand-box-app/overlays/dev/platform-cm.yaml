@@ -11,3 +11,5 @@ data:
     AzureAd__Enabled: "true"
     ExternalModules__AutoInstallModuleBundles: |
       commerce
+      core
+      xapi
