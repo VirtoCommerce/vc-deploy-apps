@@ -8,8 +8,6 @@ data:
     VirtoCommerce__Hangfire__UseHangfireServer: "false"
     VirtoCommerce__DatabaseProvider: "InMemory"
     VirtoCommerce__SampleDataUrl: ""
-    ExternalModules__AutoInstallModuleBundles: |
-      [
-        xapi,
-        core
-      ]
+    ExternalModules__AutoInstallModuleBundles:
+      - xapi,
+      - core
