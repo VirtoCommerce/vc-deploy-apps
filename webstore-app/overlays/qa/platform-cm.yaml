@@ -17,3 +17,5 @@ data:
     PushNotifications__ScalabilityMode: "None"
     PushNotifications__HubUrl: "https://webstore-platform-qa.govirto.com/pushNotificationHub"
     AzureAd__Enabled: "true"
+    Content__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/
+    Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/
