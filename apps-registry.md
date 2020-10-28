@@ -1,4 +1,4 @@
-# Created in ArgoCD apps
+# ArgoCD apps
 
 ## Registry
 
