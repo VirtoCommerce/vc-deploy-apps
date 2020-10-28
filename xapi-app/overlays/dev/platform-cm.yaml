@@ -6,6 +6,7 @@ data:
     ExternalModules__IncludePrerelease: "true"
     Search__Scope: "webstore-platformdevindex"
     VirtoCommerce__Hangfire__UseHangfireServer: "false"
-    VirtoCommerce__DatabaseProvider: "InMemory"
+    VirtoCommerce__DatabaseProvider: "SqlServer"
     #VirtoCommerce__SampleDataUrl: ""
     ExternalModules__AutoInstallModuleBundles: ""
+    VirtoCommerce__Hangfire__JobStorageType: Memory
