@@ -10,4 +10,4 @@ spec:
         - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB
-              value: xapi-platform_source
+              value: webstore-platform_source
