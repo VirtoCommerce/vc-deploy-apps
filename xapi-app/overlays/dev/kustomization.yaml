@@ -17,8 +17,8 @@ resources:
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
-  #newTag: 3.26.0-11629-master-a3ca77ad
-  newTag: 3.27.0-alpha.11626-rnd-25-add-database-provider-switcher-17d14428
+  newTag: 3.27.0-alpha.11617-dev-c716da22
+  #newTag: 3.27.0-alpha.11626-rnd-25-add-database-provider-switcher-17d14428
 - name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newTag: feature_x-api-5.1.0-alpha.1-0fe49192
