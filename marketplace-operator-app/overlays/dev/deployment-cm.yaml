@@ -43,11 +43,6 @@ data:
       "PackageUrl": "https://github.com/VirtoCommerce/vc-module-notification/releases/download/3.9.0/VirtoCommerce.Notifications_3.9.0.zip"
     },
     {
-      "Id": "VirtoCommerce.Orders",
-      "Repository": "VirtoCommerce/vc-module-order",
-      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-order/releases/download/3.17.0/VirtoCommerce.Orders_3.17.0.zip"
-    },
-    {
       "Id": "VirtoCommerce.Payment",
       "Repository": "VirtoCommerce/vc-module-payment",
       "PackageUrl": "https://github.com/VirtoCommerce/vc-module-payment/releases/download/3.3.0/VirtoCommerce.Payment_3.3.0.zip"
