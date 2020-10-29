@@ -184,6 +184,6 @@ data:
       {
         "Id": "VirtoCommerce.DemoSolutionFeatures",
         "Repository": "VirtoCommerce/vc-module-demo-features",
-        "PackageUrl": "https://github.com/VirtoCommerce/vc-module-demo-features/releases/download/1.2.0/VirtoCommerce.DemoSolutionFeaturesModule_1.2.0.zip"
+        "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoSolutionFeaturesModule_1.3.0-alpha.120.zip"
       }
     ]
