@@ -6,3 +6,4 @@ resources:
 - odt-app.yaml
 - saas-app.yaml
 - aai-app.yaml
+- marketplace-operator-app.yaml

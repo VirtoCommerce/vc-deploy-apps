@@ -5,6 +5,7 @@
 |Namespace |App name |Responsible |
 |----------|--------|-----------|
 |Dev| aai-app| Alexandr Andreev|
+|Dev| marketplace-app| Egidijus Mazeika|
 |Dev| odt-app| Basil Kotov|
 |Dev| saas-app| Alexander Siniouguine|
 |Dev| sand-box-app| Konstantin Kisilevskiy|
