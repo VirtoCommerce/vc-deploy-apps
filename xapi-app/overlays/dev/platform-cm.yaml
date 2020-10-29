@@ -7,8 +7,8 @@ data:
     Search__Scope: "webstore-platformdevindex"
     VirtoCommerce__Hangfire__UseHangfireServer: "true"
     VirtoCommerce__DatabaseProvider: InMemory
-    #VirtoCommerce__SampleDataUrl: ""
+    VirtoCommerce__SampleDataUrl: ""
     ExternalModules__AutoInstallModuleBundles: ""
-    VirtoCommerce__Hangfire__JobStorageType: Memory
+    VirtoCommerce__Hangfire__JobStorageType: SqlServer
     Logging__LogLevel__Default: Information
     Logging__LogLevel__Microsoft: Information
