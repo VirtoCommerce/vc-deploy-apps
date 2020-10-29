@@ -17,8 +17,8 @@ resources:
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
-  #newTag: 3.27.0-alpha.11617-dev-c716da22
-  newTag: 3.27.0-alpha.11628-rnd-24-work-without-database-bc72c48b
+  newTag: 3.27.0-alpha.11617-dev-c716da22
+  #newTag: 3.27.0-alpha.11628-rnd-24-work-without-database-bc72c48b
 - name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newTag: feature_x-api-5.1.0-alpha.1-0fe49192
