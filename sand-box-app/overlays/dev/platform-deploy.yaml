@@ -27,6 +27,11 @@ spec:
               value: webstore-platform_source
       containers:
         - name: vc-platform-web
+          resources:
+            requests:
+              cpu: "30m"
+            limits:
+              cpu: "60m" 
           command:
             - "/bin/bash"
             - "-c"
