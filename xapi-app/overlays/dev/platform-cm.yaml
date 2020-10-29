@@ -5,7 +5,7 @@ metadata:
 data:
     ExternalModules__IncludePrerelease: "true"
     Search__Scope: "webstore-platformdevindex"
-    VirtoCommerce__Hangfire__UseHangfireServer: "false"
+    VirtoCommerce__Hangfire__UseHangfireServer: "true"
     VirtoCommerce__DatabaseProvider: InMemory
     #VirtoCommerce__SampleDataUrl: ""
     ExternalModules__AutoInstallModuleBundles: ""
