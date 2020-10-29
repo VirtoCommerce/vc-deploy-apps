@@ -7,7 +7,7 @@ data:
     Search__Scope: "webstore-platformdevindex"
     VirtoCommerce__Hangfire__UseHangfireServer: "true"
     VirtoCommerce__DatabaseProvider: SqlServer
-    VirtoCommerce__SampleDataUrl: ""
+    #VirtoCommerce__SampleDataUrl: ""
     ExternalModules__AutoInstallModuleBundles: ""
     VirtoCommerce__Hangfire__JobStorageType: SqlServer
     Logging__LogLevel__Default: Information
