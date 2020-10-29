@@ -10,3 +10,5 @@ data:
     #VirtoCommerce__SampleDataUrl: ""
     ExternalModules__AutoInstallModuleBundles: ""
     VirtoCommerce__Hangfire__JobStorageType: Memory
+    Logging__LogLevel__Default: Information
+    Logging__LogLevel__Microsoft: Information
