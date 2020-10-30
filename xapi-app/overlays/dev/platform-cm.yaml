@@ -10,3 +10,6 @@ data:
     ExternalModules__AutoInstallModuleBundles: ""
     Logging__LogLevel__Default: Information
     Logging__LogLevel__Microsoft: Information
+    ExperienceGateway__VirtoCommerceEndpoint__Url: "http://webstore-platform-dev.govirto.com/"
+    ExperienceGateway__VirtoCommerceEndpoint__ClientId: "1c385578-bb9b-43de-ab61-c41a47095ac6"
+    ExperienceGateway__VirtoCommerceEndpoint__ClientSecret: "b32d5908-0780-4016-9df8-42521f4863c9"
