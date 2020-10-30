@@ -104,9 +104,9 @@ spec:
         - name: vc-platform-web
           resources:
             requests:
-              memory: "512Mi"
+              memory: "256Mi"
             limits:
-              memory: "768Mi"
+              memory: "512Mi"
           volumeMounts:
             - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
               name: cms-content-data
