@@ -26,8 +26,6 @@ spec:
           volumeMounts:
             - mountPath: /mnt/modules
               name: modules-data
-            - mountPath: /mnt/cms-content
-              name: cms-content-data
       containers:
         - name: vc-platform-web
           resources:
@@ -36,7 +34,5 @@ spec:
             limits:
               memory: "768Mi"
           volumeMounts:
-            - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
-              name: cms-content-data
             - mountPath: "/opt/virtocommerce/platform/modules"
               name: modules-data    
