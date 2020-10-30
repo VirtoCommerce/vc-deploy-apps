@@ -5,10 +5,8 @@ metadata:
 data:
     ExternalModules__IncludePrerelease: "true"
     Search__Scope: "webstore-platformdevindex"
-    VirtoCommerce__Hangfire__UseHangfireServer: "true"
-    VirtoCommerce__DatabaseProvider: SqlServer
+    VirtoCommerce__DatabaseProvider: InMemory
     #VirtoCommerce__SampleDataUrl: ""
     ExternalModules__AutoInstallModuleBundles: ""
-    VirtoCommerce__Hangfire__JobStorageType: SqlServer
     Logging__LogLevel__Default: Information
     Logging__LogLevel__Microsoft: Information
