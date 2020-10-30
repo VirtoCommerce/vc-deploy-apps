@@ -1,6 +1,5 @@
 resources:
 - webstore-app.yaml
-- support-webstore-app.yaml
 - sand-box-app.yaml
 - xapi-app.yaml
 - odt-app.yaml
