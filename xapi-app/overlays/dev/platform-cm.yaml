@@ -6,7 +6,7 @@ data:
     ExternalModules__IncludePrerelease: "true"
     Search__Scope: "webstore-platformdevindex"
     VirtoCommerce__DatabaseProvider: InMemory
-    VirtoCommerce__SampleDataUrl: ""
+    #VirtoCommerce__SampleDataUrl: ""
     ExternalModules__AutoInstallModuleBundles: ""
     Logging__LogLevel__Default: Information
     Logging__LogLevel__Microsoft: Information
