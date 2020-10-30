@@ -2,21 +2,21 @@
 
 ## Registry
 
-|Namespace |App name |Responsible |
-|----------|--------|-----------|
-|Dev| aai-app| Alexandr Andreev|
-|Dev| marketplace-app| Egidijus Mazeika|
-|Dev| odt-app| Basil Kotov|
-|Dev| saas-app| Alexander Siniouguine|
-|Dev| sand-box-app| Konstantin Kisilevskiy|
-|Dev| support-webstore-app| Aleksandr Manyukhin|
-|Dev| webstore-app| Dmitry Pushnitsa|
-|Dev| xapi-app| Andrey Kostyrin|
-|QA| b2bstore-app| Aleksandr Manyukhin|
-|QA| odt-app| Basil Kotov|
-|QA| support-webstore-app| Aleksandr Manyukhin|
-|QA| webstore-app| Dmitry Pushnitsa|
-|QA| xapi-app| Andrey Kozlov|
-|Demo| odt-app| Basil Kotov|
-|Demo| public-app| |
-|Demo| webstore-app| Dmitry Pushnitsa|
+|Namespace |App name |Responsible |Status |
+|----------|--------|-----------|-----------|
+|Dev| aai-app| Alexandr Andreev| Online |
+|Dev| marketplace-app| Egidijus Mazeika| Online |
+|Dev| odt-app| Basil Kotov| Online |
+|Dev| saas-app| Alexander Siniouguine| Online |
+|Dev| sand-box-app| Konstantin Kisilevskiy| Online |
+|Dev| support-webstore-app| Aleksandr Manyukhin| Suspend |
+|Dev| webstore-app| Dmitry Pushnitsa| Online |
+|Dev| xapi-app| Andrey Kostyrin| Online |
+|QA| b2bstore-app| Aleksandr Manyukhin| Online |
+|QA| odt-app| Basil Kotov| Online |
+|QA| support-webstore-app| Aleksandr Manyukhin| Suspend |
+|QA| webstore-app| Dmitry Pushnitsa| Online |
+|QA| xapi-app| Andrey Kozlov| Online |
+|Demo| odt-app| Basil Kotov| Online |
+|Demo| public-app| | Online |
+|Demo| webstore-app| Dmitry Pushnitsa| Online |
