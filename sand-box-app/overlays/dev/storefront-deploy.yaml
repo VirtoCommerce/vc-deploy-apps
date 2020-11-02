@@ -25,6 +25,13 @@ spec:
           successThreshold: 1
           initialDelaySeconds: 20
           periodSeconds: 1
+          volumeMounts:
+            - mountPath: /opt/virtocommerce/storefront/wwwroot/cms-content
+              name: cms-content-data-ceph
+      volumes:
+      - name: cms-content-data-ceph
+        persistentVolumeClaim:
+          claimName: sandbox-cms-ceph
   strategy:
     rollingUpdate:
       maxSurge: 0
