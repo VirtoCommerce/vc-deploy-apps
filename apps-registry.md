@@ -8,7 +8,7 @@
 |Dev| marketplace-app| Egidijus Mazeika| Online |
 |Dev| odt-app| Basil Kotov| Online |
 |Dev| saas-app| Alexander Siniouguine| Online |
-|Dev| sand-box-app| Konstantin Kisilevskiy| Online |
+|Dev| sand-box-app| Konstantin Kisilevskiy| [![App Status](https://cd.govirto.com/api/badge?name=sand-box-app-dev&revision=true)](https://cd.govirto.com/applications/sand-box-app-dev)  |
 |Dev| support-webstore-app| Aleksandr Manyukhin| Suspend |
 |Dev| webstore-app| Dmitry Pushnitsa| Online |
 |Dev| xapi-app| Andrey Kostyrin| Online |
