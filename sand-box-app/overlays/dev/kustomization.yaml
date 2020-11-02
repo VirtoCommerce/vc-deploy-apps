@@ -14,6 +14,7 @@ patchesStrategicMerge:
 - storefront-cm.yaml
 - platform-cm.yaml
 - ingress.yaml
+- cms-pvc.yaml
 resources:
 - ../../../common-base
 #- kube-job.yaml
