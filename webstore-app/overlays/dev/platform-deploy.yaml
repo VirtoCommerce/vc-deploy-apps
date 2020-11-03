@@ -68,6 +68,12 @@ spec:
               source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"
           volumeMounts:
             - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
-              name: cms-content-data
+              name: cms-content-data-ceph
             - mountPath: "/opt/virtocommerce/platform/modules"
-              name: modules-data    
+              name: modules-data
+      volumes:
+      - name: cms-content-data-ceph
+        persistentVolumeClaim:
+          claimName: webstore-cms-ceph
+      - name: modules-data
+        emptyDir: {}   
