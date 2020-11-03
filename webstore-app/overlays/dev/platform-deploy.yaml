@@ -21,6 +21,12 @@ spec:
           {{- end }}
     spec:
       initContainers:
+        - name: init-platform
+          volumeMounts:
+            - mountPath: /mnt/Modules
+              name: modules-data
+            - mountPath: /mnt/cms-content
+              name: cms-content-data-ceph 
         - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB
