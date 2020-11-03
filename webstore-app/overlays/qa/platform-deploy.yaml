@@ -32,6 +32,33 @@ spec:
         reloader.stakater.com/search: "true"
     spec:
       initContainers:
+      - name: init-platform
+          command:
+            - "/bin/sh"
+            - "-c"
+          args:
+            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
+            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/modules/*
+            && if [ ! -d \"$ELECTRONICS_THEME_LOCATION\" ]; then mkdir -p \"$ELECTRONICS_THEME_LOCATION\"; fi
+            && python3 install-theme.py $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION)
+            && echo ELECTRONIC THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
+            && python3 upload-assets.py $(ASSETS_URL) $(ASSETS_LOCATION)
+            && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
+          envFrom:
+            - configMapRef:
+                name: deployment-cm
+          env:
+            - name: MODULES_CONFIG
+              valueFrom:
+                configMapKeyRef:
+                  name: deployment-cm
+                  key: modules.json
+          volumeMounts:
+            - mountPath: /mnt/modules
+              name: modules-data
+            - mountPath: /mnt/cms-content
+              name: cms-content-data
+
         - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB
@@ -53,3 +80,8 @@ spec:
               cat /vault/secrets/webstoressoappid >> /vault/secrets/config;
               cat /vault/secrets/webstoressotenid >> /vault/secrets/config;
               source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"
+          volumeMounts:
+            - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
+              name: cms-content-data
+            - mountPath: "/opt/virtocommerce/platform/modules"
+              name: modules-data
