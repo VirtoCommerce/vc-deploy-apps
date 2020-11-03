@@ -32,7 +32,7 @@ spec:
         reloader.stakater.com/search: "true"
     spec:
       initContainers:
-      - name: init-platform
+        - name: init-platform
           command:
             - "/bin/sh"
             - "-c"
