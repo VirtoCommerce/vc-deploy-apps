@@ -11,4 +11,7 @@ data:
     Notifications__Smtp__Login: "apikey"
     Notifications__Smtp__Port: "587"
     APPINSIGHTS_INSTRUMENTATIONKEY: "f60031ba-a752-4178-90b3-4bf05b631a19"
+    PushNotifications__HubUrl: "https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/pushNotificationHub"
     AzureAd__Enabled: "true"
+    Content__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/
+    Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/
