@@ -14,4 +14,7 @@ data:
   Notifications__Smtp__Port: "587"
   Notifications__SmsGateway: "Twilio"
   ExternalModules__IncludePrerelease: "true"
+  PushNotifications__HubUrl: "https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/pushNotificationHub"
   AzureAd__Enabled: "true"
+  Content__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/
+  Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/

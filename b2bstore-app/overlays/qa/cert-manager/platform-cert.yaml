@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: platform-cert
+spec:
+  secretName: b2bstore-platform-tls
+  issuerRef:
+    name: b2bstore-platform-issuer
+    kind: Issuer
+  commonName: b2bstore-platform.qa.govirto.com
+  dnsNames:
+  - b2bstore-platform.qa.govirto.com
