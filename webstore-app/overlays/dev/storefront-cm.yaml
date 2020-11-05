@@ -11,3 +11,4 @@ data:
     VirtoCommerce__StoreUrls__B2B-store: https://$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com/
     VirtoCommerce__StoreUrls__Electronics: https://$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com/
     
+    
