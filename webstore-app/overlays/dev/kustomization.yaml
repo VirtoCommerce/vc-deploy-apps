@@ -22,6 +22,7 @@ resources:
 - storefront-issuer.yaml
 - ./traefik/ingress-traefik.yaml
 - ./traefik/middleware-redirect.yaml
+- ./traefik/middleware-sslproxy.yaml
 - cms-pvc-ceph.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
@@ -29,4 +30,4 @@ images:
   newTag: master-3.24.0-11620-6ed934a0
 - name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
-  newTag: 1.3.0-alpha.913-vp-5696-bd4da6f9
+  newTag: 1.4.0-alpha.916-vp-5640-d1c527d7

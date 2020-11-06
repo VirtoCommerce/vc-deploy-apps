@@ -5,7 +5,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/router.middlewares: dev-webstore-https-redirect@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: dev-webstore-https-redirect@kubernetescrd, dev-webstore-proxyssl@kubernetescrd
 spec:
   tls:
     - hosts: 
@@ -36,7 +36,7 @@ metadata:
   name: traefik-ingress-http
   annotations:
     kubernetes.io/ingress.class: traefik
-    traefik.ingress.kubernetes.io/router.middlewares: dev-webstore-https-redirect@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: dev-webstore-https-redirect@kubernetescrd, dev-webstore-proxyssl@kubernetescrd
 spec:
   rules:
   - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
