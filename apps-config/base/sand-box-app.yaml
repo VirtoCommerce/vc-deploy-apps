@@ -13,7 +13,7 @@ spec:
   source:
     path: sand-box-app/overlays/dev
     repoURL: https://github.com/virtocommerce/vc-deploy-apps
-    targetRevision: HEAD
+    targetRevision: gke
   syncPolicy:
     automated:
       prune: true

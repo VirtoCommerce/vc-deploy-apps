@@ -6,28 +6,9 @@ spec:
   replicas: 1
   template:
     metadata:
-      annotations:
-        vault.hashicorp.com/agent-inject: "true"
-        vault.hashicorp.com/role: "myapp"
-        vault.hashicorp.com/agent-inject-secret-webstoressoappid: "secret/webstore-sso"
-        vault.hashicorp.com/agent-inject-template-webstoressoappid: |
-          {{- with secret "secret/webstore-sso" -}}
-          export AzureAd__ApplicationId="{{ .Data.ApplicationID }}"
-          {{- end }}
-        vault.hashicorp.com/agent-inject-secret-webstoressotenid: "secret/webstore-sso"
-        vault.hashicorp.com/agent-inject-template-webstoressotenid: |
-          {{- with secret "secret/webstore-sso" -}}
-          export AzureAd__TenantId="{{ .Data.TenantID }}"
-          {{- end }}
     spec:
       initContainers:
         - name: init-platform
-          volumeMounts:
-            - mountPath: /mnt/Modules
-              name: modules-data
-            - mountPath: /mnt/cms-content
-              name: cms-content-data-ceph 
-        - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB
               value: webstore-platform_source
@@ -38,21 +19,3 @@ spec:
               memory: "256Mi"
             limits:
               memory: "512Mi" 
-          command:
-            - "/bin/bash"
-            - "-c"
-          args:
-            - "cat /vault/secrets/webstoressoappid >> /vault/secrets/config;
-              cat /vault/secrets/webstoressotenid >> /vault/secrets/config;
-              source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"
-          volumeMounts:
-            - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
-              name: cms-content-data-ceph
-            - mountPath: "/opt/virtocommerce/platform/modules"
-              name: modules-data
-      volumes:
-      - name: cms-content-data-ceph
-        persistentVolumeClaim:
-          claimName: webstore-cms-ceph
-      - name: modules-data
-        emptyDir: {}   

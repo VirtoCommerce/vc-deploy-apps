@@ -3,7 +3,6 @@ apiVersion: v1
 metadata:
   name: storefront-cm
 data:
-    APPINSIGHTS_INSTRUMENTATIONKEY: "1a9a3c2d-3299-4f26-8c5f-1e73b8d2d8e4"
     ASPNETCORE_FORWARDEDHEADERS_ENABLED: "true"
     CookieAuthenticationOptions__ExpireTimeSpan: "12:00:00"
     SnapshotCollectorConfiguration__IsEnabled: "false"
