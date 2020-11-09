@@ -8,6 +8,6 @@ spec:
   issuerRef:
     name: webstore-storefront-issuer
     kind: Issuer
-  commonName: webstore-storefront.dev.govirto.com
+  commonName: vcgoogle-storefront.dev.virtoway.us
   dnsNames:
-  - webstore-storefront.dev.govirto.com
+  - vcgoogle-storefront.dev.virtoway.us

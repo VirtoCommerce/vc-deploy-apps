@@ -8,6 +8,6 @@ spec:
   issuerRef:
     name: webstore-platform-issuer
     kind: Issuer
-  commonName: webstore-platform.dev.govirto.com
+  commonName: vcgoogle-platform.dev.virtoway.us
   dnsNames:
-  - webstore-platform.dev.govirto.com
+  - vcgoogle-platform.dev.virtoway.us
