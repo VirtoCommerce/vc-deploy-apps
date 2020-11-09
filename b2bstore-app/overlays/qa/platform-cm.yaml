@@ -18,3 +18,7 @@ data:
   AzureAd__Enabled: "true"
   Content__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/
   Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/
+  VirtoCommerce__LicenseFilePath: app_data/VirtoCommerce.lic
+  VirtoCommerce__LicensePublicKeyPath: app_data/public.key
+  VirtoCommerce__LicensePrivateKeyPath: app_data/private.key
+  VirtoCommerce__LocalUploadFolderPath: app_data/uploads
