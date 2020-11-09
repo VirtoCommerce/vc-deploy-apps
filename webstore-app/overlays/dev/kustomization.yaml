@@ -20,6 +20,7 @@ resources:
 - ./certmanager/platform-issuer.yaml
 - ./certmanager/storefront-cert.yaml
 - ./certmanager/storefront-issuer.yaml
+- ./traefik/ingress-https.yaml
 - ./traefik/middleware-redirect.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
