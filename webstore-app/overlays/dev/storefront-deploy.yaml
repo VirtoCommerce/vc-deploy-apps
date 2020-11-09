@@ -3,17 +3,4 @@ kind: Deployment
 metadata:
   name: storefront
 spec:
-  template:
-    metadata:
-      annotations:
-        reloader.stakater.com/search: "true"
-    spec:
-        containers:
-        - name: vc-storefront-web
-          volumeMounts:
-            - mountPath: /opt/virtocommerce/storefront/wwwroot/cms-content
-              name: cms-content-data-ceph
-        volumes:
-        - name: cms-content-data-ceph
-          persistentVolumeClaim:
-            claimName: webstore-cms-ceph
+  replicas: 1
