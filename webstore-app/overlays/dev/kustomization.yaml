@@ -17,7 +17,7 @@ patchesStrategicMerge:
 resources:
 - ../../../common-base
 - ./certmanager/platform-cert.yaml
-- ./certmanager/latform-issuer.yaml
+- ./certmanager/platform-issuer.yaml
 - ./certmanager/storefront-cert.yaml
 - ./certmanager/storefront-issuer.yaml
 - ./traefik/middleware-redirect.yaml
