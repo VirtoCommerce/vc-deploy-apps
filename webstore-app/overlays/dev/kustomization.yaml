@@ -2,9 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 namespace: dev
-namePrefix: webstore-
+namePrefix: vcgoogle-
 commonLabels:
-  instance: webstore
+  instance: vcgoogle
 
 
 patchesStrategicMerge:
@@ -16,11 +16,11 @@ patchesStrategicMerge:
 - ./traefik/ingress.yaml
 resources:
 - ../../../common-base
-- ./traefik/platform-cert.yaml
-- ./traefik/platform-issuer.yaml
-- ./traefik/storefront-cert.yaml
-- ./traefik/storefront-issuer.yaml
-- ./traefik/middleware-redirect.yaml
+- ./certmanager/platform-cert.yaml
+- ./certmanager//platform-issuer.yaml
+- ./certmanager//storefront-cert.yaml
+- ./certmanager/storefront-issuer.yaml
+- ./certmanager//middleware-redirect.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
