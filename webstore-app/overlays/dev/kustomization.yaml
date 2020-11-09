@@ -9,7 +9,7 @@ commonLabels:
 
 patchesStrategicMerge:
 - storefront-deploy.yaml
-- platform-deploy.yaml
+#- platform-deploy.yaml
 - deployment-cm.yaml
 - storefront-cm.yaml
 - platform-cm.yaml
