@@ -15,7 +15,7 @@ spec:
   ingress:
   - from:
     - ipBlock:
-        cidr: 0.0.0.0/0
+        10.0.0.0/24
     - namespaceSelector:
         matchLabels:
             instance: sandbox
