@@ -21,7 +21,7 @@ spec:
             - "-P"
             - "$(VC_DBSERVER_MASTER_PASSWORD_GKE)"
             - "-q"
-            - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_gke] $(VC_DB_COPY_PARAM)"
+            - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_gke]"
           env:
             - name: VC_SAMPLE_DATA_DB
               value: webstore-platform_source
@@ -44,4 +44,4 @@ spec:
                   name: gke-dbserver-password
                   key: password
             - name: ConnectionStrings__VirtoCommerce
-              value: "Server=tcp:sql.virtoway.us,1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_gke;User ID=gkesql;Password=$(VC_DBSERVER_PASSWORD_GKE);Trusted_Connection=False;Encrypt=True;"    
+              value: "Server=tcp:sql.virtoway.us,1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_gke;User ID=gkesql;Password=$(VC_DBSERVER_PASSWORD_GKE);Encrypt=False;"    
