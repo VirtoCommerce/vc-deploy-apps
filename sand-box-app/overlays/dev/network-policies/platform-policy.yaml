@@ -14,9 +14,12 @@ spec:
   - Egress
   ingress:
   - from:
-    - podSelector:
+    - namespaceSelector:
         matchLabels:
-            app.kubernetes.io/instance: traefik
+            ns-id: traefik
+    # - podSelector:
+    #     matchLabels:
+    #         app.kubernetes.io/instance: traefik
     ports:
     - protocol: TCP
       port: 80      
