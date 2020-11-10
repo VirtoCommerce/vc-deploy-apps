@@ -6,48 +6,42 @@ spec:
   replicas: 1
   template:
     metadata:
-      annotations:
-        vault.hashicorp.com/agent-inject: "true"
-        vault.hashicorp.com/role: "myapp"
-        vault.hashicorp.com/agent-inject-secret-webstoressoappid: "secret/webstore-sso"
-        vault.hashicorp.com/agent-inject-template-webstoressoappid: |
-          {{- with secret "secret/webstore-sso" -}}
-          export AzureAd__ApplicationId="{{ .Data.ApplicationID }}"
-          {{- end }}
-        vault.hashicorp.com/agent-inject-secret-webstoressotenid: "secret/webstore-sso"
-        vault.hashicorp.com/agent-inject-template-webstoressotenid: |
-          {{- with secret "secret/webstore-sso" -}}
-          export AzureAd__TenantId="{{ .Data.TenantID }}"
-          {{- end }}
+      labels:
+        app: platform
     spec:
       initContainers:
-        - name: init-platform
-          volumeMounts:
-            - mountPath: /mnt/Modules
-              name: modules-data
-            - mountPath: /mnt/cms-content
-              name: cms-content-data-ceph 
         - name: init-sqldatabase
+          image: mcr.microsoft.com/mssql-tools
+          command:
+            - "/opt/mssql-tools/bin/sqlcmd"
+            - "-S"
+            - "sql.virtoway.us"
+            - "-U"
+            - "gkesql"
+            - "-P"
+            - "$(VC_DBSERVER_MASTER_PASSWORD_GKE)"
+            - "-q"
+            - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_gke]"
           env:
             - name: VC_SAMPLE_DATA_DB
               value: webstore-platform_source
+            - name: VC_DBSERVER_MASTER_PASSWORD_GKE
+              valueFrom:
+                secretKeyRef:
+                  name: gke-dbserver-password
+                  key: password 
       containers:
         - name: vc-platform-web
-          command:
-            - "/bin/bash"
-            - "-c"
-          args:
-            - "cat /vault/secrets/webstoressoappid >> /vault/secrets/config;
-              cat /vault/secrets/webstoressotenid >> /vault/secrets/config;
-              source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"
-          volumeMounts:
-            - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
-              name: cms-content-data-ceph
-            - mountPath: "/opt/virtocommerce/platform/Modules"
-              name: modules-data
-      volumes:
-      - name: cms-content-data-ceph
-        persistentVolumeClaim:
-          claimName: sandbox-cms-ceph
-      - name: modules-data
-        emptyDir: {} 
+          resources:
+            requests:
+              memory: "256Mi"
+            limits:
+              memory: "512Mi"
+          env:
+            - name: VC_DBSERVER_PASSWORD_GKE
+              valueFrom:
+                secretKeyRef:
+                  name: gke-dbserver-password
+                  key: password
+            - name: ConnectionStrings__VirtoCommerce
+              value: "Server=tcp:sql.virtoway.us,1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_gke;User ID=gkesql;Password=$(VC_DBSERVER_PASSWORD_GKE);Encrypt=False;"    

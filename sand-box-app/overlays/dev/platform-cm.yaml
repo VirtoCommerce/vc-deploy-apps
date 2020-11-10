@@ -4,14 +4,8 @@ metadata:
   name: platform-cm
 data:
     Swagger__UI__Enabled: "false"
-    PushNotifications__ScalabilityMode: "RedisBackplane"
-    #PushNotifications__HubUrl: "http://sandbox-platform.dev.govirto.com/pushNotificationHub"
+    PushNotifications__ScalabilityMode: "none"
+    PushNotifications__HubUrl: "https://sandbox-platform.dev.govirto.com/pushNotificationHub"
+    PushNotifications__RedisBackplane__ChannelName: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel"
     Content__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/
     Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/
-    AzureAd__Enabled: "true"
-    ExternalModules__AutoInstallModuleBundles: |
-      [
-        commerce,
-        core,
-        xapi
-      ]

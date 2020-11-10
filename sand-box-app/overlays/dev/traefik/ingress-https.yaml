@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: traefik-ingress-https
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.middlewares: dev-sandbox-https-redirect@kubernetescrd
+spec:
+  tls:
+    - hosts: 
+      - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).virtoway.us"
+      secretName: sandbox-platform-tls
+    - hosts:   
+      - "$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).virtoway.us"
+      secretName: sandbox-storefront-tls
+  rules:
+  - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).virtoway.us
+    http:
+      paths:
+      - backend:
+          serviceName: storefront
+          servicePort: 80
+        path: /
+  - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).virtoway.us
+    http:
+      paths:
+      - backend:
+          serviceName: platform
+          servicePort: 80
+        path: /
+---

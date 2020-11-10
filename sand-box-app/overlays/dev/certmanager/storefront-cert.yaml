@@ -8,6 +8,6 @@ spec:
   issuerRef:
     name: sandbox-storefront-issuer
     kind: Issuer
-  commonName: sandbox-storefront.dev.govirto.com
+  commonName: sandbox-storefront.dev.virtoway.us
   dnsNames:
-  - sandbox-storefront.dev.govirto.com
+  - sandbox-storefront.dev.virtoway.us

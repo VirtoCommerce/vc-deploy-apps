@@ -1,11 +1,11 @@
 apiVersion: cert-manager.io/v1alpha2
 kind: Issuer
 metadata:
-  name: platfrom-issuer
+  name: platform-issuer
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: konstantin.kisilevsky@virtoway.com
+    email: support@virtocommerce.com
     privateKeySecretRef:
       name: letsencrypt
     solvers:
@@ -13,4 +13,4 @@ spec:
     - selector: {}
       http01:
         ingress:
-          class: nginx
+          class: traefik
