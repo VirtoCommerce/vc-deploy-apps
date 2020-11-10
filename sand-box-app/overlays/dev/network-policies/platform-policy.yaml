@@ -30,4 +30,4 @@ spec:
         cidr: 0.0.0.0/0
     ports:    
     - protocol: TCP
-      port: 90
+      port: 80
