@@ -10,32 +10,7 @@ spec:
     matchLabels:
         app: platform
   policyTypes:
-#   - Ingress
-  - Egress
-#   ingress:
-#   - from:
-#     - namespaceSelector:
-#         matchLabels:
-#             instance: sandbox
-#     - podSelector:
-#         matchLabels:
-#           app: storefront
-#           instance: sandbox
-#     ports:
-#     - protocol: TCP
-#       port: 80
-#   - from:
-#     - ipBlock:
-#         cidr: 0.0.0.0/0
-#     ports:
-#     - protocol: TCP
-#       port: 80
-#   - from:
-#     - ipBlock:
-#         cidr: 0.0.0.0/0
-#     ports:
-#     - protocol: TCP
-#       port: 443       
+  - Egress 
   egress:
   - to:
     - namespaceSelector:
@@ -50,3 +25,9 @@ spec:
     ports:    
     - protocol: TCP
       port: 1433
+  - to:
+    - ipBlock:
+        cidr: 0.0.0.0/0
+    ports:    
+    - protocol: TCP
+      port: 80
