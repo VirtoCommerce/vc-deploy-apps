@@ -33,3 +33,10 @@ spec:
     ports:    
     - protocol: TCP
       port: 80
+  - to:
+    - podSelector:
+        matchLabels:
+          app: plarform
+    ports:    
+    - protocol: TCP
+      port: 443
