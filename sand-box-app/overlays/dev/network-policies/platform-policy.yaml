@@ -1,64 +1,80 @@
----
-apiVersion: networking.k8s.io/v1
+# ---
+# apiVersion: networking.k8s.io/v1
+# kind: NetworkPolicy
+# metadata:
+#   name: platform-policy
+#   labels:
+#     app: platform
+# spec:
+#   podSelector:
+#     matchLabels:
+#         app: platform
+#   policyTypes:
+#   - Ingress
+#   - Egress
+#   ingress:
+#   - from:
+#     - namespaceSelector:
+#         matchLabels:
+#             instance: sandbox
+#     - podSelector:
+#         matchLabels:
+#           app: storefront
+#           instance: sandbox
+#     ports:
+#     - protocol: TCP
+#       port: 80
+#   - from:
+#     - ipBlock:
+#         cidr: 0.0.0.0/0
+#     ports:
+#     - protocol: TCP
+#       port: 80
+#   - from:
+#     - ipBlock:
+#         cidr: 0.0.0.0/0
+#     ports:
+#     - protocol: TCP
+#       port: 443       
+#   egress:
+#   - to:
+#     - namespaceSelector:
+#         matchLabels:
+#             app.kubernetes.io/instance: elastic
+#     ports:
+#     - protocol: TCP
+#       port: 9200
+#   - to:
+#     - ipBlock:
+#         cidr: 0.0.0.0/0
+#     ports:    
+#     - protocol: TCP
+#       port: 1433
+#   - to:
+#     - ipBlock:
+#         cidr: 0.0.0.0/0
+#     ports:    
+#     - protocol: TCP
+#       port: 80
+#   - to:
+#     - ipBlock:
+#         cidr: 0.0.0.0/0
+#     ports:    
+#     - protocol: TCP
+#       port: 443
+apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
   name: platform-policy
-  labels:
-    app: platform
 spec:
-  podSelector:
-    matchLabels:
-        app: platform
-  policyTypes:
-  - Ingress
-  - Egress
+  selector: app == 'platform'
   ingress:
-  - from:
-    - namespaceSelector:
-        matchLabels:
-            instance: sandbox
-    - podSelector:
-        matchLabels:
-          app: storefront
-          instance: sandbox
-    ports:
-    - protocol: TCP
-      port: 80
-  - from:
-    - ipBlock:
-        cidr: 0.0.0.0/0
-    ports:
-    - protocol: TCP
-      port: 80
-  - from:
-    - ipBlock:
-        cidr: 0.0.0.0/0
-    ports:
-    - protocol: TCP
-      port: 443       
-  egress:
-  - to:
-    - namespaceSelector:
-        matchLabels:
-            app.kubernetes.io/instance: elastic
-    ports:
-    - protocol: TCP
-      port: 9200
-  - to:
-    - ipBlock:
-        cidr: 0.0.0.0/0
-    ports:    
-    - protocol: TCP
-      port: 1433
-  - to:
-    - ipBlock:
-        cidr: 0.0.0.0/0
-    ports:    
-    - protocol: TCP
-      port: 80
-  - to:
-    - ipBlock:
-        cidr: 0.0.0.0/0
-    ports:    
-    - protocol: TCP
-      port: 443
+  - action: Allow
+    protocol: TCP
+    destination:
+      ports:
+      - 80
+  - action: Deny
+    protocol: TCP
+    source:
+      selector: instance != 'sandbox'
