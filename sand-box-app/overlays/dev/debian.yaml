@@ -1,0 +1,23 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: debian
+spec:
+  selector:
+    matchLabels:
+      app: debian
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: debian
+    spec:
+      containers:
+      - name: debian
+        image: debian
+        command:
+            - "/bin/bash"
+            - "-c"
+        args:
+            - "sleep infinity"
+          
