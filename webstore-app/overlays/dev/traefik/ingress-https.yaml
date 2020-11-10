@@ -9,20 +9,20 @@ metadata:
 spec:
   tls:
     - hosts: 
-      - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com"
+      - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).virtoway.us"
       secretName: webstore-platform-tls
     - hosts:   
-      - "$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com"
+      - "$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).virtoway.us"
       secretName: webstore-storefront-tls
   rules:
-  - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
+  - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).virtoway.us
     http:
       paths:
       - backend:
           serviceName: storefront
           servicePort: 80
         path: /
-  - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
+  - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).virtoway.us
     http:
       paths:
       - backend:
