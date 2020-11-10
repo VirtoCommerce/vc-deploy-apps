@@ -10,7 +10,7 @@ spec:
         app: platform
     spec:
       initContainers:
-        - name: init-platform
+        - name: init-sqldatabase
           image: mcr.microsoft.com/mssql-tools
           command:
             - "/opt/mssql-tools/bin/sqlcmd"
