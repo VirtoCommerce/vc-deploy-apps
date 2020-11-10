@@ -34,9 +34,8 @@ spec:
     - protocol: TCP
       port: 80
   - to:
-    - podSelector:
-        matchLabels:
-          app: plarform
+    - ipBlock:
+        cidr: 0.0.0.0/0
     ports:    
     - protocol: TCP
       port: 443
