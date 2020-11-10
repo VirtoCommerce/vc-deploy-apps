@@ -1,0 +1,38 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: platform-policy
+  labels:
+    app: platform
+spec:
+  podSelector:
+    matchLabels:
+        app: platform
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+            instance: sandbox
+    - podSelector:
+        matchLabels:
+          app: storefront
+          instance: sandbox
+    ports:
+    - protocol: HTTP
+      port: 80     
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+            app.kubernetes.io/instance: elastic
+    - protocol: TCP
+    port: 9200
+  - to:
+    - ipBlock:
+        cidr: 0.0.0.0/0
+    - protocol: TCP
+    port: 1433
