@@ -22,7 +22,7 @@ spec:
           app: storefront
           instance: sandbox
     ports:
-    - protocol: HTTP
+    - protocol: TCP
       port: 80     
   egress:
   - to:
