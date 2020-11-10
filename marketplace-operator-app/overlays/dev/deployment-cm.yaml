@@ -6,7 +6,12 @@ metadata:
     reloader.stakater.com/match: "true"
 data:
   modules.json: |
-   [    
+   [
+    {
+      "Id": "VirtoCommerce.MarketplaceOperator",
+      "Repository": "VirtoCommerce/vc-module-marketplace-operator",
+      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.MarketplaceOperator_3.0.0-alpha.10.zip"
+    },
     {
       "Id": "VirtoCommerce.Core",
       "Repository": "VirtoCommerce/vc-module-core",
