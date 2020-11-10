@@ -21,7 +21,6 @@ spec:
             instance: sandbox
     - podSelector:
         matchLabels:
-          app: storefront
           instance: sandbox
     ports:
     - protocol: TCP
