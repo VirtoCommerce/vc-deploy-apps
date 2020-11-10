@@ -29,10 +29,12 @@ spec:
     - namespaceSelector:
         matchLabels:
             app.kubernetes.io/instance: elastic
+    ports:
     - protocol: TCP
-    port: 9200
+      port: 9200
   - to:
     - ipBlock:
         cidr: 0.0.0.0/0
+    ports:    
     - protocol: TCP
-    port: 1433
+      port: 1433
