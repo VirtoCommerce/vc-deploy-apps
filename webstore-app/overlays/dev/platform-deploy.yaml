@@ -9,13 +9,37 @@ spec:
     spec:
       initContainers:
         - name: init-platform
+          image: mcr.microsoft.com/mssql-tools
+          command:
+            - "/opt/mssql-tools/bin/sqlcmd"
+            - "-S"
+            - "sql.virtoway.us"
+            - "-U"
+            - "gkesql"
+            - "-P"
+            - "$(VC_DBSERVER_MASTER_PASSWORD_GKE)"
+            - "-q"
+            - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_gke] $(VC_DB_COPY_PARAM)"
           env:
             - name: VC_SAMPLE_DATA_DB
               value: webstore-platform_source
+            - name: VC_DBSERVER_MASTER_PASSWORD_GKE
+              valueFrom:
+                secretKeyRef:
+                  name: gke-dbserver-password
+                  key: password 
       containers:
         - name: vc-platform-web
           resources:
             requests:
               memory: "256Mi"
             limits:
-              memory: "512Mi" 
+              memory: "512Mi"
+          env:
+            - name: VC_DBSERVER_PASSWORD_GKE
+              valueFrom:
+                secretKeyRef:
+                  name: gke-dbserver-password
+                  key: password
+            - name: ConnectionStrings__VirtoCommerce
+              value: "Server=tcp:sql.virtoway.us,1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_gke;User ID=gkesql;Password=$(VC_DBSERVER_PASSWORD);Trusted_Connection=False;Encrypt=True;"    
