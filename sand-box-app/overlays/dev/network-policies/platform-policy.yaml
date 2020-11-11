@@ -13,13 +13,13 @@ spec:
   - Ingress
   - Egress
   ingress:
-   - {}
-#   - from:
-#     - namespaceSelector:
-#         matchLabels:
-#             ns-id: traefik
-#     ports:
-#     - protocol: TCP
-#       port: 80      
+#    - {}
+  - from:
+    - namespaceSelector:
+        matchLabels:
+            ns-id: traefik
+    ports:
+    - protocol: TCP
+      port: 80      
   egress:
   - {}
