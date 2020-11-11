@@ -4,7 +4,7 @@ kind: Certificate
 metadata:
   name: platform-cert
 spec:
-  secretName: ${{VC_PLATFORM_SERVICE}}-tls
+  secretName: "${VC_PLATFORM_SERVICE}-tls"
   issuerRef:
     name: $(VC_PLATFORM_SERVICE)-issuer
     kind: Issuer
