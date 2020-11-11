@@ -5,12 +5,12 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/router.middlewares: dev-sandbox-https-redirect@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: $(VC_STOREFRONT_SERVICE)-https-redirect@kubernetescrd
 spec:
   tls:
     - hosts: 
-      - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).virtoway.us"
-      secretName: $(VC_PLATFORM_SERVICE)-tls
+      - "$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).virtoway.us"
+      secretName: $(VC_STOREFRONT_SERVICE)-tls
     - hosts:   
       - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).virtoway.us"
       secretName: $(VC_PLATFORM_SERVICE)-tls
