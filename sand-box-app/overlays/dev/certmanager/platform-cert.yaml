@@ -4,10 +4,10 @@ kind: Certificate
 metadata:
   name: platform-cert
 spec:
-  secretName: sandbox-platform-tls
+  secretName: $(VC_PLATFORM_SERVICE)-tls
   issuerRef:
-    name: sandbox-platform-issuer
+    name: $(VC_PLATFORM_SERVICE)-issuer
     kind: Issuer
-  commonName: sandbox-platform.dev.virtoway.us
+  commonName: $(VC_PLATFORM_SERVICE).dev.virtoway.us
   dnsNames:
-  - sandbox-platform.dev.virtoway.us
+  - "$(VC_PLATFORM_SERVICE).dev.virtoway.us"

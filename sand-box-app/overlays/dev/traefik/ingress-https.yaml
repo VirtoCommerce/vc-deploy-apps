@@ -10,10 +10,10 @@ spec:
   tls:
     - hosts: 
       - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).virtoway.us"
-      secretName: sandbox-platform-tls
+      secretName: $(VC_PLATFORM_SERVICE)-tls
     - hosts:   
-      - "$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).virtoway.us"
-      secretName: sandbox-storefront-tls
+      - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).virtoway.us"
+      secretName: $(VC_PLATFORM_SERVICE)-tls
   rules:
   - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).virtoway.us
     http:
