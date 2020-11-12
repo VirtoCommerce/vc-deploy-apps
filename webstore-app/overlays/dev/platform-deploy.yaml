@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: platform
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       annotations:
@@ -49,4 +49,14 @@ spec:
             - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
               name: cms-content-data
             - mountPath: "/opt/virtocommerce/platform/modules"
+<<<<<<< HEAD
               name: modules-data
+=======
+              name: modules-data
+      volumes:
+      - name: cms-content-data-ceph
+        persistentVolumeClaim:
+          claimName: webstore-cms-ceph
+      - name: modules-data
+        emptyDir: {}   
+>>>>>>> 84d84f1be17374e0abf7b2dbfad1f7dd8d9c5966
