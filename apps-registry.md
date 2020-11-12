@@ -20,3 +20,4 @@
 |Demo| odt-app| Basil Kotov| [![App Status](https://cd.govirto.com/api/badge?name=odt-app-demo&revision=true)](https://cd.govirto.com/applications/odt-app-demo) |
 |Demo| public-app| | [![App Status](https://cd.govirto.com/api/badge?name=public-app-demo&revision=true)](https://cd.govirto.com/applications/public-app-demo) |
 |Demo| webstore-app| Dmitry Pushnitsa| [![App Status](https://cd.govirto.com/api/badge?name=webstore-app-demo&revision=true)](https://cd.govirto.com/applications/webstore-app-demo) |
+|Demo| xapi-app| Eugeny Tatarincev| [![App Status](https://cd.govirto.com/api/badge?name=xapi-app-demo&revision=true)](https://cd.govirto.com/applications/xapi-app-demo) |
