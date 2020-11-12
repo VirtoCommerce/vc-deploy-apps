@@ -15,7 +15,7 @@ patchesStrategicMerge:
 - ingress.yaml
 resources:
 - ../../../common-base
-#- kube-job.yaml
+- kube-job.yaml
 - error-page.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
