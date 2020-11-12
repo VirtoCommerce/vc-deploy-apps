@@ -10,6 +10,5 @@ spec:
       storage: 1Gi
   storageClassName: rook-cephfs
   dataSource:
-    name: xapi-cms-content-volume
-    namespace: qa
+    name: webstore-cms-ceph
     kind: PersistentVolumeClaim
