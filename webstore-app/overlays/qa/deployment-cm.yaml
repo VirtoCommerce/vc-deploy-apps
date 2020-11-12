@@ -151,7 +151,7 @@ data:
       {
         "Id": "VirtoCommerce.PageBuilderModule",
         "Repository": "VirtoCommerce/vc-module-pagebuilder",
-        "PackageUrl": "https://github.com/VirtoCommerce/vc-module-pagebuilder/releases/download/3.8.2/VirtoCommerce.PageBuilderModule_3.8.2.zip"
+        "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.PageBuilderModule_3.10.0-alpha.243.zip"
       },
       {
         "Id": "VirtoCommerce.CatalogCsvImportModule",
@@ -186,6 +186,6 @@ data:
       {
         "Id": "VirtoCommerce.DemoSolutionFeatures",
         "Repository": "VirtoCommerce/vc-module-demo-features",
-        "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoSolutionFeaturesModule_1.3.0-alpha.120.zip"
+        "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoSolutionFeaturesModule_1.3.0-alpha.124.zip"
       }
     ]
