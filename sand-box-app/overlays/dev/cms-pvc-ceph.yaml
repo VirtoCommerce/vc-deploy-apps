@@ -7,5 +7,8 @@ spec:
   - ReadWriteMany
   resources:
     requests:
-      storage: 200Mi
+      storage: 1Gi
   storageClassName: rook-cephfs
+  dataSource:
+    name: odt-cms-content-volume
+    kind: PersistentVolumeClaim
