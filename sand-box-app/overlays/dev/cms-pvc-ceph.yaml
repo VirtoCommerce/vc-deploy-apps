@@ -9,3 +9,6 @@ spec:
     requests:
       storage: 1Gi
   storageClassName: rook-cephfs
+  dataSource:
+    name: webstore-cms-ceph
+    kind: PersistentVolumeClaim
