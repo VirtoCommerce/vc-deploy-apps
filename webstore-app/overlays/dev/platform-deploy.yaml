@@ -19,6 +19,11 @@ spec:
           {{- with secret "secret/webstore-sso" -}}
           export AzureAd__TenantId="{{ .Data.TenantID }}"
           {{- end }}
+        vault.hashicorp.com/agent-inject-secret-redistest: "secret/webstore-dev-redis-test"
+        vault.hashicorp.com/agent-inject-template-redistest: |
+          {{- with secret "secret/webstore-dev-redis-test" -}}
+          export ConnectionStrings__RedisConnectionString="webstore-dev.redis.cache.windows.net:6380,password={{ .Data.password }},ssl=True,abortConnect=False"
+          {{- end }}
     spec:
       initContainers:
         - name: init-platform
@@ -44,9 +49,11 @@ spec:
           args:
             - "cat /vault/secrets/webstoressoappid >> /vault/secrets/config;
               cat /vault/secrets/webstoressotenid >> /vault/secrets/config;
+              cat /vault/secrets/redistest >> /vault/secrets/config;
               source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"
           volumeMounts:
             - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
               name: cms-content-data
             - mountPath: "/opt/virtocommerce/platform/modules"
               name: modules-data
+          
