@@ -13,15 +13,8 @@ patchesStrategicMerge:
 - deployment-cm.yaml
 - storefront-cm.yaml
 - platform-cm.yaml
-# - ./traefik/ingress.yaml
 resources:
 - ../../../common-base
-# - ./certmanager/platform-cert.yaml
-# - ./certmanager/platform-issuer.yaml
-# - ./certmanager/storefront-cert.yaml
-# - ./certmanager/storefront-issuer.yaml
-# - ./traefik/ingress-https.yaml
-# - ./traefik/middleware-redirect.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
