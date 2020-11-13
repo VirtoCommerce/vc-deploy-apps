@@ -6,14 +6,15 @@ metadata:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/router.middlewares: $(VC_STOREFRONT_SERVICE)-https-redirect@kubernetescrd
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   tls:
     - hosts: 
       - "$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).virtoway.us"
-      secretName: $(VC_STOREFRONT_SERVICE)-tls
+      secretName: $(VC_STOREFRONT_SERVICE)-cluster-tls
     - hosts:   
       - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).virtoway.us"
-      secretName: $(VC_PLATFORM_SERVICE)-tls
+      secretName: $(VC_PLATFORM_SERVICE)-cluster-tls
   rules:
   - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).virtoway.us
     http:
