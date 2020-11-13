@@ -16,10 +16,10 @@ patchesStrategicMerge:
 - ./traefik/ingress.yaml
 resources:
 - ../../../common-base
-- ./certmanager/platform-cert.yaml
-- ./certmanager/platform-issuer.yaml
-- ./certmanager/storefront-cert.yaml
-- ./certmanager/storefront-issuer.yaml
+# - ./certmanager/platform-cert.yaml
+# - ./certmanager/platform-issuer.yaml
+# - ./certmanager/storefront-cert.yaml
+# - ./certmanager/storefront-issuer.yaml
 - ./traefik/ingress-https.yaml
 - ./traefik/middleware-redirect.yaml
 images:

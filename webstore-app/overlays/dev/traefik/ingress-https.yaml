@@ -5,15 +5,16 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/router.middlewares: dev-webstore-https-redirect@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: $(VC_NAMESPACE)-$(VC_INSTANCE)-https-redirect@kubernetescrd
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   tls:
     - hosts: 
-      - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).virtoway.us"
-      secretName: webstore-platform-tls
-    - hosts:   
       - "$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).virtoway.us"
-      secretName: webstore-storefront-tls
+      secretName: $(VC_STOREFRONT_SERVICE)-$(VC_NAMESPACE)-tls
+    - hosts:   
+      - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).virtoway.us"
+      secretName: $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-tls
   rules:
   - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).virtoway.us
     http:
@@ -29,4 +30,3 @@ spec:
           serviceName: platform
           servicePort: 80
         path: /
----
