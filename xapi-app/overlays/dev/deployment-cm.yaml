@@ -10,30 +10,4 @@ data:
   ASSETS_URL: https://vcbacpac.blob.core.windows.net/dac-packages/rba_assets.zip
   ASSETS_LOCATION: /mnt/cms-content
   modules.json: |
-    [
-      {
-        "Id": "VirtoCommerce.ElasticSearch",
-        "Repository": "VirtoCommerce/vc-module-elastic-search",
-        "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.ElasticSearch_3.5.0-alpha.73.zip"
-      },
-      {
-        "Id": "VirtoCommerce.Search",
-        "Repository": "VirtoCommerce/vc-module-search",
-        "PackageUrl": "https://github.com/VirtoCommerce/vc-module-search/releases/download/3.5.0/VirtoCommerce.Search_3.5.0.zip"
-      },
-      {
-        "Id": "VirtoCommerce.ExperienceApi",
-        "Repository": "VirtoCommerce/vc-experience-gateway",
-        "PackageUrl": "https://devdemovc3.blob.core.windows.net/xapi/VirtoCommerce.ExperienceApi_0.7.0-gateway.002.zip"
-      },
-      {
-        "Id": "VirtoCommerce.ExperienceGateway",
-        "Repository": "VirtoCommerce/vc-experience-gateway",
-        "PackageUrl": "https://devdemovc3.blob.core.windows.net/xapi/VirtoCommerce.ExperienceGatewayModule_0.1.0-gateway.002.zip"
-      },
-      {
-        "Id": "CommerceTools.ExperienceGateway",
-        "Repository": "VirtoCommerce/vc-experience-gateway",
-        "PackageUrl": "https://devdemovc3.blob.core.windows.net/xapi/CommerceTools.ExperienceGatewayModule_0.1.0-gateway.002.zip"
-      }
-    ]
+    []
