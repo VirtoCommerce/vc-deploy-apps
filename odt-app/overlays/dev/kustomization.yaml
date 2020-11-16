@@ -21,4 +21,4 @@ images:
   newTag: dev-3.15.0-alpha.11535-cb44843c
 - name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-odt-storefront/odt-storefront
-  newTag: dev-5.2.0-alpha.728-ce160101
+  newTag: 5.2.0-alpha.729-dev-59687a81
