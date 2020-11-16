@@ -8,7 +8,6 @@ spec:
     metadata:
       annotations:
         vault.hashicorp.com/agent-inject: "true"
-        vault.hashicorp.com/role: "myapp"
         vault.hashicorp.com/agent-configmap: "sandbox-secret-configmap"
         # vault.hashicorp.com/agent-inject-secret-webstoressoappid: "secret/webstore-sso"
         # vault.hashicorp.com/agent-inject-template-webstoressoappid: |
@@ -34,18 +33,11 @@ spec:
               value: webstore-platform_source
       containers:
         - name: vc-platform-web
-          env:
-            - name: TEMPLATES
-              valueFrom:
-                configMapKeyRef:
-                  name: secret-configmap
-                  key: templates.hcl
           command:
             - "/bin/bash"
             - "-c"
           args:
-            - " cat \"$TEMPLATES\" > /vault/secrets/templates;
-            source /vault/secrets/config2 && dotnet VirtoCommerce.Platform.Web.dll"
+            - "source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"
           volumeMounts:
             - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
               name: cms-content-data-ceph
