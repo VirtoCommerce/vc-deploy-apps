@@ -10,4 +10,5 @@ data:
     Swagger__UI__Enable: "true"
     VirtoCommerce__Endpoint__Url: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
     VirtoCommerce__RequireHttps: "true"
+    VirtoCommerce__DefaultStore: "B2B-Store"
     
