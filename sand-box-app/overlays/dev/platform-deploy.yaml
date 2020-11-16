@@ -8,17 +8,8 @@ spec:
     metadata:
       annotations:
         vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/agent-pre-populate-only: "true"
         vault.hashicorp.com/agent-configmap: "sandbox-secret-configmap"
-        # vault.hashicorp.com/agent-inject-secret-webstoressoappid: "secret/webstore-sso"
-        # vault.hashicorp.com/agent-inject-template-webstoressoappid: |
-        #   {{- with secret "secret/webstore-sso" -}}
-        #   export AzureAd__ApplicationId="{{ .Data.ApplicationID }}"
-        #   {{- end }}
-        # vault.hashicorp.com/agent-inject-secret-webstoressotenid: "secret/webstore-sso"
-        # vault.hashicorp.com/agent-inject-template-webstoressotenid: |
-        #   {{- with secret "secret/webstore-sso" -}}
-        #   export AzureAd__TenantId="{{ .Data.TenantID }}"
-        #   {{- end }}
     spec:
       initContainers:
         - name: init-platform
