@@ -20,10 +20,10 @@
 
         "template" = {
         "Contentes" = <<EOF
-        {{- with secret "secret/webstore-sso" -}}
-        export AzureAd__ApplicationId="{{ .Data.ApplicationID }}"
-        {{- end }}
-        {{- with secret "secret/webstore-sso" -}}
+            {{- with secret "secret/webstore-sso" -}}
+            export AzureAd__ApplicationId="{{ .Data.ApplicationID }}"
+            {{- end }}
+            {{- with secret "secret/webstore-sso" -}}
         export AzureAd__TenantId="{{ .Data.TenantID }}"
         {{- end }}
         EOF
@@ -31,5 +31,5 @@
         }
 
         "vault" = {
-        "address" = "http://vault.hashicorp-vault.svc.cluster.local:8200"
+            "address" = "http://vault.hashicorp-vault.svc.cluster.local:8200"
         }
