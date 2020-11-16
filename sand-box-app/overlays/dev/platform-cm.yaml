@@ -9,9 +9,4 @@ data:
     Content__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/
     Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/
     AzureAd__Enabled: "true"
-    ExternalModules__AutoInstallModuleBundles: |
-      [
-        commerce,
-        core,
-        xapi
-      ]
+    Caching__Redis__ChannelName: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel"
