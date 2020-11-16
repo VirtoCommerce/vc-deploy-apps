@@ -24,8 +24,8 @@
             export AzureAd__ApplicationId="{{ .Data.ApplicationID }}"
             {{- end }}
             {{- with secret "secret/webstore-sso" -}}
-        export AzureAd__TenantId="{{ .Data.TenantID }}"
-        {{- end }}
+            export AzureAd__TenantId="{{ .Data.TenantID }}"
+            {{- end }}
         EOF
         "destination" = "/vault/secrets/config2"
         }
