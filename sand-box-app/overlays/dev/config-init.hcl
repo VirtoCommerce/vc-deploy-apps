@@ -1,17 +1,4 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: secret-configmap
-data:
-    templates.hcl: |
-        {{- with secret "secret/webstore-sso" -}}
-        export AzureAd__ApplicationId="{{ .Data.ApplicationID }}"
-        {{- end }}
-        {{- with secret "secret/webstore-sso" -}}
-        export AzureAd__TenantId="{{ .Data.TenantID }}"
-        {{- end }}
-    config-init.hcl: |
-        "auto_auth" = {
+"auto_auth" = {
         "method" = {
             "config" = {
             "role" = "myapp"
@@ -46,4 +33,3 @@ data:
         "vault" = {
         "address" = "http://vault.hashicorp-vault.svc.cluster.local:8200"
         }
-
