@@ -19,15 +19,15 @@
         "pid_file" = "/home/vault/.pid"
 
         "template" = {
-        "Contentes" = <<EOF
-            {{- with secret "secret/webstore-sso" -}}
-            export AzureAd__ApplicationId="{{ .Data.ApplicationID }}"
-            {{- end }}
-            {{- with secret "secret/webstore-sso" -}}
-            export AzureAd__TenantId="{{ .Data.TenantID }}"
-            {{- end }}
-        EOF
-        "destination" = "/vault/secrets/config2"
+            "сontents" = <<EOF
+                {{- with secret "secret/webstore-sso" -}}
+                export AzureAd__ApplicationId={{ .Data.ApplicationID }}
+                {{- end }}
+                {{- with secret "secret/webstore-sso" -}}
+                export AzureAd__TenantId={{ .Data.TenantID }}
+                {{- end }}
+            EOF
+            "destination" = "/vault/secrets/config2"
         }
 
         "vault" = {
