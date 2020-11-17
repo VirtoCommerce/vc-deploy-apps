@@ -27,11 +27,11 @@ spec:
           periodSeconds: 1
         volumeMounts:
           - mountPath: /opt/virtocommerce/storefront/wwwroot/cms-content
-            name: cms-content-data-ceph
+            name: cms-content-data-nfs
       volumes:
-      - name: cms-content-data-ceph
+      - name: cms-content-data-nfs
         persistentVolumeClaim:
-          claimName: sandbox-cms-ceph
+          claimName: sandbox-cms-nfs
   strategy:
     rollingUpdate:
       maxSurge: 0
