@@ -4,7 +4,6 @@ metadata:
   name: platform-cm
 data:
     ExternalModules__IncludePrerelease: "true"
-    VirtoCommerce__SampleDataUrl: ""
     ExternalModules__AutoInstallModuleBundles: ""
     Logging__LogLevel__Default: Information
     Logging__LogLevel__Microsoft: Information
