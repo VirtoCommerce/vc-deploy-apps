@@ -5,4 +5,4 @@ metadata:
 data:
     Swagger__UI__Enabled: "false"
     ExternalModules__AutoInstallModuleBundles: ""
-#    ExternalModules__ModulesManifestUrl: ""
+    ExternalModules__ModulesManifestUrl: ""
