@@ -77,7 +77,7 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-        - mountPath: "/opt/virtocommerce/platform/Modules"
+        - mountPath: "/opt/virtocommerce/platform/modules"
           name: modules-data
       volumes:
       - name: modules-data
