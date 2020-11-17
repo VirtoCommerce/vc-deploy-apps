@@ -4,9 +4,12 @@ metadata:
   name: platform-cm
 data:
     ExternalModules__IncludePrerelease: "true"
-    ExternalModules__AutoInstallModuleBundles: ""
     Logging__LogLevel__Default: Information
     Logging__LogLevel__Microsoft: Information
     ExperienceGateway__VirtoCommerceEndpoint__Url: "http://webstore-platform-dev.govirto.com/"
     ExperienceGateway__VirtoCommerceEndpoint__ClientId: "1c385578-bb9b-43de-ab61-c41a47095ac6"
     ExperienceGateway__VirtoCommerceEndpoint__ClientSecret: "cd1e7bc3-a007-4600-8632-5b8f1200d040"
+    ExternalModules__AutoInstallModuleBundles: |
+      [
+        "platform"
+      ]
