@@ -10,4 +10,30 @@ data:
   ASSETS_URL: https://vcbacpac.blob.core.windows.net/dac-packages/rba_assets.zip
   ASSETS_LOCATION: /mnt/cms-content
   modules.json: |
-    []
+    [
+      {
+        "Id": "VirtoCommerce.Data",
+        "Repository": "VirtoCommerce/vc-platform",
+        "PackageUrl": "https://devdemovc3.blob.core.windows.net/xapi/VirtoCommerce.Data_1.0.0.zip"
+      },
+      {
+        "Id": "VirtoCommerce.Security",
+        "Repository": "VirtoCommerce/vc-platform",
+        "PackageUrl": "https://devdemovc3.blob.core.windows.net/xapi/VirtoCommerce.Security_1.0.0.zip"
+      },
+      {
+        "Id": "VirtoCommerce.Frontend",
+        "Repository": "VirtoCommerce/vc-platform",
+        "PackageUrl": "https://devdemovc3.blob.core.windows.net/xapi/VirtoCommerce.Frontend_1.0.0.zip"
+      },
+      {
+        "Id": "VirtoCommerce.Hangfire",
+        "Repository": "VirtoCommerce/vc-platform",
+        "PackageUrl": "https://devdemovc3.blob.core.windows.net/xapi/VirtoCommerce.Hangfire_1.0.0.zip"
+      },
+      {
+        "Id": "VirtoCommerce.Assets",
+        "Repository": "VirtoCommerce/vc-platform",
+        "PackageUrl": "https://devdemovc3.blob.core.windows.net/xapi/VirtoCommerce.Assets_1.0.0.zip"
+      }
+    ]
