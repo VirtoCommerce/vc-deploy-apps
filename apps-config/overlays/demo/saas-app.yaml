@@ -9,11 +9,11 @@ spec:
   destination:
     namespace: demo
     server: https://kubernetes.default.svc
-  project: tenant
+  project: demo-tenant
   source:
     path: saas-app/demo
     repoURL: https://github.com/virtocommerce/vc-deploy-apps
-    targetRevision: HEAD
+    targetRevision: demo
   syncPolicy:
     automated:
       prune: true
