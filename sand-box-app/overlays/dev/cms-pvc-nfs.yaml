@@ -9,4 +9,4 @@ spec:
     requests:
       storage: 200Mi
   storageClassName: "rook-nfs-share-retain"
-  volumeName: pvc-cdb19712-eb32-4bcc-a661-80f66f2dcf5b
+  volumeName: "pvc-cdb19712-eb32-4bcc-a661-80f66f2dcf5b"
