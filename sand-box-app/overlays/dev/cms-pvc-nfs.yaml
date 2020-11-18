@@ -9,4 +9,3 @@ spec:
     requests:
       storage: 200Mi
   storageClassName: "rook-nfs-share-retain"
-  volumeName: cms-nfs-pv

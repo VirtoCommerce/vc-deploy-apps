@@ -27,7 +27,7 @@ resources:
 - ./traefik/middleware-errors.yaml
 - ./traefik/middleware-redirect.yaml
 - cms-pvc-nfs.yaml
-- cms-pv-nfs.yaml
+# - cms-pv-nfs.yaml
 - secret-configmap.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
