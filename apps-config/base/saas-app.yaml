@@ -1,19 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: rba-app
+  name: saas-app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io  
 spec:
   destination:
-    namespace: demo
+    namespace: dev
     server: https://kubernetes.default.svc
-  project: demo-tenant
+  project: tenant
   source:
-    path: rba-app/overlays/demo
+    path: saas-app/dev
     repoURL: https://github.com/virtocommerce/vc-deploy-apps
-    targetRevision: demo
+    targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true
