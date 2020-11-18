@@ -9,4 +9,4 @@ spec:
     requests:
       storage: 200Mi
   storageClassName: "rook-nfs-share-retain"
-  volumeName: "pvc-odt-dev"
+  volumeName: "sandbox-cms-pv"
