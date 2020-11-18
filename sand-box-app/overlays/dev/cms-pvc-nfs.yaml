@@ -9,3 +9,4 @@ spec:
     requests:
       storage: 200Mi
   storageClassName: "rook-nfs-share-retain"
+  volumeName: "pvc-$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE)"
