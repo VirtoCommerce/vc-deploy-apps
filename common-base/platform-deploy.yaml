@@ -97,7 +97,7 @@ spec:
         volumeMounts:
         - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
           name: cms-content-data
-        - mountPath: "/opt/virtocommerce/platform/Modules"
+        - mountPath: "/opt/virtocommerce/platform/modules"
           name: modules-data
       volumes:
       - name: cms-content-data
