@@ -10,6 +10,7 @@ spec:
         vault.hashicorp.com/agent-inject: "true"
         vault.hashicorp.com/agent-pre-populate-only: "true"
         vault.hashicorp.com/agent-configmap: "sandbox-secret-configmap"
+        configmap.reloader.stakater.com/reload: "sandbox-secret-configmap"
     spec:
       initContainers:
         - name: init-platform
