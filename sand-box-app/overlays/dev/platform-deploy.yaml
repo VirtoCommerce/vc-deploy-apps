@@ -24,7 +24,7 @@ spec:
             - "/bin/bash"
             - "-c"
           args:
-            - "echo /vault/secrets/config && source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"
+            - "cat /vault/secrets/config && source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"
           env:
             - name: ConnectionStrings__VirtoCommerce
               value: "werwvsdvsaedferwf"     
