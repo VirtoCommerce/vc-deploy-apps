@@ -9,7 +9,7 @@ spec:
       annotations:
         vault.hashicorp.com/agent-inject: "true"
         vault.hashicorp.com/agent-pre-populate-only: "true"
-        vault.hashicorp.com/agent-configmap: "sandbox-secret-configmap"
+        vault.hashicorp.com/agent-configmap: "sandbox-secret-configmap-base,sandbox-secret-configmap-custom"
         configmap.reloader.stakater.com/reload: "sandbox-secret-configmap"
     spec:
       initContainers:
@@ -24,7 +24,7 @@ spec:
             - "/bin/bash"
             - "-c"
           args:
-            - "cat /vault/secrets/config && source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"
+            - "source /vault/secrets/config_base && source /vault/secrets/config_custom && dotnet VirtoCommerce.Platform.Web.dll"
           env:
             - name: ConnectionStrings__VirtoCommerce
               value: "werwvsdvsaedferwf"     
