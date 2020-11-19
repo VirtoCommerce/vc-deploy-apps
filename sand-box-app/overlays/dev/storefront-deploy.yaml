@@ -25,13 +25,6 @@ spec:
           successThreshold: 1
           initialDelaySeconds: 20
           periodSeconds: 1
-        volumeMounts:
-          - mountPath: /opt/virtocommerce/storefront/wwwroot/cms-content
-            name: cms-content-data-nfs
-      volumes:
-      - name: cms-content-data-nfs
-        persistentVolumeClaim:
-          claimName: sandbox-cms-nfs
   strategy:
     rollingUpdate:
       maxSurge: 0

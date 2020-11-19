@@ -13,11 +13,6 @@ spec:
     spec:
       initContainers:
         - name: init-platform
-          volumeMounts:
-            - mountPath: /mnt/Modules
-              name: modules-data
-            - mountPath: /mnt/cms-content
-              name: cms-content-data-nfs 
         - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB
@@ -29,19 +24,8 @@ spec:
             - "-c"
           args:
             - "source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"
-          volumeMounts:
-            - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
-              name: cms-content-data-nfs
-            - mountPath: "/opt/virtocommerce/platform/Modules"
-              name: modules-data
           env:
             - name: ConnectionStrings__VirtoCommerce
               value: "werwvsdvsaedferwf"     
             - name: ConnectionStrings__RedisConnectionString
               value: "rxxxxxxxxxxxxxxx"
-      volumes:
-      - name: cms-content-data-nfs
-        persistentVolumeClaim:
-          claimName: sandbox-cms-nfs
-      - name: modules-data
-        emptyDir: {} 
