@@ -22,7 +22,7 @@ data:
       {
         "Id": "VirtoCommerce.Cart",
         "Repository": "VirtoCommerce/vc-module-cart",
-        "PackageUrl": "https://github.com/VirtoCommerce/vc-module-cart/releases/download/3.4.0/VirtoCommerce.Cart_3.4.0.zip"
+        "PackageUrl": "https://github.com/VirtoCommerce/vc-module-cart/releases/download/3.10.0/VirtoCommerce.Cart_3.10.0.zip"
       },
       {
         "Id": "VirtoCommerce.Catalog",
