@@ -5,6 +5,9 @@ metadata:
 spec:
   replicas: 1
   template:
+    metadata:
+      annotations:
+        vault.hashicorp.com/agent-configmap: "xapi-platform-secret-configmap" 
     spec:
       initContainers:
         - name: init-sqldatabase
