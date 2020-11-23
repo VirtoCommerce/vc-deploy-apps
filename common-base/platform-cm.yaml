@@ -18,3 +18,4 @@ data:
   Search__ElasticSearch__Server: http://search-dev-es-http.elastic-system:9200
   Search__ElasticSearch__Key: virtodevpass
   VirtoCommerce__Hangfire__JobStorageType: Memory
+  Caching__Redis__ChannelName: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel"
