@@ -15,6 +15,7 @@ patchesStrategicMerge:
 - platform-cm.yaml
 - ./traefik/ingress.yaml
 - ./traefik/ingress-https.yaml
+- platform-secrets.yaml
 resources:
 - ../../../common-base
 #- kube-job.yaml

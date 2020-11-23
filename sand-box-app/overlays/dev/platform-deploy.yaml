@@ -7,26 +7,10 @@ spec:
   template:
     metadata:
       annotations:
-        vault.hashicorp.com/agent-inject: "true"
-        vault.hashicorp.com/agent-pre-populate-only: "true"
-        vault.hashicorp.com/agent-configmap: "sandbox-secret-configmap"
-        configmap.reloader.stakater.com/reload: "sandbox-secret-configmap"
+        vault.hashicorp.com/agent-configmap: "sandbox-platform-secret-configmap"  
     spec:
       initContainers:
-        - name: init-platform
         - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB
               value: webstore-platform_source
-      containers:
-        - name: vc-platform-web
-          command:
-            - "/bin/bash"
-            - "-c"
-          args:
-            - "source /vault/secrets/config_base && source /vault/secrets/config_custom && dotnet VirtoCommerce.Platform.Web.dll"
-          env:
-            - name: ConnectionStrings__VirtoCommerce
-              value: "werwvsdvsaedferwf"     
-            - name: ConnectionStrings__RedisConnectionString
-              value: "rxxxxxxxxxxxxxxx"
