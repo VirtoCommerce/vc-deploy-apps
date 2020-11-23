@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
         annotations:
-          vault.hashicorp.com/agent-configmap: "$(VC_INSTANCE)-platform-secret-configmap"    
+          vault.hashicorp.com/agent-configmap: "webstore-platform-secret-configmap"    
     spec:
       initContainers:
         - name: init-sqldatabase
