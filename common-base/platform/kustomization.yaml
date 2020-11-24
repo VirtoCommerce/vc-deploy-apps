@@ -28,7 +28,7 @@ vars:
 - name: VC_INSTANCE
   objref:
     kind: Service
-    name: storefront
+    name: platform
     apiVersion: v1
   fieldref:
     fieldpath: metadata.labels['instance']
