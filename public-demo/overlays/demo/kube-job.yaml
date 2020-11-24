@@ -55,7 +55,7 @@ spec:
           - "-c"
         args:
           - "echo Job Started $(date +%Y-%m-%d-%H-%M-%S)
-          && kubectl rollout restart deployment public-platform -n demo"
+          && kubectl rollout restart deployment public-app-platform -n demo"
       - name: delete-sqldatabase
         image: mcr.microsoft.com/mssql-tools
         command:

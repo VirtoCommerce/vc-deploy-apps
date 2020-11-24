@@ -9,6 +9,7 @@ data:
   B2B_THEME_LOCATION: /mnt/cms-content/Themes/B2B-store
   ASSETS_URL: https://vcbacpac.blob.core.windows.net/dac-packages/webstore_assets_new.zip
   ASSETS_LOCATION: /mnt/cms-content
+  STOREFRONT_UPDATABILITY: "true"
   modules.json: |
     [
       {

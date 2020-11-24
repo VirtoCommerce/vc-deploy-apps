@@ -22,6 +22,12 @@ spec:
     spec:
       containers:
       - name: vc-storefront-web
+        env:
+          - name: UPDATABILITY
+            valueFrom:
+              configMapKeyRef:
+                name: deployment-cm
+                key: STOREFRONT_UPDATABILITY
         readinessProbe:
           httpGet:
             path: /

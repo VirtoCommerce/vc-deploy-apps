@@ -2,9 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 namespace: demo
-namePrefix: public-
+namePrefix: public-app-
 commonLabels:
-  instance: public
+  instance: public-app
 
 patchesStrategicMerge:
 - storefront-deploy.yaml
@@ -12,9 +12,11 @@ patchesStrategicMerge:
 - deployment-cm.yaml
 - platform-cm.yaml
 - storefront-cm.yaml
-- ingress.yaml
+- ./traefik/ingress.yaml
+- ./traefik/ingress-https.yaml
 resources:
-- ../../../common-base/public-demo
+- ../../../common-base
+- ./traefik/middleware-errors.yaml
 #- kube-job.yaml
 - error-page.yaml
 images:

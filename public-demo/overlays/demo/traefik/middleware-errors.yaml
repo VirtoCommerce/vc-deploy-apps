@@ -1,0 +1,12 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: errorpage
+spec:
+  errors:
+    status:
+      - 500-599
+    query: /
+    service:
+      name: public-error-page
+      port: 80
