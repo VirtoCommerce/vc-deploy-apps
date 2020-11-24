@@ -12,7 +12,7 @@ spec:
     - hosts:
       - demo.virtocommerce.com
       - admin-demo.virtocommerce.com
-      secretName: vc-wildcart
+      secretName: vc-wildcard
   rules:
   - host: demo.virtocommerce.com
     http:
