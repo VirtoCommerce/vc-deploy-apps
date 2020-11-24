@@ -1,11 +1,17 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: traefik-ingress-http
+  name: traefik-ingress-https
   annotations:
     kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/router.middlewares: $(VC_NAMESPACE)-$(VC_INSTANCE)-https-redirect@kubernetescrd
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
+  tls:
+    - hosts:   
+      - "apps.govirto.com"
+      secretName: $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-tls
   rules:
   - host: apps.govirto.com
     http:
