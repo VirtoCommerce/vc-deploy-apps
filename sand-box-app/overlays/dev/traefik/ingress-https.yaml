@@ -7,7 +7,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/router.middlewares: dev-sandbox-errorpage@kubernetescrd, dev-sandbox-https-redirect@kubernetescrd
     traefik.ingress.kubernetes.io/redirect-permanent: "true"
-    traefik.ingress.kubernetes.io/redirect-regex: "^https?://sandbox-storefront.dev.govirto.com"
+    traefik.ingress.kubernetes.io/redirect-regex: "^https://sandbox-storefront.dev.govirto.com/admin"
     traefik.ingress.kubernetes.io/redirect-replacement: "https://sandbox-platform.dev.govirto.com"
 spec:
   tls:
