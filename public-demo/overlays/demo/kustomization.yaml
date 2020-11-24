@@ -15,7 +15,7 @@ patchesStrategicMerge:
 - ./traefik/ingress.yaml
 - ./traefik/ingress-https.yaml
 resources:
-- ../../../common-base
+- ../../../common-base/demo-base
 - ./traefik/middleware-errors.yaml
 #- kube-job.yaml
 - error-page.yaml
