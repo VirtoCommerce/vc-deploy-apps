@@ -2,6 +2,8 @@ resources:
 - cms-pvc.yaml
 #- modules-pvc.yaml
 - ingress.yaml
+- ingress-https.yaml
+- middleware-redirect.yaml
 - platform-cm.yaml
 - platform-deploy.yaml
 - platform-service.yaml

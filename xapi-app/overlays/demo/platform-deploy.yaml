@@ -11,10 +11,3 @@ spec:
           env:
             - name: VC_SAMPLE_DATA_DB
               value: xapi-platform_source
-      containers:
-        - name: vc-platform-web
-          volumeMounts:
-            - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
-              name: cms-content-data
-            - mountPath: "/opt/virtocommerce/platform/modules"
-              name: modules-data

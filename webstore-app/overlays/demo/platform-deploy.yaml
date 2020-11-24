@@ -52,8 +52,3 @@ spec:
               cat /vault/secrets/webstoressoappid >> /vault/secrets/config;
               cat /vault/secrets/webstoressotenid >> /vault/secrets/config;
               source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"
-          volumeMounts:
-            - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
-              name: cms-content-data
-            - mountPath: "/opt/virtocommerce/platform/modules"
-              name: modules-data

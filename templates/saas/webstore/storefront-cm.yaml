@@ -7,7 +7,7 @@ metadata:
 data:
   ASPNETCORE_ENVIRONMENT: Development
   VirtoCommerce__Endpoint__Password: store
-  VirtoCommerce__Endpoint__Url: http://$(VC_PLATFORM_SERVICE)
+  VirtoCommerce__Endpoint__Url: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
   VirtoCommerce__Endpoint__UserName: admin
   APPINSIGHTS_INSTRUMENTATIONKEY: "1a9a3c2d-3299-4f26-8c5f-1e73b8d2d8e4"
   CookieAuthenticationOptions__ExpireTimeSpan: "12:00:00"
