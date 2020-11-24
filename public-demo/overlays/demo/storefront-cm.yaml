@@ -1,0 +1,10 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: storefront-cm
+data:
+    APPINSIGHTS_INSTRUMENTATIONKEY: "67045346-90d2-40d2-9bfe-5cf1f2eb2dd6"
+    ASPNETCORE_FORWARDEDHEADERS_ENABLED: "true"
+    CookieAuthenticationOptions__ExpireTimeSpan: "12:00:00"
+    SnapshotCollectorConfiguration__IsEnabled: "false"
+    VirtoCommerce__Endpoint__Url: https://admin-demo.virtocommerce.com

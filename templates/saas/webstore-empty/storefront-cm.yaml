@@ -7,4 +7,4 @@ data:
     CookieAuthenticationOptions__ExpireTimeSpan: "12:00:00"
     SnapshotCollectorConfiguration__IsEnabled: "false"
     Swagger__UI__Enabled: "false"
-    VirtoCommerce__StoreUrls__B2B-store: https://$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com/B2B-store/
+    ASPNETCORE_FORWARDEDHEADERS_ENABLED: "true"
