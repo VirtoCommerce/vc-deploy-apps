@@ -22,4 +22,4 @@ spec:
         - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB
-              value: odt-platform-demo_source
+              value: saas-odt_source
