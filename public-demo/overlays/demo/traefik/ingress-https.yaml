@@ -6,7 +6,6 @@ metadata:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/router.middlewares: $(VC_NAMESPACE)-$(VC_INSTANCE)-errorpage@kubernetescrd, $(VC_NAMESPACE)-$(VC_INSTANCE)-https-redirect@kubernetescrd
-    cert-manager.io/cluster-issuer: none
 spec:
   tls:
     - hosts:
