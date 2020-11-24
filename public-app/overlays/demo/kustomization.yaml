@@ -14,7 +14,7 @@ patchesStrategicMerge:
 - storefront-cm.yaml
 - ingress.yaml
 resources:
-- ../../../common-base
+- ../../../common-base/public-demo
 #- kube-job.yaml
 - error-page.yaml
 images:
