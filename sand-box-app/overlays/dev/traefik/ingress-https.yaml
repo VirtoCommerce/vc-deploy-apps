@@ -5,7 +5,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/router.middlewares: dev-sandbox-https-redirect@kubernetescrd, dev-sandbox-rewrite@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: dev-sandbox-errorpage@kubernetescrd, dev-sandbox-https-redirect@kubernetescrd, dev-sandbox-rewrite@kubernetescrd
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
   tls:

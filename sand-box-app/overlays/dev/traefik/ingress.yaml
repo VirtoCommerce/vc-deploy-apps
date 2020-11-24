@@ -4,7 +4,7 @@ metadata:
   name: traefik-ingress-http
   annotations:
     kubernetes.io/ingress.class: traefik
-    traefik.ingress.kubernetes.io/router.middlewares: dev-sandbox-rewrite@kubernetescrd, dev-sandbox-https-redirect@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: dev-sandbox-errorpage@kubernetescrd, dev-sandbox-https-redirect@kubernetescrd, dev-sandbox-rewrite@kubernetescrd
 spec:
   rules:
   - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
