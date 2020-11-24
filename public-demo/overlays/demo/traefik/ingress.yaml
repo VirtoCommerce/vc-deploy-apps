@@ -4,7 +4,7 @@ metadata:
   name: traefik-ingress-http
   annotations:
     kubernetes.io/ingress.class: traefik
-    traefik.ingress.kubernetes.io/router.middlewares: $(VC_NAMESPACE)-$(VC_INSTANCE)-errorpage@kubernetescrd, $(VC_NAMESPACE)-$(VC_INSTANCE)-https-redirect@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: $(VC_NAMESPACE)-$(VC_INSTANCE)-errorpage@kubernetescrd, $(VC_NAMESPACE)-$(VC_INSTANCE)-https-redirect@kubernetescrd, $(VC_NAMESPACE)-$(VC_INSTANCE)-rewrite@kubernetescrd
 spec:
   rules:
   - host: demo.virtocommerce.com

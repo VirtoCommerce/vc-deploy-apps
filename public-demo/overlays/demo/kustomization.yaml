@@ -17,6 +17,7 @@ patchesStrategicMerge:
 resources:
 - ../../../common-base/demo-base
 - ./traefik/middleware-errors.yaml
+- ./traefik/middleware-rewrite.yaml
 #- kube-job.yaml
 - error-page.yaml
 images:
