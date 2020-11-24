@@ -5,7 +5,7 @@ metadata:
   annotations:
     reloader.stakater.com/match: "true"
 data:
-  ELECTRONICS_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-default-1.1.0-alpha.941.zip
+  ELECTRONICS_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-default-1.1.0-alpha.945-vds-238.zip
   ELECTRONICS_THEME_LOCATION: /mnt/cms-content/Themes/Electronics
   B2B_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-b2b-1.4.0-alpha.1525-vds-157.zip
   B2B_THEME_LOCATION: /mnt/cms-content/Themes/B2B-store
