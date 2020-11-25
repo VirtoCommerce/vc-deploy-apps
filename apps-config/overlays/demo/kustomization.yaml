@@ -4,7 +4,6 @@ nameSuffix: -demo
 resources:
 - ../../base
 patchesStrategicMerge:
-#- public-app.yaml
 - public-demo.yaml
 - webstore-app.yaml
 - odt-app.yaml
