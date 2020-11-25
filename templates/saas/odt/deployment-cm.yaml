@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: deployment-cm
 data:
-  ODT_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-odt-mpa-theme_dev-0.1.10-alpha.200-cb37370a.zip
+  ODT_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-odt-mpa-theme_dev-0.1.10-alpha.201-40a357c2.zip
   ODT_THEME_LOCATION: /mnt/cms-content/Themes/odt
   ASSETS_URL: https://vcbacpac.blob.core.windows.net/dac-packages/odt_assets.zip
   ASSETS_LOCATION: /mnt/cms-content
