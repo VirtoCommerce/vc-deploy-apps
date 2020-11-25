@@ -11,7 +11,7 @@
 |Dev| support-webstore-app| Aleksandr Manyukhin| QA ||[![App Status](https://cd.govirto.com/api/badge?name=support-webstore-app-dev&revision=true)](https://cd.govirto.com/applications/support-webstore-app-dev) |
 |Dev| webstore-app| Dmitry Pushnitsa| Solution team |Solution team board| [![App Status](https://cd.govirto.com/api/badge?name=webstore-app-dev&revision=true)](https://cd.govirto.com/applications/webstore-app-dev) |
 |Dev| xapi-app| Andrey Kostyrin| RND | |[![App Status](https://cd.govirto.com/api/badge?name=xapi-app-dev&revision=true)](https://cd.govirto.com/applications/xapi-app-dev) |
-|QA| b2bstore-app| Aleksandr Manyukhin| QA regres | Solution team board|[![App Status](https://cd.govirto.com/api/badge?name=b2bstore-app-qa&revision=true)](https://cd.govirto.com/applications/b2bstore-app-qa) |
+|QA| regression-app| Aleksandr Manyukhin| QA regres | Solution team board|[![App Status](https://cd.govirto.com/api/badge?name=regression-app-qa&revision=true)](https://cd.govirto.com/applications/regression-app-qa) |
 |QA| odt-app| Basil Kotov| | |[![App Status](https://cd.govirto.com/api/badge?name=odt-app-qa&revision=true)](https://cd.govirto.com/applications/odt-app-qa) |
 |QA| support-webstore-app| Aleksandr Manyukhin| QA | | [![App Status](https://cd.govirto.com/api/badge?name=support-webstore-app-qa&revision=true)](https://cd.govirto.com/applications/support-webstore-app-qa) |
 |QA| webstore-app| Dmitry Pushnitsa| Solution team| Solution team board| [![App Status](https://cd.govirto.com/api/badge?name=webstore-app-qa&revision=true)](https://cd.govirto.com/applications/webstore-app-qa) |
