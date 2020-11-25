@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: deployment-cm
 data:
-  ELECTRONICS_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-default-1.1.0-alpha.945-vds-238.zip
+  ELECTRONICS_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-default-1.1.0-alpha.946.zip
   ELECTRONICS_THEME_LOCATION: /mnt/cms-content/Themes/Electronics
   B2B_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-b2b-1.4.0-alpha.1545-dev.zip
   B2B_THEME_LOCATION: /mnt/cms-content/Themes/B2B-store
