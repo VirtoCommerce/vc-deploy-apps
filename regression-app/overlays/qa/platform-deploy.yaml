@@ -99,7 +99,7 @@ spec:
         - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB
-              value: b2bstore-platform_qa_source
+              value: regression-platform_qa_source
       containers:
         - name: vc-platform-web
           resources:

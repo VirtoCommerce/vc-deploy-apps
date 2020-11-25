@@ -1,4 +1,4 @@
 resources:
 - webstore-app.yaml
 - xapi-app.yaml
-- b2bstore-app.yaml
+- regression-app.yaml
