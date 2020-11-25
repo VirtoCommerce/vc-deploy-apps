@@ -10,7 +10,7 @@ patchesStrategicMerge:
 - platform-cm.yaml
 - storefront-cm.yaml
 resources:
-- ../../../common-base
+- ../../../common-base/saas-base
 - modules-pvc.yaml
 
 images:

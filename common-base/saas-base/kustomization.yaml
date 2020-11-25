@@ -3,7 +3,6 @@ resources:
 #- modules-pvc.yaml
 - ingress.yaml
 - ingress-https.yaml
-- middleware-redirect.yaml
 - platform-cm.yaml
 - platform-deploy.yaml
 - platform-service.yaml
@@ -37,10 +36,3 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: metadata.namespace
-- name: VC_INSTANCE
-  objref:
-    kind: Service
-    name: storefront
-    apiVersion: v1
-  fieldref:
-    fieldpath: metadata.labels['instance']
