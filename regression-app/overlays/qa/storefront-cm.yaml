@@ -1,4 +1,4 @@
-kind: ConfigMap
+leskind: ConfigMap
 apiVersion: v1
 metadata:
   name: storefront-cm
@@ -7,6 +7,5 @@ data:
   SnapshotCollectorConfiguration__IsEnabled: "false"
   VirtoCommerce__AppSettings__GoogleAnalytics__DomainName: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
   VirtoCommerce__Endpoint__Url: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
-  VirtoCommerce__StoreUrls__B2B-store: https://$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com/B2B-store/
-  VirtoCommerce__StoreUrls__Electronics: https://$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com/
+  VirtoCommerce__SendAccountConfirmation: "true"
 
