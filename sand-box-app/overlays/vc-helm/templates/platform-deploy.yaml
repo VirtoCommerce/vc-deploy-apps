@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       annotations:
-        {{- if eq .Values.configmap-reloader true }}
+        {{- if eq .Values.configmap_reloader true }}
         configmap.reloader.stakater.com/reload: "{{ .Release.Name }}-deployment-cm,{{ .Release.Name }}-platform-cm,{{ .Release.Name }}-platform-secret-configmap"
         {{- end}}
         vault.hashicorp.com/agent-inject: "true"
