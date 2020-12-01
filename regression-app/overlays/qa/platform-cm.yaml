@@ -14,7 +14,9 @@ data:
   Notifications__Smtp__Port: "587"
   Notifications__SmsGateway: "Twilio"
   ExternalModules__IncludePrerelease: "true"
+  PushNotifications__ScalabilityMode: "RedisBackplane"
   PushNotifications__HubUrl: "https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/pushNotificationHub"
+  PushNotifications__ForceWebSockets: "true"
   AzureAd__Enabled: "true"
   Content__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/
   Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/
@@ -22,4 +24,5 @@ data:
   VirtoCommerce__LicensePublicKeyPath: app_data/public.key
   VirtoCommerce__LicensePrivateKeyPath: app_data/private.key
   VirtoCommerce__LocalUploadFolderPath: app_data/uploads
-  PushNotifications__ForceWebSockets: "true"
+  VC_STORE_URL_ELECTRONICS: https://$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com/
+  VC_STORE_URL_B2B-STORE: https://$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com/B2B-store/
