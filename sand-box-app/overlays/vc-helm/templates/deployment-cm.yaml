@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: {{ .Release.Name }}-deployment-cm
   labels:
-    release: {{ $.Release.Name | quote }}
+    release: {{ .Release.Name }}
 data:
   ELECTRONICS_THEME_URL: {{ .Values.deployment.ELECTRONICS_THEME_URL }}
   ELECTRONICS_THEME_LOCATION: {{ .Values.deployment.ELECTRONICS_THEME_LOCATION }}

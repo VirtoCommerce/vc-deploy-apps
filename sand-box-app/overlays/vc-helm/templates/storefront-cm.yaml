@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: {{ .Release.Name }}-storefront-cm
   labels:
-    release: {{ $.Release.Name | quote }}
+    release: {{ .Release.Name }}
 data:
   VirtoCommerce__Endpoint__Url: "https://{{ template "storefront.host" . }}"
   ASPNETCORE_ENVIRONMENT: {{ .Values.storefront.env.ASPNETCORE_ENVIRONMENT }}

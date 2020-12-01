@@ -4,7 +4,7 @@ kind: Middleware
 metadata:
   name: {{ .Release.Name }}-https-redirect
   labels:
-    release: {{ $.Release.Name | quote }}
+    release: {{ .Release.Name }}
 spec:
   redirectScheme:
     scheme: https

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: "{{ .Release.Name }}-{{ .Values.storefront.service.name }}"
   labels:
-    release: {{ $.Release.Name | quote }}
+    release: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.storefront.replicas }}
   selector:
