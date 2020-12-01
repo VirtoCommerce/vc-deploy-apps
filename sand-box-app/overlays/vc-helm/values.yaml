@@ -68,6 +68,21 @@ certmanager:
 
 configmap_reloader: true
 
+vault:
+ template_base: |
+    {{ with secret "secret/webstore-sso" }}
+    export AzureAd__ApplicationId={{ .Data.ApplicationID }}
+    {{ end }}
+    {{ with secret "secret/webstore-sso" }}
+    export AzureAd__TenantId={{ .Data.TenantID }}
+    {{ end }}
+    {{ with secret "secret/redis" }}
+    export ConnectionStrings__RedisConnectionString=redis-master.redis:6379,password={{ .Data.REDIS_PASS }},ssl=False,abortConnect=False
+    {{ end }} 
+    {{ with secret "secret/mssql" }}
+    export ConnectionStrings__VirtoCommerce="Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE);User ID=virto@vc-dev-dbserver;Password={{ .Data.db_password }};Trusted_Connection=False;Encrypt=True;"
+    {{ end }}
+
 deployment:
   ELECTRONICS_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-theme-default-2.1.11.zip
   ELECTRONICS_THEME_LOCATION: /mnt/cms-content/Themes/Electronics
