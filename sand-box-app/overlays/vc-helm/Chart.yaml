@@ -1,5 +1,6 @@
 name: virtocommerce
 version: 1.0.0
+apiVersion: v2
 description: Virtocommerce cloud solution
 maintainers:  
     - name: Konstantin Kisilevskiy
