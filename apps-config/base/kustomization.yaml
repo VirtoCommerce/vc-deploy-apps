@@ -3,5 +3,4 @@ resources:
 - sand-box-app.yaml
 - xapi-app.yaml
 - odt-app.yaml
-- aai-app.yaml
 - marketplace-operator-app.yaml

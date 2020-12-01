@@ -4,7 +4,6 @@
 
 |Namespace |App name |Responsible | Team | Board | Status |
 |----------|--------|-----------|-----------|-----------|-----------|
-|Dev| aai-app| Alexandr Andreev| to delete ||[![App Status](https://cd.govirto.com/api/badge?name=aai-app-dev&revision=true)](https://cd.govirto.com/applications/aai-app-dev) |
 |Dev| marketplace-operator-app| Egidijus Mazeika| RND||[![App Status](https://cd.govirto.com/api/badge?name=marketplace-operator-app-dev&revision=true)](https://cd.govirto.com/applications/marketplace-operator-app-dev) |
 |Dev| odt-app| Basil Kotov| ODT Team| ODT Team|[![App Status](https://cd.govirto.com/api/badge?name=odt-app-dev&revision=true)](https://cd.govirto.com/applications/odt-app-dev) |
 |Dev| sand-box-app| Konstantin Kisilevskiy| RND|| [![App Status](https://cd.govirto.com/api/badge?name=sand-box-app-dev&revision=true)](https://cd.govirto.com/applications/sand-box-app-dev)  |
