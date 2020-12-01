@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-deploy
+  namespace: argocd  
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/virtocommerce/vc-deploy-apps'
+    targetRevision: HEAD
+    path: sand-box-app/overlays/vc-helm
+    # helm:
+    #   parameters:
+    #   - name: ingressClass.enabled
+    #     value: 'true'
+    #   - name: providers.kubernetesIngress.publishedService.enabled
+    #     value: 'true'
+    chart: virtocommerce
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

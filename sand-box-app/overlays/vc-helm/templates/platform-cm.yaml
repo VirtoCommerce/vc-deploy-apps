@@ -1,0 +1,29 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ .Release.Name }}-platform-cm
+  labels:
+    release: {{ $.Release.Name | quote }}
+data:
+  Assets__FileSystem__PublicUrl: {{ .Values.platform.env.Assets__FileSystem__PublicUrl | default "https://{{ template "platform.host" . }}/cms-content/assets/" }}
+  Assets__FileSystem__RootPath: {{ .Values.platform.env.Assets__FileSystem__RootPath }}
+  AzureAd__Enabled: {{ .Values.platform.env.AzureAd__Enabled }}
+  APPINSIGHTS_INSTRUMENTATIONKEY: {{ .Values.platform.env.APPINSIGHTS_INSTRUMENTATIONKEY }}
+  Content__FileSystem__PublicUrl: {{ .Values.platform.env.Content__FileSystem__PublicUrl | default "https://{{ template "platform.host" . }}/cms-content/" }}
+  VirtoCommerce__AllowInsecureHttp: {{ .Values.platform.env.VirtoCommerce__AllowInsecureHttp }}
+  VirtoCommerce__LicenseFilePath: {{ .Values.platform.env.VirtoCommerce__LicenseFilePath }}
+  VirtoCommerce__LicensePublicKeyPath: {{ .Values.platform.env.VirtoCommerce__LicensePublicKeyPath }}
+  VirtoCommerce__LicensePrivateKeyPath: {{ .Values.platform.env.VirtoCommerce__LicensePrivateKeyPath }}
+  VirtoCommerce__LocalUploadFolderPath: {{ .Values.platform.env.VirtoCommerce__LocalUploadFolderPath }}
+  VirtoCommerce__Hangfire__JobStorageType: {{ .Values.platform.env.VirtoCommerce__Hangfire__JobStorageType }}
+  Swagger__UI__Enabled: {{ .Values.platform.env.Swagger__UI__Enabled }}
+  Search__Provider: {{ .Values.platform.env.Search__Provider }}
+  Search__Scope: "{{ .Values.platform.service.name }}{{ .Release.Namespace}}index"
+  Search__ElasticSearch__Server: {{ .Values.platform.env.Search__ElasticSearch__Server }}
+  Search__ElasticSearch__Key: {{ .Values.platform.env.Search__ElasticSearch__Key }}
+  PushNotifications__ScalabilityMode: {{ .Values.platform.env.PushNotifications__ScalabilityMode }}
+  PushNotifications__HubUrl: {{ .Values.platform.env.PushNotifications__HubUrl | default "https://{{ template "platform.host" . }}/pushNotificationHub" }}
+  PushNotifications__RedisBackplane__ChannelName: "{{ .Values.platform.service.name }}{{ .Release.Namespace}}-chanel"
+  Caching__Redis__ChannelName: "{{ .Values.platform.service.name }}{{ .Release.Namespace}}-chanel"
+  VC_STORE_URL_ELECTRONICS: {{ .Values.platform.env.VC_STORE_URL_ELECTRONICS | default "https://{{ template "storefront.host" . }}/" }}
+  VC_STORE_URL_B2B-STORE: {{ .Values.platform.env.VC_STORE_URL_B2B-STORE | default "https://{{ template "storefront.host" . }}/B2B-store/" }}

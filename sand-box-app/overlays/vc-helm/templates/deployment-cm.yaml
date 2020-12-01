@@ -1,0 +1,14 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ .Release.Name }}-deployment-cm
+  labels:
+    release: {{ $.Release.Name | quote }}
+data:
+  ELECTRONICS_THEME_URL: {{ .Values.deployment.ELECTRONICS_THEME_URL }}
+  ELECTRONICS_THEME_LOCATION: {{ .Values.deployment.ELECTRONICS_THEME_LOCATION }}
+  B2B_THEME_URL: {{ .Values.deployment.B2B_THEME_URL }}
+  B2B_THEME_LOCATION: {{ .Values.deployment.B2B_THEME_LOCATION }}
+  ASSETS_URL: {{ .Values.deployment.ASSETS_URL }}
+  ASSETS_LOCATION: {{ .Values.deployment.ASSETS_LOCATION }}
+  modules_json: {{ .Values.deployment.modules_json | toJson | quote }}

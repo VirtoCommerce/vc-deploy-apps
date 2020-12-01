@@ -1,0 +1,12 @@
+{{- if and (eq .Values.ingress.class "traefik") (eq .Values.ingress.ssl true) }}
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ .Release.Name }}-https-redirect
+  labels:
+    release: {{ $.Release.Name | quote }}
+spec:
+  redirectScheme:
+    scheme: https
+    permanent: true
+{{- end }}

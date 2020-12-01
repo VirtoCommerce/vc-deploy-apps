@@ -1,0 +1,17 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ .Release.Name }}-storefront-cm
+  labels:
+    release: {{ $.Release.Name | quote }}
+data:
+  VirtoCommerce__Endpoint__Url: {{ .Values.storefront.env.VirtoCommerce__Endpoint__Url | default "https://{{ template "storefront.host" . }}" }}
+  ASPNETCORE_ENVIRONMENT: {{ .Values.storefront.env.ASPNETCORE_ENVIRONMENT }}
+  VirtoCommerce__Endpoint__Password: {{ .Values.storefront.env.VirtoCommerce__Endpoint__Password }}
+  VirtoCommerce__Endpoint__UserName: {{ .Values.storefront.env.VirtoCommerce__Endpoint__UserName }}
+  VirtoCommerce__RequireHttps: {{ .Values.storefront.env.VirtoCommerce__RequireHttps }}
+  VirtoCommerce__DefaultStore: {{ .Values.storefront.env.VirtoCommerce__DefaultStore }}
+  APPINSIGHTS_INSTRUMENTATIONKEY: {{ .Values.storefront.env.APPINSIGHTS_INSTRUMENTATIONKEY }}
+  ASPNETCORE_FORWARDEDHEADERS_ENABLED: {{ .Values.storefront.env.ASPNETCORE_FORWARDEDHEADERS_ENABLED }}
+  CookieAuthenticationOptions__ExpireTimeSpan: {{ .Values.storefront.env.CookieAuthenticationOptions__ExpireTimeSpan }}
+  SnapshotCollectorConfiguration__IsEnabled: {{ .Values.storefront.env.SnapshotCollectorConfiguration__IsEnabled }}

@@ -1,0 +1,38 @@
+{{- if eq .Values.ingress.ssl true }}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}-traefik-ingress-https
+  labels:
+    release: {{ $.Release.Name | quote }}
+  annotations:
+    kubernetes.io/ingress.class: {{ .Values.ingress.class | default "traefik" }}
+    {{- if and (eq .Values.ingress.class "traefik") (eq .Values.ingress.ssl true) }}
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.middlewares: "{{ .Release.Namespace }}-{{ .Release.Name }}-https-redirect@kubernetescrd"
+    {{- end }}
+    cert-manager.io/cluster-issuer: {{ .Values.certmanager.cluster-issuer }}
+spec:
+  tls:
+    - hosts: 
+      - "{{ template "storefront.host" . }}"
+      secretName: "{{ .Values.storefront.service.name }}-{{ .Release.Namespace }}-tls"
+    - hosts:   
+      - "{{ template "platform.host" . }}"
+      secretName: "{{ .Values.platform.service.name }}-{{ .Release.Namespace }}-tls"
+  rules:
+  - host: {{ template "storefront.host" . }}
+    http:
+      paths:
+      - backend:
+          serviceName: {{ .Values.storefront.service.name }}
+          servicePort: {{ .Values.storefront.service.externalPort }}
+        path: /
+  - host: {{ template "platform.host" . }}
+    http:
+      paths:
+      - backend:
+          serviceName: {{ .Values.platform.service.name }}
+          servicePort: {{ .Values.platform.service.externalPort }}
+        path: /
+{{- end }}
