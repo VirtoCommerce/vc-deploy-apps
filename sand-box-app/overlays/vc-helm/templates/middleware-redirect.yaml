@@ -1,4 +1,4 @@
-{{- if and (eq .Values.ingress.class "traefik") (eq .Values.ingress.ssl true) }}
+{{- if and (eq .Values.ingress.class 'traefik') (eq .Values.ingress.ssl true) }}
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
