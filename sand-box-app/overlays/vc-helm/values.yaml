@@ -60,7 +60,7 @@ platform:
 storageClassName:
 
 ingress:
-  class:
+  class: traefik
   ssl: true
 
 certmanager:
