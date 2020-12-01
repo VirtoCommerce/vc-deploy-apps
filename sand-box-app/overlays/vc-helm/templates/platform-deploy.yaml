@@ -24,7 +24,7 @@ spec:
       # create database in azure within a sql pool
       initContainers:
       - name: init-platform
-        image: "{{ .Values.platform.init-image.repository }}:{{ .Values.platform.init-image.tag }}"
+        image: "{{ .Values.platform.init_image.repository }}:{{ .Values.platform.init_image.tag }}"
         command:
           - "/bin/sh"
           - "-c"
