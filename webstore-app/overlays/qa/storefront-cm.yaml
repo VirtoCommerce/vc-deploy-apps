@@ -9,4 +9,3 @@ data:
     SnapshotCollectorConfiguration__IsEnabled: "false"
     Swagger__UI__Enable: "true"
     VirtoCommerce__Endpoint__Url: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
-    VirtoCommerce__DefaultStore: "B2B-store"
