@@ -82,7 +82,41 @@ vault:
     {{ end }} 
     {{ with secret "secret/mssql" }}
     export ConnectionStrings__VirtoCommerce="Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE);User ID=virto@vc-dev-dbserver;Password={{ .Data.db_password }};Trusted_Connection=False;Encrypt=True;"
-    {{ end }} 
+    {{ end }}
+ config_init: |
+    "auto_auth" = {
+                "method" = {
+                    "config" = {
+                        "role" = "myapp"
+                    }
+                "type" = "kubernetes"
+                }
+
+                "sink" = {
+                    "config" = {
+                        "path" = "/home/vault/.token"
+                    }
+
+                    "type" = "file"
+                }
+            }
+
+            "exit_after_auth" = true
+            "pid_file" = "/home/vault/.pid"
+
+            "template" = {
+                "source" = "/vault/configs/templates-base.hcl"
+                "destination" = "/vault/secrets/config_base"
+            }
+
+            "template" = {
+                "source" = "/vault/configs/templates-custom.hcl"
+                "destination" = "/vault/secrets/config_custom"
+            }
+
+            "vault" = {
+                "address" = "http://vault.hashicorp-vault.svc.cluster.local:8200"
+            }  
 
 deployment:
   ELECTRONICS_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-theme-default-2.1.11.zip
