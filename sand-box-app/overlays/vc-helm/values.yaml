@@ -64,9 +64,9 @@ ingress:
   ssl: true
 
 certmanager:
-  cluster-issuer: letsencrypt
+  cluster_issuer: letsencrypt
 
-configmap-reloader: true
+configmap_reloader: true
 
 deployment:
   ELECTRONICS_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-theme-default-2.1.11.zip

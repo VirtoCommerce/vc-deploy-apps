@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       annotations:
-        {{- if eq .Values.configmap-reloader "true" }}
+        {{- if eq .Values.configmap_reloader true }}
         configmap.reloader.stakater.com/reload: "{{ .Release.Name }}-storefront-cm,{{ .Release.Name }}-deployment-cm"
         {{- end}}
       labels:
