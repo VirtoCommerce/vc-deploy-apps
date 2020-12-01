@@ -14,7 +14,7 @@ storefront:
     VirtoCommerce__Endpoint__Url:
     VirtoCommerce__RequireHttps: "true"
     VirtoCommerce__DefaultStore: "B2B-Store"
-    APPINSIGHTS_INSTRUMENTATIONKEY: "null"
+    APPINSIGHTS_INSTRUMENTATIONKEY: "empty"
     ASPNETCORE_FORWARDEDHEADERS_ENABLED: "true"
     CookieAuthenticationOptions__ExpireTimeSpan: "12:00:00"
     SnapshotCollectorConfiguration__IsEnabled: "false"
@@ -36,7 +36,7 @@ platform:
     Assets__FileSystem__PublicUrl:
     Assets__FileSystem__RootPath: ~/cms-content/assets
     AzureAd__Enabled: "true"
-    APPINSIGHTS_INSTRUMENTATIONKEY: "null"
+    APPINSIGHTS_INSTRUMENTATIONKEY: "empty"
     Content__FileSystem__PublicUrl:
     VirtoCommerce__AllowInsecureHttp: "true"
     VirtoCommerce__LicenseFilePath: app_data/VirtoCommerce.lic
