@@ -8,7 +8,7 @@ data:
   Assets__FileSystem__PublicUrl: "https://{{ template "platform.host" . }}/cms-content/assets/"
   Assets__FileSystem__RootPath: {{ .Values.platform.env.Assets__FileSystem__RootPath }}
   AzureAd__Enabled: {{ .Values.platform.env.AzureAd__Enabled }}
-  APPINSIGHTS_INSTRUMENTATIONKEY: {{ .Values.platform.env.APPINSIGHTS_INSTRUMENTATIONKEY | default "" }}
+  APPINSIGHTS_INSTRUMENTATIONKEY: {{ .Values.platform.env.APPINSIGHTS_INSTRUMENTATIONKEY | default " " }}
   Content__FileSystem__PublicUrl: "https://{{ template "platform.host" . }}/cms-content/"
   VirtoCommerce__AllowInsecureHttp: {{ .Values.platform.env.VirtoCommerce__AllowInsecureHttp }}
   VirtoCommerce__LicenseFilePath: {{ .Values.platform.env.VirtoCommerce__LicenseFilePath }}

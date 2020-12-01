@@ -6,7 +6,7 @@ metadata:
     release: {{ .Release.Name }}
 data:
   VirtoCommerce__Endpoint__Url: "https://{{ template "storefront.host" . }}"
-  ASPNETCORE_ENVIRONMENT: {{ .Values.storefront.env.ASPNETCORE_ENVIRONMENT }}
+  ASPNETCORE_ENVIRONMENT: {{ .Values.storefront.env.ASPNETCORE_ENVIRONMENT | default " " }}
   VirtoCommerce__Endpoint__Password: {{ .Values.storefront.env.VirtoCommerce__Endpoint__Password }}
   VirtoCommerce__Endpoint__UserName: {{ .Values.storefront.env.VirtoCommerce__Endpoint__UserName }}
   VirtoCommerce__RequireHttps: {{ .Values.storefront.env.VirtoCommerce__RequireHttps }}
