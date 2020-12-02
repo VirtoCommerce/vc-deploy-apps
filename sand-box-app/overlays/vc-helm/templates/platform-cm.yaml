@@ -25,5 +25,7 @@ data:
   PushNotifications__HubUrl: "https://{{ template "platform.host" . }}/pushNotificationHub"
   PushNotifications__RedisBackplane__ChannelName: "{{ .Values.platform.service.name }}{{ .Release.Namespace}}-chanel"
   Caching__Redis__ChannelName: "{{ .Values.platform.service.name }}{{ .Release.Namespace}}-chanel"
+  {{- if eq .Values.store "webstore" }} 
   VC_STORE_URL_ELECTRONICS: "https://{{ template "storefront.host" . }}/"
   VC_STORE_URL_B2B-STORE: "https://{{ template "storefront.host" . }}/B2B-store/"
+  {{- end }}
