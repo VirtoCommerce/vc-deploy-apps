@@ -11,4 +11,4 @@ data:
   B2B_THEME_LOCATION: {{ .Values.deployment.B2B_THEME_LOCATION }}
   ASSETS_URL: {{ .Values.deployment.ASSETS_URL }}
   ASSETS_LOCATION: {{ .Values.deployment.ASSETS_LOCATION }}
-  modules_json: {{ .Values.deployment.modules_json | toJson | quote }}
+  modules_json: {{ .Values.deployment.modules_json | quote }}
