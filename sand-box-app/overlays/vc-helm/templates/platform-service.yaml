@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: "{{ template "env.naming" . }}-{{ .Values.platform.service.name }}"
   labels:
-    release: {{ template "env.naming" . }}}
+    release: {{ template "env.naming" . }}
 spec:
   type: ClusterIP
   ports:
