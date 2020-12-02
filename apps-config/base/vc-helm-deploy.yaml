@@ -15,7 +15,7 @@ spec:
         value: 2
     #   - name: providers.kubernetesIngress.publishedService.enabled
     #     value: 'true'
-    # chart: virtocommerce
+     chart: virtocommerce
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: dev
