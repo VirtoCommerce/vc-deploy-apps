@@ -14,4 +14,4 @@ data:
   APPINSIGHTS_INSTRUMENTATIONKEY: {{ .Values.storefront.env.APPINSIGHTS_INSTRUMENTATIONKEY }}
   ASPNETCORE_FORWARDEDHEADERS_ENABLED: {{ .Values.storefront.env.ASPNETCORE_FORWARDEDHEADERS_ENABLED | quote }}
   CookieAuthenticationOptions__ExpireTimeSpan: {{ .Values.storefront.env.CookieAuthenticationOptions__ExpireTimeSpan }}
-  SnapshotCollectorConfiguration__IsEnabled: {{ .Values.storefront.env.SnapshotCollectorConfiguration__IsEnabled }}
+  SnapshotCollectorConfiguration__IsEnabled: {{ .Values.storefront.env.SnapshotCollectorConfiguration__IsEnabled | quote }}
