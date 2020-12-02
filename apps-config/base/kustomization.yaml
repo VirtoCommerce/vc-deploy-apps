@@ -5,3 +5,4 @@ resources:
 - odt-app.yaml
 - marketplace-operator-app.yaml
 - vc-helm-deploy.yaml
+- vc-odt-helm-deploy.yaml
