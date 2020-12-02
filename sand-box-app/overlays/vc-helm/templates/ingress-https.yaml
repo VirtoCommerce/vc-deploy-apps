@@ -16,10 +16,10 @@ spec:
   tls:
     - hosts: 
       - "{{ template "storefront.host" . }}"
-      secretName: "{{ .Values.storefront.service.name }}-{{ .Release.Namespace }}-tls"
+      secretName: "{{ template "env.naming" . }}-{{ .Values.storefront.service.name }}-{{ .Release.Namespace }}-tls"
     - hosts:   
       - "{{ template "platform.host" . }}"
-      secretName: "{{ .Values.platform.service.name }}-{{ .Release.Namespace }}-tls"
+      secretName: "{{ template "env.naming" . }}-{{ .Values.platform.service.name }}-{{ .Release.Namespace }}-tls"
   rules:
   - host: {{ template "storefront.host" . }}
     http:
