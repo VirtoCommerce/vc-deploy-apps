@@ -64,7 +64,7 @@ spec:
           - "-P"
           - "$(VC_DBSERVER_MASTER_PASSWORD)"
           - "-q"
-          - "CREATE DATABASE [{{ .Values.platform.service.name }}_{{ .Release.Namespace }}] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )"
+          - "CREATE DATABASE [{{ template "env.naming" . }}_{{ .Release.Namespace }}] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )"
         env:
           - name: VC_SAMPLE_DATA_DB
             value: vc-empty-db
@@ -85,7 +85,7 @@ spec:
             - "/bin/bash"
             - "-c"
         args:
-            - "export DB_NAME={{ .Values.platform.service.name }}_{{ .Release.Namespace }}
+            - "export DB_NAME={{ template "env.naming" . }}_{{ .Release.Namespace }}
             && source /vault/secrets/config_base && source /vault/secrets/config_custom && dotnet VirtoCommerce.Platform.Web.dll"
         ports:
         - containerPort: {{ .Values.platform.service.internalPort }}

@@ -15,13 +15,13 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: {{ .Values.storefront.service.name }}
+          serviceName: "{{ template "env.naming" . }}-{{ .Values.storefront.service.name }}"
           servicePort: {{ .Values.storefront.service.externalPort }}
         path: /
   - host: {{ template "platform.host" . }}
     http:
       paths:
       - backend:
-          serviceName: {{ .Values.platform.service.name }}
+          serviceName: "{{ template "env.naming" . }}-{{ .Values.platform.service.name }}"
           servicePort: {{ .Values.platform.service.externalPort }}
         path: /
