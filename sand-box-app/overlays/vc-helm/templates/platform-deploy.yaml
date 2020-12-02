@@ -64,7 +64,7 @@ spec:
           - "-P"
           - "$(VC_DBSERVER_MASTER_PASSWORD)"
           - "-q"
-          - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )"
+          - "CREATE DATABASE [{{ .Values.platform.service.name }}_{{ .Release.Namespace }}] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )"
         env:
           - name: VC_SAMPLE_DATA_DB
             value: vc-empty-db

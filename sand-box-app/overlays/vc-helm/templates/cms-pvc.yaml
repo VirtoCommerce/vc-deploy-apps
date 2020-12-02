@@ -1,9 +1,9 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ .Release.Name }}-cms-content-volume
+  name: {{ template "env.naming" . }}-cms-content-volume
   labels:
-    release: {{ .Release.Name }}
+    release: {{ template "env.naming" . }}
 spec:
   accessModes:
     - ReadWriteMany
