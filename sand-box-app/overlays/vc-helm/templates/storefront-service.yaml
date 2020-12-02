@@ -9,4 +9,5 @@ spec:
   ports:
   - port: {{ .Values.storefront.service.externalPort }}
   selector:
-    app: {{ .Values.storefront.service.name }}  
+    app: {{ .Values.storefront.service.name }}
+    release: {{ template "env.naming" . }}  

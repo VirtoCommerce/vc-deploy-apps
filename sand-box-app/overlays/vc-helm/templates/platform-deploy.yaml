@@ -8,7 +8,8 @@ spec:
   replicas: {{ .Values.platform.replicas }}
   selector:
     matchLabels:
-      app: {{ .Values.platform.service.name }} 
+      app: {{ .Values.platform.service.name }}
+      release: {{ template "env.naming" . }}
   template:
     metadata:
       annotations:
@@ -19,7 +20,8 @@ spec:
         vault.hashicorp.com/agent-pre-populate-only: "true"
         vault.hashicorp.com/agent-configmap: "{{ template "env.naming" . }}-platform-secret-configmap" 
       labels:
-        app: {{ .Values.platform.service.name }} 
+        app: {{ .Values.platform.service.name }}
+        release: {{ template "env.naming" . }}
     spec:
       # create database in azure within a sql pool
       initContainers:
