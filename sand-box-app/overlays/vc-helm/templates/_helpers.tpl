@@ -1,6 +1,8 @@
 {{- define "platform.host" -}}
-{{- printf "%s-%s.%s.govirto.com" .Release.Name .Values.platform.service.name .Release.Namespace }}
+{{- $name := trimSuffix .Release.Namespace .Release.Name -}}
+{{- printf "%s-%s.%s.govirto.com" $name .Values.platform.service.name .Release.Namespace }}
 {{- end -}}
 {{- define "storefront.host" -}}
-{{- printf "%s-%s.%s.govirto.com" .Release.Name .Values.storefront.service.name .Release.Namespace }}
+{{- $name := trimSuffix .Release.Namespace .Release.Name -}}
+{{- printf "%s-%s.%s.govirto.com" $name .Values.storefront.service.name .Release.Namespace }}
 {{- end -}}
