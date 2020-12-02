@@ -16,7 +16,7 @@ spec:
         value: "256Mi"
       - name: platform.image.tag
         value: "3.29.0-master-9c794c51"
-    chart: 
+    chart: virtocommerce
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: dev
