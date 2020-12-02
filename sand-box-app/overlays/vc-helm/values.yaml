@@ -5,7 +5,7 @@ storefront:
     internalPort: 80
     externalPort: 80
   image:
-    repository: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
+    repository: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
     tag: 1.5.0-alpha.952-dev-6a15bead
   env:
     ASPNETCORE_ENVIRONMENT: Development
