@@ -82,7 +82,7 @@ vault:
       export ConnectionStrings__RedisConnectionString=redis-master.redis:6379,password={{ .Data.REDIS_PASS }},ssl=False,abortConnect=False
       {{ end }} 
       {{ with secret "secret/mssql" }}
-      export ConnectionStrings__VirtoCommerce="Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE);User ID=virto@vc-dev-dbserver;Password={{ .Data.db_password }};Trusted_Connection=False;Encrypt=True;"
+      export ConnectionStrings__VirtoCommerce="Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=$DB_NAME;User ID=virto@vc-dev-dbserver;Password={{ .Data.db_password }};Trusted_Connection=False;Encrypt=True;"
       {{ end }}
   config_init: |
       "auto_auth" = {

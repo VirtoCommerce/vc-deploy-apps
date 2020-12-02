@@ -85,7 +85,8 @@ spec:
             - "/bin/bash"
             - "-c"
         args:
-            - "source /vault/secrets/config_base && source /vault/secrets/config_custom && dotnet VirtoCommerce.Platform.Web.dll"
+            - "export DB_NAME={{ .Values.platform.service.name }}_{{ .Release.Namespace }}
+            && source /vault/secrets/config_base && source /vault/secrets/config_custom && dotnet VirtoCommerce.Platform.Web.dll"
         ports:
         - containerPort: {{ .Values.platform.service.internalPort }}
         volumeMounts:
