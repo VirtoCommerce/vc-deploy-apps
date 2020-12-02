@@ -23,6 +23,9 @@ spec:
       containers:
       - name: vc-storefront-web
         image: "{{ .Values.storefront.image.repository }}:{{  .Values.storefront.image.tag }}"
+        resources:
+            limits:
+              memory: {{ .Values.storefront.memory_limit | quote }} 
         envFrom:
         - configMapRef:
             name: {{ template "env.naming" . }}-storefront-cm
