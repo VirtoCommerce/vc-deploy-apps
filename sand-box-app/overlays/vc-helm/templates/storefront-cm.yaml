@@ -15,3 +15,4 @@ data:
   ASPNETCORE_FORWARDEDHEADERS_ENABLED: {{ .Values.storefront.env.ASPNETCORE_FORWARDEDHEADERS_ENABLED | quote }}
   CookieAuthenticationOptions__ExpireTimeSpan: {{ .Values.storefront.env.CookieAuthenticationOptions__ExpireTimeSpan }}
   SnapshotCollectorConfiguration__IsEnabled: {{ .Values.storefront.env.SnapshotCollectorConfiguration__IsEnabled | quote }}
+  VirtoCommerce__CacheEnabled: {{ .Values.storefront.env.VirtoCommerce__CacheEnabled | quote }}

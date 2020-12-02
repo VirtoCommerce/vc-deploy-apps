@@ -1,4 +1,6 @@
 ---
+store: webstore
+
 storefront:
   service:
     name: storefront
@@ -14,6 +16,7 @@ storefront:
     VirtoCommerce__Endpoint__Url:
     VirtoCommerce__RequireHttps: "true"
     VirtoCommerce__DefaultStore: "B2B-Store"
+    VirtoCommerce__CacheEnabled: "False"
     APPINSIGHTS_INSTRUMENTATIONKEY: "empty"
     ASPNETCORE_FORWARDEDHEADERS_ENABLED: "true"
     CookieAuthenticationOptions__ExpireTimeSpan: "12:00:00"
@@ -121,6 +124,8 @@ vault:
       } 
 
 deployment:
+  ODT_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-odt-mpa-theme_dev-0.1.10-alpha.202-67d46295.zip
+  ODT_THEME_LOCATION: /mnt/cms-content/Themes/odt
   ELECTRONICS_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-default-1.2.0-alpha.949.zip
   ELECTRONICS_THEME_LOCATION: /mnt/cms-content/Themes/Electronics
   B2B_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-b2b-1.5.0-alpha.1580.zip

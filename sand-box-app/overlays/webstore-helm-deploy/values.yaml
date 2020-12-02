@@ -1,5 +1,8 @@
 virtocommerce:
+  store: webstore
+
   platform:
+    db_source: webstore-platform_source
     image:
       tag: 3.29.0-master-9c794c51
     replicas: 2
