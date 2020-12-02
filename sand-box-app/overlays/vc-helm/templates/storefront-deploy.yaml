@@ -23,7 +23,7 @@ spec:
         image: "{{ .Values.storefront.image.repository }}:{{  .Values.storefront.image.tag }}"
         envFrom:
         - configMapRef:
-            name: {{ template "env.naming" . }}storefront-cm
+            name: {{ template "env.naming" . }}-storefront-cm
         ports:
         - containerPort: {{ .Values.storefront.service.internalPort }}
         volumeMounts:
