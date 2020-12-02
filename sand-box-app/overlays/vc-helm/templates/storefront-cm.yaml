@@ -5,7 +5,7 @@ metadata:
   labels:
     release: {{ template "env.naming" . }}
 data:
-  VirtoCommerce__Endpoint__Url: "https://{{ template "storefront.host" . }}"
+  VirtoCommerce__Endpoint__Url: "https://{{ template "platform.host" . }}"
   ASPNETCORE_ENVIRONMENT: {{ .Values.storefront.env.ASPNETCORE_ENVIRONMENT }}
   VirtoCommerce__Endpoint__Password: {{ .Values.storefront.env.VirtoCommerce__Endpoint__Password }}
   VirtoCommerce__Endpoint__UserName: {{ .Values.storefront.env.VirtoCommerce__Endpoint__UserName }}
