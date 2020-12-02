@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{ .Release.Name }}-{{ .Values.platform.service.name }}"
+  name: "{{ template "env.naming" . }}-{{ .Values.platform.service.name }}"
   labels:
-    release: {{ .Release.Name }}
+    release: {{ template "env.naming" . }}
 spec:
   replicas: {{ .Values.platform.replicas }}
   selector:
@@ -13,11 +13,11 @@ spec:
     metadata:
       annotations:
         {{- if eq .Values.configmap_reloader true }}
-        configmap.reloader.stakater.com/reload: "{{ .Release.Name }}-deployment-cm,{{ .Release.Name }}-platform-cm,{{ .Release.Name }}-platform-secret-configmap"
+        configmap.reloader.stakater.com/reload: "{{ template "env.naming" . }}-deployment-cm,{{ template "env.naming" . }}-platform-cm,{{ template "env.naming" . }}-platform-secret-configmap"
         {{- end}}
         vault.hashicorp.com/agent-inject: "true"
         vault.hashicorp.com/agent-pre-populate-only: "true"
-        vault.hashicorp.com/agent-configmap: "{{ .Release.Name }}-platform-secret-configmap" 
+        vault.hashicorp.com/agent-configmap: "{{ template "env.naming" . }}-platform-secret-configmap" 
       labels:
         app: {{ .Values.platform.service.name }} 
     spec:
@@ -41,12 +41,12 @@ spec:
           && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
         envFrom:
           - configMapRef:
-              name: {{ .Release.Name }}-deployment-cm
+              name: {{ template "env.naming" . }}-deployment-cm
         env:
           - name: MODULES_CONFIG
             valueFrom:
               configMapKeyRef:
-                name: {{ .Release.Name }}-deployment-cm
+                name: {{ template "env.naming" . }}-deployment-cm
                 key: modules.json 
         volumeMounts:
           - mountPath: /mnt/Modules
@@ -80,7 +80,7 @@ spec:
         image: "{{ .Values.platform.image.repository }}:{{ .Values.platform.image.tag }}"
         envFrom:
         - configMapRef:
-            name: {{ .Release.Name }}-platform-cm
+            name: {{ template "env.naming" . }}-platform-cm
         command:
             - "/bin/bash"
             - "-c"
@@ -96,7 +96,7 @@ spec:
       volumes:
       - name: cms-content-data
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-cms-content-volume
+          claimName: {{ template "env.naming" . }}-cms-content-volume
       - name: modules-data
         emptyDir: {}     
   strategy:

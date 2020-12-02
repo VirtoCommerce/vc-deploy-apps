@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{ .Release.Name }}-{{ .Values.storefront.service.name }}"
+  name: "{{ template "env.naming" . }}-{{ .Values.storefront.service.name }}"
   labels:
-    release: {{ .Release.Name }}
+    release: {{ template "env.naming" . }}
 spec:
   replicas: {{ .Values.storefront.replicas }}
   selector:
@@ -13,7 +13,7 @@ spec:
     metadata:
       annotations:
         {{- if eq .Values.configmap_reloader true }}
-        configmap.reloader.stakater.com/reload: "{{ .Release.Name }}-storefront-cm,{{ .Release.Name }}-deployment-cm"
+        configmap.reloader.stakater.com/reload: "{{ template "env.naming" . }}-storefront-cm,{{ template "env.naming" . }}-deployment-cm"
         {{- end}}
       labels:
         app: {{ .Values.storefront.service.name }}
@@ -23,7 +23,7 @@ spec:
         image: "{{ .Values.storefront.image.repository }}:{{  .Values.storefront.image.tag }}"
         envFrom:
         - configMapRef:
-            name: {{ .Release.Name }}-storefront-cm
+            name: {{ template "env.naming" . }}storefront-cm
         ports:
         - containerPort: {{ .Values.storefront.service.internalPort }}
         volumeMounts:
@@ -32,4 +32,4 @@ spec:
       volumes:
       - name: cms-content-data
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-cms-content-volume
+          claimName: {{ template "env.naming" . }}-cms-content-volume

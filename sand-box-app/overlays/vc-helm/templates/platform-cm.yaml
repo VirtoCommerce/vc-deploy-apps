@@ -1,9 +1,9 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: {{ .Release.Name }}-platform-cm
+  name: {{ template "env.naming" . }}-platform-cm
   labels:
-    release: {{ .Release.Name }}
+    release: {{ template "env.naming" . }}
 data:
   Assets__FileSystem__PublicUrl: "https://{{ template "platform.host" . }}/cms-content/assets/"
   Assets__FileSystem__RootPath: {{ .Values.platform.env.Assets__FileSystem__RootPath }}

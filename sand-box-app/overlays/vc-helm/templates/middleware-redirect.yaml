@@ -2,9 +2,9 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ .Release.Name }}-https-redirect
+  name: {{ template "env.naming" . }}-https-redirect
   labels:
-    release: {{ .Release.Name }}
+    release: {{ template "env.naming" . }}
 spec:
   redirectScheme:
     scheme: https

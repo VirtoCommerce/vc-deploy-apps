@@ -2,14 +2,14 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ .Release.Name }}-traefik-ingress-https
+  name: {{ template "env.naming" . }}-traefik-ingress-https
   labels:
-    release: {{ .Release.Name }}
+    release: {{ template "env.naming" . }}
   annotations:
     kubernetes.io/ingress.class: {{ .Values.ingress.class | default "traefik" }}
     {{- if and (eq .Values.ingress.class "traefik") (eq .Values.ingress.ssl true) }}
     traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/router.middlewares: "{{ .Release.Namespace }}-{{ .Release.Name }}-https-redirect@kubernetescrd"
+    traefik.ingress.kubernetes.io/router.middlewares: "{{ .Release.Namespace }}-{{ template "env.naming" . }}-https-redirect@kubernetescrd"
     {{- end }}
     cert-manager.io/cluster-issuer: {{ .Values.certmanager.cluster_issuer }}
 spec:

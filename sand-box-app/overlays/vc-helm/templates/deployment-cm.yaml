@@ -1,9 +1,9 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: {{ .Release.Name }}-deployment-cm
+  name: {{ template "env.naming" . }}-deployment-cm
   labels:
-    release: {{ .Release.Name }}
+    release: {{ template "env.naming" . }}
 data:
   ELECTRONICS_THEME_URL: {{ .Values.deployment.ELECTRONICS_THEME_URL }}
   ELECTRONICS_THEME_LOCATION: {{ .Values.deployment.ELECTRONICS_THEME_LOCATION }}
