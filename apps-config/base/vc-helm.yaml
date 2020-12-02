@@ -11,11 +11,11 @@ spec:
     helm:
       parameters:
       - name: platform.replicas
-        value: 1
+        value: "1"
       - name: platform.memory_limit
-        value: 256Mi
+        value: "256Mi"
       - name: platform.image.tag
-        value: 3.29.0-master-9c794c51
+        value: "3.29.0-master-9c794c51"
     chart: 
   destination:
     server: 'https://kubernetes.default.svc'
