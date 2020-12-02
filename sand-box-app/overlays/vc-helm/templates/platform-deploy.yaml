@@ -92,6 +92,9 @@ spec:
       containers:
       - name: vc-platform-web      
         image: "{{ .Values.platform.image.repository }}:{{ .Values.platform.image.tag }}"
+        resources:
+            limits:
+              memory: {{ .Values.platform.memory_limit | quote }} 
         envFrom:
         - configMapRef:
             name: {{ template "env.naming" . }}-platform-cm
