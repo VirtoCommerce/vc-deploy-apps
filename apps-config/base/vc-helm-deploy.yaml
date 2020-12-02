@@ -9,10 +9,10 @@ spec:
     repoURL: 'https://github.com/virtocommerce/vc-deploy-apps'
     targetRevision: HEAD
     path: sand-box-app/overlays/vc-helm
-    # helm:
-    #   parameters:
-    #   - name: ingressClass.enabled
-    #     value: 'true'
+    helm:
+      parameters:
+      - name: platform.replicas
+        value: 2
     #   - name: providers.kubernetesIngress.publishedService.enabled
     #     value: 'true'
     # chart: virtocommerce
