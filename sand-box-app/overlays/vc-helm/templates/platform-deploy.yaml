@@ -69,7 +69,7 @@ spec:
           - "CREATE DATABASE [{{ template "env.naming" . }}_{{ .Release.Namespace }}] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )"
         env:
           - name: VC_SAMPLE_DATA_DB
-            value: vc-empty-db
+            value: {{ .Values.platform.db_source }}
           - name: VC_DB_COPY_PARAM
             value: "AS COPY OF [$(VC_SAMPLE_DATA_DB)]"  
           - name: VC_DBSERVER_MASTER_PASSWORD

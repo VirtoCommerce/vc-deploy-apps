@@ -26,6 +26,7 @@ platform:
     name: platform
     internalPort: 80
     externalPort: 80
+  db_source: webstore-platform_source  
   init_image:
     repository: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer
     tag: v2
