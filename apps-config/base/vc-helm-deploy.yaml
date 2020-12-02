@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/virtocommerce/vc-deploy-apps'
     targetRevision: HEAD
-    path: sand-box-app/overlays/vc-helm
+    path: sand-box-app/overlays/webstore-helm-deploy
     # helm:
     #   parameters:
     #   - name: platform.replicas

@@ -1,0 +1,14 @@
+virtocommerce:
+  platform:
+    image:
+      tag: 3.29.0-master-9c794c51
+    replicas: 2
+
+  storefront:
+    image:
+      tag: 1.5.0-alpha.952-dev-6a15bead
+  
+  deployment:
+    B2B_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-b2b-1.5.0-alpha.1580.zip
+
+  
