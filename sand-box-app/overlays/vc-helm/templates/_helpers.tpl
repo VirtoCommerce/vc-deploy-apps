@@ -1,5 +1,5 @@
 {{- define "env.naming" -}}
-{{- $name := trimSuffix .Release.Namespace .Release.Name -}}
+{{- $name := trimSuffix .Release.Namespace .Release.Name | trimSuffix "-" -}}
 {{- printf $name }}
 {{- end -}}
 {{- define "platform.host" -}}
