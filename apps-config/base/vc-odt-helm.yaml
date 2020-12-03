@@ -15,7 +15,7 @@ spec:
       - name: platform.replicas
         value: "1"
       - name: storefront.memory_limit
-        value: "512Mi"
+        value: "256Mi"
       - name: storefront.image.repository
         value: "docker.pkg.github.com/virtocommerce/vc-odt-storefront/odt-storefront"
       - name: storefront.image.tag
