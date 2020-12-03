@@ -179,7 +179,7 @@ data:
     {
     "Id": "VirtoCommerce.ExperienceApi",
     "Repository": "VirtoCommerce/vc-module-experience-api",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-experience-api/releases/download/0.10.0/VirtoCommerce.ExperienceApi_0.10.0.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-experience-api/releases/download/0.11.0/VirtoCommerce.ExperienceApi_0.11.0.zip"
     },
     {
     "Id": "VirtoCommerce.DemoSolutionFeatures",
