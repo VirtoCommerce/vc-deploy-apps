@@ -9,13 +9,6 @@ spec:
     repoURL: 'https://github.com/virtocommerce/vc-deploy-apps'
     targetRevision: HEAD
     path: sand-box-app/overlays/webstore-helm-deploy
-    # helm:
-    #   parameters:
-    #   - name: platform.replicas
-    #     value: 2
-    #   - name: providers.kubernetesIngress.publishedService.enabled
-    #     value: 'true'
-    # chart: virtocommerce
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: dev
