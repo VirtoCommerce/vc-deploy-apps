@@ -14,6 +14,8 @@ spec:
         value: "odt"
       - name: platform.replicas
         value: "1"
+      - name: platform.db_source
+        value: odt-platform_source
       - name: storefront.memory_limit
         value: "256Mi"
       - name: storefront.image.repository
