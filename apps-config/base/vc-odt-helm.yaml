@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vc-odt-helm
+  namespace: argocd  
+spec:
+  project: default
+  source:
+    repoURL: 'https://omnidark.github.io/helm-charts'
+    targetRevision: 1.0.1
+    helm:
+      parameters:
+      - name: store
+        value: "odt"
+      - name: platform.replicas
+        value: "1"
+      - name: storefront.memory_limit
+        value: "512Mi"
+      - name: storefront.image.repository
+        value: "docker.pkg.github.com/virtocommerce/vc-odt-storefront/odt-storefront"
+      - name: storefront.image.tag
+        value: "5.2.0-alpha.729-dev-59687a81"
+      - name: deployment.ODT_THEME_URL
+        value: "https://vc3prerelease.blob.core.windows.net/packages/vc-odt-mpa-theme_dev-0.1.10-alpha.202-67d46295.zip"
+    chart: virtocommerce
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
