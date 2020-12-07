@@ -179,14 +179,16 @@ data:
     {
     "Id": "VirtoCommerce.ExperienceApi",
     "Repository": "VirtoCommerce/vc-module-experience-api",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-experience-api/releases/download/0.10.0/VirtoCommerce.ExperienceApi_0.10.0.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-experience-api/releases/download/0.11.0/VirtoCommerce.ExperienceApi_0.11.0.zip"
     },
     {
-    "Id": "VirtoCommerce.DemoSolutionFeatures",
-    "Repository": "VirtoCommerce/vc-module-demo-features",
-    "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoSolutionFeaturesModule_1.5.0-alpha.177.zip"
+      "Id": "VirtoCommerce.DemoSolutionFeatures",
+      "Repository": "VirtoCommerce/vc-module-demo-features",
+      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoSolutionFeaturesModule_1.5.0-alpha.180.zip"
+    },
+    {
+      "Id": "VirtoCommerce.DemoCustomerSegmentsModule",
+      "Repository": "VirtoCommerce/vc-module-demo-customer-segments",
+      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoCustomerSegmentsModule_1.0.0-alpha.4.zip"
     }
    ] 
-
-
-
