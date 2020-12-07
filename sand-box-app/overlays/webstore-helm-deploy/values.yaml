@@ -4,7 +4,7 @@ virtocommerce:
   platform:
     db_source: webstore-platform_source
     image:
-      tag: 3.29.0-master-9c794c51
+      tag: master-3.24.0-11620-6ed934a0
     replicas: 1
     memory_limit: 256Mi
 
