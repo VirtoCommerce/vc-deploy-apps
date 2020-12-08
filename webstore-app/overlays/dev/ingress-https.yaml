@@ -5,8 +5,6 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/session-cookie-name: ".AspNetCore.Identity.Application"
-    traefik.ingress.kubernetes.io/affinity: "true"
     traefik.ingress.kubernetes.io/router.middlewares: $(VC_NAMESPACE)-$(VC_INSTANCE)-https-redirect@kubernetescrd
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
