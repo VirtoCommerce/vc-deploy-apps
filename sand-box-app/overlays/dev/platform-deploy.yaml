@@ -17,6 +17,16 @@ spec:
           env:
             - name: VC_SAMPLE_DATA_DB
               value: webstore-platform_source
+      containers:
+        - name: vc-platform-web      
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            failureThreshold: 3
+            successThreshold: 1
+            initialDelaySeconds: 10
+            periodSeconds: 5
       nodeSelector:
         environment: production
   strategy:
