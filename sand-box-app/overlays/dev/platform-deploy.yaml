@@ -17,3 +17,5 @@ spec:
           env:
             - name: VC_SAMPLE_DATA_DB
               value: webstore-platform_source
+      nodeSelector:
+        environment: trial
