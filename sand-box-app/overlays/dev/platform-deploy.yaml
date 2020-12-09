@@ -9,6 +9,8 @@ spec:
       annotations:
         vault.hashicorp.com/agent-configmap: "sandbox-platform-secret-configmap"
         configmap.reloader.stakater.com/reload: "sandbox-platform-secret-configmap"
+        vault.hashicorp.com/agent-requests-cpu: "25m"
+        vault.hashicorp.com/agent-limits-cpu: "50m"
     spec:
       initContainers:
         - name: init-sqldatabase
