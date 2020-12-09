@@ -28,7 +28,7 @@ spec:
             initialDelaySeconds: 10
             periodSeconds: 5
       nodeSelector:
-        environment: production
+        environment: trial
   strategy:
     rollingUpdate:
       maxSurge: 1
