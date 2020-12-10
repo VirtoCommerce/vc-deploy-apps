@@ -17,6 +17,11 @@ spec:
           env:
             - name: VC_SAMPLE_DATA_DB
               value: webstore-platform_source
+          volumeMounts:
+            - mountPath: /mnt/Modules
+              name: modules-data
+            - mountPath: /mnt/cms-content
+              name: cms-content-data     
       containers:
         - name: vc-platform-web      
           readinessProbe:
@@ -27,6 +32,17 @@ spec:
             successThreshold: 1
             initialDelaySeconds: 10
             periodSeconds: 5
+          volumeMounts:
+            - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
+              name: cms-content-data
+            - mountPath: "/opt/virtocommerce/platform/modules"
+              name: modules-data
+      volumes:
+      - name: cms-content-data
+        persistentVolumeClaim:
+          claimName: cms-content-blob-volume
+      - name: modules-data
+        emptyDir: {}
       nodeSelector:
         environment: trial
   strategy:
