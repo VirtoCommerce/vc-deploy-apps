@@ -6,6 +6,11 @@ namePrefix: sandbox-
 commonLabels:
   instance: sandbox
 
+secretGenerator:
+- name: db-pass
+  options:
+    annotations:
+      secret-generator.v1.mittwald.de/autogenerate: password
 
 patchesStrategicMerge:
 - storefront-deploy.yaml
