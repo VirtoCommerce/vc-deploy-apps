@@ -19,7 +19,8 @@ spec:
             - "/bin/sh"
             - "-c"
           args:
-            - "/opt/mssql-tools/bin/sqlcmd -S vc-dev-dbserver.database.windows.net -U virto@vc-dev-dbserver -P $(VC_DBSERVER_MASTER_PASSWORD) -q
+            - "echo "start init"
+            && /opt/mssql-tools/bin/sqlcmd -S vc-dev-dbserver.database.windows.net -U virto@vc-dev-dbserver -P $(VC_DBSERVER_MASTER_PASSWORD) -q
             CREATE LOGIN $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-user WITH PASSWORD = '$(VC_CUSTOMER_DB_PASSWORD)';
             CREATE USER $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-user FROM LOGIN $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-user;
             CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_test] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) );
