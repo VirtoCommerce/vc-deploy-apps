@@ -42,7 +42,8 @@ spec:
             - mountPath: /mnt/Modules
               name: modules-data
             - mountPath: /mnt/cms-content
-              name: cms-content-data     
+              name: cms-content-data
+        - name: init-platform    
       containers:
         - name: vc-platform-web
           env:
