@@ -56,7 +56,7 @@ spec:
               - "/bin/bash"
               - "-c"
           args:
-              - "dotnet VirtoCommerce.Platform.Web.dll"     
+              - "echo $ConnectionStrings__VirtoCommerce && dotnet VirtoCommerce.Platform.Web.dll"     
           readinessProbe:
             httpGet:
               path: /
