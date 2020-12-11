@@ -5,6 +5,7 @@
 |Namespace |App name |Responsible | Team | Board | Status |
 |----------|--------|-----------|-----------|-----------|-----------|
 |Dev| marketplace-operator-app| Egidijus Mazeika| RND| [RND](https://virtocommerce.atlassian.net/secure/RapidBoard.jspa?projectKey=RND&rapidView=91) |[![App Status](https://cd.govirto.com/api/badge?name=marketplace-operator-app-dev&revision=true)](https://cd.govirto.com/applications/marketplace-operator-app-dev) |
+|Dev| marketplace-vendor-app| Egidijus Mazeika| RND| [RND](https://virtocommerce.atlassian.net/secure/RapidBoard.jspa?projectKey=RND&rapidView=91) |[![App Status](https://cd.govirto.com/api/badge?name=marketplace-vendor-app-dev&revision=true)](https://cd.govirto.com/applications/marketplace-vendor-app-dev) |
 |Dev| odt-app| Basil Kotov| ODT Team| [ODT Team](https://virtocommerce.atlassian.net/secure/RapidBoard.jspa?rapidView=65) |[![App Status](https://cd.govirto.com/api/badge?name=odt-app-dev&revision=true)](https://cd.govirto.com/applications/odt-app-dev) |
 |Dev| sand-box-app| Konstantin Kisilevskiy| ArgoCD migration| [ArgoCD migration board](https://virtocommerce.atlassian.net/secure/RapidBoard.jspa?rapidView=92&selectedIssue=VP-5848) | [![App Status](https://cd.govirto.com/api/badge?name=sand-box-app-dev&revision=true)](https://cd.govirto.com/applications/sand-box-app-dev)  |
 |Dev| support-webstore-app| Aleksandr Manyukhin| QA ||[![App Status](https://cd.govirto.com/api/badge?name=support-webstore-app-dev&revision=true)](https://cd.govirto.com/applications/support-webstore-app-dev) |

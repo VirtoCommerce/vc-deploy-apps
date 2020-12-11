@@ -4,6 +4,7 @@ resources:
 - xapi-app.yaml
 - odt-app.yaml
 - marketplace-operator-app.yaml
+- marketplace-vendor-app.yaml
 # - vc-helm-deploy.yaml
 # - vc-odt-helm.yaml
 # - vc-helm.yaml
