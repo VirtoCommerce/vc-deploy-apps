@@ -6,6 +6,11 @@ namePrefix: sandbox-
 commonLabels:
   instance: sandbox
 
+secretGenerator:
+- name: db-pass
+  options:
+    annotations:
+      secret-generator.v1.mittwald.de/autogenerate: password
 
 patchesStrategicMerge:
 - storefront-deploy.yaml
@@ -22,6 +27,7 @@ resources:
 - welcome-page.yaml
 - ./traefik/middleware-errors.yaml
 - ./traefik/middleware-rewrite.yaml
+- cms-blob-pvc.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform

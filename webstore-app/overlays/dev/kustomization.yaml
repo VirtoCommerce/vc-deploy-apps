@@ -14,6 +14,9 @@ patchesStrategicMerge:
 - storefront-cm.yaml
 - platform-cm.yaml
 - platform-secrets.yaml
+- ingress-https.yaml
+- ingress.yaml
+
 resources:
 - ../../../common-base
 
@@ -23,4 +26,4 @@ images:
   newTag: 3.29.0-master-9c794c51
 - name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
-  newTag: 1.5.0-alpha.952-dev-6a15bead
+  newTag: 1.6.0-alpha.957-dev-028866d2

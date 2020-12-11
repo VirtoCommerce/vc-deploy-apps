@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ template "env.naming" . }}-{{ .Values.storefront.service.name }}"
+  labels:
+    release: {{ template "env.naming" . }}
+spec:
+  replicas: {{ .Values.storefront.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.storefront.service.name }}
+      release: {{ template "env.naming" . }} 
+  template:
+    metadata:
+      annotations:
+        {{- if eq .Values.configmap_reloader true }}
+        configmap.reloader.stakater.com/reload: "{{ template "env.naming" . }}-storefront-cm,{{ template "env.naming" . }}-deployment-cm"
+        {{- end}}
+      labels:
+        app: {{ .Values.storefront.service.name }}
+        release: {{ template "env.naming" . }}
+    spec:
+      containers:
+      - name: vc-storefront-web
+        image: "{{ .Values.storefront.image.repository }}:{{  .Values.storefront.image.tag }}"
+        resources:
+            limits:
+              memory: {{ .Values.storefront.memory_limit | quote }} 
+        envFrom:
+        - configMapRef:
+            name: {{ template "env.naming" . }}-storefront-cm
+        ports:
+        - containerPort: {{ .Values.storefront.service.internalPort }}
+        volumeMounts:
+        - mountPath: /opt/virtocommerce/storefront/wwwroot/cms-content
+          name: cms-content-data
+      volumes:
+      - name: cms-content-data
+        persistentVolumeClaim:
+          claimName: {{ template "env.naming" . }}-cms-content-volume

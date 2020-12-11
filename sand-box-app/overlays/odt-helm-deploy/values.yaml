@@ -1,0 +1,20 @@
+virtocommerce:
+  store: odt
+
+  platform:
+    db_source: odt-platform_source
+    image:
+      tag: 3.32.0-master-53743472
+    replicas: 1
+    memory_limit: 512Mi
+
+  storefront:
+    image:
+      repository: docker.pkg.github.com/virtocommerce/vc-odt-storefront/odt-storefront
+      tag: 5.2.0-alpha.729-dev-59687a81
+    memory_limit: 512Mi
+  
+  deployment:
+    ODT_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-odt-mpa-theme_dev-0.1.10-alpha.202-67d46295.zip
+
+  

@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vc-helm
+  namespace: argocd  
+spec:
+  project: default
+  source:
+    repoURL: 'https://omnidark.github.io/helm-charts'
+    targetRevision: 1.0.1
+    helm:
+      parameters:
+      - name: platform.replicas
+        value: "1"
+      - name: platform.memory_limit
+        value: "256Mi"
+      - name: platform.image.tag
+        value: "3.29.0-master-9c794c51"
+    chart: virtocommerce
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

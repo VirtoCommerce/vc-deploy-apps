@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-deploy
+  namespace: argocd  
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/virtocommerce/vc-deploy-apps'
+    targetRevision: HEAD
+    path: sand-box-app/overlays/webstore-helm-deploy
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

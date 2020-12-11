@@ -1,0 +1,124 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ template "env.naming" . }}-{{ .Values.platform.service.name }}"
+  labels:
+    release: {{ template "env.naming" . }}
+spec:
+  replicas: {{ .Values.platform.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.platform.service.name }}
+      release: {{ template "env.naming" . }}
+  template:
+    metadata:
+      annotations:
+        {{- if eq .Values.configmap_reloader true }}
+        configmap.reloader.stakater.com/reload: "{{ template "env.naming" . }}-deployment-cm,{{ template "env.naming" . }}-platform-cm,{{ template "env.naming" . }}-platform-secret-configmap"
+        {{- end}}
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/agent-pre-populate-only: "true"
+        vault.hashicorp.com/agent-configmap: "{{ template "env.naming" . }}-platform-secret-configmap" 
+      labels:
+        app: {{ .Values.platform.service.name }}
+        release: {{ template "env.naming" . }}
+    spec:
+      # create database in azure within a sql pool
+      initContainers:
+      - name: init-platform
+        image: "{{ .Values.platform.init_image.repository }}:{{ .Values.platform.init_image.tag }}"
+        command:
+          - "/bin/sh"
+          - "-c"
+        {{- if eq .Values.store "webstore" }}  
+        args:
+          - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S)
+          && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
+          && if [ ! -d \"$ELECTRONICS_THEME_LOCATION\" ]; then mkdir -p \"$ELECTRONICS_THEME_LOCATION\"; fi
+          && python3 install-theme.py $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION)
+          && echo ELECTRONICS THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
+          && if [ ! -d \"$B2B_THEME_LOCATION\" ]; then mkdir -p \"$B2B_THEME_LOCATION\"; fi
+          && python3 install-theme.py $(B2B_THEME_URL) $(B2B_THEME_LOCATION)
+          && echo B2B THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
+          && python3 upload-assets.py $(ASSETS_URL) $(ASSETS_LOCATION)
+          && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
+        {{- end }} 
+        {{- if eq .Values.store "odt" }} 
+        args:
+            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
+            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
+            && if [ ! -d \"$ODT_THEME_LOCATION\" ]; then mkdir -p \"$ODT_THEME_LOCATION\"; fi
+            && python3 install-theme.py $(ODT_THEME_URL) $(ODT_THEME_LOCATION)
+            && echo ODT THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
+            && python3 upload-assets.py $(ASSETS_URL) $(ASSETS_LOCATION)
+            && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
+        {{- end }} 
+        envFrom:
+          - configMapRef:
+              name: {{ template "env.naming" . }}-deployment-cm
+        env:
+          - name: MODULES_CONFIG
+            valueFrom:
+              configMapKeyRef:
+                name: {{ template "env.naming" . }}-deployment-cm
+                key: modules.json 
+        volumeMounts:
+          - mountPath: /mnt/Modules
+            name: modules-data
+          - mountPath: /mnt/cms-content
+            name: cms-content-data 
+      - name: init-sqldatabase
+        image: mcr.microsoft.com/mssql-tools
+        command:
+          - "/opt/mssql-tools/bin/sqlcmd"
+          - "-S"
+          - "vc-dev-dbserver.database.windows.net"
+          - "-U"
+          - "virto@vc-dev-dbserver"
+          - "-P"
+          - "$(VC_DBSERVER_MASTER_PASSWORD)"
+          - "-q"
+          - "CREATE DATABASE [{{ template "env.naming" . }}_{{ .Release.Namespace }}] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )"
+        env:
+          - name: VC_SAMPLE_DATA_DB
+            value: {{ .Values.platform.db_source }}
+          - name: VC_DB_COPY_PARAM
+            value: "AS COPY OF [$(VC_SAMPLE_DATA_DB)]"  
+          - name: VC_DBSERVER_MASTER_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: vc-dbserver-password
+                key: password 
+      containers:
+      - name: vc-platform-web      
+        image: "{{ .Values.platform.image.repository }}:{{ .Values.platform.image.tag }}"
+        resources:
+            limits:
+              memory: {{ .Values.platform.memory_limit | quote }} 
+        envFrom:
+        - configMapRef:
+            name: {{ template "env.naming" . }}-platform-cm
+        command:
+            - "/bin/bash"
+            - "-c"
+        args:
+            - "export DB_NAME={{ template "env.naming" . }}_{{ .Release.Namespace }}
+            && source /vault/secrets/config_base && source /vault/secrets/config_custom && dotnet VirtoCommerce.Platform.Web.dll"
+        ports:
+        - containerPort: {{ .Values.platform.service.internalPort }}
+        volumeMounts:
+        - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
+          name: cms-content-data
+        - mountPath: "/opt/virtocommerce/platform/modules"
+          name: modules-data
+      volumes:
+      - name: cms-content-data
+        persistentVolumeClaim:
+          claimName: {{ template "env.naming" . }}-cms-content-volume
+      - name: modules-data
+        emptyDir: {}     
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+    type: RollingUpdate

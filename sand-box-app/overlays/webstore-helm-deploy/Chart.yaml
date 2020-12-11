@@ -1,0 +1,8 @@
+name: virtocommerce
+version: 1.0.0
+apiVersion: v2
+description: Virtocommerce cloud solution
+maintainers:  
+    - name: Konstantin Kisilevskiy
+      email: konstantin.kisilevsky@virtoway.com
+appVersion: 1.0

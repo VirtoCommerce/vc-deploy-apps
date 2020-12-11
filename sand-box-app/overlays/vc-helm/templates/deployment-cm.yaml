@@ -1,0 +1,16 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ template "env.naming" . }}-deployment-cm
+  labels:
+    release: {{ template "env.naming" . }}
+data:
+  ODT_THEME_URL: {{ .Values.deployment.ODT_THEME_URL }}
+  ODT_THEME_LOCATION: {{ .Values.deployment.ODT_THEME_LOCATION }}
+  ELECTRONICS_THEME_URL: {{ .Values.deployment.ELECTRONICS_THEME_URL }}
+  ELECTRONICS_THEME_LOCATION: {{ .Values.deployment.ELECTRONICS_THEME_LOCATION }}
+  B2B_THEME_URL: {{ .Values.deployment.B2B_THEME_URL }}
+  B2B_THEME_LOCATION: {{ .Values.deployment.B2B_THEME_LOCATION }}
+  ASSETS_URL: {{ .Values.deployment.ASSETS_URL }}
+  ASSETS_LOCATION: {{ .Values.deployment.ASSETS_LOCATION }}
+  modules.json: {{ .Values.deployment.modules_json | quote }}

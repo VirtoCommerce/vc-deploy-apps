@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ template "env.naming" . }}-traefik-ingress-http
+  labels:
+    release: {{ template "env.naming" . }}
+  annotations:
+    kubernetes.io/ingress.class: {{ .Values.ingress.class | default "traefik" }}
+    {{- if eq .Values.ingress.ssl true }}
+    traefik.ingress.kubernetes.io/router.middlewares: "{{ .Release.Namespace }}-{{ template "env.naming" . }}-https-redirect@kubernetescrd"
+    {{- end }}
+spec:
+  rules:
+  - host: {{ template "storefront.host" . }}
+    http:
+      paths:
+      - backend:
+          serviceName: "{{ template "env.naming" . }}-{{ .Values.storefront.service.name }}"
+          servicePort: {{ .Values.storefront.service.externalPort }}
+        path: /
+  - host: {{ template "platform.host" . }}
+    http:
+      paths:
+      - backend:
+          serviceName: "{{ template "env.naming" . }}-{{ .Values.platform.service.name }}"
+          servicePort: {{ .Values.platform.service.externalPort }}
+        path: /
