@@ -60,7 +60,7 @@ spec:
         - name: vc-platform-web
           env:
             - name: ConnectionStrings__VirtoCommerce
-              value: "Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_test;User ID=$(VC_INSTANCE)_$(VC_NAMESPACE)_user@vc-dev-dbserver;Password=$(VC_DBSERVER_MASTER_PASSWORD);Trusted_Connection=False;Encrypt=True;"
+              value: "Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_test;User ID=$(VC_INSTANCE)_$(VC_NAMESPACE)_user@vc-dev-dbserver;Password=$(VC_CUSTOMER_DB_PASSWORD);Trusted_Connection=False;Encrypt=True;"
             - name: VC_CUSTOMER_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
