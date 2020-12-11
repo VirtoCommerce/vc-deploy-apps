@@ -16,7 +16,7 @@ spec:
         - name: init-sqldatabase
           image: mcr.microsoft.com/mssql-tools
           command:
-            - "bin/bash"
+            - "/bin/sh"
             - "-c"
           args:
             - "/opt/mssql-tools/bin/sqlcmd -S vc-dev-dbserver.database.windows.net -U virto@vc-dev-dbserver -P $(VC_DBSERVER_MASTER_PASSWORD) -q
