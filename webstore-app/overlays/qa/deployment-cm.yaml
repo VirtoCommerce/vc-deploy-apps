@@ -186,11 +186,11 @@ data:
       {
         "Id": "VirtoCommerce.DemoSolutionFeatures",
         "Repository": "VirtoCommerce/vc-module-demo-features",
-        "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoSolutionFeaturesModule_1.6.0-alpha.184-vds-75.zip"
+        "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoSolutionFeaturesModule_1.6.0-alpha.187-vds-75.zip"
       },
       {
         "Id": "VirtoCommerce.DemoCustomerSegmentsModule",
         "Repository": "VirtoCommerce/vc-module-demo-customer-segments",
-        "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoCustomerSegmentsModule_1.1.0-alpha.11.zip"
+        "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoCustomerSegmentsModule_1.1.0-alpha.12-vds-396.zip"
       }
     ]
