@@ -14,6 +14,7 @@ data:
     Notifications__Smtp__Port: "587"
     APPINSIGHTS_INSTRUMENTATIONKEY: "4122074c-f2ad-489b-811f-d557350fb644"
     Swagger__UI__Enabled: "false"
+    PushNotifications__ForceWebSockets: "true"
     PushNotifications__ScalabilityMode: "RedisBackplane"
     PushNotifications__HubUrl: "https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/pushNotificationHub"
     AzureAd__Enabled: "true"
