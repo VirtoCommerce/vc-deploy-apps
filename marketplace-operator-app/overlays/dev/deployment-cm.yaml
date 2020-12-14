@@ -8,16 +8,6 @@ data:
   modules.json: |
    [
     {
-      "Id": "VirtoCommerce.MarketplaceOperator",
-      "Repository": "VirtoCommerce/vc-module-marketplace-operator",
-      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.MarketplaceOperator_3.0.0-alpha.18.zip"
-    },
-    {
-      "Id": "VirtoCommerce.MarketplaceOrder",
-      "Repository": "VirtoCommerce/vc-module-marketplace-order",
-      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.MarketplaceOrder_3.7.0-alpha.3.zip"
-    },
-    {
       "Id": "VirtoCommerce.Core",
       "Repository": "VirtoCommerce/vc-module-core",
       "PackageUrl": "https://github.com/VirtoCommerce/vc-module-core/releases/download/3.7.0/VirtoCommerce.Core_3.7.0.zip"

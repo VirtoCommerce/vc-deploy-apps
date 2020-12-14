@@ -4,3 +4,4 @@ metadata:
   name: platform-cm
 data:
   ExternalModules__IncludePrerelease: "false"
+  Marketplace__MarketplacePricelistId : "934da94516a74f9ab4ec001343ac928a"
