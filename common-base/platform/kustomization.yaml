@@ -4,6 +4,7 @@ resources:
 - platform-deploy.yaml
 - platform-service.yaml
 - deployment-cm.yaml
+- platform-secrets.yaml
 
 configurations:
 - varconfig.yaml

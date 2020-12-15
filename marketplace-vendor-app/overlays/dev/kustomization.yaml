@@ -10,6 +10,7 @@ patchesStrategicMerge:
 - platform-deploy.yaml
 - deployment-cm.yaml
 - platform-cm.yaml
+- platform-secrets.yaml
 
 resources:
 - ../../../common-base/platform

@@ -11,7 +11,12 @@ spec:
     metadata:
       annotations:
         reloader.stakater.com/search: "true"
-        configmap.reloader.stakater.com/reload: "platform-cm,deployment-cm"    
+        configmap.reloader.stakater.com/reload: "platform-cm,deployment-cm" 
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/role: "myapp"
+        vault.hashicorp.com/agent-pre-populate-only: "true"
+        vault.hashicorp.com/agent-requests-cpu: "25m"
+        vault.hashicorp.com/agent-limits-cpu: "50m"    
       labels:
         app: platform
     spec:
@@ -69,8 +74,11 @@ spec:
               secretKeyRef:
                 name: vc-dbserver-password
                 key: password
-          - name: ConnectionStrings__VirtoCommerce
-            value: "Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE);User ID=virto@vc-dev-dbserver;Password=$(VC_DBSERVER_PASSWORD);Trusted_Connection=False;Encrypt=True;"     
+        command:
+            - "/bin/bash"
+            - "-c"
+        args:
+            - "source /vault/secrets/config_base && source /vault/secrets/config_custom && dotnet VirtoCommerce.Platform.Web.dll"     
         envFrom:
         - configMapRef:
             name: platform-cm  

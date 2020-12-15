@@ -5,6 +5,9 @@ metadata:
 spec:
   replicas: 1
   template:
+    metadata:
+      annotations:
+        vault.hashicorp.com/agent-configmap: "marketplace-vendor-platform-secret-configmap"
     spec:
       initContainers:
         - name: init-platform
@@ -28,9 +31,6 @@ spec:
               name: modules-data
       containers:
         - name: vc-platform-web
-          env:
-            - name: ConnectionStrings__VirtoCommerce
-              value: "Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=marketplace-operator-platform_$(VC_NAMESPACE);User ID=virto@vc-dev-dbserver;Password=$(VC_DBSERVER_PASSWORD);Trusted_Connection=False;Encrypt=True;"
           resources:
             requests:
               memory: "512Mi"
