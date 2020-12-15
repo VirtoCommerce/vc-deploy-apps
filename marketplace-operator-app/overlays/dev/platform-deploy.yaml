@@ -5,6 +5,15 @@ metadata:
 spec:
   replicas: 1
   template:
+    metadata:
+      annotations:
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/role: "myapp"
+        vault.hashicorp.com/agent-inject-secret-spass: "secret/notifications"
+        vault.hashicorp.com/agent-inject-template-spass: |
+          {{- with secret "secret/notifications" -}}
+          export Notifications__Smtp__Password="{{ .Data.password }}"
+          {{- end }}
     spec:
       initContainers:
         - name: init-platform
@@ -12,8 +21,13 @@ spec:
             - "/bin/sh"
             - "-c"
           args:
-            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
-            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/modules/*"
+            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S)
+            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/modules/*
+            && if [ ! -d \"$ELECTRONICS_THEME_LOCATION\" ]; then mkdir -p \"$ELECTRONICS_THEME_LOCATION\"; fi
+            && python3 install-theme.py $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION)
+            && echo ELECTRONICS THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
+            && python3 upload-assets.py $(ASSETS_URL) $(ASSETS_LOCATION)
+            && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
           envFrom:
             - configMapRef:
                 name: deployment-cm

@@ -13,7 +13,7 @@ patchesStrategicMerge:
 
 
 resources:
-- ../../../common-base/platform
+- ../../../common-base
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
