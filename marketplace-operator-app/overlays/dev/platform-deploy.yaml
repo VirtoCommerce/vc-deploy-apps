@@ -9,7 +9,7 @@ spec:
       annotations:
         vault.hashicorp.com/agent-inject: "true"
         vault.hashicorp.com/role: "myapp"
-        vault.hashicorp.com/agent-configmap: "marketplace-platform-secret-configmap"
+        vault.hashicorp.com/agent-configmap: "marketplace-operator-platform-secret-configmap"
         vault.hashicorp.com/agent-requests-cpu: "25m"
         vault.hashicorp.com/agent-limits-cpu: "50m" 
     spec:
