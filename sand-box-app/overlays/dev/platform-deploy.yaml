@@ -91,7 +91,7 @@ spec:
       - name: modules-data
         emptyDir: {}
       nodeSelector:
-        environment: trial
+        environment: production
   strategy:
     rollingUpdate:
       maxSurge: 1
