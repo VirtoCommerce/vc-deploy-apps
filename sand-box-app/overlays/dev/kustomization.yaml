@@ -27,6 +27,7 @@ resources:
 - welcome-page.yaml
 - ./traefik/middleware-errors.yaml
 - ./traefik/middleware-rewrite.yaml
+- ./traefik/middleware-retry.yaml
 - cms-blob-pvc.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
