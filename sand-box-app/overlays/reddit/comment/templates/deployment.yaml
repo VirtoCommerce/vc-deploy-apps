@@ -1,0 +1,34 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "comment.fullname" . }}
+  labels:
+    app: reddit
+    component: comment
+    release: {{ .Release.Name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reddit
+      component: comment
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      name: comment
+      labels:
+        app: reddit
+        component: comment
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+      - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        name: comment
+        ports:
+        - containerPort: {{ .Values.service.internalPort }}
+          name: comment
+          protocol: TCP
+        env:
+        - name: COMMENT_DATABASE_HOST
+          value: {{ .Values.databaseHost | default (printf "%s-mongodb" .Release.Name) }}

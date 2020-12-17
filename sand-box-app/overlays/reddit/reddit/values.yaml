@@ -1,0 +1,23 @@
+comment:
+  image:
+    repository: kkisilevsky/comment
+    tag: latest
+  service:
+    externalPort: 9292
+
+post:
+  image:
+    repository: kkisilevsky/post
+    tag: latest
+  service:
+    externalPort: 5000
+
+ui:
+  image:
+    repository: kkisilevsky/ui
+    tag: latest
+  service:
+    externalPort: 9292
+
+mongodb:
+  usePassword: false

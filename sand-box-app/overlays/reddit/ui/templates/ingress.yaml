@@ -1,0 +1,16 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ template "ui.fullname" . }}
+  annotations:
+    kubernetes.io/ingress.class: {{ .Values.ingress.class }}
+spec:
+  rules:
+  - host: reddit.cloud-nation.club
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ template "ui.fullname" . }}
+          servicePort: {{ .Values.service.externalPort }}

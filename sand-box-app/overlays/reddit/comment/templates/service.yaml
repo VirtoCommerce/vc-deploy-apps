@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "comment.fullname" . }}
+  labels:
+    app: reddit
+    component: comment
+    release: {{ .Release.Name }}
+spec:
+  type: ClusterIP
+  ports:
+  - port: {{ .Values.service.externalPort }}
+    protocol: TCP
+    targetPort: {{ .Values.service.internalPort }}
+  selector:
+    app: reddit
+    component: comment
+    release: {{ .Release.Name }}

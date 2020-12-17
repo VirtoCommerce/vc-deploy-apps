@@ -1,0 +1,16 @@
+---
+service:
+  internalPort: 9292
+  externalPort: 9292
+
+image:
+  repository: kkisilevsky/ui
+  tag: latest
+
+ingress:
+  class: traefik
+
+postHost:
+postPort:
+commentHost:
+commentPort:
