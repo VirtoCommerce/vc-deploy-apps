@@ -1,7 +1,0 @@
-name: reddit
-version: 0.2.0
-apiVersion: v1
-description: sample reddit application
-maintainers:
-  - name: Konstantin Kisilevsky
-    email: my@gmail.com
