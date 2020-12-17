@@ -1,0 +1,60 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: deployment-cm
+  annotations:
+    reloader.stakater.com/match: "true"
+data:
+  modules.json: |
+   [
+    {
+      "Id": "VirtoCommerce.PageBuilderSaaS",
+      "Repository": "VirtoCommerce/vc-module-pagebuilder-saas",
+      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.PageBuilderSaaS_3.15.0.zip"
+    },
+    {
+      "Id": "VirtoCommerce.Core",
+      "Repository": "VirtoCommerce/vc-module-core",
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-core/releases/download/3.8.0/VirtoCommerce.Core_3.8.0.zip"
+    },
+    {
+      "Id": "VirtoCommerce.Catalog",
+      "Repository": "VirtoCommerce/vc-module-catalog",
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-catalog/releases/download/3.23.0/VirtoCommerce.Catalog_3.23.0.zip"
+    },
+    {
+      "Id": "VirtoCommerce.Customer",
+      "Repository": "VirtoCommerce/vc-module-customer",
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-customer/releases/download/3.17.0/VirtoCommerce.Customer_3.17.0.zip"
+    },
+    {
+      "Id": "VirtoCommerce.Export",
+      "Repository": "VirtoCommerce/vc-module-export",
+      "PackageUrl": "https://drive.google.com/uc?export=download&id=1d4Ygtbqu-wIudAtID-lE0CNk7ppyDcpB"
+    },
+    {
+      "Id": "VirtoCommerce.Notifications",
+      "Repository": "VirtoCommerce/vc-module-notification",
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-notification/releases/download/3.11.0/VirtoCommerce.Notifications_3.11.0.zip"
+    },
+    {
+      "Id": "VirtoCommerce.Search",
+      "Repository": "VirtoCommerce/vc-module-search",
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-search/releases/download/3.7.0/VirtoCommerce.Search_3.7.0.zip"
+    },
+    {
+      "Id": "VirtoCommerce.Store",
+      "Repository": "VirtoCommerce/vc-module-store",
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-store/releases/download/3.8.0/VirtoCommerce.Store_3.8.0.zip"
+    },
+    {
+      "Id": "VirtoCommerce.Content",
+      "Repository": "VirtoCommerce/vc-module-content",
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-content/releases/download/3.10.0/VirtoCommerce.Content_3.10.0.zip"
+    },
+    {
+      "Id": "VirtoCommerce.BulkActionsModule",
+      "Repository": "VirtoCommerce/vc-module-bulk-actions",
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-bulk-actions/releases/download/3.2.0/VirtoCommerce.BulkActionsModule_3.2.0.zip"
+    }
+   ] 
