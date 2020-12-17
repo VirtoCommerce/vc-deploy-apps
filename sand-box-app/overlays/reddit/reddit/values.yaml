@@ -18,6 +18,8 @@ ui:
     tag: latest
   service:
     externalPort: 9292
+  ingress:
+    class: traefik
 
 mongodb:
   usePassword: false
