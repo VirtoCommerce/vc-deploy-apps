@@ -9,6 +9,7 @@ image:
 
 ingress:
   class: traefik
+  host: reddit.cloud-nation.club
 
 postHost:
 postPort:

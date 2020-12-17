@@ -20,6 +20,7 @@ ui:
     externalPort: 9292
   ingress:
     class: traefik
+    host: reddit.cloud-nation.club
 
 mongodb:
   usePassword: false

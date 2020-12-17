@@ -1,7 +1,7 @@
 ---
 dependencies:
   - name: ui
-    version: "1.0.3"
+    version: "1.0.4"
     repository: "file://../ui"
 
   - name: post
