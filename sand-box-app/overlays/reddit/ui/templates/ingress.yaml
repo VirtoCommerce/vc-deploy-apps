@@ -5,6 +5,7 @@ metadata:
   name: {{ template "ui.fullname" . }}
   annotations:
     kubernetes.io/ingress.class: {{ .Values.ingress.class }}
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   rules:
   - host: {{ .Values.ingress.host }}
