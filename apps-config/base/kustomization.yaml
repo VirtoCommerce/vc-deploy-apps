@@ -5,7 +5,7 @@ resources:
 - odt-app.yaml
 - marketplace-operator-app.yaml
 - marketplace-vendor-app.yaml
-#- reddit-app.yaml
+- reddit-app.yaml
 - pagebuilder-saas-app.yaml
 # - vc-helm-deploy.yaml
 # - vc-odt-helm.yaml
