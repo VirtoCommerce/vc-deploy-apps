@@ -14,6 +14,7 @@ data:
     Notifications__Smtp__Host: "smtp.sendgrid.net"
     Notifications__Smtp__Login: "apikey"
     Notifications__Smtp__Port: "587"
+    PushNotifications__ForceWebSockets: "true"
     VC_STORE_URL_ELECTRONICS: https://demo.virtocommerce.com/
     VC_STORE_URL_B2B-STORE: https://demo.virtocommerce.com/B2B-store/
     VirtoCommerce__LicenseFilePath: app_data/VirtoCommerce.lic
