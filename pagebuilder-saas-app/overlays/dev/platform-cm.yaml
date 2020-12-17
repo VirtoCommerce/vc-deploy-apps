@@ -3,8 +3,4 @@ apiVersion: v1
 metadata:
   name: platform-cm
 data:
-  ExternalModules__AutoInstallModuleBundles: |
-    [
-      "no-modules"
-    ]
   Notifications__Gateway: "SendGrid"
