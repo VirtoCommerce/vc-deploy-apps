@@ -14,7 +14,7 @@ spec:
       secretName: platfrom-tls
     - hosts:   
       - "*.wild.govirto.com"
-      secretName: wildcard-domain
+      secretName: wildcard-domain-tls-secret
   rules:
   - host: "*.wild.govirto.com"
     http:
