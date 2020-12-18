@@ -5,7 +5,7 @@ metadata:
 spec:
   replicas: 1
   template:
-    metadata
+    metadata:
       annotations:	
         vault.hashicorp.com/agent-configmap: "vst-platform-secret-configmap" 
     spec:
