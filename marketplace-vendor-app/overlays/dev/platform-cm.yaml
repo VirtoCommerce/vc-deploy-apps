@@ -4,8 +4,6 @@ metadata:
   name: platform-cm
 data:
   ExternalModules__IncludePrerelease: "false"
-  Marketplace__VendorPortalUrl : "http://marketplace-vendor-platform.dev.govirto.com"
-  Marketplace__MarketplaceCatalogId : "4974648a41df4e6ea67ef2ad76d7bbd4"
   Marketplace__MarketplacePricelistId : "934da94516a74f9ab4ec001343ac928a"
   Notifications__Gateway: "SendGrid"
   Notifications__Smtp__EnableSsl: "False"
