@@ -1,3 +1,6 @@
+patchesStrategicMerge:
+- platform-deploy.yaml
+
 resources:
 - ../cms-pvc.yaml
 - ../ingress.yaml

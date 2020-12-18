@@ -9,7 +9,7 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
   tls:
-    - hosts:   
+    - hosts:
       - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com"
       secretName: $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-tls
   rules:
