@@ -13,10 +13,10 @@ spec:
       - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com"
       secretName: platfrom-tls
     - hosts:   
-      - "$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com"
-      secretName: sandbox-storefront-tls
+      - "*.wild.govirto.com"
+      secretName: wildcard-domain
   rules:
-  - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
+  - host: "*.wild.govirto.com"
     http:
       paths:
       - backend:
