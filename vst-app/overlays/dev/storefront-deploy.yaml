@@ -3,13 +3,4 @@ kind: Deployment
 metadata:
   name: storefront
 spec:
-  replicas: 1
-  template:
-    spec:
-      containers:
-        - name: vc-storefront-web
-          resources:
-            requests:
-              memory: "128Mi"
-            limits:
-              memory: "512Mi"
+  replicas: 1  
