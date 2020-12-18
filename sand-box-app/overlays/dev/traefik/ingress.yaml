@@ -7,7 +7,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.middlewares: dev-sandbox-errorpage@kubernetescrd, dev-sandbox-https-redirect@kubernetescrd, dev-sandbox-rewrite@kubernetescrd, dev-sandbox-retry@kubernetescrd
 spec:
   rules:
-  - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
+  - host: "*.wild.govirto.com"
     http:
       paths:
       - backend:
