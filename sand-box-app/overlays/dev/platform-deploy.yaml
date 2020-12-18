@@ -15,28 +15,13 @@ spec:
       initContainers:
         - name: init-sqldatabase
           image: mcr.microsoft.com/mssql-tools
-          # command:
-          #   - "/opt/mssql-tools/bin/sqlcmd"
-          #   - "-S"
-          #   - "vc-dev-dbserver.database.windows.net"
-          #   - "-U"
-          #   - "virto@vc-dev-dbserver"
-          #   - "-P"
-          #   - "$(VC_DBSERVER_MASTER_PASSWORD)"
-          #   - "-q"
-          # args:
-          #   - "CREATE LOGIN $(VC_INSTANCE)_$(VC_NAMESPACE)_user WITH PASSWORD = '$(VC_CUSTOMER_DB_PASSWORD)';"
-          #   - "CREATE USER $(VC_INSTANCE)_$(VC_NAMESPACE)_user FROM LOGIN $(VC_INSTANCE)_$(VC_NAMESPACE)_user;"
-          #   - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_test] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) );"
-          #   - "GRANT ALL ON $(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_test TO $(VC_INSTANCE)_$(VC_NAMESPACE)_user@vc-dev-dbserver;"
           command:
             - "/bin/sh"
             - "-c"
           args:
             - "/opt/mssql-tools/bin/sqlcmd -S vc-dev-dbserver.database.windows.net -U virto@vc-dev-dbserver -P $(VC_DBSERVER_MASTER_PASSWORD) -q \"CREATE LOGIN $(VC_INSTANCE)_$(VC_NAMESPACE)_user WITH PASSWORD = '$(VC_CUSTOMER_DB_PASSWORD)'\"
-            && /opt/mssql-tools/bin/sqlcmd -S vc-dev-dbserver.database.windows.net -U virto@vc-dev-dbserver -P $(VC_DBSERVER_MASTER_PASSWORD) -q \"CREATE USER $(VC_INSTANCE)_$(VC_NAMESPACE)_user FROM LOGIN $(VC_INSTANCE)_$(VC_NAMESPACE)_user\"
-            && /opt/mssql-tools/bin/sqlcmd -S vc-dev-dbserver.database.windows.net -U virto@vc-dev-dbserver -P $(VC_DBSERVER_MASTER_PASSWORD) -q \"CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_test] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )\"
-            && /opt/mssql-tools/bin/sqlcmd -S vc-dev-dbserver.database.windows.net -U virto@vc-dev-dbserver -P $(VC_DBSERVER_MASTER_PASSWORD) -d $(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_test -q \"GRANT ALL ON DATABASE::[$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_test] TO $(VC_INSTANCE)_$(VC_NAMESPACE)_user\""
+            && /opt/mssql-tools/bin/sqlcmd -S vc-dev-dbserver.database.windows.net -U virto@vc-dev-dbserver -P $(VC_DBSERVER_MASTER_PASSWORD) -q \"CREATE USER $(VC_INSTANCE)_$(VC_NAMESPACE)_user FROM LOGIN $(VC_INSTANCE)_$(VC_NAMESPACE)_user; ALTER ROLE db_datareader ADD MEMBER $(VC_INSTANCE)_$(VC_NAMESPACE)_user\"
+            && /opt/mssql-tools/bin/sqlcmd -S vc-dev-dbserver.database.windows.net -U virto@vc-dev-dbserver -P $(VC_DBSERVER_MASTER_PASSWORD) -q \"CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_test] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )\""
           env:
             - name: VC_SAMPLE_DATA_DB
               value: webstore-platform_source  
@@ -50,27 +35,42 @@ spec:
                 secretKeyRef:
                   name: db-pass
                   key: password
-          volumeMounts:
-            - mountPath: /mnt/Modules
-              name: modules-data
-            - mountPath: /mnt/cms-content
-              name: cms-content-data
-        - name: init-platform    
+        - name: init-platform 
+        - name: init-dbuser
+          image: mcr.microsoft.com/mssql-tools
+          command:
+            - "/bin/sh"
+            - "-c"
+          args:
+            - "/opt/mssql-tools/bin/sqlcmd -S vc-dev-dbserver.database.windows.net -U virto@vc-dev-dbserver -P $(VC_DBSERVER_MASTER_PASSWORD) -d $(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_test -q \"CREATE USER $(VC_INSTANCE)_$(VC_NAMESPACE)_user FROM LOGIN $(VC_INSTANCE)_$(VC_NAMESPACE)_user; ALTER ROLE db_owner ADD MEMBER $(VC_INSTANCE)_$(VC_NAMESPACE)_user;\""
+          env:
+            - name: VC_SAMPLE_DATA_DB
+              value: webstore-platform_source  
+            - name: VC_DBSERVER_MASTER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: vc-dbserver-password
+                  key: password
+            - name: VC_CUSTOMER_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-pass
+                  key: password   
       containers:
         - name: vc-platform-web
           env:
-            - name: ConnectionStrings__VirtoCommerce
-              value: "Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_test;User ID=$(VC_INSTANCE)_$(VC_NAMESPACE)_user@vc-dev-dbserver;Password=$(VC_DBSERVER_MASTER_PASSWORD);Trusted_Connection=False;Encrypt=True;"
             - name: VC_CUSTOMER_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: db-pass
                   key: password
+            - name: ConnectionStrings__VirtoCommerce
+              value: "Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_test;User ID=$(VC_INSTANCE)_$(VC_NAMESPACE)_user@vc-dev-dbserver;Password=$(VC_CUSTOMER_DB_PASSWORD);Trusted_Connection=False;Encrypt=True;"
           command:
               - "/bin/bash"
               - "-c"
           args:
-              - "dotnet VirtoCommerce.Platform.Web.dll"     
+              - "echo $ConnectionStrings__VirtoCommerce && dotnet VirtoCommerce.Platform.Web.dll"     
           readinessProbe:
             httpGet:
               path: /
