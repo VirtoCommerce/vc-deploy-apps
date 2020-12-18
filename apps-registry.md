@@ -13,6 +13,7 @@
 |Dev| webstore-app| Dmitry Pushnitsa| Solution team |[Solution team board](https://virtocommerce.atlassian.net/jira/software/projects/VDS/boards/95)| [![App Status](https://cd.govirto.com/api/badge?name=webstore-app-dev&revision=true)](https://cd.govirto.com/applications/webstore-app-dev) |
 |Dev| xapi-app| Andrey Kostyrin| RND | [RND](https://virtocommerce.atlassian.net/secure/RapidBoard.jspa?projectKey=RND&rapidView=91) | |[![App Status](https://cd.govirto.com/api/badge?name=xapi-app-dev&revision=true)](https://cd.govirto.com/applications/xapi-app-dev) |
 |Dev| loadtest-app| Maksim Kopnov | SAAS | [SAAS](https://virtocommerce.atlassian.net/jira/software/projects/SAAS/boards/99) | |[![App Status](https://cd.govirto.com/api/badge?name=loadtest-app-dev&revision=true)](https://cd.govirto.com/applications/loadtest-app-dev) |
+|Dev| vst-app| Filipp Kuksov | RND | [RND](https://virtocommerce.atlassian.net/secure/RapidBoard.jspa?projectKey=RND&rapidView=91) | |[![App Status](https://cd.govirto.com/api/badge?name=vst-app-dev&revision=true)](https://cd.govirto.com/applications/vst-app-dev) |
 |QA| regression-app| Aleksandr Manyukhin| QA regres | [Solution team board](https://virtocommerce.atlassian.net/jira/software/projects/VDS/boards/95)|[![App Status](https://cd.govirto.com/api/badge?name=regression-app-qa&revision=true)](https://cd.govirto.com/applications/regression-app-qa) |
 |QA| odt-app| Basil Kotov| ODT Team | |[![App Status](https://cd.govirto.com/api/badge?name=odt-app-qa&revision=true)](https://cd.govirto.com/applications/odt-app-qa) |
 |QA| support-webstore-app| Aleksandr Manyukhin| QA | | [![App Status](https://cd.govirto.com/api/badge?name=support-webstore-app-qa&revision=true)](https://cd.govirto.com/applications/support-webstore-app-qa) |
@@ -22,3 +23,4 @@
 |Demo| saas-app| Alexander Siniouguine| RND| [RND](https://virtocommerce.atlassian.net/secure/RapidBoard.jspa?projectKey=RND&rapidView=91) |[![App Status](https://cd.govirto.com/api/badge?name=saas-app-demo&revision=true)](https://cd.govirto.com/applications/saas-app-demo) |
 |Demo| webstore-app| Dmitry Pushnitsa| Solution team | [Solution team board](https://virtocommerce.atlassian.net/jira/software/projects/VDS/boards/95)| [![App Status](https://cd.govirto.com/api/badge?name=webstore-app-demo&revision=true)](https://cd.govirto.com/applications/webstore-app-demo) |
 |Demo| xapi-app| Eugeny Tatarincev| to delete | to delete |[![App Status](https://cd.govirto.com/api/badge?name=xapi-app-demo&revision=true)](https://cd.govirto.com/applications/xapi-app-demo) |
+
