@@ -18,7 +18,7 @@ resources:
 - ../../../common-base/demo-base
 - ./traefik/middleware-errors.yaml
 - ./traefik/middleware-rewrite.yaml
-#- kube-job.yaml
+- kube-job.yaml
 - error-page.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
