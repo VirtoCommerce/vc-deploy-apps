@@ -10,7 +10,7 @@ spec:
   tls:
     - hosts: 
       - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com"
-      secretName: platfrom-tls
+      secretName: $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-tls
     - hosts:   
       - "*.p.govirto.com"
       secretName: wildcard-domain-tls-secret-p
