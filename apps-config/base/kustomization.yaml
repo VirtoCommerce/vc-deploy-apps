@@ -1,11 +1,11 @@
 resources:
 - webstore-app.yaml
-- sand-box-app.yaml
+#- sand-box-app.yaml
 - xapi-app.yaml
 - odt-app.yaml
 - marketplace-operator-app.yaml
 - marketplace-vendor-app.yaml
-- reddit-app.yaml
+#- reddit-app.yaml
 - pagebuilder-saas-app.yaml
 - loadtest-app.yaml
 - vst-app.yaml
