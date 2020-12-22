@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: deployment-cm
 data:
-  VST_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/client-app-0.1.10_alpha.59.zip
+  VST_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/client-app-0.1.10_alpha.60.zip
   VST_THEME_LOCATION: /mnt/cms-content/Themes/Electronics
   ASSETS_URL: https://vcbacpac.blob.core.windows.net/dac-packages/webstore_assets_new.zip
   ASSETS_LOCATION: /mnt/cms-content
