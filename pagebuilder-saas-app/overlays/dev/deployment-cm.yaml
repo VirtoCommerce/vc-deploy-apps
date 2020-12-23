@@ -10,7 +10,7 @@ data:
     {
       "Id": "VirtoCommerce.PageBuilderSaaS",
       "Repository": "VirtoCommerce/vc-module-pagebuilder-saas",
-      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.PageBuilderSaaS_3.15.0-alpha.10.zip"
+      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.PageBuilderSaaS_3.15.0-alpha.21.zip"
     },
     {
       "Id": "VirtoCommerce.Core",
