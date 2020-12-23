@@ -10,7 +10,7 @@ data:
     {
       "Id": "VirtoCommerce.PageBuilderSaaS",
       "Repository": "VirtoCommerce/vc-module-pagebuilder-saas",
-      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.PageBuilderSaaS_3.15.0.zip"
+      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.PageBuilderSaaS_3.15.0-alpha.10.zip"
     },
     {
       "Id": "VirtoCommerce.Core",
@@ -26,6 +26,11 @@ data:
       "Id": "VirtoCommerce.Customer",
       "Repository": "VirtoCommerce/vc-module-customer",
       "PackageUrl": "https://github.com/VirtoCommerce/vc-module-customer/releases/download/3.17.0/VirtoCommerce.Customer_3.17.0.zip"
+    },
+    {
+      "Id": "VirtoCommerce.ElasticSearch",
+      "Repository": "VirtoCommerce/vc-module-elastic-search",
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-elastic-search/releases/download/3.4.0/VirtoCommerce.ElasticSearch_3.4.0.zip"
     },
     {
       "Id": "VirtoCommerce.Export",
