@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: platform
 spec:
+  serviceAccountName: app
   replicas: 1
   selector:
     matchLabels:
@@ -131,3 +132,8 @@ spec:
       maxSurge: 0
       maxUnavailable: 1
     type: RollingUpdate
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: app
