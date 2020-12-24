@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: platform
 spec:
-  serviceAccountName: app
   replicas: 1
   selector:
     matchLabels:
@@ -20,6 +19,7 @@ spec:
         app: platform
     spec:
       # create database in azure within a sql pool
+      serviceAccountName: app
       initContainers:
       - name: init-sqldatabase
         image: mcr.microsoft.com/mssql-tools
