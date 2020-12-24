@@ -19,7 +19,6 @@ spec:
         app: platform
     spec:
       # create database in azure within a sql pool
-      serviceAccountName: app
       initContainers:
       - name: init-sqldatabase
         image: mcr.microsoft.com/mssql-tools
@@ -132,8 +131,3 @@ spec:
       maxSurge: 0
       maxUnavailable: 1
     type: RollingUpdate
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: app
