@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: pagebuilder-saas-app
+  name: pagebuilder-app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io  
 spec:
   destination:
-    namespace: saas
+    namespace: prod
     server: https://kubernetes.default.svc
-  project: tenant
+  project: prod-tenant
   source:
-    path: pagebuilder-saas-app/overlays/dev
+    path: pagebuilder/overlays/prod
     repoURL: https://github.com/virtocommerce/vc-deploy-apps
     targetRevision: prod
   syncPolicy:

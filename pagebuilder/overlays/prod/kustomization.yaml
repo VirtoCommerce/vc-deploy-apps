@@ -2,9 +2,15 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 namespace: dev
-namePrefix: pagebuilder-saas-
+namePrefix: pagebuilder-
 commonLabels:
-  instance: pagebuilder-saas
+  instance: pagebuilder
+
+secretGenerator:
+- name: db-pass
+  options:
+    annotations:
+      secret-generator.v1.mittwald.de/autogenerate: password
 
 patchesStrategicMerge:
 - platform-deploy.yaml
