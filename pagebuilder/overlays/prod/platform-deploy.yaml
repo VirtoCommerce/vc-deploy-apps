@@ -9,7 +9,7 @@ spec:
       annotations:
         vault.hashicorp.com/agent-inject: "true"
         vault.hashicorp.com/role: "myapp"
-        vault.hashicorp.com/agent-configmap: "pagebuilder-saas-platform-secret-configmap"
+        vault.hashicorp.com/agent-configmap: "pagebuilder-platform-secret-configmap"
         vault.hashicorp.com/agent-requests-cpu: "25m"
     spec:
       initContainers:
