@@ -31,7 +31,9 @@ spec:
           && /opt/mssql-tools/bin/sqlcmd -S vc-prod-dbserver.database.windows.net -U virto@vc-prod-dbserver -P $(VC_DBSERVER_MASTER_PASSWORD) -q \"CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_test] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-prod-elasticpool] ) )\""
         env:
           - name: VC_SAMPLE_DATA_DB
-            value: webstore-platform_source  
+            value: webstore-platform_source
+          - name: VC_DB_COPY_PARAM
+            value: "AS COPY OF [$(VC_SAMPLE_DATA_DB)]"
           - name: VC_DBSERVER_MASTER_PASSWORD
             valueFrom:
               secretKeyRef:
