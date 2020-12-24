@@ -1,9 +1,0 @@
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  name: rewrite
-spec:
-  redirectRegex:
-    regex: ^https://sandbox-storefront.dev.govirto.com/admin
-    replacement: https://sandbox-platform.dev.govirto.com
-    permanent: true

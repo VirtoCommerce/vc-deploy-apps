@@ -7,13 +7,13 @@ metadata:
     - resources-finalizer.argocd.argoproj.io  
 spec:
   destination:
-    namespace: dev
+    namespace: saas
     server: https://kubernetes.default.svc
   project: tenant
   source:
     path: pagebuilder-saas-app/overlays/dev
     repoURL: https://github.com/virtocommerce/vc-deploy-apps
-    targetRevision: HEAD
+    targetRevision: prod
   syncPolicy:
     automated:
       prune: true

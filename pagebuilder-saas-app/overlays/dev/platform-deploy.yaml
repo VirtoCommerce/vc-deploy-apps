@@ -36,14 +36,3 @@ spec:
               memory: "512Mi"
             limits:
               memory: "768Mi"
-          volumeMounts:
-            - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
-              name: cms-content-data
-            - mountPath: "/opt/virtocommerce/platform/modules"
-              name: modules-data
-      volumes:
-      - name: cms-content-data
-        persistentVolumeClaim:
-          claimName: cms-content-blob-volume
-      - name: modules-data
-        emptyDir: {}
