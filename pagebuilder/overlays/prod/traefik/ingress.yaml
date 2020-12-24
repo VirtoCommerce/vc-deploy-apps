@@ -6,7 +6,7 @@ metadata:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  - host: "*.p.govirto.com"
+  - host: "*.eastus.composer.govirto.com"
     http:
       paths:
       - backend:
