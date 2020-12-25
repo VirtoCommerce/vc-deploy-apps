@@ -44,6 +44,8 @@ spec:
             successThreshold: 1
             initialDelaySeconds: 10
             periodSeconds: 5
+      nodeSelector:
+        agentpool: primary
   strategy:
     rollingUpdate:
       maxSurge: 1
