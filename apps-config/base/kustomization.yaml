@@ -1,2 +1,3 @@
 resources:
 - pagebuilder-saas-app.yaml
+- error-page.yaml
