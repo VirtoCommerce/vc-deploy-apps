@@ -90,7 +90,7 @@ data:
     {
       "Id": "VirtoCommerce.Search",
       "Repository": "VirtoCommerce/vc-module-search",
-      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Search_3.9.0-alpha.507-vp-6499-prevent-possible-null-reference-expection.zip"
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-search/releases/download/3.8.0/VirtoCommerce.Search_3.8.0.zip"
     },
     {
       "Id": "VirtoCommerce.Shipping",
