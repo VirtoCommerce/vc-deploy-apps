@@ -12,7 +12,7 @@ spec:
       - name: vc-storefront-web
         resources:
           requests:
-            memory: "512Mi"
+            memory: "256Mi"
           limits:
             memory: "1024Mi"
         readinessProbe:
