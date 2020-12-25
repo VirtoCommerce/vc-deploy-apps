@@ -3,6 +3,7 @@ apiVersion: v1
 metadata:
   name: platform-cm
 data:
+    APPINSIGHTS_INSTRUMENTATIONKEY: "49e9e2e4-87f2-416c-8d97-e48a4e89fc1b"
     AppInsights__EnableDependencyTrackingTelemetryModule: "false"
     Swagger__UI__Enabled: "false"
     PushNotifications__ForceWebSockets: "true"
