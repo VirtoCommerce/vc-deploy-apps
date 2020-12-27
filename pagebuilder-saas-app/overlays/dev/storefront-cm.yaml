@@ -9,4 +9,4 @@ data:
   VirtoCommerce__Endpoint__Password: store
   VirtoCommerce__Endpoint__UserName: admin
   VirtoCommerce__Endpoint__Url: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
-  VirtoCommerce__CurrentStoreIdRegex: https:\/\/(?<storeId>[^\.]+)\..*
+  VirtoCommerce__CurrentStoreIdRegex: http:\/\/(?<storeId>[^\.]+)\..*
