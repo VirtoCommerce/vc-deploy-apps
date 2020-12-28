@@ -11,7 +11,7 @@ spec:
   tls:
     - hosts: 
       - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).virtocomposer.com"
-      secretName: $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-tls
+      secretName: $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-tls-composer
     - hosts:   
       - "*.virtocomposer.com"
       secretName: wildcard-virtocomposer
