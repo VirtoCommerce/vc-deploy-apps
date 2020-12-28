@@ -4,3 +4,6 @@ metadata:
   name: platform-cm
 data:
   Notifications__Gateway: "SendGrid"
+  Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).virtocomposer.com/cms-content/assets/
+  Assets__FileSystem__RootPath: ~/cms-content/assets
+  Content__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).virtocomposer.com/cms-content/

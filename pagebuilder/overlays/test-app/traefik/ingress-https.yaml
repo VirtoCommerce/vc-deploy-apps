@@ -23,7 +23,7 @@ spec:
           serviceName: storefront
           servicePort: 80
         path: /
-  - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
+  - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).virtocomposer.com
     http:
       paths:
       - backend:
