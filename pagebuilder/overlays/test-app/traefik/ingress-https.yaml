@@ -6,17 +6,17 @@ metadata:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/router.middlewares: prod-errorpage@kubernetescrd, argocd-https-redirect@kubernetescrd
-    cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/cluster-issuer: letsencrypt-wild-composer
 spec:
   tls:
     - hosts: 
       - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com"
       secretName: $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-tls
     - hosts:   
-      - "storefront.virtocomposer.com"
-      secretName: storefront-composer-tls
+      - "*.virtocomposer.com"
+      secretName: wildcard-domain-tls-secret-composer
   rules:
-  - host: "storefront.virtocomposer.com"
+  - host: "*.virtocomposer.com"
     http:
       paths:
       - backend:
