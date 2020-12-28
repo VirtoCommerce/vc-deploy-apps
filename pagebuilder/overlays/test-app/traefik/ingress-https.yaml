@@ -10,7 +10,7 @@ metadata:
 spec:
   tls:
     - hosts: 
-      - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com"
+      - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).virtocomposer.com"
       secretName: $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-tls
     - hosts:   
       - "*.virtocomposer.com"
