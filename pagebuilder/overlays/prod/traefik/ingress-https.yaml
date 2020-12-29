@@ -10,8 +10,8 @@ metadata:
 spec:
   tls:
     - hosts: 
-      - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com"
-      secretName: $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-tls
+      - "platform.eastus.composer.govirto.com"
+      secretName: wildcard-domain-tls-secret-composer
     - hosts:   
       - "*.eastus.composer.govirto.com"
       secretName: wildcard-domain-tls-secret-composer
@@ -23,7 +23,7 @@ spec:
           serviceName: storefront
           servicePort: 80
         path: /
-  - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
+  - host: platform.eastus.composer.govirto.com
     http:
       paths:
       - backend:
