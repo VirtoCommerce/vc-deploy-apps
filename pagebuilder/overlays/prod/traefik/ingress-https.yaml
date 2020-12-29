@@ -17,7 +17,7 @@ spec:
       - eastus.composer.govirto.com
       secretName: wildcard-domain-tls-secret-composer
   rules:
-  - host: "*.eastus.composer.govirto.com"
+  - host: &http_rules
     http:
       paths:
       - backend:
@@ -25,12 +25,9 @@ spec:
           servicePort: 80
         path: /
   - host: eastus.composer.govirto.com
-    http:
-      paths:
-      - backend:
-          serviceName: storefront
-          servicePort: 80
-        path: /
+    http: *http_rules
+  - host: "*.eastus.composer.govirto.com"
+    http: **http_rules    
   - host: platform.composer.govirto.com
     http:
       paths:
