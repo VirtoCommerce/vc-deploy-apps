@@ -23,12 +23,12 @@ metadata:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/router.middlewares: prod-errorpage@kubernetescrd, argocd-https-redirect@kubernetescrd
-    cert-manager.io/cluster-issuer: letsencrypt-wild-composer
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   tls:
     - hosts:   
       - "virtocomposer.com"
-      secretName: wildcard-virtocomposer
+      secretName: virtocomposer-tls
   rules:
   - host: virtocomposer.com
     http:
