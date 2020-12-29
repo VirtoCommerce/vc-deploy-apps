@@ -10,3 +10,4 @@ data:
   VirtoCommerce__Endpoint__UserName: admin
   VirtoCommerce__Endpoint__Url: https://platform.composer.govirto.com
   VirtoCommerce__CurrentStoreIdRegex: "https:\\/\\/(?<storeId>[^\\.]+)\\..*"
+  VirtoCommerce__CacheEnabled: "true"
