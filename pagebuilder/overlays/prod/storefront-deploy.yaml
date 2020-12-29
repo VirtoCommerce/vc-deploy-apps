@@ -15,14 +15,14 @@ spec:
             memory: "256Mi"
           limits:
             memory: "1024Mi"
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 80
-          failureThreshold: 3
-          successThreshold: 1
-          initialDelaySeconds: 20
-          periodSeconds: 1
+        # readinessProbe:
+        #   httpGet:
+        #     path: /
+        #     port: 80
+        #   failureThreshold: 3
+        #   successThreshold: 1
+        #   initialDelaySeconds: 20
+        #   periodSeconds: 1
       nodeSelector:
         agentpool: primary
   strategy:
