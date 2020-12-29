@@ -7,7 +7,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.middlewares: prod-errorpage@kubernetescrd, argocd-https-redirect@kubernetescrd
 spec:
   rules:
-  - host: virtocomposer.com
+  - host: www.virtocomposer.com
     http:
       paths:
       - backend:
@@ -27,10 +27,10 @@ metadata:
 spec:
   tls:
     - hosts:   
-      - "virtocomposer.com"
+      - "www.virtocomposer.com"
       secretName: virtocomposer-tls
   rules:
-  - host: virtocomposer.com
+  - host: www.virtocomposer.com
     http:
       paths:
       - backend:
