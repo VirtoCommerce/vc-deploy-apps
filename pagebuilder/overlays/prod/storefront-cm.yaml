@@ -9,5 +9,5 @@ data:
   VirtoCommerce__Endpoint__Password: store
   VirtoCommerce__Endpoint__UserName: admin
   VirtoCommerce__Endpoint__Url: https://platform.composer.eastus.govirto.com
-  VirtoCommerce__CurrentStoreIdRegex: "http(s)?:\/\/(?<storeId>[^\.]+)\..*"
+  VirtoCommerce__CurrentStoreIdRegex: 'http(s)?:\/\/(?<storeId>[^\.]+)\..*'
   VirtoCommerce__CacheEnabled: "true"
