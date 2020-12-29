@@ -24,4 +24,4 @@ images:
   newTag: 3.35.0-master-d0f77ea9
 - name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-composer-storefront/composer-storefront
-  newTag: 5.8.0-alpha.6-main-c3b8091f
+  newTag: 5.8.0-alpha.7-main-31c4e30f

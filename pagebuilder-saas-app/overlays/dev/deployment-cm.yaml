@@ -5,7 +5,7 @@ metadata:
   annotations:
     reloader.stakater.com/match: "true"
 data:
-  COMPOSER_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-composer-theme-0.1.0-alpha.19.zip
+  COMPOSER_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-composer-theme-0.1.0-alpha.20.zip
   COMPOSER_THEME_LOCATION: /mnt/cms-content/Themes/_prototype
   ASSETS_URL: https://vcbacpac.blob.core.windows.net/dac-packages/odt_assets.zip
   ASSETS_LOCATION: /mnt/cms-content
@@ -14,7 +14,7 @@ data:
     {
       "Id": "VirtoCommerce.PageBuilderSaaS",
       "Repository": "VirtoCommerce/vc-module-pagebuilder-saas",
-      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.PageBuilderSaaS_3.20.0-alpha.32.zip"
+      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.PageBuilderSaaS_3.20.0-alpha.33.zip"
     },
     {
       "Id": "VirtoCommerce.Core",
