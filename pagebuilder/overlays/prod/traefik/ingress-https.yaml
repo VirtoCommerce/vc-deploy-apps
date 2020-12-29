@@ -21,13 +21,13 @@ spec:
           serviceName: storefront
           servicePort: 80
         path: /
-  - host: eastus.composer.govirto.com
-    http:
-      paths:
-      - backend:
-          serviceName: storefront
-          servicePort: 80
-        path: /
+  # - host: eastus.composer.govirto.com
+  #   http:
+  #     paths:
+  #     - backend:
+  #         serviceName: storefront
+  #         servicePort: 80
+  #       path: /
   - host: platform.eastus.composer.govirto.com
     http:
       paths:
