@@ -9,6 +9,9 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-wild
 spec:
   tls:
+    - hosts: 
+        - "platform.composer.govirto.com"
+        secretName: platform-composer-tls
     - hosts:   
       - "*.eastus.composer.govirto.com"
       - eastus.composer.govirto.com
