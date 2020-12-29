@@ -23,7 +23,7 @@ metadata:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/router.middlewares: prod-errorpage@kubernetescrd, argocd-https-redirect@kubernetescrd
-    cert-manager.io/cluster-issuer: letsencrypt-wild
+    cert-manager.io/cluster-issuer: letsencrypt-wild-composer
 spec:
   tls:
     - hosts:   
