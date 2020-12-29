@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
   project: prod-tenant
   source:
-    path: loadtest/overlays/prod
+    path: loadtest-app/overlays/prod
     repoURL: https://github.com/virtocommerce/vc-deploy-apps
     targetRevision: prod
   syncPolicy:
