@@ -5,7 +5,7 @@ metadata:
   annotations:
     reloader.stakater.com/match: "true"
 data:
-  COMPOSER_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-composer-theme-0.1.0-alpha.17.zip
+  COMPOSER_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-composer-theme-0.1.0-alpha.18.zip
   COMPOSER_THEME_LOCATION: /mnt/cms-content/Themes/_prototype
   ASSETS_URL: https://vcbacpac.blob.core.windows.net/dac-packages/odt_assets.zip
   ASSETS_LOCATION: /mnt/cms-content
