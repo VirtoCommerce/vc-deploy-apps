@@ -26,7 +26,7 @@ spec:
         path: /
   - host: eastus.composer.govirto.com
     http: *http_rules
-  - host: "*.eastus.composer.govirto.com"
+  - host: '*.eastus.composer.govirto.com'
     http: **http_rules    
   - host: platform.composer.govirto.com
     http:
