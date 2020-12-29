@@ -7,13 +7,6 @@ metadata:
     traefik.ingress.kubernetes.io/router.middlewares: prod-errorpage@kubernetescrd, argocd-https-redirect@kubernetescrd
 spec:
   rules:
-  - host: "*.eastus.composer.govirto.com"
-    http:
-      paths:
-      - backend:
-          serviceName: storefront
-          servicePort: 80
-        path: /
   - host: eastus.composer.govirto.com
     http:
       paths:

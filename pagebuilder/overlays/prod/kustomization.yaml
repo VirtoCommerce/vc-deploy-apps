@@ -23,6 +23,7 @@ patchesStrategicMerge:
 - ./traefik/ingress-https.yaml
 resources:
 - ../../../common-base
+- ./traefik/ingress-www.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
