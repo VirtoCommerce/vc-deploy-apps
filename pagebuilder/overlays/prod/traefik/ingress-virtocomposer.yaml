@@ -1,13 +1,13 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: www-ingress-http
+  name: virtocomposer-ingress-http
   annotations:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.middlewares: prod-errorpage@kubernetescrd, argocd-https-redirect@kubernetescrd
 spec:
   rules:
-  - host: "*.eastus.composer.govirto.com"
+  - host: virtocomposer.com
     http:
       paths:
       - backend:
@@ -18,7 +18,7 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: www-ingress-https
+  name: virtocomposer-ingress-https
   annotations:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.tls: "true"
@@ -27,10 +27,10 @@ metadata:
 spec:
   tls:
     - hosts:   
-      - "*.eastus.composer.govirto.com"
-      secretName: wildcard-domain-tls-secret-composer
+      - "virtocomposer.com"
+      secretName: wildcard-virtocomposer
   rules:
-  - host: "*.eastus.composer.govirto.com"
+  - host: virtocomposer.com
     http:
       paths:
       - backend:
