@@ -10,7 +10,7 @@ metadata:
 spec:
   tls:
     - hosts: 
-      - "platform.composer.govirto.com"
+      - "platform.composer.eastus.govirto.com"
       secretName: platform-composer-tls
     - hosts:   
       - eastus.composer.govirto.com
@@ -23,7 +23,7 @@ spec:
           serviceName: storefront
           servicePort: 80
         path: /
-  - host: platform.eastus.composer.govirto.com
+  - host: platform.composer.eastus.govirto.com
     http:
       paths:
       - backend:

@@ -4,5 +4,5 @@ metadata:
   name: platform-cm
 data:
   Notifications__Gateway: "SendGrid"
-  Assets__FileSystem__PublicUrl: https://platform.eastus.composer.govirto.com/cms-content/assets/
-  Content__FileSystem__PublicUrl: https://platform.eastus.composer.govirto.com/cms-content/
+  Assets__FileSystem__PublicUrl: https://platform.composer.eastus.govirto.com/cms-content/assets/
+  Content__FileSystem__PublicUrl: https://platform.composer.eastus.govirto.com/cms-content/
