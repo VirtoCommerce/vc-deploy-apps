@@ -10,8 +10,8 @@ metadata:
 spec:
   tls:
     - hosts: 
-        - "platform.composer.govirto.com"
-        secretName: platform-composer-tls
+      - "platform.composer.govirto.com"
+      secretName: platform-composer-tls
     - hosts:   
       - "*.eastus.composer.govirto.com"
       - eastus.composer.govirto.com
