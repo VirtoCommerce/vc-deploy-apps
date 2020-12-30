@@ -8,5 +8,6 @@ data:
   ASPNETCORE_ENVIRONMENT: Development
   VirtoCommerce__Endpoint__Password: store
   VirtoCommerce__Endpoint__UserName: admin
+  VirtoCommerce__CacheEnabled: "True"
   VirtoCommerce__Endpoint__Url: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
   VirtoCommerce__CurrentStoreIdRegex: http(s)?:\/\/(?<storeId>[^\.]+)\..*
