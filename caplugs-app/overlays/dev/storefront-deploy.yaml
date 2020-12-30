@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storefront
+spec:
+  template:
+    metadata:
+      annotations:
+        reloader.stakater.com/search: "true"
+    spec:
+        containers:
+        - name: vc-storefront-web
+          volumeMounts:
+            - mountPath: /opt/virtocommerce/storefront/wwwroot/cms-content
+              name: cms-content-data
