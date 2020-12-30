@@ -191,10 +191,4 @@ data:
       "Repository": "VirtoCommerce/vc-module-demo-customer-segments",
       "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoCustomerSegmentsModule_1.2.0-alpha.16.zip"
     }
-    ,
-    {
-      "Id": "VirtoCommerce.WebHooks",
-      "Repository": "VirtoCommerce/vc-module-webhooks",
-      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-webhooks/releases/download/3.1.0/VirtoCommerce.WebHooks_3.1.0.zip"
-    }
    ] 
