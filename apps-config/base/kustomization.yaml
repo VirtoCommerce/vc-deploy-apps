@@ -6,7 +6,7 @@ resources:
 - marketplace-operator-app.yaml
 - marketplace-vendor-app.yaml
 #- reddit-app.yaml
-- pagebuilder-saas-app.yaml
+# - pagebuilder-saas-app.yaml
 - loadtest-app.yaml
 - vst-app.yaml
 #- sand-box-app.yaml
