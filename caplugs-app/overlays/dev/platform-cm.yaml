@@ -3,19 +3,19 @@ apiVersion: v1
 metadata:
   name: platform-cm
 data:
-    APPINSIGHTS_INSTRUMENTATIONKEY: "49e9e2e4-87f2-416c-8d97-e48a4e89fc1b"
-    AppInsights__EnableDependencyTrackingTelemetryModule: "false"
+    APPINSIGHTS_INSTRUMENTATIONKEY: "1a9a3c2d-3299-4f26-8c5f-1e73b8d2d8e4"
     Swagger__UI__Enabled: "false"
     PushNotifications__ForceWebSockets: "true"
     PushNotifications__ScalabilityMode: "RedisBackplane"
     PushNotifications__HubUrl: "https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/pushNotificationHub"
     PushNotifications__RedisBackplane__ChannelName: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel"
     AzureAd__Enabled: "true"
-    Search__Scope: "$(VC_PLATFORM_SERVICE)$(VC_NAMESPACE)-new-index"
     Content__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/
     Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/
+    VC_STORE_URL_ELECTRONICS: https://$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com/
+    VC_STORE_URL_B2B-STORE: https://$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com/B2B-store/
     VirtoCommerce__LicenseFilePath: app_data/VirtoCommerce.lic
     VirtoCommerce__LicensePublicKeyPath: app_data/public.key
     VirtoCommerce__LicensePrivateKeyPath: app_data/private.key
     VirtoCommerce__LocalUploadFolderPath: app_data/uploads
-    VirtoCommerce__Hangfire__JobStorageType: SqlServer
+    DemoFeatures__ConfigurableProduct: "true"

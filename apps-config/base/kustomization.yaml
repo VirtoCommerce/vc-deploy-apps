@@ -13,3 +13,4 @@ resources:
 # - vc-helm-deploy.yaml
 # - vc-odt-helm.yaml
 # - vc-helm.yaml
+- caplugs-app.yaml

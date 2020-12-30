@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platform
+spec:
+  replicas: 1
+  template:
+    metadata:
+        annotations:
+          vault.hashicorp.com/agent-configmap: "caplugs-platform-secret-configmap"
+          vault.hashicorp.com/agent-requests-cpu: "25m"
+          vault.hashicorp.com/agent-limits-cpu: "50m"   
+    spec:
+      initContainers:
+        - name: init-sqldatabase
+          env:
+            - name: VC_SAMPLE_DATA_DB
+              value: webstore-platform_source
+      containers:
+        - name: vc-platform-web
+          resources:
+            requests:
+              memory: "256Mi"
+            limits:
+              memory: "512Mi" 
+          
