@@ -13,8 +13,9 @@ data:
     Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/
     VC_STORE_URL_ELECTRONICS: https://$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com/
     VC_STORE_URL_B2B-STORE: https://$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com/B2B-store/
-    VirtoCommerce__LicenseFilePath: app_data/VirtoCommerce.lic
-    VirtoCommerce__LicensePublicKeyPath: app_data/public.key
-    VirtoCommerce__LicensePrivateKeyPath: app_data/private.key
-    VirtoCommerce__LocalUploadFolderPath: app_data/uploads
+    VirtoCommerce__LicenseFilePath: shared/VirtoCommerce.lic
+    VirtoCommerce__LicensePublicKeyPath: shared/public.key
+    VirtoCommerce__LicensePrivateKeyPath: shared/private.key
+    VirtoCommerce__LocalUploadFolderPath: shared/uploads
     DemoFeatures__ConfigurableProduct: "true"
+    DefaultExportFolder: shared/export

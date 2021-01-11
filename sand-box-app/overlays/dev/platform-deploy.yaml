@@ -84,12 +84,12 @@ spec:
               name: cms-content-data
             - mountPath: "/opt/virtocommerce/platform/modules"
               name: modules-data
-            - mountPath: "/opt/virtocommerce/platform/app_data"
-              name: appdata
+            - mountPath: "/opt/virtocommerce/platform/shared"
+              name: shared
       volumes:
-      - name: appdata
+      - name: shared
         persistentVolumeClaim:
-          claimName: appdata-volume
+          claimName: shared-volume
       - name: cms-content-data
         persistentVolumeClaim:
           claimName: appdata-volume
