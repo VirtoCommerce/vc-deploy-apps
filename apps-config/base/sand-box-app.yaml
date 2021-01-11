@@ -4,7 +4,9 @@ metadata:
   name: sand-box-app
   namespace: argocd
   finalizers:
-    - resources-finalizer.argocd.argoproj.io  
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/manifest-generate-paths: .  
 spec:
   destination:
     namespace: dev
