@@ -9,7 +9,7 @@ spec:
         annotations:
           vault.hashicorp.com/agent-configmap: "loadtest-platform-secret-configmap"
           vault.hashicorp.com/agent-requests-cpu: "25m"
-          vault.hashicorp.com/agent-limits-cpu: "50m"   
+          vault.hashicorp.com/agent-limits-cpu: "55m"   
     spec:
       initContainers:
 
