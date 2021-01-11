@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storefront
+spec:
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        argocd.argoproj.io/sync-wave: "2"
+    spec:
+      containers:
+      - name: vc-storefront-web
+        env:
+          - name: UPDATABILITY
+            valueFrom:
+              configMapKeyRef:
+                name: deployment-cm
+                key: STOREFRONT_UPDATABILITY
+        # readinessProbe:
+        #   httpGet:
+        #     path: /
+        #     port: 80
+        #   failureThreshold: 3
+        #   successThreshold: 1
+        #   initialDelaySeconds: 20
+        #   periodSeconds: 1
+        volumeMounts:
+          - mountPath: /opt/virtocommerce/storefront/wwwroot/cms-content
+            name: cms-content-data
+      volumes:
+      - name: cms-content-data
+        persistentVolumeClaim:
+          claimName: cms-content-blob-volume
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+    type: RollingUpdate        
