@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: platform
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       annotations:
@@ -66,11 +66,11 @@ spec:
                   key: password
             - name: ConnectionStrings__VirtoCommerce
               value: "Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)_test;User ID=$(VC_INSTANCE)_$(VC_NAMESPACE)_user@vc-dev-dbserver;Password=$(VC_CUSTOMER_DB_PASSWORD);Trusted_Connection=False;Encrypt=True;"
-          command:
-              - "/bin/bash"
-              - "-c"
-          args:
-              - "echo $ConnectionStrings__VirtoCommerce && dotnet VirtoCommerce.Platform.Web.dll"     
+          # command:
+          #     - "/bin/bash"
+          #     - "-c"
+          # args:
+          #     - "echo $ConnectionStrings__VirtoCommerce && dotnet VirtoCommerce.Platform.Web.dll"     
           readinessProbe:
             httpGet:
               path: /
