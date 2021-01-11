@@ -92,7 +92,7 @@ spec:
           claimName: shared-volume
       - name: cms-content-data
         persistentVolumeClaim:
-          claimName: appdata-volume
+          claimName: cms-content-volume
       - name: modules-data
         emptyDir: {}
       nodeSelector:
