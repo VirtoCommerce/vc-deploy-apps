@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: deployment-cm
 data:
-  VST_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/client-app-0.1.10_alpha.73.zip
+  VST_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/client-app-0.1.10_alpha.84.zip
   VST_THEME_LOCATION: /mnt/cms-content/Themes/Electronics
   ASSETS_URL: https://vcbacpac.blob.core.windows.net/dac-packages/webstore_assets_new.zip
   ASSETS_LOCATION: /mnt/cms-content
@@ -177,6 +177,6 @@ data:
       {
         "Id": "VirtoCommerce.ExperienceApi",
         "Repository": "VirtoCommerce/vc-module-experience-api",
-        "PackageUrl": "https://github.com/VirtoCommerce/vc-module-experience-api/releases/download/0.15.0/VirtoCommerce.ExperienceApi_0.15.0.zip"
+        "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.ExperienceApi_0.19.0-alpha.467.zip"
       }
     ]
