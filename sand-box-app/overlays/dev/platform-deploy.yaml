@@ -84,10 +84,15 @@ spec:
               name: cms-content-data
             - mountPath: "/opt/virtocommerce/platform/modules"
               name: modules-data
+            - mountPath: "/opt/virtocommerce/platform/app_data"
+              name: appdata
       volumes:
+      - name: appdata
+        persistentVolumeClaim:
+          claimName: appdata-volume
       - name: cms-content-data
         persistentVolumeClaim:
-          claimName: cms-content-blob-volume
+          claimName: appdata-volume
       - name: modules-data
         emptyDir: {}
       nodeSelector:
