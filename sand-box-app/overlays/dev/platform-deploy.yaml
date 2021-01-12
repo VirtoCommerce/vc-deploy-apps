@@ -16,11 +16,19 @@ spec:
           env:
             - name: VC_SAMPLE_DATA_DB
               value: webstore-platform_source
-      # containers:
-      #   - name: vc-platform-web
-      #     resources:
-      #       requests:
-      #         memory: "256Mi"
-      #       limits:
-      #         memory: "512Mi" 
+      containers:
+        - name: vc-platform-web
+          # resources:
+          #   requests:
+          #     memory: "256Mi"
+          #   limits:
+          #     memory: "512Mi"
+          volumeMounts:
+            - mountPath: "/opt/virtocommerce/platform/shared"
+              name: shared
+      volumes:
+      - name: shared
+        persistentVolumeClaim:
+          claimName: shared-volume
+
           
