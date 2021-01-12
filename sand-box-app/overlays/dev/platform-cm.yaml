@@ -18,4 +18,4 @@ data:
     VirtoCommerce__LicensePrivateKeyPath: app_data/private.key
     VirtoCommerce__LocalUploadFolderPath: shared/uploads
     DemoFeatures__ConfigurableProduct: "true"
-    DefaultExportFolder: shared/export
+    VirtoCommerce__DefaultExportFolder: shared/export
