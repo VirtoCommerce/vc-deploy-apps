@@ -30,5 +30,10 @@ spec:
       - name: shared
         persistentVolumeClaim:
           claimName: shared-volume
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
 
           
