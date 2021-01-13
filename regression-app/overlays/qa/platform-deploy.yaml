@@ -111,7 +111,10 @@ spec:
             - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
               name: cms-content-data
             - mountPath: "/opt/virtocommerce/platform/modules"
-              name: modules-data    
+              name: modules-data
+          volumeMounts:
+            - mountPath: "/opt/virtocommerce/platform/shared"
+              name: shared   
           command:
             - "/bin/bash"
             - "-c"
@@ -127,4 +130,13 @@ spec:
               cat /vault/secrets/b2bqaauthorizenettxnkey >> /vault/secrets/config;
               cat /vault/secrets/b2bqataxaccountnumber >> /vault/secrets/config;
               cat /vault/secrets/b2bqataxlicensekey >> /vault/secrets/config;
-              source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll" 
+              source /vault/secrets/config && dotnet VirtoCommerce.Platform.Web.dll"
+      volumes:
+      - name: shared
+        persistentVolumeClaim:
+          claimName: shared-volume
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate 
