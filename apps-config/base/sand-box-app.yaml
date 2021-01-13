@@ -6,10 +6,10 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd.argoproj.io/manifest-generate-paths: .  
+    argocd.argoproj.io/manifest-generate-paths: . ; ../../../common-base   
 spec:
   destination:
-    namespace: dev
+    namespace: develop
     server: https://kubernetes.default.svc
   project: tenant
   source:
