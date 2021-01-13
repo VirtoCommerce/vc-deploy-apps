@@ -9,7 +9,7 @@ metadata:
     argocd.argoproj.io/manifest-generate-paths: .  
 spec:
   destination:
-    namespace: dev
+    namespace: develop
     server: https://kubernetes.default.svc
   project: tenant
   source:
