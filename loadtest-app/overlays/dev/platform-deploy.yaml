@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: platform
 spec:
-  revisionHistoryLimit: 1
+  revisionHistoryLimit: 2
   replicas: 1
   template:
     metadata:
