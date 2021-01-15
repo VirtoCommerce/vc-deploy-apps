@@ -20,3 +20,5 @@ data:
     VirtoCommerce__LocalUploadFolderPath: app_data/uploads
     VirtoCommerce__Hangfire__JobStorageType: SqlServer
     Logging__LogLevel__VirtoCommerce.SearchModule.Data.Services: Information
+    Logging__LogLevel__VirtoCommerce.CatalogModule.Data.Repositories: Information
+    Logging__LogLevel__VirtoCommerce.CatalogModule.Data.Search.Indexing: Information
