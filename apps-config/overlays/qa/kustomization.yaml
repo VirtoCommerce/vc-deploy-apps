@@ -4,5 +4,4 @@ nameSuffix: -qa
 resources:
 - ../../base
 patchesStrategicMerge:
-- webstore-app.yaml
 - regression-app.yaml
