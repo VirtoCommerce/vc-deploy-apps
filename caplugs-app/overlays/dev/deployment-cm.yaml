@@ -9,7 +9,14 @@ data:
   B2B_THEME_LOCATION: /mnt/cms-content/Themes/B2B-store
   ASSETS_URL: https://vcbacpac.blob.core.windows.net/dac-packages/webstore_assets_2.zip
   ASSETS_LOCATION: /mnt/cms-content
-  modules.json:
+  modules.json: |
+    [    
+      {
+        "Id": "VirtoCommerce.Core",
+        "Repository": "VirtoCommerce/vc-module-core",
+        "PackageUrl": "https://github.com/VirtoCommerce/vc-module-core/releases/download/3.7.0/VirtoCommerce.Core_3.7.0.zip"
+      }
+    ]
   # modules.json: |
   #  [    
   #   {
