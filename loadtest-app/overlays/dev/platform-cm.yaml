@@ -23,3 +23,4 @@ data:
     Logging__LogLevel__VirtoCommerce.CatalogModule.Data.Repositories: Information
     Logging__LogLevel__VirtoCommerce.CatalogModule.Data.Search.Indexing: Information
     Logging__LogLevel__VirtoCommerce.CatalogModule.Data.Services.ItemService: Information
+    Caching__CacheEnabled: "false"
