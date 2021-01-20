@@ -5,7 +5,7 @@ metadata:
 data:
   ELECTRONICS_THEME_URL: https://github.com/VirtoCommerce/vc-demo-theme-default/releases/download/1.4.0/vc-demo-theme-default-1.4.0.zip
   ELECTRONICS_THEME_LOCATION: /mnt/cms-content/Themes/Electronics
-  B2B_THEME_URL: https://github.com/VirtoCommerce/vc-demo-theme-b2b/releases/download/1.7.0/vc-demo-theme-b2b-1.7.0.zip
+  B2B_THEME_URL: https://vc3prerelease.blob.core.windows.net/packages/vc-demo-theme-b2b-1.7.0-alpha.1601-dev.zip
   B2B_THEME_LOCATION: /mnt/cms-content/Themes/B2B-store
   ASSETS_URL: https://vcbacpac.blob.core.windows.net/dac-packages/webstore_assets_2.zip
   ASSETS_LOCATION: /mnt/cms-content
@@ -184,7 +184,7 @@ data:
       {
         "Id": "VirtoCommerce.DemoSolutionFeatures",
         "Repository": "VirtoCommerce/vc-module-demo-features",
-        "PackageUrl": "https://github.com/VirtoCommerce/vc-module-demo-features/releases/download/1.6.0/VirtoCommerce.DemoSolutionFeaturesModule_1.6.0.zip"
+        "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.DemoSolutionFeaturesModule_1.7.0-alpha.195-dev.zip"
       },
       {
         "Id": "VirtoCommerce.DemoCustomerSegmentsModule",
