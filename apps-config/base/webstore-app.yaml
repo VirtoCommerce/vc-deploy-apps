@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: tenant
   source:
-    path: webstore-app/overlays/dev
+    path: webstore-app/overlays/demo
     repoURL: https://github.com/virtocommerce/vc-deploy-apps
     targetRevision: HEAD
   syncPolicy:
