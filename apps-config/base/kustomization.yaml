@@ -3,8 +3,8 @@ resources:
 #- sand-box-app.yaml
 #- xapi-app.yaml
 - odt-app.yaml
-- marketplace-operator-app.yaml
-- marketplace-vendor-app.yaml
+#- marketplace-operator-app.yaml
+#- marketplace-vendor-app.yaml
 #- reddit-app.yaml
 # - pagebuilder-saas-app.yaml
 - loadtest-app.yaml
