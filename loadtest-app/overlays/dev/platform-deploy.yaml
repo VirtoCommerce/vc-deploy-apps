@@ -31,8 +31,6 @@ spec:
       containers:
         - name: vc-platform-web
           resources:
-            requests:
-              memory: "2048Mi"
             limits:
               memory: "2048Mi" 
           
