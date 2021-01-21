@@ -7,7 +7,7 @@ data:
     AppInsights__EnableDependencyTrackingTelemetryModule: "false"
     Swagger__UI__Enabled: "false"
     PushNotifications__ForceWebSockets: "true"
-    PushNotifications__ScalabilityMode: "RedisBackplane"
+    PushNotifications__ScalabilityMode: "None"
     PushNotifications__HubUrl: "https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/pushNotificationHub"
     PushNotifications__RedisBackplane__ChannelName: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel"
     Search__ElasticSearch__Server: http://search-dev-es-http.elastic-system-dev:9200
