@@ -41,11 +41,6 @@ spec:
               name: modules-data
       containers:
         - name: vc-platform-web
-          resources:
-            requests:
-              memory: "512Mi"
-            limits:
-              memory: "768Mi"
           volumeMounts:
             - mountPath: "/opt/virtocommerce/platform/modules"
               name: modules-data    
