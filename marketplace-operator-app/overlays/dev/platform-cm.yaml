@@ -3,7 +3,10 @@ apiVersion: v1
 metadata:
   name: platform-cm
 data:
-  ExternalModules__AutoInstallModuleBundles: ""
+  ExternalModules__AutoInstallModuleBundles: |
+    [
+      ""
+    ]
   ExternalModules__IncludePrerelease: "false"
   Marketplace__VendorPortalUrl : "http://marketplace-vendor-platform.develop.govirto.com"
   Marketplace__MarketplaceCatalogId : "4974648a41df4e6ea67ef2ad76d7bbd4"
