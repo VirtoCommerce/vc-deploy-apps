@@ -39,5 +39,5 @@ spec:
       volumes:
       - name: cms-content-data
         persistentVolumeClaim:
-          claimName: cms-content-volume
+          claimName: marketplace-operator-cms-content-volume
       
