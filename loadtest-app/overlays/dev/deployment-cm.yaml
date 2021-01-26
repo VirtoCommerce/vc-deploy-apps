@@ -85,7 +85,7 @@ data:
     {
       "Id": "VirtoCommerce.Pricing",
       "Repository": "VirtoCommerce/vc-module-pricing",
-      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-pricing/releases/download/3.13.0/VirtoCommerce.Pricing_3.13.0.zip"
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-pricing/releases/download/3.15.0/VirtoCommerce.Pricing_3.15.0.zip"
     },
     {
       "Id": "VirtoCommerce.Search",
