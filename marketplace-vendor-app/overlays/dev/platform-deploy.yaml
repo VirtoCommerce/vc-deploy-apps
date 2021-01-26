@@ -33,4 +33,11 @@ spec:
         - name: vc-platform-web
           volumeMounts:
             - mountPath: "/opt/virtocommerce/platform/modules"
-              name: modules-data    
+              name: modules-data
+            - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
+              name: cms-content-data
+      volumes:
+      - name: cms-content-data
+        persistentVolumeClaim:
+          claimName: marketplace-operator-cms-content-volume
+      

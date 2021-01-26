@@ -4,9 +4,7 @@ metadata:
   name: marketplace-operator-app
   namespace: argocd
   finalizers:
-    - resources-finalizer.argocd.argoproj.io
-  annotations:
-    argocd.argoproj.io/manifest-generate-paths: . ; ../../../common-base    
+    - resources-finalizer.argocd.argoproj.io  
 spec:
   destination:
     namespace: develop
