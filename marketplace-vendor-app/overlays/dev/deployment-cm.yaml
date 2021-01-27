@@ -10,12 +10,12 @@ data:
     {
       "Id": "VirtoCommerce.MarketplaceOperator",
       "Repository": "VirtoCommerce/vc-module-marketplace-operator",
-      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.MarketplaceOperator_3.0.0-alpha.18.zip"
+      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.MarketplaceOperator_3.0.0-alpha.23.zip"
     },
     {
       "Id": "VirtoCommerce.MarketplaceVendor",
       "Repository": "VirtoCommerce/vc-module-marketplace-vendor",
-      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.MarketplaceVendor_3.0.0-alpha.6.zip"
+      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.MarketplaceVendor_3.0.0-alpha.9.zip"
     },
     {
       "Id": "VirtoCommerce.BulkActionsModule",

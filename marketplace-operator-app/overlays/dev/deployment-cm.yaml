@@ -10,7 +10,7 @@ data:
     {
       "Id": "VirtoCommerce.MarketplaceOperator",
       "Repository": "VirtoCommerce/vc-module-marketplace-operator",
-      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.MarketplaceOperator_3.0.0-alpha.20.zip"
+      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.MarketplaceOperator_3.0.0-alpha.23.zip"
     },
     {
       "Id": "VirtoCommerce.MarketplaceOrder",

@@ -3,8 +3,11 @@ apiVersion: v1
 metadata:
   name: platform-cm
 data:
+  ExternalModules__AutoInstallModuleBundles: |
+    [
+      ""
+    ]
   ExternalModules__IncludePrerelease: "false"
-  Marketplace__MarketplacePricelistId : "934da94516a74f9ab4ec001343ac928a"
   Notifications__Gateway: "SendGrid"
   Notifications__Smtp__EnableSsl: "False"
   Notifications__Smtp__Host: "smtp.sendgrid.net"
