@@ -3,4 +3,4 @@ resources:
 - odt-app.yaml
 #- xapi-app.yaml
 - saas-app.yaml
-- public-demo.yaml
+#- public-demo.yaml
