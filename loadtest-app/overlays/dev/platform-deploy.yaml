@@ -32,5 +32,6 @@ spec:
         - name: vc-platform-web
           resources:
             limits:
-              memory: "2048Mi" 
+              cpu: 1500m
+              memory: 2048Mi 
           
