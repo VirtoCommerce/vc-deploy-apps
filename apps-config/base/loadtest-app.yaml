@@ -5,10 +5,12 @@ metadata:
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/manifest-generate-paths: .
 spec:
   destination:
     namespace: dev
-    server: https://kubernetes.default.svc
+    server: 'https://aks-f783f1e0.hcp.westus.azmk8s.io:443'
   project: tenant
   source:
     path: loadtest-app/overlays/dev
