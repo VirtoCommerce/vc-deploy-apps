@@ -8,7 +8,7 @@ resources:
 #- reddit-app.yaml
 # - pagebuilder-saas-app.yaml
 - loadtest-app.yaml
-#- vst-app.yaml
+- vst-app.yaml
 #- sand-box-app.yaml
 # - vc-helm-deploy.yaml
 # - vc-odt-helm.yaml
