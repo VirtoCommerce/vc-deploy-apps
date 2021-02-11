@@ -18,7 +18,8 @@ resources:
 - shared-pvc.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
-  newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
+  #newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
+  newName: docker.pkg.github.com/virtocommerce/vc-platform/platform:3.42.0-alpha.11749-vp-6322-data-protection-8ca1f92a
   newTag: 3.39.0-master-251759cc
 - name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
