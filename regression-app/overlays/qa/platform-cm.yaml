@@ -19,7 +19,9 @@ data:
   PushNotifications__ForceWebSockets: "true"
   AzureAd__Enabled: "true"
   Content__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/
-  Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/
+  #Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/
+  Assets__Provider: "AzureBlobStorage"
+  Assets__AzureBlobStorage__ConnectionString: "DefaultEndpointsProtocol=https;AccountName=devdemovc3;AccountKey=o5QHWphFXXvkSGbxHXcwF1rYHfMIjMVzFCNUrVYoDLmOgeAxrmSfRc9wO9Q7X/hPEUi1/6sOJQS+GCLPGnbi8g==;EndpointSuffix=core.windows.net"
   VC_STORE_URL_ELECTRONICS: https://$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com/
   VC_STORE_URL_B2B-STORE: https://$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com/B2B-store/
   VirtoCommerce__LicenseFilePath: shared/VirtoCommerce.lic
