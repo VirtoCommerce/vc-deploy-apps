@@ -51,7 +51,7 @@ data:
     {
       "Id": "VirtoCommerce.Export",
       "Repository": "VirtoCommerce/vc-module-export",
-      "PackageUrl": "https://vc3prerelease.blob.core.windows.net/packages/VirtoCommerce.Export_3.10.0-alpha.96-vp-6322-blob-provider.zip"
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-export/releases/download/3.9.0/VirtoCommerce.Export_3.9.0.zip"
     },
     {
       "Id": "VirtoCommerce.ImageTools",
