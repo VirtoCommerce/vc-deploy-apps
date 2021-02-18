@@ -4,3 +4,5 @@ metadata:
   name: platform-cm
 data:
   VirtoCommerce__SampleDataUrl: "https://vcbacpac.blob.core.windows.net/dac-packages/odt_exported_data_without_theme.zip"
+  Authorization__RefreshTokenLifeTime: "00:05:00"
+  Authorization__AccessTokenLifeTime: "00:01:00"
