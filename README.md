@@ -64,3 +64,12 @@ resources:
 6. Connecting to the database. Since database is created automatically in the configured pool if one doesn't exist, you can connect to it through SQL Manager by specifying "vc-dev-dbserver.database.windows.net" as a server name, "Active Directory - Universal with MFA support" as authentication and Virto username, which simply should be your email address.
 
 ![image](https://user-images.githubusercontent.com/1566470/84727455-ece01700-af43-11ea-8fe2-0c6a910b58b3.png)
+
+
+## Description of the main files
+
+> **deployment-cm.yaml** - file is intended for declaring the installed content, for example: modules, assetts, and themes
+
+> **platform-cm.yaml** - contains the environment variables of the platform
+
+> **storefront-cm.yaml** - contains the environment variables of the storefront
