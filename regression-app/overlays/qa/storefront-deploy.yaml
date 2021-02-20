@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: storefront
 spec:
+  revisionHistoryLimit: 2
   replicas: 1
   template:
     metadata:
