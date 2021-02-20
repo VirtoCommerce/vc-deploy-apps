@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: platform
 spec:
+  revisionHistoryLimit: 1
   replicas: 1
   selector:
     matchLabels:
@@ -11,7 +12,12 @@ spec:
     metadata:
       annotations:
         reloader.stakater.com/search: "true"
-        configmap.reloader.stakater.com/reload: "platform-cm,deployment-cm"
+        configmap.reloader.stakater.com/reload: "platform-cm,deployment-cm,platform-secret-configmap"
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/agent-pre-populate-only: "true"
+        vault.hashicorp.com/agent-configmap: $(VC_INSTANCE)-platform-secret-configmap
+        vault.hashicorp.com/agent-requests-cpu: "25m"
+        vault.hashicorp.com/agent-limits-cpu: "50m"    
       labels:
         app: platform
     spec:
@@ -52,13 +58,13 @@ spec:
         command:
           - "/opt/mssql-tools/bin/sqlcmd"
           - "-S"
-          - "vc-dev-dbserver.database.windows.net"
+          - "$(VC_DB_HOST)"
           - "-U"
-          - "virto@vc-dev-dbserver"
+          - "$(VC_DB_USER)@$(VC_DB)"
           - "-P"
           - "$(VC_DBSERVER_MASTER_PASSWORD)"
           - "-q"
-          - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [vc-dev-elasticpool] ) )"
+          - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [$(VC_DB_POOL)] ) )"
         env:
           - name: VC_SAMPLE_DATA_DB
             value: vc-empty-db
@@ -72,26 +78,14 @@ spec:
       containers:
       - name: vc-platform-web      
         image: docker.pkg.github.com/virtocommerce/vc-platform/platform:dev-linux-latest
-        env:
-          - name: VC_DBSERVER_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: vc-dbserver-password
-                key: password
-          - name: REDIS_PASS
-            valueFrom:
-              secretKeyRef:
-                name: redis
-                key: REDIS_PASS 
-          - name: ConnectionStrings__VirtoCommerce
-            value: "Server=tcp:vc-dev-dbserver.database.windows.net,1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE);User ID=virto@vc-dev-dbserver;Password=$(VC_DBSERVER_PASSWORD);Trusted_Connection=False;Encrypt=True;"     
-          - name: ConnectionStrings__RedisConnectionString
-            value: "redis-master.redis:6379,password=$(REDIS_PASS),ssl=False,abortConnect=False"
-          - name: Caching__Redis__ChannelName
-            value: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel" 
         envFrom:
         - configMapRef:
             name: platform-cm
+        command:
+            - "/bin/bash"
+            - "-c"
+        args:
+            - "source /vault/secrets/config_base && source /vault/secrets/config_custom && dotnet VirtoCommerce.Platform.Web.dll"
         ports:
         - containerPort: 80
         volumeMounts:
@@ -107,6 +101,6 @@ spec:
         emptyDir: {}     
   strategy:
     rollingUpdate:
-      maxSurge: 0
-      maxUnavailable: 1
+      maxSurge: 1
+      maxUnavailable: 0
     type: RollingUpdate

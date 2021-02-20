@@ -10,6 +10,7 @@ resources:
 - storefront-service.yaml
 - deployment-cm.yaml
 - ingress-https.yaml
+- platform-secrets.yaml
 - middleware-redirect.yaml
 
 configurations:
