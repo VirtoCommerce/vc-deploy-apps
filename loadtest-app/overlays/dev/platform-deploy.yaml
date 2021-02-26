@@ -23,7 +23,6 @@ spec:
             - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
             && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
             && echo MODULES INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
-
         - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB

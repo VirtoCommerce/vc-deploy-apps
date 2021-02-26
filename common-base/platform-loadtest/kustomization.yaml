@@ -1,13 +1,12 @@
 resources:
-- cms-pvc.yaml
 - ingress.yaml
+- ingress-https.yaml
 - platform-cm.yaml
 - platform-deploy.yaml
 - platform-service.yaml
-- platform-secrets.yaml
 - deployment-cm.yaml
-- ingress-https.yaml
-- middleware-redirect.yaml
+- storage.yaml
+- platform-secrets.yaml
 
 configurations:
 - varconfig.yaml
@@ -27,10 +26,3 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: metadata.namespace
-- name: VC_INSTANCE
-  objref:
-    kind: Service
-    name: platform
-    apiVersion: v1
-  fieldref:
-    fieldpath: metadata.labels['instance']
