@@ -23,7 +23,7 @@ spec:
             - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
             && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
             && python3 installer.py $(ODT_THEME_URL) $(ODT_THEME_LOCATION)
-            && python3 upload-assets.py $(ASSETS_URL) $(ASSETS_LOCATION)"                   
+            && python3 installer.py $(ASSETS_URL) $(ASSETS_LOCATION)"                   
         - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB
