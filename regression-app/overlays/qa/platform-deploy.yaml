@@ -22,18 +22,6 @@ spec:
           env:
             - name: VC_SAMPLE_DATA_DB
               value: regression-platform_qa_source
-        - name: init-platform
-          imagePullPolicy: Always
-          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:v3
-          command:
-            - "/bin/sh"
-            - "-c"
-          args:
-            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S)
-            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
-            && python3 installer.py $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION)
-            && python3 installer.py $(B2B_THEME_URL) $(B2B_THEME_LOCATION)
-            && python3 installer.py $(ASSETS_URL) $(ASSETS_LOCATION)"
       containers:
         - name: vc-platform-web
           resources:
@@ -46,7 +34,6 @@ spec:
               name: cms-content-data
             - mountPath: "/opt/virtocommerce/platform/modules"
               name: modules-data
-          volumeMounts:
             - mountPath: "/opt/virtocommerce/platform/shared"
               name: shared   
       volumes:

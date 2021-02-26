@@ -36,6 +36,33 @@ configMapGenerator:
   literals:
     - VAULT_API_URL=http://vault-dev.vault-dev.svc.cluster.local:8200
 
+patches:
+- patch: |-
+    - op: add
+      path: /spec/template/spec/nodeSelector
+      value: 
+        agentpool: agentpool
+  target:
+    group: apps
+    version: v1
+    kind: Deployment
+- patch: |-
+    - op: add
+      path: /spec/csi
+      value:
+        driver: blob.csi.azure.com
+        readOnly: false
+        fsType: ext4 
+        volumeHandle: mc_cloud-platform_vc-master_eastus#fuse8d50cd269f0a49fcba0#regressioan-cms-content-qa
+    - op: add
+      path: /spec/csi/volumeAttributes
+      value: 
+        containername: regressioan-cms-content-qa
+        skuName: Premium_LRS
+  target:
+    version: v1
+    kind: PersistentVolume
+
 vars:
 - name: VC_DB_HOST
   objref:

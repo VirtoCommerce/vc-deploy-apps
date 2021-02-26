@@ -1,16 +1,15 @@
 resources:
-- cms-pvc.yaml
-#- modules-pvc.yaml
+- storage.yaml
 - ingress.yaml
 - platform-cm.yaml
 - platform-deploy.yaml
 - platform-service.yaml
+- platform-secrets.yaml
 - storefront-cm.yaml
 - storefront-deploy.yaml
 - storefront-service.yaml
 - deployment-cm.yaml
 - ingress-https.yaml
-- platform-secrets.yaml
 - middleware-redirect.yaml
 
 configurations:

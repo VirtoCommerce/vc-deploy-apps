@@ -22,23 +22,42 @@ spec:
         app: platform
     spec:
       # create database in azure within a sql pool
-      initContainers:
+      initContainers: 
+      - name: init-sqldatabase
+        image: mcr.microsoft.com/mssql-tools
+        command:
+          - "/bin/sh"
+          - "-c"
+        args:
+          - "/opt/mssql-tools/bin/sqlcmd -S $(VC_DB_HOST) -U $(VC_DB_USER)@$(VC_DB_HOST) -P '$(VC_DBSERVER_MASTER_PASSWORD)' -q \"CREATE LOGIN [$(VC_INSTANCE)_$(VC_NAMESPACE)_user] WITH PASSWORD = '$(VC_DB_PASSWORD)'\"
+          && /opt/mssql-tools/bin/sqlcmd -S $(VC_DB_HOST) -U $(VC_DB_USER)@$(VC_DB_HOST) -P '$(VC_DBSERVER_MASTER_PASSWORD)' -q \"CREATE USER [$(VC_INSTANCE)_$(VC_NAMESPACE)_user] FROM LOGIN [$(VC_INSTANCE)_$(VC_NAMESPACE)_user]\"
+          && /opt/mssql-tools/bin/sqlcmd -S $(VC_DB_HOST) -U $(VC_DB_USER)@$(VC_DB_HOST) -P '$(VC_DBSERVER_MASTER_PASSWORD)' -q \"CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [$(VC_DB_POOL)] ) )\""
+        env:
+          - name: VC_SAMPLE_DATA_DB
+            value: webstore-platform_source
+          - name: VC_DB_COPY_PARAM
+            value: "AS COPY OF [$(VC_SAMPLE_DATA_DB)]"
+          - name: VC_DBSERVER_MASTER_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: vc-dbserver-password
+                key: password
+          - name: VC_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: vc-db-pass
+                key: password
       - name: init-platform
-        image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:v2
+        image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:v3
         command:
           - "/bin/sh"
           - "-c"
         args:
           - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S)
           && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
-          && if [ ! -d \"$ELECTRONICS_THEME_LOCATION\" ]; then mkdir -p \"$ELECTRONICS_THEME_LOCATION\"; fi
-          && python3 install-theme.py $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION)
-          && echo ELECTRONICS THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
-          && if [ ! -d \"$B2B_THEME_LOCATION\" ]; then mkdir -p \"$B2B_THEME_LOCATION\"; fi
-          && python3 install-theme.py $(B2B_THEME_URL) $(B2B_THEME_LOCATION)
-          && echo B2B THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
-          && python3 upload-assets.py $(ASSETS_URL) $(ASSETS_LOCATION)
-          && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
+          && python3 installer.py $(ELECTRONICS_THEME_URL) $(ELECTRONICS_THEME_LOCATION)
+          && python3 installer.py $(B2B_THEME_URL) $(B2B_THEME_LOCATION)
+          && python3 installer.py $(ASSETS_URL) $(ASSETS_LOCATION)"
         envFrom:
           - configMapRef:
               name: deployment-cm
@@ -52,35 +71,41 @@ spec:
           - mountPath: /mnt/Modules
             name: modules-data
           - mountPath: /mnt/cms-content
-            name: cms-content-data 
-      - name: init-sqldatabase
+            name: cms-content-data
+      - name: init-dbuser
         image: mcr.microsoft.com/mssql-tools
         command:
-          - "/opt/mssql-tools/bin/sqlcmd"
-          - "-S"
-          - "$(VC_DB_HOST)"
-          - "-U"
-          - "$(VC_DB_USER)@$(VC_DB)"
-          - "-P"
-          - "$(VC_DBSERVER_MASTER_PASSWORD)"
-          - "-q"
-          - "CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [$(VC_DB_POOL)] ) )"
+          - "/bin/sh"
+          - "-c"
+        args:
+          - "/opt/mssql-tools/bin/sqlcmd -S $(VC_DB_HOST) -U $(VC_DB_USER)@$(VC_DB_HOST) -P '$(VC_DBSERVER_MASTER_PASSWORD)' -d $(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE) -q \"CREATE USER [$(VC_INSTANCE)_$(VC_NAMESPACE)_user] FROM LOGIN [$(VC_INSTANCE)_$(VC_NAMESPACE)_user]; ALTER ROLE db_owner ADD MEMBER [$(VC_INSTANCE)_$(VC_NAMESPACE)_user];\""
         env:
           - name: VC_SAMPLE_DATA_DB
-            value: vc-empty-db
-          - name: VC_DB_COPY_PARAM
-            value: "AS COPY OF [$(VC_SAMPLE_DATA_DB)]"  
+            value: webstore-platform_source  
           - name: VC_DBSERVER_MASTER_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: vc-dbserver-password
-                key: password 
+                key: password
+          - name: VC_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: vc-db-pass
+                key: password
       containers:
       - name: vc-platform-web      
         image: docker.pkg.github.com/virtocommerce/vc-platform/platform:dev-linux-latest
         envFrom:
         - configMapRef:
             name: platform-cm
+        env:
+        - name: VC_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: vc-db-pass
+              key: password
+        - name: ConnectionStrings__VirtoCommerce
+          value: "Server=tcp:$(VC_DB_HOST),1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE);User ID=$(VC_INSTANCE)_$(VC_NAMESPACE)_user@$(VC_DB_HOST);Password=$(VC_DB_PASSWORD);Trusted_Connection=False;Encrypt=True;"
         command:
             - "/bin/bash"
             - "-c"
