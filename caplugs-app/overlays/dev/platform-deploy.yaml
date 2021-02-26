@@ -9,7 +9,10 @@ spec:
         annotations:
           vault.hashicorp.com/agent-configmap: "caplugs-platform-secret-configmap"
           vault.hashicorp.com/agent-requests-cpu: "25m"
-          vault.hashicorp.com/agent-limits-cpu: "50m"   
+          vault.hashicorp.com/agent-inject: "true"
+          vault.hashicorp.com/role: "myapp"
+          configmap.reloader.stakater.com/reload: "caplugs-platform-cm, caplugs-deployment-cm, caplugs-platform-secret-configmap"
+          vault.hashicorp.com/agent-limits-cpu: "50m" 
     spec:
       initContainers:
         - name: init-sqldatabase

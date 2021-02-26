@@ -1,4 +1,0 @@
-dependencies:
-- name: virtocommerce
-  version: 1.0.0
-  repository: "file://../vc-helm"

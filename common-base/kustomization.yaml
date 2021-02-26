@@ -1,6 +1,5 @@
 resources:
-- cms-pvc.yaml
-#- modules-pvc.yaml
+- storage.yaml
 - ingress.yaml
 - platform-cm.yaml
 - platform-deploy.yaml

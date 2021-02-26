@@ -7,15 +7,12 @@ commonLabels:
   instance: caplugs
 
 
-#- platform-secrets.yaml
 patchesStrategicMerge:
 - storefront-deploy.yaml
 - platform-deploy.yaml
 - deployment-cm.yaml
 - storefront-cm.yaml
 - platform-cm.yaml
-- ingress-https.yaml
-- ingress.yaml
 
 resources:
 - ../../../common-base
@@ -27,3 +24,78 @@ images:
 - name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
   newTag: 1.7.0-alpha.962-dev-b1ddb342
+
+configMapGenerator:
+- name: db-config
+  literals:
+    - VC_DB_HOST=vc-dev-dbserver.database.windows.net
+    - VC_DB=vc-dev-dbserver
+    - VC_DB_POOL=vc-dev-elasticpool
+    - VC_DB_USER=virto
+- name: vault-config
+  literals:
+    - VAULT_API_URL=http://vault-dev.vault-dev.svc.cluster.local:8200
+
+patches:
+- patch: |-
+    - op: add
+      path: /spec/template/spec/nodeSelector
+      value: 
+        agentpool: agentpool
+  target:
+    group: apps
+    version: v1
+    kind: Deployment
+- patch: |-
+    - op: add
+      path: /spec/csi
+      value:
+        driver: blob.csi.azure.com
+        readOnly: false
+        fsType: ext4 
+        volumeHandle: mc_aks-cluster-dev_aks-dev_westus#fusefdb1fe6c3d1c4b1d814#caplugs-cms-content-dev
+    - op: add
+      path: /spec/csi/volumeAttributes
+      value: 
+        containername: caplugs-cms-content-dev
+        skuName: Premium_LRS
+  target:
+    version: v1
+    kind: PersistentVolume
+
+vars:
+- name: VC_DB_HOST
+  objref:
+    kind: ConfigMap
+    name: db-config
+    apiVersion: v1
+  fieldref:
+    fieldpath: data['VC_DB_HOST']
+- name: VC_DB
+  objref:
+    kind: ConfigMap
+    name: db-config
+    apiVersion: v1
+  fieldref:
+    fieldpath: data['VC_DB']
+- name: VC_DB_POOL
+  objref:
+    kind: ConfigMap
+    name: db-config
+    apiVersion: v1
+  fieldref:
+    fieldpath: data['VC_DB_POOL']
+- name: VC_DB_USER
+  objref:
+    kind: ConfigMap
+    name: db-config
+    apiVersion: v1
+  fieldref:
+    fieldpath: data['VC_DB_USER']
+- name: VAULT_API_URL
+  objref:
+    kind: ConfigMap
+    name: vault-config
+    apiVersion: v1
+  fieldref:
+    fieldpath: data['VAULT_API_URL']

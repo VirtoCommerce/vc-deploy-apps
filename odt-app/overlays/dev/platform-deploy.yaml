@@ -7,7 +7,12 @@ spec:
   template:
     metadata:
       annotations:
-        vault.hashicorp.com/agent-configmap: "odt-platform-secret-configmap" 
+        vault.hashicorp.com/agent-configmap: "odt-platform-secret-configmap"
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/role: "myapp"
+        configmap.reloader.stakater.com/reload: "odt-platform-cm, odt-deployment-cm, odt-platform-secret-configmap"
+        vault.hashicorp.com/agent-requests-cpu: "25m"
+        vault.hashicorp.com/agent-limits-cpu: "50m"  
     spec:
       initContainers:
         - name: init-platform
@@ -17,11 +22,8 @@ spec:
           args:
             - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
             && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
-            && if [ ! -d \"$ODT_THEME_LOCATION\" ]; then mkdir -p \"$ODT_THEME_LOCATION\"; fi
-            && python3 install-theme.py $(ODT_THEME_URL) $(ODT_THEME_LOCATION)
-            && echo ODT THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
-            && python3 upload-assets.py $(ASSETS_URL) $(ASSETS_LOCATION)
-            && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"                    
+            && python3 installer.py $(ODT_THEME_URL) $(ODT_THEME_LOCATION)
+            && python3 upload-assets.py $(ASSETS_URL) $(ASSETS_LOCATION)"                   
         - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB
