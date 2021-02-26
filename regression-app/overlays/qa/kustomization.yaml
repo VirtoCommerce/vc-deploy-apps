@@ -53,7 +53,7 @@ patches:
         driver: blob.csi.azure.com
         readOnly: false
         fsType: ext4 
-        volumeHandle: mc_cloud-platform_vc-master_eastus#fuse8d50cd269f0a49fcba0#regressioan-cms-content-qa
+        volumeHandle: mc_aks-cluster-dev_aks-dev_westus#fusefdb1fe6c3d1c4b1d814#regressioan-cms-content-qa
     - op: add
       path: /spec/csi/volumeAttributes
       value: 
