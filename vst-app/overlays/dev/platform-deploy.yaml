@@ -19,3 +19,13 @@ spec:
           env:
             - name: VC_SAMPLE_DATA_DB
               value: webstore-platform_source
+        - name: init-platform
+          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:v3
+          command:
+            - "/bin/sh"
+            - "-c"
+          args:
+            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S)
+            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
+            && python3 installer.py $(VST_THEME_URL) $(VST_THEME_LOCATION)
+            && python3 installer.py $(ASSETS_URL) $(ASSETS_LOCATION)"
