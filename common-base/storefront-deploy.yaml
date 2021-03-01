@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: storefront
 spec:
+  revisionHistoryLimit: 1
   replicas: 1
   selector:
     matchLabels:
@@ -18,6 +19,12 @@ spec:
       containers:
       - name: vc-storefront-web
         image: docker.pkg.github.com/virtocommerce/vc-storefront/storefront:dev-linux-latest
+        env:
+          - name: UPDATABILITY
+            valueFrom:
+              configMapKeyRef:
+                name: deployment-cm
+                key: STOREFRONT_UPDATABILITY
         envFrom:
         - configMapRef:
             name: storefront-cm

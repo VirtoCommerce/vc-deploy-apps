@@ -1,9 +1,0 @@
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  name: rewrite
-spec:
-  redirectRegex:
-    regex: ^https://demo.virtocommerce.com/admin
-    replacement: https://admin-demo.virtocommerce.com
-    permanent: true
