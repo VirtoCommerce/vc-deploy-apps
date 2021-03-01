@@ -10,7 +10,7 @@ data:
     PushNotifications__ScalabilityMode: "RedisBackplane"
     PushNotifications__HubUrl: "https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/pushNotificationHub"
     PushNotifications__RedisBackplane__ChannelName: "$(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-chanel"
-    Search__ElasticSearch__Server: http://search-dev-es-http.elastic-system-dev:9200
+    Search__ElasticSearch__Server: http://search-dev-es-http.elastic-system:9200
     AzureAd__Enabled: "true"
     Search__Scope: "$(VC_PLATFORM_SERVICE)$(VC_NAMESPACE)-new-index"
     Content__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/
