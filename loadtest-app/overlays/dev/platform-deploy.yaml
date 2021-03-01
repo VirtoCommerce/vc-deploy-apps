@@ -44,4 +44,8 @@ spec:
           claimName: cms-content-volume
       - name: modules-data
         emptyDir: {}
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
           
