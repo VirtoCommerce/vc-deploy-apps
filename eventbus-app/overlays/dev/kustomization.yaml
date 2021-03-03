@@ -49,11 +49,11 @@ patches:
         driver: blob.csi.azure.com
         readOnly: false
         fsType: ext4 
-        volumeHandle: mc_aks-cluster-dev_aks-dev_westus#fusefdb1fe6c3d1c4b1d814#loadtes-cms-content-dev
+        volumeHandle: mc_aks-cluster-dev_aks-dev_westus#fusefdb1fe6c3d1c4b1d814#eventbus-cms-content-dev
     - op: add
       path: /spec/csi/volumeAttributes
       value: 
-        containername: loadtes-cms-content-dev
+        containername: eventbus-cms-content-dev
         skuName: Premium_LRS
   target:
     version: v1
