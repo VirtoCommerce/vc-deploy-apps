@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: eventbus-app
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/manifest-generate-paths: .
+spec:
+  destination:
+    namespace: dev
+    server: 'https://aks-f783f1e0.hcp.westus.azmk8s.io:443'
+  project: tenant
+  source:
+    path: eventbus-app/overlays/dev
+    repoURL: https://github.com/virtocommerce/vc-deploy-apps
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

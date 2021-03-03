@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platform
+spec:
+  revisionHistoryLimit: 2
+  replicas: 1
+  template:
+    metadata:
+        annotations:
+          vault.hashicorp.com/agent-configmap: "eventbus-platform-secret-configmap"
+          vault.hashicorp.com/agent-requests-cpu: "25m"
+          vault.hashicorp.com/agent-limits-cpu: "55m"   
+    spec:
+      initContainers:
+
+        - name: init-platform
+          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:v2
+          command:
+            - "/bin/sh"
+            - "-c"
+          args:
+            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
+            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
+            && echo MODULES INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
+        - name: init-sqldatabase
+          env:
+            - name: VC_SAMPLE_DATA_DB
+              value: webstore-platform_source
+      containers:
+        - name: vc-platform-web
+          resources:
+            limits:
+              cpu: 1500m
+              memory: 2048Mi
+          volumeMounts:
+          - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
+            name: cms-content-data
+          - mountPath: "/opt/virtocommerce/platform/modules"
+            name: modules-data
+      volumes:
+      - name: cms-content-data
+        persistentVolumeClaim:
+          claimName: cms-content-volume
+      - name: modules-data
+        emptyDir: {}
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+          
