@@ -22,6 +22,7 @@ spec:
           args:
             - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
             && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
+            && python3 installer.py $(THEME_URL) $(THEME_LOCATION)
             && echo MODULES INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
         - name: init-sqldatabase
           env:
