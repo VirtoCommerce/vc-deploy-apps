@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: platform
+  labels:
+    app: loadtest-platform
 spec:
   revisionHistoryLimit: 2
   replicas: 1
