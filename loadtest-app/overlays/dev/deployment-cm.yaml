@@ -20,7 +20,7 @@ data:
     {
       "Id": "VirtoCommerce.Cart",
       "Repository": "VirtoCommerce/vc-module-cart",
-      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-cart/releases/download/3.13.0/VirtoCommerce.Cart_3.13.0.zip"
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-cart/releases/download/3.14.0/VirtoCommerce.Cart_3.14.0.zip"
     },
     {
       "Id": "VirtoCommerce.Catalog",
@@ -130,6 +130,6 @@ data:
     {
     "Id": "VirtoCommerce.ExperienceApi",
     "Repository": "VirtoCommerce/vc-module-experience-api",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-experience-api/releases/download/0.24.0/VirtoCommerce.ExperienceApi_0.24.0.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-experience-api/releases/download/0.25.0/VirtoCommerce.ExperienceApi_0.25.0.zip"
     }
    ] 
