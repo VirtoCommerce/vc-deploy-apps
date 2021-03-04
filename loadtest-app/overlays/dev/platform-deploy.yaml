@@ -4,7 +4,7 @@ metadata:
   name: platform
 spec:
   revisionHistoryLimit: 2
-  replicas: 3
+  replicas: 1
   template:
     metadata:
         annotations:
@@ -31,10 +31,10 @@ spec:
         - name: vc-platform-web
           resources:
             limits:
-              cpu: 1500m
+              cpu: 500m
               memory: 2048Mi
-            requests:
-              cpu: 1400m
+            # requests:
+            #   cpu: 1400m
           volumeMounts:
           - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
             name: cms-content-data
