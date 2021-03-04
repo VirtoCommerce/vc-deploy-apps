@@ -57,7 +57,7 @@ resources:
 - base/{name}-app.yaml
 ```
 
-5. Checkin and go to https://cd.govirto.com. You should see a new application created.
+5. Checkin and go to https://argo.govirto.com/. You should see a new application created.
 
 ![image](https://user-images.githubusercontent.com/1566470/83311829-4e268d00-a1c5-11ea-8c90-d9ae834d6d24.png)
 

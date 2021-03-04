@@ -4,11 +4,11 @@ metadata:
   name: platform
 spec:
   revisionHistoryLimit: 2
-  replicas: 2
+  replicas: 1
   template:
     metadata:
         annotations:
-          vault.hashicorp.com/agent-configmap: "loadtest-platform-secret-configmap"
+          vault.hashicorp.com/agent-configmap: "eventbus-platform-secret-configmap"
           vault.hashicorp.com/agent-requests-cpu: "25m"
           vault.hashicorp.com/agent-limits-cpu: "55m"   
     spec:
@@ -30,9 +30,6 @@ spec:
       containers:
         - name: vc-platform-web
           resources:
-            limits:
-              cpu: 275m
-              memory: 512Mi
           volumeMounts:
           - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
             name: cms-content-data
@@ -46,6 +43,6 @@ spec:
         emptyDir: {}
   strategy:
     rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
+      maxSurge: 0
+      maxUnavailable: 1
           

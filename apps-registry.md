@@ -24,4 +24,5 @@
 |Demo| webstore-app| Dmitry Pushnitsa| Solution team | [Solution team board](https://virtocommerce.atlassian.net/jira/software/projects/VDS/boards/95)| [![App Status](https://cd.govirto.com/api/badge?name=webstore-app-demo&revision=true)](https://cd.govirto.com/applications/webstore-app-demo) |
 |Demo| xapi-app| Eugeny Tatarincev| to delete | to delete |[![App Status](https://cd.govirto.com/api/badge?name=xapi-app-demo&revision=true)](https://cd.govirto.com/applications/xapi-app-demo) |
 |Dev| caplugs-app| Oleg Zhuk| Competence Center | 4 Training 11-18 Jan 2021 |[![App Status](https://cd.govirto.com/api/badge?name=xapi-app-demo&revision=true)](https://cd.govirto.com/applications/xapi-app-demo) |
+|Dev| eventbus-app| Maksim Kopnov| Competence Center | 4 webinar 09-11 Mar 2021 |[![App Status](https://cd.govirto.com/api/badge?name=eventbuss-app-dev&revision=true)](https://cd.govirto.com/applications/eventbuss-app-dev) |
 
