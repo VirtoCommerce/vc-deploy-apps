@@ -3,4 +3,7 @@ apiVersion: v1
 metadata:
   name: storefront-cm
 data:
-  VirtoCommerce__CacheEnabled: "False"
+  VirtoCommerce__CacheEnabled: "True"
+  ASPNETCORE_FORWARDEDHEADERS_ENABLED: "true"
+  CookieAuthenticationOptions__ExpireTimeSpan: "12:00:00"
+  SnapshotCollectorConfiguration__IsEnabled: "false"
