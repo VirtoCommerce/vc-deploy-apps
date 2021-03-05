@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: platform
+  labels:
+    k8s-app: loadtest-platform
 spec:
   revisionHistoryLimit: 2
   replicas: 1
@@ -10,7 +12,9 @@ spec:
         annotations:
           vault.hashicorp.com/agent-configmap: "loadtest-platform-secret-configmap"
           vault.hashicorp.com/agent-requests-cpu: "25m"
-          vault.hashicorp.com/agent-limits-cpu: "55m"   
+          vault.hashicorp.com/agent-limits-cpu: "55m"
+        labels:
+          k8s-app: loadtest-platform   
     spec:
       initContainers:
 
