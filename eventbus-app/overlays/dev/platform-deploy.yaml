@@ -15,15 +15,18 @@ spec:
       initContainers:
 
         - name: init-platform
-          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:v2
+          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:v3
           command:
             - "/bin/sh"
             - "-c"
           args:
             - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
             && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
+            && echo MODULES INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
             && python3 installer.py $(THEME_URL) $(THEME_LOCATION)
-            && echo MODULES INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
+            && echo THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
+            && python3 installer.py $(ASSETS_URL) $(ASSETS_LOCATION)
+            && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
         - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB
