@@ -40,6 +40,11 @@ spec:
       - name: shared
         persistentVolumeClaim:
           claimName: shared-volume
+      - name: cms-content-data
+        persistentVolumeClaim:
+          claimName: cms-content-volume
+      - name: modules-data
+        emptyDir: {}  
   strategy:
     rollingUpdate:
       maxSurge: 1
