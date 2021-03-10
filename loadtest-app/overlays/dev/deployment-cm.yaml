@@ -10,7 +10,7 @@ data:
     {
       "Id": "VirtoCommerce.Core",
       "Repository": "VirtoCommerce/vc-module-core",
-      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-core/releases/download/3.11.0/VirtoCommerce.Core_3.11.0.zip"
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-core/releases/download/3.11.0/VirtoCommerce.Core_3.12.0.zip"
     },
     {
       "Id": "VirtoCommerce.AzureSearch",
@@ -40,7 +40,7 @@ data:
     {
       "Id": "VirtoCommerce.ElasticSearch",
       "Repository": "VirtoCommerce/vc-module-elastic-search",
-      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-elastic-search/releases/download/3.5.0/VirtoCommerce.ElasticSearch_3.5.0.zip"
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-elastic-search/releases/download/3.5.0/VirtoCommerce.ElasticSearch_3.6.0.zip"
     },
     {
       "Id": "VirtoCommerce.Export",
@@ -55,7 +55,7 @@ data:
     {
       "Id": "VirtoCommerce.Inventory",
       "Repository": "VirtoCommerce/vc-module-inventory",
-      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-inventory/releases/download/3.15.0/VirtoCommerce.Inventory_3.15.0.zip"
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-inventory/releases/download/3.15.0/VirtoCommerce.Inventory_3.16.0.zip"
     },
     {
       "Id": "VirtoCommerce.LuceneSearch",
@@ -105,7 +105,7 @@ data:
     {
       "Id": "VirtoCommerce.Store",
       "Repository": "VirtoCommerce/vc-module-store",
-      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-store/releases/download/3.14.0/VirtoCommerce.Store_3.14.0.zip"
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-store/releases/download/3.14.0/VirtoCommerce.Store_3.15.0.zip"
     },
     {
       "Id": "VirtoCommerce.Subscription",
@@ -120,7 +120,7 @@ data:
     {
       "Id": "VirtoCommerce.CatalogCsvImportModule",
       "Repository": "VirtoCommerce/vc-module-catalog-csv-import",
-      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-catalog-csv-import/releases/download/3.15.0/VirtoCommerce.CatalogCsvImportModule_3.15.0.zip"
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-catalog-csv-import/releases/download/3.15.0/VirtoCommerce.CatalogCsvImportModule_3.17.0.zip"
     },
     {
       "Id": "VirtoCommerce.BulkActionsModule",
@@ -130,6 +130,6 @@ data:
     {
     "Id": "VirtoCommerce.ExperienceApi",
     "Repository": "VirtoCommerce/vc-module-experience-api",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-experience-api/releases/download/0.25.0/VirtoCommerce.ExperienceApi_0.25.0.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-experience-api/releases/download/0.25.0/VirtoCommerce.ExperienceApi_0.26.0.zip"
     }
    ] 
