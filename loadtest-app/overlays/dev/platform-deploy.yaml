@@ -59,6 +59,6 @@ spec:
         emptyDir: {}
   strategy:
     rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
+      maxSurge: 0
+      maxUnavailable: 1
           
