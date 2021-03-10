@@ -38,7 +38,7 @@ spec:
               cpu: 1500m
               memory: 2048Mi
             requests:
-              cpu: 1400m
+              cpu: 1500m
           volumeMounts:
           - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
             name: cms-content-data
