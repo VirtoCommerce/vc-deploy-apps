@@ -42,10 +42,10 @@ spec:
         - name: vc-platform-web
           resources:
             limits:
-              cpu: 250m
+              cpu: 1500m
               memory: 2048Mi
             requests:
-              cpu: 250m
+              cpu: 1500m
           volumeMounts:
           - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
             name: cms-content-data
