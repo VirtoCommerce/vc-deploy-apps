@@ -21,11 +21,11 @@ spec:
         - name: init-platform
           resources:
             limits:
-              cpu: 500m
-              memory: 1024Mi
+              cpu: 250m
+              memory: 512Mi
             requests:
-              cpu: 500m
-              memory: 1024Mi
+              cpu: 250m
+              memory: 512Mi
           image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:v2
           command:
             - "/bin/sh"
@@ -42,10 +42,10 @@ spec:
         - name: vc-platform-web
           resources:
             limits:
-              cpu: 250m
-              memory: 512Mi
+              cpu: 500m
+              memory: 1024Mi
             requests:
-              cpu: 250m
+              cpu: 500m
           volumeMounts:
           - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
             name: cms-content-data
