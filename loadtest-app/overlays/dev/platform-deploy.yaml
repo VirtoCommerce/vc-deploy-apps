@@ -21,10 +21,10 @@ spec:
         - name: init-platform
           resources:
             limits:
-              cpu: 150m
+             # cpu: 150m
               memory: 512Mi
             requests:
-              cpu: 150m
+            #  cpu: 150m
               memory: 512Mi
           image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:v2
           command:
