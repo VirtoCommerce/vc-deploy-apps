@@ -6,7 +6,6 @@ metadata:
     k8s-app: loadtest-platform
 spec:
   revisionHistoryLimit: 2
-  replicas: 1
   template:
     metadata:
         annotations:
