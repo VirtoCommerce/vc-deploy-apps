@@ -14,8 +14,8 @@ spec:
           vault.hashicorp.com/agent-requests-cpu: "25m"
           vault.hashicorp.com/agent-limits-cpu: "55m"
           linkerd.io/inject: enabled
-          config.linkerd.io/proxy-cpu-limit: "30m"
-          config.linkerd.io/proxy-cpu-request: "5m"
+          config.linkerd.io/proxy-cpu-limit: "500m"
+          config.linkerd.io/proxy-cpu-request: "50m"
         labels:
           k8s-app: loadtest-platform   
     spec:
