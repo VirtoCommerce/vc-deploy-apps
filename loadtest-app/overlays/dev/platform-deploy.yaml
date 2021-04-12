@@ -6,7 +6,7 @@ metadata:
     k8s-app: loadtest-platform
 spec:
   revisionHistoryLimit: 2
-  replicas: 3
+  replicas: 1
   template:
     metadata:
         annotations:
@@ -36,10 +36,10 @@ spec:
             - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
             && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
             && echo MODULES INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
-        - name: init-sqldatabase
-          env:
-            - name: VC_SAMPLE_DATA_DB
-              value: webstore-platform_source
+        # - name: init-sqldatabase
+        #   env:
+        #     - name: VC_SAMPLE_DATA_DB
+        #       value: webstore-platform_source
       containers:
         - name: vc-platform-web
           resources:
