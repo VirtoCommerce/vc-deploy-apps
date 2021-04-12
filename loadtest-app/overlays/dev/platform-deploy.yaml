@@ -6,7 +6,7 @@ metadata:
     k8s-app: loadtest-platform
 spec:
   revisionHistoryLimit: 2
-  replicas: 1
+  replicas: 4
   template:
     metadata:
         annotations:
@@ -44,10 +44,10 @@ spec:
         - name: vc-platform-web
           resources:
             limits:
-              cpu: 1750m
+              cpu: 1500m
               memory: 1024Mi
             requests:
-              cpu: 500m
+              cpu: 50m
           volumeMounts:
           - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
             name: cms-content-data
