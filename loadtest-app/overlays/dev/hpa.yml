@@ -10,4 +10,4 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: loadtest-platform
-  targetCPUUtilizationPercentage: 50
+  targetCPUUtilizationPercentage: 70
