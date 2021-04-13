@@ -1,13 +1,24 @@
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:  
   name: loadtest-hpa
   namespace: dev
 spec:
-  maxReplicas: 3 # define max replica count
+  maxReplicas: 4 # define max replica count
   minReplicas: 1  # define min replica count
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
     name: loadtest-platform
-  targetCPUUtilizationPercentage: 70
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 60
+    scaleUp:
+      stabilizationWindowSeconds: 60
