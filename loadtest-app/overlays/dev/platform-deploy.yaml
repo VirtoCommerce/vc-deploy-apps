@@ -14,11 +14,7 @@ spec:
           vault.hashicorp.com/agent-configmap: "loadtest-platform-secret-configmap"
           vault.hashicorp.com/agent-requests-cpu: "25m"
           vault.hashicorp.com/agent-limits-cpu: "55m"
-          linkerd.io/created-by: linkerd/proxy-injector stable-2.10.0
-          linkerd.io/identity-mode: default
           linkerd.io/inject: enabled
-          linkerd.io/proxy-version: stable-2.10.0
-          viz.linkerd.io/tap-enabled: 'true'
           # config.linkerd.io/proxy-cpu-limit: "50m"
           # config.linkerd.io/proxy-cpu-request: "5m"
         labels:
