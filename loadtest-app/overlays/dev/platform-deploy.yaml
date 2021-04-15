@@ -5,7 +5,7 @@ metadata:
   labels:
     k8s-app: loadtest-platform
 spec:
-  replicas: 4
+  replicas: 2
   revisionHistoryLimit: 2
   template:
     metadata:
@@ -55,7 +55,7 @@ spec:
           #   periodSeconds: 1
           resources:
             limits:
-              cpu: "500m"
+              cpu: "350m"
               memory: 512Mi
             requests:
               cpu: "150m"
