@@ -16,7 +16,6 @@ spec:
           vault.hashicorp.com/agent-limits-cpu: "55m"
           linkerd.io/inject: enabled
           #config.linkerd.io/enable-debug-sidecar: "true"
-          config.linkerd.io/disable-identity: "true"
           #config.linkerd.io/opaque-ports: "80"
           # config.linkerd.io/proxy-cpu-limit: "50m"
           # config.linkerd.io/proxy-cpu-request: "5m"
