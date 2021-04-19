@@ -26,13 +26,15 @@ spec:
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: instance
-                operator: In
-                values:
-                - $(VC_INSTANCE)
-            topologyKey: failure-domain.beta.kubernetes.io/zone
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: instance
+                  operator: In
+                  values:
+                  - $(VC_INSTANCE)
+              topologyKey: topology.kubernetes.io/zone
       initContainers:
         - name: init-platform
           resources:
