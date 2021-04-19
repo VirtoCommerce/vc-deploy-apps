@@ -96,3 +96,10 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: data['VAULT_API_URL']
+- name: VC_INSTANCE
+  objref:
+    kind: Service
+    name: platform
+    apiVersion: v1
+  fieldref:
+    fieldpath: metadata.labels['instance']
