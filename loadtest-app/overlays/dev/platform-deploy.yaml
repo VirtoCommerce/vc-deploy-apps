@@ -72,15 +72,16 @@ spec:
           claimName: cms-content-volume
       - name: modules-data
         emptyDir: {}
-      podAntiAffinity:
-        preferredDuringSchedulingIgnoredDuringExecution:
-        - labelSelector:
-            matchExpressions:
-            - key: instance
-              operator: In
-              values:
-              - $(VC_INSTANCE)
-          topologyKey: failure-domain.beta.kubernetes.io/zone
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: instance
+                operator: In
+                values:
+                - $(VC_INSTANCE)
+            topologyKey: failure-domain.beta.kubernetes.io/zone
   strategy:
     rollingUpdate:
       maxSurge: 1
