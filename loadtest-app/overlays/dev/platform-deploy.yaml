@@ -23,8 +23,17 @@ spec:
         labels:
           k8s-app: loadtest-platform   
     spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: instance
+                operator: In
+                values:
+                - $(VC_INSTANCE)
+            topologyKey: failure-domain.beta.kubernetes.io/zone
       initContainers:
-
         - name: init-platform
           resources:
             limits:
@@ -72,16 +81,6 @@ spec:
           claimName: cms-content-volume
       - name: modules-data
         emptyDir: {}
-      affinity:
-        podAntiAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: instance
-                operator: In
-                values:
-                - $(VC_INSTANCE)
-            topologyKey: failure-domain.beta.kubernetes.io/zone
   strategy:
     rollingUpdate:
       maxSurge: 1
