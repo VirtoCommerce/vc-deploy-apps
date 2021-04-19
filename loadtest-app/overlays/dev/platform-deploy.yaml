@@ -30,10 +30,10 @@ spec:
             podAffinityTerm:
               labelSelector:
                 matchExpressions:
-                - key: instance
+                - key: k8s-app
                   operator: In
                   values:
-                  - $(VC_INSTANCE)
+                  - loadtest-platform
               topologyKey: topology.kubernetes.io/zone
       initContainers:
         - name: init-platform
