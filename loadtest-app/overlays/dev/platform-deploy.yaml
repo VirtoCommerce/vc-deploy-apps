@@ -23,6 +23,7 @@ spec:
         labels:
           k8s-app: loadtest-platform   
     spec:
+      terminationGracePeriodSeconds: 180
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
