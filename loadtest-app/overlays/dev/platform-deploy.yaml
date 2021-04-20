@@ -5,7 +5,7 @@ metadata:
   labels:
     k8s-app: loadtest-platform
 spec:
-  replicas: 4
+  replicas: 2
   revisionHistoryLimit: 2
   template:
     metadata:
@@ -62,6 +62,9 @@ spec:
             httpGet:
               path: /
               port: 80
+              httpHeaders:
+                - name: Host
+                  value: loadtest-platform.dev.govirto.com
             failureThreshold: 10
             initialDelaySeconds: 20
             periodSeconds: 10
