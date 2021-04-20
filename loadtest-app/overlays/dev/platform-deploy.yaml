@@ -58,14 +58,21 @@ spec:
         #       value: webstore-platform_source
       containers:
         - name: vc-platform-web
-          readinessProbe:
+          startupProbe:
             httpGet:
               path: /
               port: 80
             failureThreshold: 10
-            successThreshold: 1
-            initialDelaySeconds: 10
-            periodSeconds: 1
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: 80
+          #   failureThreshold: 10
+          #   successThreshold: 1
+          #   initialDelaySeconds: 10
+          #   periodSeconds: 1
           resources:
             limits:
               cpu: "500m"
