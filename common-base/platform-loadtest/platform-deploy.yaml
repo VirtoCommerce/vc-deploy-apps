@@ -3,11 +3,11 @@ kind: Rollout
 metadata:
   name: platform
   labels:
-    k8s-app: loadtest-platform
+    app: platform
 spec:
   selector:
     matchLabels:
-      k8s-app: loadtest-platform
+      app: platform
   replicas: 2
   revisionHistoryLimit: 2
   template:
@@ -24,7 +24,7 @@ spec:
           # config.linkerd.io/proxy-cpu-limit: "50m"
           # config.linkerd.io/proxy-cpu-request: "5m"
         labels:
-          k8s-app: loadtest-platform   
+          app: platform   
     spec:
       terminationGracePeriodSeconds: 180
       affinity:

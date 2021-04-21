@@ -2,12 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: platform
-  labels:
-    app: loadtest-platform
 spec:
-  selector:
-    matchLabels:
-      app: loadtest-platform
   replicas: 2
   revisionHistoryLimit: 2
   template:
@@ -25,8 +20,6 @@ spec:
           #config.linkerd.io/opaque-ports: "80"
           # config.linkerd.io/proxy-cpu-limit: "50m"
           # config.linkerd.io/proxy-cpu-request: "5m"
-        labels:
-          app: loadtest-platform   
     spec:
       terminationGracePeriodSeconds: 180
       affinity:
@@ -36,7 +29,7 @@ spec:
             podAffinityTerm:
               labelSelector:
                 matchExpressions:
-                - key: k8s-app
+                - key: app
                   operator: In
                   values:
                   - loadtest-platform
