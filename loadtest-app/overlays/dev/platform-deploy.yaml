@@ -53,6 +53,18 @@ spec:
             - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
             && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
             && echo MODULES INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
+          envFrom:
+          - configMapRef:
+              name: deployment-cm
+          env:
+            - name: MODULES_CONFIG
+              valueFrom:
+                configMapKeyRef:
+                  name: deployment-cm
+                  key: modules.json 
+          volumeMounts:
+            - mountPath: /mnt/Modules
+              name: modules-data
         # - name: init-sqldatabase
         #   env:
         #     - name: VC_SAMPLE_DATA_DB
