@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: platform
   labels:
@@ -96,7 +96,6 @@ spec:
       - name: modules-data
         emptyDir: {}
   strategy:
-    rollingUpdate:
-      maxSurge: 100%
-      maxUnavailable: 0
+    blueGreen:
+      activeService: platform
           
