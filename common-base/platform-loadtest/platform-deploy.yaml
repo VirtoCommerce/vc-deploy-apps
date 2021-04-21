@@ -58,12 +58,12 @@ spec:
             && echo MODULES INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
           envFrom:
           - configMapRef:
-              name: loadtest-deployment-cm
+              name: deployment-cm
           env:
             - name: MODULES_CONFIG
               valueFrom:
                 configMapKeyRef:
-                  name: loadtest-deployment-cm
+                  name: deployment-cm
                   key: modules.json 
           volumeMounts:
             - mountPath: /mnt/Modules
@@ -77,7 +77,7 @@ spec:
           image: docker.pkg.github.com/virtocommerce/vc-platform/platform:dev-linux-latest
           envFrom:
           - configMapRef:
-              name: loadtest-platform-cm
+              name: platform-cm
           env:
           - name: ConnectionStrings__VirtoCommerce
             value: "Server=tcp:$(VC_DB_HOST),1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE);User ID=$(VC_INSTANCE)_$(VC_NAMESPACE)_user@$(VC_DB_HOST);Password=$(VC_DB_PASSWORD);Trusted_Connection=False;Encrypt=True;"
@@ -123,9 +123,9 @@ spec:
       volumes:
       - name: cms-content-data
         persistentVolumeClaim:
-          claimName: loadtest-cms-content-volume
+          claimName: cms-content-volume
       - name: modules-data
         emptyDir: {}
   strategy:
     blueGreen:
-      activeService: loadtest-platform
+      activeService: platform

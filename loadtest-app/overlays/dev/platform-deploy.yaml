@@ -118,10 +118,10 @@ spec:
       volumes:
       - name: cms-content-data
         persistentVolumeClaim:
-          claimName: loadtest-cms-content-volume
+          claimName: cms-content-volume
       - name: modules-data
         emptyDir: {}
   strategy:
     blueGreen:
-      activeService: loadtest-platform
+      activeService: platform
           
