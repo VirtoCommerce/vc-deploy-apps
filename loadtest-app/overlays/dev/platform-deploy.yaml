@@ -111,5 +111,5 @@ spec:
         emptyDir: {}
   strategy:
     blueGreen:
-      activeService: platform
+      activeService: loadtest-platform
           
