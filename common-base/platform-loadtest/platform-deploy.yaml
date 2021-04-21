@@ -2,116 +2,130 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: platform
+  labels:
+    k8s-app: loadtest-platform
 spec:
-  revisionHistoryLimit: 1
-  replicas: 1
   selector:
     matchLabels:
-      app: platform
+      k8s-app: loadtest-platform
+  replicas: 2
+  revisionHistoryLimit: 2
   template:
     metadata:
-      annotations:
-        reloader.stakater.com/search: "true"
-        configmap.reloader.stakater.com/reload: "platform-cm,deployment-cm,platform-secret-configmap"
-        vault.hashicorp.com/agent-inject: "true"
-        vault.hashicorp.com/agent-pre-populate-only: "true"
-        vault.hashicorp.com/agent-configmap: $(VC_INSTANCE)-platform-secret-configmap
-        vault.hashicorp.com/agent-requests-cpu: "25m"
-        vault.hashicorp.com/agent-limits-cpu: "50m"    
-      labels:
-        app: platform
+        annotations:
+          vault.hashicorp.com/agent-init-first: "true"
+          vault.hashicorp.com/agent-configmap: "loadtest-platform-secret-configmap"
+          vault.hashicorp.com/agent-requests-cpu: "25m"
+          vault.hashicorp.com/agent-limits-cpu: "55m"
+          #linkerd.io/inject: enabled
+          #config.linkerd.io/proxy-log-level: debug
+          #config.linkerd.io/enable-debug-sidecar: "true"
+          #config.linkerd.io/opaque-ports: "80"
+          # config.linkerd.io/proxy-cpu-limit: "50m"
+          # config.linkerd.io/proxy-cpu-request: "5m"
+        labels:
+          k8s-app: loadtest-platform   
     spec:
-      # create database in azure within a sql pool
-      initContainers: 
-      # - name: init-sqldatabase
-      #   image: mcr.microsoft.com/mssql-tools
-      #   command:
-      #     - "/bin/sh"
-      #     - "-c"
-      #   args:
-      #     - "/opt/mssql-tools/bin/sqlcmd -S $(VC_DB_HOST) -U $(VC_DB_USER)@$(VC_DB_HOST) -P '$(VC_DBSERVER_MASTER_PASSWORD)' -q \"CREATE LOGIN [$(VC_INSTANCE)_$(VC_NAMESPACE)_user] WITH PASSWORD = '$(VC_DB_PASSWORD)'\"
-      #     && /opt/mssql-tools/bin/sqlcmd -S $(VC_DB_HOST) -U $(VC_DB_USER)@$(VC_DB_HOST) -P '$(VC_DBSERVER_MASTER_PASSWORD)' -q \"CREATE USER [$(VC_INSTANCE)_$(VC_NAMESPACE)_user] FROM LOGIN [$(VC_INSTANCE)_$(VC_NAMESPACE)_user]\"
-      #     && /opt/mssql-tools/bin/sqlcmd -S $(VC_DB_HOST) -U $(VC_DB_USER)@$(VC_DB_HOST) -P '$(VC_DBSERVER_MASTER_PASSWORD)' -q \"CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [$(VC_DB_POOL)] ) )\""
-      #   env:
-      #     - name: VC_SAMPLE_DATA_DB
-      #       value: webstore-platform_source
-      #     - name: VC_DB_COPY_PARAM
-      #       value: "AS COPY OF [$(VC_SAMPLE_DATA_DB)]"
-      #     - name: VC_DBSERVER_MASTER_PASSWORD
-      #       valueFrom:
-      #         secretKeyRef:
-      #           name: vc-dbserver-password
-      #           key: password
-      #     - name: VC_DB_PASSWORD
-      #       valueFrom:
-      #         secretKeyRef:
-      #           name: vc-db-pass
-      #           key: password
-      - name: init-platform
-        image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:v3
-        command:
-          - "/bin/sh"
-          - "-c"
-        args:
-          - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
-          && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
-          && echo MODULES INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"            
-        envFrom:
+      terminationGracePeriodSeconds: 180
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: k8s-app
+                  operator: In
+                  values:
+                  - loadtest-platform
+              topologyKey: topology.kubernetes.io/zone
+      initContainers:
+        - name: init-platform
+          resources:
+            limits:
+              #cpu: 1750m
+              memory: 512Mi
+            requests:
+              #cpu: 500m
+              memory: 512Mi
+          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:v2
+          command:
+            - "/bin/sh"
+            - "-c"
+          args:
+            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
+            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
+            && echo MODULES INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
+          envFrom:
           - configMapRef:
               name: deployment-cm
-        env:
-          - name: MODULES_CONFIG
-            valueFrom:
-              configMapKeyRef:
-                name: deployment-cm
-                key: modules.json 
-        volumeMounts:
-          - mountPath: /mnt/Modules
-            name: modules-data
-      # - name: init-dbuser
-      #   image: mcr.microsoft.com/mssql-tools
-      #   command:
-      #     - "/bin/sh"
-      #     - "-c"
-      #   args:
-      #     - "/opt/mssql-tools/bin/sqlcmd -S $(VC_DB_HOST) -U $(VC_DB_USER)@$(VC_DB_HOST) -P '$(VC_DBSERVER_MASTER_PASSWORD)' -d $(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE) -q \"CREATE USER [$(VC_INSTANCE)_$(VC_NAMESPACE)_user] FROM LOGIN [$(VC_INSTANCE)_$(VC_NAMESPACE)_user]; ALTER ROLE db_owner ADD MEMBER [$(VC_INSTANCE)_$(VC_NAMESPACE)_user];\""
-      #   env:
-      #     - name: VC_SAMPLE_DATA_DB
-      #       value: webstore-platform_source  
-      #     - name: VC_DBSERVER_MASTER_PASSWORD
-      #       valueFrom:
-      #         secretKeyRef:
-      #           name: vc-dbserver-password
-      #           key: password
-      #     - name: VC_DB_PASSWORD
-      #       valueFrom:
-      #         secretKeyRef:
-      #           name: vc-db-pass
-      #           key: password
+          env:
+            - name: MODULES_CONFIG
+              valueFrom:
+                configMapKeyRef:
+                  name: deployment-cm
+                  key: modules.json 
+          volumeMounts:
+            - mountPath: /mnt/Modules
+              name: modules-data
+        # - name: init-sqldatabase
+        #   env:
+        #     - name: VC_SAMPLE_DATA_DB
+        #       value: webstore-platform_source
       containers:
-      - name: vc-platform-web      
-        image: docker.pkg.github.com/virtocommerce/vc-platform/platform:dev-linux-latest
-        envFrom:
-        - configMapRef:
-            name: platform-cm
-        env:
-        - name: ConnectionStrings__VirtoCommerce
-          value: "Server=tcp:$(VC_DB_HOST),1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE);User ID=$(VC_INSTANCE)_$(VC_NAMESPACE)_user@$(VC_DB_HOST);Password=$(VC_DB_PASSWORD);Trusted_Connection=False;Encrypt=True;"
-        command:
-            - "/bin/bash"
-            - "-c"
-        args:
-            - "source /vault/secrets/config_base && source /vault/secrets/config_custom && dotnet VirtoCommerce.Platform.Web.dll"
-        ports:
-        - containerPort: 80
-        volumeMounts:
-        - mountPath: "/opt/virtocommerce/platform/modules"
-          name: modules-data
+        - name: vc-platform-web
+          image: docker.pkg.github.com/virtocommerce/vc-platform/platform:dev-linux-latest
+          envFrom:
+          - configMapRef:
+              name: platform-cm
+          env:
+          - name: ConnectionStrings__VirtoCommerce
+            value: "Server=tcp:$(VC_DB_HOST),1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE);User ID=$(VC_INSTANCE)_$(VC_NAMESPACE)_user@$(VC_DB_HOST);Password=$(VC_DB_PASSWORD);Trusted_Connection=False;Encrypt=True;"
+          command:
+              - "/bin/bash"
+              - "-c"
+          args:
+              - "source /vault/secrets/config_base && source /vault/secrets/config_custom && dotnet VirtoCommerce.Platform.Web.dll"
+          ports:
+          - name: http
+            containerPort: 80
+            protocol: TCP
+          startupProbe:
+            httpGet:
+              path: /
+              port: 80
+              httpHeaders:
+                - name: Host
+                  value: loadtest-platform.dev.govirto.com
+            failureThreshold: 30
+            successThreshold: 1
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: 80
+          #   failureThreshold: 10
+          #   successThreshold: 1
+          #   initialDelaySeconds: 10
+          #   periodSeconds: 1
+          resources:
+            limits:
+              cpu: "500m"
+              memory: 512Mi
+            requests:
+              cpu: "51m"
+          volumeMounts:
+          - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
+            name: cms-content-data
+          - mountPath: "/opt/virtocommerce/platform/modules"
+            name: modules-data
       volumes:
+      - name: cms-content-data
+        persistentVolumeClaim:
+          claimName: cms-content-volume
       - name: modules-data
-        emptyDir: {}     
-  # strategy:
-  #   rollingUpdate:
-  #     maxSurge: 1
-  #     maxUnavailable: 0
-  #   type: RollingUpdate
+        emptyDir: {}
+  strategy:
+    blueGreen:
+      activeService: platform
