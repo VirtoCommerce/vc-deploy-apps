@@ -87,9 +87,7 @@ spec:
           args:
               - "source /vault/secrets/config_base && source /vault/secrets/config_custom && dotnet VirtoCommerce.Platform.Web.dll"
           ports:
-          - name: http
-            containerPort: 80
-            protocol: TCP
+          - containerPort: 80
           startupProbe:
             httpGet:
               path: /
