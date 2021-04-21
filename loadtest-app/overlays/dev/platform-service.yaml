@@ -4,6 +4,8 @@ metadata:
   name: platform
   # annotations:
   #   linkerd.io/inject: enabled
+  labels:
+    k8s-app: loadtest-platform
 spec:
   type: ClusterIP
   ports:
