@@ -1,0 +1,81 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: platform
+spec:
+  replicas: 2
+  revisionHistoryLimit: 2
+  template:
+    metadata:
+        annotations:
+          vault.hashicorp.com/agent-init-first: "true"
+          vault.hashicorp.com/agent-configmap: "saas-platform-secret-configmap"
+          vault.hashicorp.com/agent-requests-cpu: "25m"
+          vault.hashicorp.com/agent-limits-cpu: "55m"
+          vault.hashicorp.com/agent-inject: "true"
+          vault.hashicorp.com/agent-pre-populate-only: "true"
+          #linkerd.io/inject: enabled
+          #config.linkerd.io/proxy-log-level: debug
+          #config.linkerd.io/enable-debug-sidecar: "true"
+          #config.linkerd.io/opaque-ports: "80"
+          # config.linkerd.io/proxy-cpu-limit: "50m"
+          # config.linkerd.io/proxy-cpu-request: "5m"
+          labels:
+            saas-app: saas-dev
+    spec:
+      terminationGracePeriodSeconds: 180
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: saas-app
+                  operator: In
+                  values:
+                  - saas-dev
+              topologyKey: topology.kubernetes.io/zone
+      containers:
+        - name: saas-platform
+          image: docker.pkg.github.com/virtocommerce/vc-platform/platform:dev-linux-latest
+          envFrom:
+          - configMapRef:
+              name: platform-cm
+          command:
+              - "/bin/bash"
+              - "-c"
+          args:
+              - "source /vault/secrets/config_base && source /vault/secrets/config_custom && dotnet VirtoCommerce.Platform.Web.dll"
+          startupProbe:
+            httpGet:
+              path: /
+              port: 80
+              httpHeaders:
+                - name: Host
+                  value: saas-platform.dev.govirto.com
+            failureThreshold: 30
+            successThreshold: 1
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          resources:
+            limits:
+              cpu: "500m"
+              memory: 512Mi
+            requests:
+              cpu: "50m"
+          volumeMounts:
+          - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
+            name: cms-content-data
+          - mountPath: "/opt/virtocommerce/platform/modules"
+            name: modules-data
+      volumes:
+      - name: cms-content-data
+        persistentVolumeClaim:
+          claimName: cms-content-volume
+      - name: modules-data
+        emptyDir: {}
+  strategy:
+    blueGreen:
+      activeService: platform
+          
