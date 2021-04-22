@@ -15,4 +15,4 @@ resources:
 # - vc-helm.yaml
 # - caplugs-app.yaml
 - eventbus-app.yaml
-- saas-app.yaml
+#- saas-app.yaml
