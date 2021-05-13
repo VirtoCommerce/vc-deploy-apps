@@ -102,10 +102,11 @@ spec:
           #   periodSeconds: 1
           resources:
             limits:
-              cpu: "500m"
-              memory: 512Mi
+              cpu: "1500m"
+              memory: 1024Mi
             requests:
-              cpu: "51m"
+              cpu: "750m"
+              memory: 512Mi
           volumeMounts:
           - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
             name: cms-content-data
