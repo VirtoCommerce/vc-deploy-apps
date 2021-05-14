@@ -22,10 +22,10 @@ resources:
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
-  newTag: 3.42.0-master-913ccf7a  
+  newTag: 3.56.0-master-80b647b1
 - name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
-  newName: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
-  newTag: 1.9.0-alpha.973-dev-c7f1b67c
+  newName: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
+  newTag: 5.9.0-alpha.813-dev-94adebc9
 
 configMapGenerator:
 - name: db-config
