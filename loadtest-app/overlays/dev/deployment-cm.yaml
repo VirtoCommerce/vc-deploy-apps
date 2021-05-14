@@ -6,7 +6,7 @@ data:
   ASSETS_URL: https://vcbacpac.blob.core.windows.net/dac-packages/webstore_assets_4.zip
   ASSETS_LOCATION: /mnt/cms-content/assets
   modules.json: |
-   [    
+   [
     {
       "Id": "VirtoCommerce.Core",
       "Repository": "VirtoCommerce/vc-module-core",
@@ -65,7 +65,7 @@ data:
     {
       "Id": "VirtoCommerce.Marketing",
       "Repository": "VirtoCommerce/vc-module-marketing",
-      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-marketing/releases/download/3.19.0/VirtoCommerce.Marketing_3.19.0.zip"
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-marketing/releases/download/3.22.0/VirtoCommerce.Marketing_3.22.0.zip"
     },
     {
       "Id": "VirtoCommerce.Notifications",
@@ -130,6 +130,6 @@ data:
     {
     "Id": "VirtoCommerce.ExperienceApi",
     "Repository": "VirtoCommerce/vc-module-experience-api",
-    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-experience-api/releases/download/0.26.0/VirtoCommerce.ExperienceApi_0.26.0.zip"
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-experience-api/releases/download/1.7.0/VirtoCommerce.ExperienceApi_1.7.0.zip"
     }
    ] 
