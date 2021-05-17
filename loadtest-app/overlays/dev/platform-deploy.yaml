@@ -3,7 +3,7 @@ kind: Rollout
 metadata:
   name: platform
 spec:
-  replicas: 2
+  # replicas: 2
   revisionHistoryLimit: 2
   template:
     metadata:
@@ -102,10 +102,10 @@ spec:
           #   periodSeconds: 1
           resources:
             limits:
-              cpu: "1500m"
+              cpu: "750m"
               memory: 1024Mi
             requests:
-              cpu: "750m"
+              cpu: "150m"
               memory: 512Mi
           volumeMounts:
           - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
