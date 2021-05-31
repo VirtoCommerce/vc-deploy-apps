@@ -25,7 +25,7 @@ images:
   newTag: 3.59.0-master-9b33691f
 - name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newName: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
-  newTag: 1.13.0-alpha.1031-vds-1834-d3a83bd7
+  newTag: 1.12.0-master-9b6ba2d6
 
 configMapGenerator:
 - name: db-config
