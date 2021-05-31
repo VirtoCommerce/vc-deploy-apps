@@ -192,5 +192,10 @@ data:
       "Id": "VirtoCommerce.DemoCustomerSegmentsModule",
       "Repository": "VirtoCommerce/vc-module-demo-customer-segments",
       "PackageUrl": "https://github.com/VirtoCommerce/vc-module-demo-customer-segments/releases/download/1.6.0/VirtoCommerce.DemoCustomerSegments_1.6.0.zip"
-    }
+    },
+     {
+        "Id": "VirtoCommerce.FeatureManagement",
+        "Repository": "VirtoCommerce/vc-module-feature-flags",
+        "PackageUrl": "https://github.com/VirtoCommerce/vc-module-feature-flags/releases/download/3.0.0/VirtoCommerce.FeatureManagement_3.0.0.zip"
+      }
    ] 
