@@ -41,7 +41,7 @@ spec:
               cpu: 1550m
               memory: 512Mi
             requests:
-              cpu: 750m
+              cpu: 500m
               memory: 512Mi
           image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:v2
           command:
