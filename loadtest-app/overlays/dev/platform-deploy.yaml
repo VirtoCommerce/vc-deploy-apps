@@ -3,7 +3,7 @@ kind: Rollout
 metadata:
   name: platform
 spec:
-  replicas: 4
+  replicas: 2
   revisionHistoryLimit: 2
   template:
     metadata:
@@ -38,11 +38,11 @@ spec:
         - name: init-platform
           resources:
             limits:
-              cpu: 1550m
+              cpu: 150m
               memory: 512Mi
             requests:
-              cpu: 500m
-              memory: 512Mi
+              cpu: 50m
+              memory: 256Mi
           image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:v2
           command:
             - "/bin/sh"
