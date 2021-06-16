@@ -4,8 +4,8 @@ metadata:
   name: loadtest-hpa
   namespace: dev
 spec:
-  maxReplicas: 4 # define max replica count
-  minReplicas: 4  # define min replica count
+  maxReplicas: 2 # define max replica count
+  minReplicas: 2  # define min replica count
   scaleTargetRef:
     apiVersion: argoproj.io/v1alpha1
     kind: Rollout
