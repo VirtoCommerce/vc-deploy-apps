@@ -3,10 +3,15 @@ kind: Rollout
 metadata:
   name: platform
 spec:
-  revisionHistoryLimit: 2
   replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: platform
   template:
     metadata:
+        labels:
+            app: platform
         annotations:
           vault.hashicorp.com/agent-configmap: "eventbus-platform-secret-configmap"
           vault.hashicorp.com/agent-requests-cpu: "25m"
