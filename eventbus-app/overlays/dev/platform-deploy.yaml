@@ -39,6 +39,9 @@ spec:
       containers:
         - name: vc-platform-web
           image: docker.pkg.github.com/virtocommerce/vc-platform/platform:dev-linux-latest
+          envFrom:
+          - configMapRef:
+              name: platform-cm
           resources:
             limits:
               cpu: "500m"
