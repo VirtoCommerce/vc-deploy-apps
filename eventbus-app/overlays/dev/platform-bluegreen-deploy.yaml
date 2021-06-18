@@ -1,0 +1,62 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: platform
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: platform
+  template:
+    metadata:
+        labels:
+            app: platform
+        annotations:
+          vault.hashicorp.com/agent-configmap: "eventbus-platform-secret-configmap"
+          vault.hashicorp.com/agent-requests-cpu: "25m"
+          vault.hashicorp.com/agent-limits-cpu: "55m"   
+    spec:
+      initContainers:
+
+        - name: init-platform
+          image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:v3
+          command:
+            - "/bin/sh"
+            - "-c"
+          args:
+            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
+            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
+            && echo MODULES INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
+            && python3 installer.py $(THEME_URL) $(THEME_LOCATION)
+            && echo THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
+            && python3 installer.py $(ASSETS_URL) $(ASSETS_LOCATION)
+            && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
+        - name: init-sqldatabase
+          env:
+            - name: VC_SAMPLE_DATA_DB
+              value: webstore-platform_source
+      containers:
+        - name: vc-platform-web
+          resources:
+          volumeMounts:
+          - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
+            name: cms-content-data
+          - mountPath: "/opt/virtocommerce/platform/modules"
+            name: modules-data
+      volumes:
+      - name: cms-content-data
+        persistentVolumeClaim:
+          claimName: cms-content-volume
+      - name: modules-data
+        emptyDir: {}
+  strategy:
+    blueGreen: 
+      # activeService specifies the service to update with the new template hash at time of promotion.
+      # This field is mandatory for the blueGreen update strategy.
+      activeService: platform
+      # previewService specifies the service to update with the new template hash before promotion.
+      # This allows the preview stack to be reachable without serving production traffic.
+      # This field is optional.
+      autoPromotionEnabled: false
+          
