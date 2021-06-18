@@ -11,7 +11,7 @@ spec:
   template:
     metadata:
         labels:
-            app: platform
+          app: platform
         annotations:
           vault.hashicorp.com/agent-configmap: "eventbus-platform-secret-configmap"
           vault.hashicorp.com/agent-requests-cpu: "25m"
