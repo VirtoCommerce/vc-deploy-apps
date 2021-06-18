@@ -9,13 +9,13 @@ commonLabels:
 
 patchesStrategicMerge:
 - storefront-deploy.yaml
-- platform-bluegreen-deploy.yaml
+- platform-deploy.yaml
 - deployment-cm.yaml
 - platform-cm.yaml
 - storefront-cm.yaml
 
 resources:
-- ../../../common-base
+- ../../../common-base/blue-green
 
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
