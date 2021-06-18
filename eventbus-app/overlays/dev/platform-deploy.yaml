@@ -57,4 +57,5 @@ spec:
         emptyDir: {}
   strategy:
     blueGreen: 
-      activeService: platform
+      activeService: platform-active
+      previewService: platform-preview
