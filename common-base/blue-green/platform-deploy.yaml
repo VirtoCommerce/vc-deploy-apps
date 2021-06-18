@@ -2,8 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: platform
+  labels:
+    app: platform
 spec:
-  revisionHistoryLimit: 1
+  revisionHistoryLimit: 2
   replicas: 1
   selector:
     matchLabels:
@@ -125,11 +127,5 @@ spec:
       - name: modules-data
         emptyDir: {}     
   strategy:
-    blueGreen: 
-      # activeService specifies the service to update with the new template hash at time of promotion.
-      # This field is mandatory for the blueGreen update strategy.
+    blueGreen:
       activeService: platform
-      # previewService specifies the service to update with the new template hash before promotion.
-      # This allows the preview stack to be reachable without serving production traffic.
-      # This field is optional.
-      autoPromotionEnabled: false
