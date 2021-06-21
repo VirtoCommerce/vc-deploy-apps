@@ -16,7 +16,7 @@ patchesStrategicMerge:
 
 resources:
 - ../../../common-base/blue-green
-- shared-pvc.yaml
+
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
