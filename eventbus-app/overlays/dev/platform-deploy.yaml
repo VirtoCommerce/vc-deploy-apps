@@ -62,15 +62,3 @@ spec:
   strategy:
     blueGreen:
       activeService: platform
-
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: platform
-spec:
-  selector:
-    app: platform
-  type: ClusterIP
-  ports:
-  - port: 80
