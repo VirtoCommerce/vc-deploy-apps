@@ -16,15 +16,14 @@ patchesStrategicMerge:
 
 resources:
 - ../../../common-base/blue-green
-
+- shared-pvc.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
-  newTag: 3.47.0-master-089cae9e
+  newTag: 3.59.0-master-9b33691f
 - name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
-  newName: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
-  newTag: 5.8.0-master-96ce60ba
-
+  newName: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
+  newTag: 1.12.0-master-9b6ba2d6
 
 configMapGenerator:
 - name: db-config
