@@ -3,7 +3,7 @@ kind: Rollout
 metadata:
   name: platform
 spec:
-  replicas: 2
+  replicas: 4
   revisionHistoryLimit: 2
   template:
     metadata:
@@ -38,11 +38,11 @@ spec:
         - name: init-platform
           resources:
             limits:
-              cpu: 150m
+              cpu: 500m
               memory: 512Mi
             requests:
-              cpu: 50m
-              memory: 256Mi
+              cpu: 500m
+              memory: 512Mi
           image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:v2
           command:
             - "/bin/sh"
@@ -81,17 +81,17 @@ spec:
               - "-c"
           args:
               - "source /vault/secrets/config_base && source /vault/secrets/config_custom && dotnet VirtoCommerce.Platform.Web.dll"
-          startupProbe:
-            httpGet:
-              path: /
-              port: 80
-              httpHeaders:
-                - name: Host
-                  value: loadtest-platform.dev.govirto.com
-            failureThreshold: 30
-            successThreshold: 1
-            initialDelaySeconds: 20
-            periodSeconds: 10
+          # startupProbe:
+          #   httpGet:
+          #     path: /
+          #     port: 80
+          #     httpHeaders:
+          #       - name: Host
+          #         value: loadtest-platform.dev.govirto.com
+          #   failureThreshold: 30
+          #   successThreshold: 1
+          #   initialDelaySeconds: 20
+          #   periodSeconds: 10
           # readinessProbe:
           #   httpGet:
           #     path: /
