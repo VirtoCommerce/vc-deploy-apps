@@ -19,18 +19,15 @@ spec:
     spec:
       initContainers:
         - name: init-platform
+          imagePullPolicy: Always
           image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:v3
           command:
             - "/bin/sh"
             - "-c"
           args:
-            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
-            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
-            && echo MODULES INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
-            && python3 installer.py $(THEME_URL) $(THEME_LOCATION)
-            && echo THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
-            && python3 installer.py $(ASSETS_URL) $(ASSETS_LOCATION)
-            && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
+            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S)
+            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*"
+
         - name: init-sqldatabase
           image: mcr.microsoft.com/mssql-tools
           env:
