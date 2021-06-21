@@ -2,6 +2,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: platform
+  labels:
+    app: platform
 spec:
   replicas: 1
   revisionHistoryLimit: 2
@@ -18,6 +20,18 @@ spec:
           vault.hashicorp.com/agent-limits-cpu: "55m"   
     spec:
       initContainers:
+        - name: init-sqldatabase
+          image: mcr.microsoft.com/mssql-tools
+          command:
+            - "/bin/sh"
+            - "-c"
+          args:
+            - "/opt/mssql-tools/bin/sqlcmd -S $(VC_DB_HOST) -U $(VC_DB_USER)@$(VC_DB_HOST) -P '$(VC_DBSERVER_MASTER_PASSWORD)' -q \"CREATE LOGIN [$(VC_INSTANCE)_$(VC_NAMESPACE)_user] WITH PASSWORD = '$(VC_DB_PASSWORD)'\"
+            && /opt/mssql-tools/bin/sqlcmd -S $(VC_DB_HOST) -U $(VC_DB_USER)@$(VC_DB_HOST) -P '$(VC_DBSERVER_MASTER_PASSWORD)' -q \"CREATE USER [$(VC_INSTANCE)_$(VC_NAMESPACE)_user] FROM LOGIN [$(VC_INSTANCE)_$(VC_NAMESPACE)_user]\"
+            && /opt/mssql-tools/bin/sqlcmd -S $(VC_DB_HOST) -U $(VC_DB_USER)@$(VC_DB_HOST) -P '$(VC_DBSERVER_MASTER_PASSWORD)' -q \"CREATE DATABASE [$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE)] $(VC_DB_COPY_PARAM) ( SERVICE_OBJECTIVE = ELASTIC_POOL ( name = [$(VC_DB_POOL)] ) )\""
+          env:
+            - name: VC_SAMPLE_DATA_DB
+              value: webstore-platform_source
         - name: init-platform
           imagePullPolicy: Always
           image: docker.pkg.github.com/virtocommerce/vc-deploy-containers/platform-installer:v3
@@ -25,19 +39,28 @@ spec:
             - "/bin/sh"
             - "-c"
           args:
-            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
-            && echo \"$MODULES_CONFIG\" 
-            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
-            && echo MODULES INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
-            && python3 installer.py $(THEME_URL) $(THEME_LOCATION)
-            && echo THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
-            && python3 installer.py $(ASSETS_URL) $(ASSETS_LOCATION)
-            && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
-        - name: init-sqldatabase
-          image: mcr.microsoft.com/mssql-tools
+            "echo \"$MODULES_CONFIG\" "
+            # - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
+            # && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
+            # && echo MODULES INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
+            # && python3 installer.py $(THEME_URL) $(THEME_LOCATION)
+            # && echo THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
+            # && python3 installer.py $(ASSETS_URL) $(ASSETS_LOCATION)
+            # && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
+          envFrom:
+            - configMapRef:
+                name: deployment-cm
           env:
-            - name: VC_SAMPLE_DATA_DB
-              value: webstore-platform_source
+            - name: MODULES_CONFIG
+              valueFrom:
+                configMapKeyRef:
+                  name: deployment-cm
+                  key: modules.json 
+          volumeMounts:
+            - mountPath: /mnt/Modules
+              name: modules-data
+            - mountPath: /mnt/cms-content
+              name: cms-content-data
       containers:
         - name: vc-platform-web
           image: docker.pkg.github.com/virtocommerce/vc-platform/platform:dev-linux-latest
