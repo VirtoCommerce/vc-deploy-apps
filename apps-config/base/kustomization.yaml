@@ -14,5 +14,5 @@ resources:
 # - vc-odt-helm.yaml
 # - vc-helm.yaml
 # - caplugs-app.yaml
-#- eventbus-app.yaml
+- eventbus-app.yaml
 #- saas-app.yaml
