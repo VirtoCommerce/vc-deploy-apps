@@ -25,14 +25,14 @@ spec:
             - "/bin/sh"
             - "-c"
           args:
-            - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
-            && echo \"${MODULES_CONFIG}\" 
-            && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
-            && echo MODULES INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
-            && python3 installer.py $(THEME_URL) $(THEME_LOCATION)
-            && echo THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
-            && python3 installer.py $(ASSETS_URL) $(ASSETS_LOCATION)
-            && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
+            "echo \"${MODULES_CONFIG}\" "
+            # - "echo START INIT $(date +%Y-%m-%d-%H-%M-%S) 
+            # && python3 install-modules.py \"$MODULES_CONFIG\" /mnt/Modules/*
+            # && echo MODULES INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
+            # && python3 installer.py $(THEME_URL) $(THEME_LOCATION)
+            # && echo THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
+            # && python3 installer.py $(ASSETS_URL) $(ASSETS_LOCATION)
+            # && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
         - name: init-sqldatabase
           image: mcr.microsoft.com/mssql-tools
           env:
