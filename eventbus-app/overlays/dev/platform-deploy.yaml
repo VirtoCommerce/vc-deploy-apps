@@ -5,21 +5,22 @@ metadata:
   labels:
     app: platform
 spec:
-  replicas: 1
   revisionHistoryLimit: 2
+  replicas: 1
   selector:
     matchLabels:
       app: platform
   template:
     metadata:
-        labels:
-          app: platform
-        annotations:
-          vault.hashicorp.com/agent-configmap: "eventbus-platform-secret-configmap"
-          vault.hashicorp.com/agent-requests-cpu: "25m"
-          vault.hashicorp.com/agent-limits-cpu: "55m"   
+      annotations:
+        vault.hashicorp.com/agent-configmap: "eventbus-platform-secret-configmap"
+        vault.hashicorp.com/agent-requests-cpu: "25m"
+        vault.hashicorp.com/agent-limits-cpu: "55m"   
+      labels:
+        app: platform
     spec:
-      initContainers:
+      # create database in azure within a sql pool
+      initContainers: 
       - name: init-sqldatabase
         image: mcr.microsoft.com/mssql-tools
         command:
