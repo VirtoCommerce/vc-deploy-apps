@@ -46,11 +46,6 @@ spec:
               name: modules-data
             - mountPath: /mnt/cms-content
               name: cms-content-data
-        - name: init-sqldatabase
-          image: mcr.microsoft.com/mssql-tools
-          env:
-            - name: VC_SAMPLE_DATA_DB
-              value: webstore-platform_source
       containers:
         - name: vc-platform-web
           image: docker.pkg.github.com/virtocommerce/vc-platform/platform:dev-linux-latest
