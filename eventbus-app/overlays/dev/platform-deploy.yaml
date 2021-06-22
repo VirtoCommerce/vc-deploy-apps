@@ -96,7 +96,7 @@ spec:
                   name: vc-db-pass
                   key: password
       containers:
-        - name: vc-platform-web
+        - name: vc-platform-web      
           image: docker.pkg.github.com/virtocommerce/vc-platform/platform:dev-linux-latest
           envFrom:
           - configMapRef:
@@ -107,6 +107,21 @@ spec:
               memory: 512Mi
             requests:
               cpu: "50m"
+          env:
+          - name: VC_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: vc-db-pass
+                key: password
+          - name: ConnectionStrings__VirtoCommerce
+            value: "Server=tcp:$(VC_DB_HOST),1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE);User ID=$(VC_INSTANCE)_$(VC_NAMESPACE)_user@$(VC_DB_HOST);Password=$(VC_DB_PASSWORD);Trusted_Connection=False;Encrypt=True;"
+          command:
+              - "/bin/bash"
+              - "-c"
+          args:
+              - "source /vault/secrets/config_base && source /vault/secrets/config_custom && dotnet VirtoCommerce.Platform.Web.dll"
+          ports:
+          - containerPort: 80
           volumeMounts:
           - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
             name: cms-content-data
