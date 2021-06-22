@@ -75,7 +75,7 @@ spec:
               name: platform-cm
           env:
           - name: ConnectionStrings__VirtoCommerce
-            value: "Server=tcp:$(VC_DB_HOST),1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE);User ID=$(VC_INSTANCE)_$(VC_NAMESPACE)_user@$(VC_DB_HOST);Password=$(VC_DB_PASSWORD);Trusted_Connection=False;Encrypt=True;TrustServerCertificate=True;"
+            value: "Server=tcp:$(VC_DB_HOST),1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE);User ID=$(VC_INSTANCE)_$(VC_NAMESPACE)_user@$(VC_DB_HOST);Password=$(VC_DB_PASSWORD);Trusted_Connection=True;Encrypt=True;TrustServerCertificate=True;"
           command:
               - "/bin/bash"
               - "-c"
