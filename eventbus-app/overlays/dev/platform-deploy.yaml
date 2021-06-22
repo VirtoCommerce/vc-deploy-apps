@@ -33,6 +33,20 @@ spec:
             # && echo THEME INSTALLED $(date +%Y-%m-%d-%H-%M-%S)
             # && python3 installer.py $(ASSETS_URL) $(ASSETS_LOCATION)
             # && echo ASSETS INSTALLED $(date +%Y-%m-%d-%H-%M-%S)"
+          envFrom:
+            - configMapRef:
+                name: deployment-cm
+          env:
+            - name: MODULES_CONFIG
+              valueFrom:
+                configMapKeyRef:
+                  name: deployment-cm
+                  key: modules.json 
+          volumeMounts:
+            - mountPath: /mnt/Modules
+              name: modules-data
+            - mountPath: /mnt/cms-content
+              name: cms-content-data
         - name: init-sqldatabase
           image: mcr.microsoft.com/mssql-tools
           env:
