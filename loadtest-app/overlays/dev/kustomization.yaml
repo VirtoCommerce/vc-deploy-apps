@@ -15,12 +15,12 @@ patchesStrategicMerge:
 
 resources:
 - ../../../common-base/platform-loadtest
-- hpa.yml
+#- hpa.yml
 
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: docker.pkg.github.com/virtocommerce/vc-platform/platform
-  newTag: 3.59.0-master-9b33691f
+  newTag: 3.65.0-master-58f72cee
 
 configMapGenerator:
 - name: db-config
