@@ -13,9 +13,12 @@ spec:
         labels:
           app: platform
         annotations:
+          vault.hashicorp.com/agent-init-first: "true"
           vault.hashicorp.com/agent-configmap: "eventbus-platform-secret-configmap"
           vault.hashicorp.com/agent-requests-cpu: "25m"
-          vault.hashicorp.com/agent-limits-cpu: "55m"   
+          vault.hashicorp.com/agent-limits-cpu: "55m"
+          vault.hashicorp.com/agent-inject: "true"
+          vault.hashicorp.com/agent-pre-populate-only: "true"
     spec:
       initContainers:
         - name: init-platform
