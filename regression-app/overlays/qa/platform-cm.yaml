@@ -27,6 +27,6 @@ data:
   VirtoCommerce__LicensePrivateKeyPath: app_data/private.key
   VirtoCommerce__LocalUploadFolderPath: shared/uploads
   VirtoCommerce__DefaultExportFolder: shared/export
-  SimpleExportImport__Import__LimitOfLines: "10"
-  SimpleExportImport__Export__LimitOfLines: "10"
-  SimpleExportImport__Import__FileMaxSize: "1"
+  PriceExportImport__Import__LimitOfLines: "10"
+  PriceExportImport__Export__LimitOfLines: "10"
+  PriceExportImport__Import__FileMaxSize: "1"
