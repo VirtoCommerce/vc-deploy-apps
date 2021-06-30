@@ -17,7 +17,11 @@ spec:
         vault.hashicorp.com/agent-inject: "true"
         vault.hashicorp.com/role: "myapp"
     spec:
+      imagePullSecrets:
+      - name: dockerconfigjson-github-com
       initContainers:
+        - name: init-platform
+          image: ghcr.io/virtocommerce/vc-deploy-containers/platform-installer:v3
         - name: init-sqldatabase
           env:
             - name: VC_SAMPLE_DATA_DB
