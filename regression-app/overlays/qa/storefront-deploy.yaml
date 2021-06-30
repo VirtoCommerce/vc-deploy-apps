@@ -25,6 +25,8 @@ spec:
         vault.hashicorp.com/agent-requests-cpu: "25m"
         vault.hashicorp.com/agent-limits-cpu: "50m"
     spec:
+      imagePullSecrets:
+      - name: dockerconfigjson-github-com
       containers:
       - name: vc-storefront-web
         resources:
