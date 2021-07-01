@@ -21,14 +21,13 @@ spec:
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-            podAffinityTerm:
-              labelSelector:
-                matchExpressions:
-                - key: app
-                  operator: In
-                  values:
-                  - loadtest-platform
-              topologyKey: topology.kubernetes.io/zone
+           - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - loadtest-platform
+             topologyKey: failure-domain.beta.kubernetes.io/zone
       initContainers:
         - name: init-platform
           image: ghcr.io/virtocommerce/vc-deploy-containers/platform-installer:v3
