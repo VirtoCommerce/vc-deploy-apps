@@ -32,5 +32,5 @@ data:
   PriceExportImport__Import__FileMaxSize: "1"
   Search__Provider: AzureSearch
   Search__Scope: "regression"
-  Search__AzureSearch__SearchServiceName: 6BE1143312E89C26C227E6BBAE24DD47
-  Search__AzureSearch__Key: w3bP5msU5sGiA6hq5VRCKIZL
+  Search__AzureSearch__SearchServiceName: qa-demovc-3-search
+  Search__AzureSearch__Key: 6BE1143312E89C26C227E6BBAE24DD47
