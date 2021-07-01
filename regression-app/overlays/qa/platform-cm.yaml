@@ -30,4 +30,4 @@ data:
   PriceExportImport__Import__LimitOfLines: "10"
   PriceExportImport__Export__LimitOfLines: "10"
   PriceExportImport__Import__FileMaxSize: "1"
-  Search__Provider: AzureSearchProvider
+  Search__Provider: AzureSearch
