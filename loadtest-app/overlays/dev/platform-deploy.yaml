@@ -14,12 +14,6 @@ spec:
           vault.hashicorp.com/agent-limits-cpu: "55m"
           vault.hashicorp.com/agent-inject: "true"
           vault.hashicorp.com/agent-pre-populate-only: "true"
-          #linkerd.io/inject: enabled
-          #config.linkerd.io/proxy-log-level: debug
-          #config.linkerd.io/enable-debug-sidecar: "true"
-          #config.linkerd.io/opaque-ports: "80"
-          # config.linkerd.io/proxy-cpu-limit: "50m"
-          # config.linkerd.io/proxy-cpu-request: "5m"
     spec:
       imagePullSecrets:
       - name: dockerconfigjson-github-com
@@ -38,13 +32,6 @@ spec:
               topologyKey: topology.kubernetes.io/zone
       initContainers:
         - name: init-platform
-          resources:
-            limits:
-              cpu: 500m
-              memory: 512Mi
-            requests:
-              cpu: 500m
-              memory: 512Mi
           image: ghcr.io/virtocommerce/vc-deploy-containers/platform-installer:v3
           command:
             - "/bin/sh"
@@ -65,19 +52,12 @@ spec:
           volumeMounts:
             - mountPath: /mnt/Modules
               name: modules-data
-        # - name: init-sqldatabase
-        #   env:
-        #     - name: VC_SAMPLE_DATA_DB
-        #       value: webstore-platform_source
       containers:
         - name: loadtest-platform
           image: docker.pkg.github.com/virtocommerce/vc-platform/platform:dev-linux-latest
           envFrom:
           - configMapRef:
               name: platform-cm
-          env:
-          - name: ConnectionStrings__VirtoCommerce
-            value: "Server=tcp:$(VC_DB_HOST),1433;Database=$(VC_PLATFORM_SERVICE)_$(VC_NAMESPACE);User ID=$(VC_INSTANCE)_$(VC_NAMESPACE)_user@$(VC_DB_HOST);Password=$(VC_DB_PASSWORD);Trusted_Connection=True;Encrypt=True;TrustServerCertificate=True;"
           command:
               - "/bin/bash"
               - "-c"
