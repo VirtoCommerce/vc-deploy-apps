@@ -20,8 +20,7 @@ spec:
       terminationGracePeriodSeconds: 180
       affinity:
         podAntiAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
+          requiredDuringSchedulingIgnoredDuringExecution:
             podAffinityTerm:
               labelSelector:
                 matchExpressions:
@@ -63,31 +62,12 @@ spec:
               - "-c"
           args:
               - "source /vault/secrets/config_base && source /vault/secrets/config_custom && dotnet VirtoCommerce.Platform.Web.dll"
-          # startupProbe:
-          #   httpGet:
-          #     path: /
-          #     port: 80
-          #     httpHeaders:
-          #       - name: Host
-          #         value: loadtest-platform.dev.govirto.com
-          #   failureThreshold: 30
-          #   successThreshold: 1
-          #   initialDelaySeconds: 20
-          #   periodSeconds: 10
-          # readinessProbe:
-          #   httpGet:
-          #     path: /
-          #     port: 80
-          #   failureThreshold: 10
-          #   successThreshold: 1
-          #   initialDelaySeconds: 10
-          #   periodSeconds: 1
           resources:
             limits:
-              cpu: "100m"
-              memory: 1024Mi
+              cpu: "500m"
+              memory: 512Mi
             requests:
-              cpu: "50m"
+              cpu: "500m"
               memory: 512Mi
           volumeMounts:
           - mountPath: "/opt/virtocommerce/platform/wwwroot/cms-content"
