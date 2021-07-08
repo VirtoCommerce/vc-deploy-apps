@@ -14,7 +14,7 @@ data:
   modules.json: |
    [    
     {
-      "Id": "VirtoCommerce.Core",
+      "Id": "VirtoCommerce.CoreTest",
       "Repository": "VirtoCommerce/vc-module-core",
       "PackageUrl": "https://github.com/VirtoCommerce/vc-module-core/releases/download/3.17.0/VirtoCommerce.Core_3.18.0.zip"
     },
