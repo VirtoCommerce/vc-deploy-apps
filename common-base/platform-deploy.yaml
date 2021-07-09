@@ -21,6 +21,8 @@ spec:
       labels:
         app: platform
     spec:
+      imagePullSecrets:
+      - name: dockerconfigjson-github-com
       # create database in azure within a sql pool
       initContainers: 
       - name: init-sqldatabase
