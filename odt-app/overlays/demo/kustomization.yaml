@@ -17,7 +17,7 @@ resources:
 - ../../../common-base
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
-  newName: ghcr.iovirtocommerce/vc-platform/platform
+  newName: ghcr.iovirtocommerce/vc-platform/vc-platform/platform
   newTag: 3.32.0-master-53743472
 - name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
   newName: ghcr.io/virtocommerce/vc-odt-storefront/odt-storefront
