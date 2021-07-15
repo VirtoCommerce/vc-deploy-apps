@@ -27,7 +27,7 @@ data:
   VirtoCommerce__LicensePrivateKeyPath: app_data/private.key
   VirtoCommerce__LocalUploadFolderPath: shared/uploads
   VirtoCommerce__DefaultExportFolder: shared/export
-  PriceExportImport__Import__LimitOfLines: "10"
+  PriceExportImport__Import__LimitOfLines: "30"
   PriceExportImport__Export__LimitOfLines: "10"
   PriceExportImport__Import__FileMaxSize: "1"
 # Search__Provider: AzureSearch
