@@ -20,6 +20,8 @@ data:
     VirtoCommerce__LicensePrivateKeyPath: app_data/private.key
     VirtoCommerce__LocalUploadFolderPath: app_data/uploads
     VirtoCommerce__Hangfire__JobStorageType: SqlServer
+    CosmosOptions__Endpoint: "https://cosmosaccneu.documents.azure.com:443/"
+    CosmosOptions__Key: "HjgyVbCkBAE38Iu52mKzwCTs5Pp9760ZWNeLbxFUIkDWTKga1ud5JE7LWqIU3UfuSm7gdO41Y6EBOKjwhiCrTg=="
     # Logging__LogLevel__VirtoCommerce.SearchModule.Data.Services: Information
     # Logging__LogLevel__VirtoCommerce.CatalogModule.Data.Repositories: Information
     # Logging__LogLevel__VirtoCommerce.CatalogModule.Data.Search.Indexing: Information
