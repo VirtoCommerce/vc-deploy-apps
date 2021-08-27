@@ -183,26 +183,26 @@ data:
     "Repository": "VirtoCommerce/vc-module-experience-api",
     "PackageUrl": "https://github.com/VirtoCommerce/vc-module-experience-api/releases/download/1.23.0/VirtoCommerce.ExperienceApi_1.23.0.zip"
     },
-  #  {
-  # "Id": "VirtoCommerce.DemoSolutionFeatures",
-  # "Repository": "VirtoCommerce/vc-module-demo-features",
-  # "PackageUrl": "https://github.com/VirtoCommerce/vc-module-demo-features/releases/download/1.13.0/VirtoCommerce.DemoSolutionFeatures_1.13.0.zip"
-  # },
-  # {
-  #   "Id": "VirtoCommerce.DemoCustomerSegmentsModule",
-  #   "Repository": "VirtoCommerce/vc-module-demo-customer-segments",
-  #   "PackageUrl": "https://github.com/VirtoCommerce/vc-module-demo-customer-segments/releases/download/1.6.0/VirtoCommerce.DemoCustomerSegments_1.6.0.zip"
-  # },
-  # {
-  #   "Id": "VirtoCommerce.FeatureManagement",
-  #    "Repository": "VirtoCommerce/vc-module-feature-flags",
-  #    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-feature-flags/releases/download/3.0.0/VirtoCommerce.FeatureManagement_3.0.0.zip"
-  # },
-  # {
-  #   "Id": "VirtoCommerce.PriceExportImport",
-  #   "Repository": "VirtoCommerce/vc-module-price-export-import",
-  #   "PackageUrl": "https://github.com/VirtoCommerce/vc-module-price-export-import/releases/download/1.2.0/VirtoCommerce.PriceExportImport_1.2.0.zip"
-  # },
+    {
+    "Id": "VirtoCommerce.DemoSolutionFeatures",
+    "Repository": "VirtoCommerce/vc-module-demo-features",
+    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-demo-features/releases/download/1.13.0/VirtoCommerce.DemoSolutionFeatures_1.13.0.zip"
+    },
+    {
+     "Id": "VirtoCommerce.DemoCustomerSegmentsModule",
+      "Repository": "VirtoCommerce/vc-module-demo-customer-segments",
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-demo-customer-segments/releases/download/1.6.0/VirtoCommerce.DemoCustomerSegments_1.6.0.zip"
+    },
+    {
+       "Id": "VirtoCommerce.FeatureManagement",
+       "Repository": "VirtoCommerce/vc-module-feature-flags",
+       "PackageUrl": "https://github.com/VirtoCommerce/vc-module-feature-flags/releases/download/3.0.0/VirtoCommerce.FeatureManagement_3.0.0.zip"
+    },
+    {
+      "Id": "VirtoCommerce.PriceExportImport",
+      "Repository": "VirtoCommerce/vc-module-price-export-import",
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-price-export-import/releases/download/1.2.0/VirtoCommerce.PriceExportImport_1.2.0.zip"
+    },
     {
       "Id": "VirtoCommerce.EventBus",
       "Repository": "VirtoCommerce/vc-module-event-bus",
@@ -213,9 +213,9 @@ data:
       "Repository": "VirtoCommerce/vc-module-webhooks",
       "PackageUrl": "https://github.com/VirtoCommerce/vc-module-webhooks/releases/download/3.4.0/VirtoCommerce.WebHooks_3.4.0.zip"
     },
- #  {
- #    "Id": "VirtoCommerce.CustomerExportImport",
- #    "Repository": "VirtoCommerce/vc-module-customer-export-import",
- #    "PackageUrl": "https://github.com/VirtoCommerce/vc-module-customer-export-import/releases/download/1.0.0/VirtoCommerce.CustomerExportImport_1.0.0.zip"
- #  }
+    {
+      "Id": "VirtoCommerce.CustomerExportImport",
+      "Repository": "VirtoCommerce/vc-module-customer-export-import",
+      "PackageUrl": "https://github.com/VirtoCommerce/vc-module-customer-export-import/releases/download/1.0.0/VirtoCommerce.CustomerExportImport_1.0.0.zip"
+    }
    ] 
