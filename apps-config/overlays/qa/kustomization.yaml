@@ -3,5 +3,5 @@ kind: Kustomization
 nameSuffix: -qa
 resources:
 - ../../base
-patchesStrategicMerge:
-- regression-app.yaml
+# patchesStrategicMerge:
+# - regression-app.yaml
