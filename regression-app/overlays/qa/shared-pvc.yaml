@@ -8,4 +8,4 @@ spec:
   resources:
     requests:
       storage: 64Mi
-  storageClassName: "blob-premium"
+  storageClassName: "rook-nfs-share-delete"
