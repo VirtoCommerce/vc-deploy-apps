@@ -1,0 +1,31 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: platform-cm
+  annotations:
+    reloader.stakater.com/match: "true"
+data:
+  Notifications__DefaultSender: "azure_25da07ed75daacae20578a7a7dc58541@azure.com"
+  Notifications__Gateway: "SendGrid"
+  Notifications__SmsDefaultSender: "+17012510519"
+  Notifications__Smtp__EnableSsl: "False"
+  Notifications__Smtp__Host: "smtp.sendgrid.net"
+  Notifications__Smtp__Login: "apikey"
+  Notifications__Smtp__Port: "587"
+  Notifications__SmsGateway: "Twilio"
+  ExternalModules__IncludePrerelease: "true"
+  PushNotifications__ScalabilityMode: "RedisBackplane"
+  PushNotifications__HubUrl: "https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/pushNotificationHub"
+  PushNotifications__ForceWebSockets: "true"
+  AzureAd__Enabled: "true"
+  Content__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/
+  Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/
+  VirtoCommerce__LicenseFilePath: shared/VirtoCommerce.lic
+  VirtoCommerce__LicensePublicKeyPath: app_data/VirtoCommerce_rsa.pub
+  VirtoCommerce__LicensePrivateKeyPath: app_data/private.key
+  VirtoCommerce__LocalUploadFolderPath: shared/uploads
+  VirtoCommerce__DefaultExportFolder: shared/export
+  PriceExportImport__Import__LimitOfLines: "30"
+  PriceExportImport__Export__LimitOfLines: "10"
+  PriceExportImport__Import__FileMaxSize: "1"
+  Search__OrderFullTextSearchEnabled: "true"
