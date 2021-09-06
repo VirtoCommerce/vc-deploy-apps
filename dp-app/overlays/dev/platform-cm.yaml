@@ -1,0 +1,39 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: platform-cm
+  annotations:
+    reloader.stakater.com/match: "true"
+data:
+  Notifications__DefaultSender: "azure_25da07ed75daacae20578a7a7dc58541@azure.com"
+  Notifications__Gateway: "SendGrid"
+  Notifications__SmsDefaultSender: "+17012510519"
+  Notifications__Smtp__EnableSsl: "False"
+  Notifications__Smtp__Host: "smtp.sendgrid.net"
+  Notifications__Smtp__Login: "apikey"
+  Notifications__Smtp__Port: "587"
+  Notifications__SmsGateway: "Twilio"
+  ExternalModules__IncludePrerelease: "true"
+  PushNotifications__ScalabilityMode: "RedisBackplane"
+  PushNotifications__HubUrl: "https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/pushNotificationHub"
+  PushNotifications__ForceWebSockets: "true"
+  AzureAd__Enabled: "true"
+  Content__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/
+  Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/
+  VC_STORE_URL_ELECTRONICS: https://$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com/
+  VC_STORE_URL_B2B-STORE: https://$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com/B2B-store/
+  VirtoCommerce__LicenseFilePath: shared/VirtoCommerce.lic
+  VirtoCommerce__LicensePublicKeyPath: app_data/VirtoCommerce_rsa.pub
+  VirtoCommerce__LicensePrivateKeyPath: app_data/private.key
+  VirtoCommerce__LocalUploadFolderPath: shared/uploads
+  VirtoCommerce__DefaultExportFolder: shared/export
+  PriceExportImport__Import__LimitOfLines: "30"
+  PriceExportImport__Export__LimitOfLines: "10"
+  PriceExportImport__Import__FileMaxSize: "1"
+  Search__OrderFullTextSearchEnabled: "true"
+# Search__Provider: AzureSearch
+# Search__Scope: "regression"
+# Search__AzureSearch__SearchServiceName: qa-demovc-3-search
+# Search__AzureSearch__Key: 6BE1143312E89C26C227E6BBAE24DD47
+# Search__Provider: Lucene
+# Search__Scope: "regression"
