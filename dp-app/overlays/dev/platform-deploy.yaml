@@ -22,10 +22,15 @@ spec:
       initContainers:
         - name: init-platform
           image: ghcr.io/virtocommerce/vc-deploy-containers/platform-installer:v3
+          command:
+            - "/bin/sh"
+            - "-c"
+          args:
+            - ""
         - name: init-sqldatabase
           env:
-            - name: VC_SAMPLE_DATA_DB
-              value: regression-platform_qa_source
+            - name: VC_DB_COPY_PARAM
+              value: ""
       containers:
         - name: vc-platform-web
           resources:
