@@ -1,18 +1,16 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: qa
-namePrefix: regression-
+namespace: dev
+namePrefix: dp-
 commonLabels:
-  instance: regression
+  instance: dp
 
 
 patchesStrategicMerge:
-- storefront-deploy.yaml
 - platform-deploy.yaml
 - deployment-cm.yaml
 - platform-cm.yaml
-- storefront-cm.yaml
 - platform-secrets.yaml
 - ingress-https.yaml
 resources:
@@ -22,9 +20,6 @@ images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: ghcr.io/virtocommerce/platform
   newTag: 3.74.0-master-64c5703e
-- name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
-  newName: ghcr.io/virtocommerce/vc-demo-storefront/demo-storefront
-  newTag: 1.12.0-master-9b6ba2d6
 
 configMapGenerator:
 - name: db-config
