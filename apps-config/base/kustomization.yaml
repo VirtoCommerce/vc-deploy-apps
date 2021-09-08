@@ -2,6 +2,7 @@ resources:
 #- webstore-app.yaml
 #- sand-box-app.yaml
 #- xapi-app.yaml
+- dp-app.yaml
 - odt-app.yaml
 # - marketplace-operator-app.yaml
 # - marketplace-vendor-app.yaml
