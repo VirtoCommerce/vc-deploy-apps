@@ -14,7 +14,7 @@ patchesStrategicMerge:
 - platform-secrets.yaml
 - ingress-https.yaml
 resources:
-- ../../../common-base
+- ../../../common-base/dp-platform
 - shared-pvc.yaml
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
