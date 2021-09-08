@@ -18,8 +18,6 @@ data:
   PushNotifications__HubUrl: "https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/pushNotificationHub"
   PushNotifications__ForceWebSockets: "true"
   AzureAd__Enabled: "true"
-  Content__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/
-  Assets__FileSystem__PublicUrl: https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/cms-content/assets/
   VirtoCommerce__LicenseFilePath: shared/VirtoCommerce.lic
   VirtoCommerce__LicensePublicKeyPath: app_data/VirtoCommerce_rsa.pub
   VirtoCommerce__LicensePrivateKeyPath: app_data/private.key
