@@ -44,11 +44,9 @@ spec:
             - mountPath: "/opt/virtocommerce/platform/shared"
               name: shared   
       volumes:
-      - name: shared
-        persistentVolumeClaim:
-          claimName: shared-volume
       - name: modules-data
-        emptyDir: {}  
+        persistentVolumeClaim:
+          claimName: modules-volume
   strategy:
     rollingUpdate:
       maxSurge: 1
