@@ -38,13 +38,6 @@ spec:
               memory: "512Mi"
             limits:
               memory: "1024Mi"
-          volumeMounts:
-            - mountPath: "/opt/virtocommerce/platform/modules"
-              name: modules-data  
-      volumes:
-      - name: modules-data
-        persistentVolumeClaim:
-          claimName: modules-volume
   strategy:
     rollingUpdate:
       maxSurge: 1
