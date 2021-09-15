@@ -2,10 +2,10 @@ resources:
 - storage.yaml
 - ingress.yaml
 - platform-cm.yaml
-- platform-deploy.yaml
 - platform-service.yaml
 - platform-secrets.yaml
 - deployment-cm.yaml
+- platform-deploy.yaml
 
 configurations:
 - varconfig.yaml
