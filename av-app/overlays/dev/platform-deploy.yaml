@@ -11,7 +11,7 @@ spec:
         reloader.stakater.com/search: "true"
         configmap.reloader.stakater.com/reload: "av-platform-cm, av-deployment-cm, av-platform-secret-configmap"
         vault.hashicorp.com/agent-pre-populate-only: "true"
-        vault.hashicorp.com/agent-configmap: "dp-platform-secret-configmap"
+        vault.hashicorp.com/agent-configmap: "av-platform-secret-configmap"
         vault.hashicorp.com/agent-requests-cpu: "25m"
         vault.hashicorp.com/agent-limits-cpu: "50m"   
         vault.hashicorp.com/agent-inject: "true"
