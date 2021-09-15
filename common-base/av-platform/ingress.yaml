@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: platform-nginx
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.org/client-max-body-size: 20m
+    nginx.org/proxy-buffers: "8 32k"
+    nginx.org/proxy-buffer-size: "64k"
+spec:
+  rules:
+  - host: $(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com
+    http:
+      paths:
+      - backend:
+          serviceName: platform
+          servicePort: 80
+        path: /        

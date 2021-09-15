@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platform
+spec:
+  revisionHistoryLimit: 2
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        reloader.stakater.com/search: "true"
+        configmap.reloader.stakater.com/reload: "av-platform-cm, av-deployment-cm, av-platform-secret-configmap"
+        vault.hashicorp.com/agent-pre-populate-only: "true"
+        vault.hashicorp.com/agent-configmap: "dp-platform-secret-configmap"
+        vault.hashicorp.com/agent-requests-cpu: "25m"
+        vault.hashicorp.com/agent-limits-cpu: "50m"   
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/role: "myapp"
+    spec:
+      imagePullSecrets:
+      - name: dockerconfigjson-github-com
+      initContainers:
+        - name: init-platform
+          image: ghcr.io/virtocommerce/vc-deploy-containers/platform-installer:v3
+          command:
+            - "/bin/sh"
+            - "-c"
+          args:
+            - ""
+        - name: init-sqldatabase
+          env:
+            - name: VC_DB_COPY_PARAM
+              value: ""
+      containers:
+        - name: vc-platform-web
+          resources:
+            requests:
+              memory: "512Mi"
+            limits:
+              memory: "1024Mi"
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate 
