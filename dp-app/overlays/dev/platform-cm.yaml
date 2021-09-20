@@ -14,7 +14,7 @@ data:
   Notifications__Smtp__Port: "587"
   Notifications__SmsGateway: "Twilio"
   ExternalModules__IncludePrerelease: "true"
-  PushNotifications__ScalabilityMode: "RedisBackplane"
+  PushNotifications__ScalabilityMode: "None"
   PushNotifications__HubUrl: "https://$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com/pushNotificationHub"
   PushNotifications__ForceWebSockets: "true"
   AzureAd__Enabled: "true"
