@@ -94,6 +94,7 @@ spec:
           name: modules-data
       volumes:
       - name: modules-data
+        emptyDir: {}
         persistentVolumeClaim:
           claimName: modules-volume  
   strategy:
