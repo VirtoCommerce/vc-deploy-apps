@@ -94,8 +94,7 @@ spec:
           name: modules-data
       volumes:
       - name: modules-data
-        persistentVolumeClaim:
-          claimName: modules-volume  
+        emptyDir: {}
   strategy:
     rollingUpdate:
       maxSurge: 0
