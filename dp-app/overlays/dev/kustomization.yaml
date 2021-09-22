@@ -13,8 +13,13 @@ patchesStrategicMerge:
 - platform-secrets.yaml
 - ingress-https.yaml
 - platform-deploy.yaml
+- storefront-storage.yaml
+- storefront-cm.yaml
+- storefront-deploy.yaml
+- storefront-service.yaml
 resources:
 - ../../../common-base/dp-platform
+- ../../../common-base/dp-storefront
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: ghcr.io/virtocommerce/platform
