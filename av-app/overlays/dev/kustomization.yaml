@@ -8,17 +8,21 @@ commonLabels:
 
 
 patchesStrategicMerge:
+- ingress-https.yaml
 - platform-deploy.yaml
 - deployment-cm.yaml
 - platform-cm.yaml
 - platform-secrets.yaml
-- ingress-https.yaml
+- storefront-deploy.yaml
 resources:
 - ../../../common-base/av-platform
+- ../../../common-base/av-storefront
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: ghcr.io/virtocommerce/platform
   newTag: 3.74.0-master-64c5703e
+- name: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
+  newTag: 1.13.0-alpha.1030-dev-a80a1f0a
 
 configMapGenerator:
 - name: db-config
