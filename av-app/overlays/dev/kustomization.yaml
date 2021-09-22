@@ -15,6 +15,7 @@ patchesStrategicMerge:
 - ingress-https.yaml
 resources:
 - ../../../common-base/av-platform
+- ../../../common-base/av-storefront
 images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: ghcr.io/virtocommerce/platform
