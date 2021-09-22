@@ -13,9 +13,7 @@ spec:
   tls:
     - hosts:
       - "$(VC_PLATFORM_SERVICE).$(VC_NAMESPACE).govirto.com"
-      secretName: $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-tls      
-      - "$(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com"
-      secretName: $(VC_STOREFRONT_SERVICE)-$(VC_NAMESPACE)-tls
+      secretName: $(VC_PLATFORM_SERVICE)-$(VC_NAMESPACE)-tls
   rules:
   - host: $(VC_STOREFRONT_SERVICE).$(VC_NAMESPACE).govirto.com
     http:
