@@ -20,6 +20,8 @@ images:
 - name: docker.pkg.github.com/virtocommerce/vc-platform/platform
   newName: ghcr.io/virtocommerce/platform
   newTag: 3.74.0-master-64c5703e
+- name: docker.pkg.github.com/virtocommerce/vc-demo-storefront/demo-storefront
+  newTag: 1.13.0-alpha.1030-dev-a80a1f0a
 
 configMapGenerator:
 - name: db-config
