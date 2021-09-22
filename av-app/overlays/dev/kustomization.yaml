@@ -8,11 +8,12 @@ commonLabels:
 
 
 patchesStrategicMerge:
+- ingress-https.yaml
 - platform-deploy.yaml
 - deployment-cm.yaml
 - platform-cm.yaml
 - platform-secrets.yaml
-- ingress-https.yaml
+- storefront-deploy.yaml
 resources:
 - ../../../common-base/av-platform
 - ../../../common-base/av-storefront
