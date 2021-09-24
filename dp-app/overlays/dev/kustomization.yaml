@@ -13,10 +13,6 @@ patchesStrategicMerge:
 - platform-secrets.yaml
 - ingress-https.yaml
 - platform-deploy.yaml
-- storefront-storage.yaml
-- storefront-cm.yaml
-- storefront-deploy.yaml
-- storefront-service.yaml
 resources:
 - ../../../common-base/dp-platform
 - ../../../common-base/dp-storefront
