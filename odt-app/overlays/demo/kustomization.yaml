@@ -20,7 +20,7 @@ images:
   newName: ghcr.io/virtocommerce/platform
   newTag: 3.82.0-master-d6ca187c
 - name: docker.pkg.github.com/virtocommerce/vc-storefront/storefront
-  newName: docker.pkg.github.com/virtocommerce/vc-odt-storefront/odt-storefront
+  newName: ghcr.io/virtocommerce/vc-odt-storefront/odt-storefront
   newTag: 5.2.0-alpha.729-dev-59687a81
 
 configMapGenerator:
@@ -39,7 +39,7 @@ patches:
     - op: add
       path: /spec/template/spec/nodeSelector
       value: 
-        agentpool: applications
+        agentpool: apool
   target:
     group: apps
     version: v1
@@ -78,32 +78,32 @@ vars:
     name: db-config
     apiVersion: v1
   fieldref:
-    fieldpath: data['VC_DB_HOST']
+    fieldpath: data.VC_DB_HOST
 - name: VC_DB
   objref:
     kind: ConfigMap
     name: db-config
     apiVersion: v1
   fieldref:
-    fieldpath: data['VC_DB']
+    fieldpath: data.VC_DB
 - name: VC_DB_POOL
   objref:
     kind: ConfigMap
     name: db-config
     apiVersion: v1
   fieldref:
-    fieldpath: data['VC_DB_POOL']
+    fieldpath: data.VC_DB_POOL
 - name: VC_DB_USER
   objref:
     kind: ConfigMap
     name: db-config
     apiVersion: v1
   fieldref:
-    fieldpath: data['VC_DB_USER']
+    fieldpath: data.VC_DB_USER
 - name: VAULT_API_URL
   objref:
     kind: ConfigMap
     name: vault-config
     apiVersion: v1
   fieldref:
-    fieldpath: data['VAULT_API_URL']
+    fieldpath: data.VAULT_API_URL
