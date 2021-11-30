@@ -6,7 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io  
   annotations:
-    argocd-image-updater.argoproj.io/image-list: kkisilevsky/nginx_error_page:latest
+    argocd-image-updater.argoproj.io/image-list: kkisilevsky/nginx_error_page
 spec:
   destination:
     namespace: dev
