@@ -6,8 +6,9 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io  
   annotations:
-    argocd-image-updater.argoproj.io/image-list: ddev=kkisilevsky/nginx_error_page
-    argocd-image-updater.argoproj.io/ddev.update-strategy: latest
+    argocd-image-updater.argoproj.io/image-list: ddev=kkisilevsky/nginx_error_page[:<stable>]
+# Specifying update-strategy is optional, because semver is the default
+    argocd-image-updater.argoproj.io/ddev.update-strategy: semver
 spec:
   destination:
     namespace: dev
