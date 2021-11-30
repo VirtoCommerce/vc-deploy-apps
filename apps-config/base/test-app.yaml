@@ -7,7 +7,8 @@ metadata:
     - resources-finalizer.argocd.argoproj.io  
   annotations:
     argocd.argoproj.io/manifest-generate-paths: /test-app
-    argocd-image-updater.kkisilevsky/nginx_error_page.allow-tags: <stable>
+    argocd-image-updater.kkisilevsky/image-list: kkisilevsky/nginx_error_page[:<stable>]
+    argocd-image-updater.kkisilevsky/nginx_error_page: semver
 spec:
   destination:
     namespace: dev
