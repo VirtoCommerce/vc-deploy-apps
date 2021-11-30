@@ -12,6 +12,7 @@ resources:
 # - pagebuilder-saas-app.yaml
 #- loadtest-app.yaml
 - vst-app.yaml
+- 1.yaml
 #- sand-box-app.yaml
 # - vc-helm-deploy.yaml
 # - vc-odt-helm.yaml
