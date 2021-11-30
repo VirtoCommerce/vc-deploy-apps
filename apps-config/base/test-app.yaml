@@ -6,7 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io  
   annotations:
-    argocd-image-updater.argoproj.io/image-list: gcr.io/heptio-images/ks-guestbook-demo:^0.1
+    argocd-image-updater.argoproj.io/image-list: kkisilevsky/nginx_error_page:latest
 spec:
   destination:
     namespace: dev
