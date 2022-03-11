@@ -52,7 +52,7 @@ data:
       {
         "Id": "VirtoCommerce.PageBuilderModule",
         "Repository": "VirtoCommerce/vc-module-pagebuilder",
-        "PackageUrl": "https://github.com/VirtoCommerce/vc-module-pagebuilder/releases/download/3.19.0/VirtoCommerce.PageBuilderModule_3.19.0.zip"
+        "PackageUrl": "https://rnd4pb.blob.core.windows.net/composer/VirtoCommerce.PageBuilderModule_3.19.0.zip"
       },
       {
         "Id": "VirtoCommerce.Customer",
